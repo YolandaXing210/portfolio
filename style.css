@@ -13,7 +13,7 @@
   --h1-size: 3.5rem;
   --h2-size: 2rem;
   --caption-size: 0.8rem;
-  --measure: 80ch;          /* max line length on project pages (~620px at 12.96px DM Mono) */
+  --measure: 800px;         /* max width of project content (~103 characters of 12.96px DM Mono) */
 }
 
 * { box-sizing: border-box; }
