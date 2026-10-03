@@ -13,6 +13,7 @@
   --h1-size: 3.5rem;
   --h2-size: 2rem;
   --caption-size: 0.8rem;
+  --measure: 80ch;          /* max line length on project pages (~620px at 12.96px DM Mono) */
 }
 
 * { box-sizing: border-box; }
@@ -285,6 +286,13 @@ p { margin: 0; }
 }
 
 .case-toc a[aria-current] { color: var(--text); }
+
+/* One shared width for everything in the content column (text, images, tables, rules),
+   so all right edges line up and lines stay readable on wide screens */
+.case-content {
+  width: 100%;
+  max-width: var(--measure);
+}
 
 .case-hero { scroll-margin-top: var(--bar-h, 3rem); }
 
