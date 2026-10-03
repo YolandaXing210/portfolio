@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAKO: Echo — Yolanda Xing</title>
+  <meta name="description" content="AAKO Chapter I: Echo, a 3D spatial prototype that gives a memory a presence in space.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
+  <main class="detail case case--aako">
+
+    <header class="case-bar">
+      <div class="row">
+        <span class="case-bar__title"><button class="toc-toggle" type="button" aria-label="Contents" aria-expanded="false" aria-controls="toc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>001—AAKO / ECHO</span>
+        <a href="index.html">← CLOSE</a>
+      </div>
+      <hr>
+    </header>
+
+    <div class="case-layout">
+      <nav class="case-toc" id="toc" aria-label="Contents"></nav>
+      <div class="case-content">
+
+        <!-- ===== Hero ===== -->
+        <div class="case-hero" id="intro">
+          <p class="muted">Selected work / AAKO · Chapter I / Spatial prototyping</p>
+          <h1>Echo</h1>
+          <p class="case-subtitle">Giving a memory a presence in space.</p>
+          <p>A 3D post that combines images, sound, and text with a physical form—the smallest spatial unit of AAKO, an XR memory app, and the foundation the rest of the product was designed around.</p>
+          <p><a href="aako-redesign.html">Chapter II: Reframing &amp; mobile redesign →</a></p>
+        </div>
+
+        <figure class="case-figure case-figure--wide">
+          <div class="placeholder"></div>
+          <figcaption>An Echo: a floating bubble holding a memory, with its caption and orbiting reactions.</figcaption>
+        </figure>
+
+        <div class="case-meta case-meta--4">
+          <div><p class="muted">Project</p><p>AAKO, startup product<br>XR / mobile, live on iOS</p></div>
+          <div><p class="muted">Role</p><p>Co-founder<br>Product designer<br>XR design lead</p></div>
+          <div><p class="muted">My part</p><p>Echo 3D prototype:<br>concept, form,<br>rendering, AR / VR states</p></div>
+          <div><p class="muted">Link</p><p><a href="https://apps.apple.com/us/app/aako-xr-memory-diary/id6503721703" target="_blank" rel="noopener">App Store →</a></p></div>
+        </div>
+        <hr>
+
+        <!-- ===== 01 Context ===== -->
+        <section class="case-section" id="context">
+          <div class="case-index muted">01 / Context</div>
+          <div class="case-body">
+            <h2>Leave a memory in the place where it happened.</h2>
+            <p>AAKO started from a road-trip habit. The founder and I have been friends since middle school and have traveled across many countries together. A trip pulls you out of ordinary life, and that displacement makes places stick: landscapes and moments become personal and memorable.</p>
+            <p>Modern tools make it easy to capture everything, but they strip memories of context. Flattened into chronological feeds, moments lose where they happened and how they felt; locations become metadata. The team imagined AAKO as a way to leave digital memories in the physical places where they happened, and to encounter them again through AR.</p>
+            <p>Within that, I developed Echo: the 3D form a memory takes in space. Jinmao designed the original mobile experience around it.</p>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 02 Concept ===== -->
+        <section class="case-section" id="concept">
+          <div class="case-index muted">02 / Concept</div>
+          <div class="case-body">
+            <h2>No competitor had an actual entity of what a post is.</h2>
+            <p>I looked at apps that touch on place, memory, and sharing—Google Maps, Instagram, Yik Yak, Yelp, and others. Most popular social platforms were released in the early 2000s, and they all rely on linear thread models grouped by topic or user. A post is a row in a feed, not a thing.</p>
+            <p>The design goal was to create a 3D post that combines images, sound, and text with a physical form, so expression can move beyond the screen. By occupying space and interacting with the body, it should extend digital communication into the physical world.</p>
+
+            <dl class="case-list">
+              <dt>Visual inspiration</dt>
+              <dd><p>Mystery solving and conquering · a sense of achievement · reflecting the object and its surroundings · dreamy, childhood, nostalgia</p></dd>
+            </dl>
+
+            <div class="case-grid">
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 03 Anatomy ===== -->
+        <section class="case-section" id="anatomy">
+          <div class="case-index muted">03 / Anatomy of an Echo</div>
+          <div class="case-body">
+            <h2>A floating bubble that makes a memory alive.</h2>
+            <p>The design question was how a memory could occupy a place while keeping its content and interactions understandable. Each part of the Echo carries one kind of content.</p>
+
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Echo concept: the bubble, its caption, audio, and emoji orbit.</figcaption>
+            </figure>
+
+            <dl class="case-list">
+              <dt>Bubble shape</dt>
+              <dd><p>A floating bubble that makes the memory feel alive.</p></dd>
+              <dt>Visual content</dt>
+              <dd><p>Images and video inside the bubble, viewable from different angles.</p></dd>
+              <dt>Textual content</dt>
+              <dd><p>User info and caption above, with activity emoji to enhance search.</p></dd>
+              <dt>Audio content</dt>
+              <dd><p>Sound from a recording, the video, or music.</p></dd>
+              <dt>Emoji orbit</dt>
+              <dd><p>Other people’s reactions orbiting the memory.</p></dd>
+            </dl>
+
+            <p class="muted">The purple bubble is the default. With the same structure, the team considered many more bubble skins with different textures and features that users could purchase.</p>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 04 Rendering ===== -->
+        <section class="case-section" id="rendering">
+          <div class="case-index muted">04 / Rendering</div>
+          <div class="case-body">
+            <h2>Intimate rather than schematic.</h2>
+            <p>I tested multiple engines and pipelines, including Niantic Lightship, Unity, and Apple ARKit. Lightship performs well for large-scale outdoor tracking, but its visual output felt too utilitarian for AAKO, with limited control over material softness and lighting nuance. RealityKit offered better visual fidelity and tighter integration with iOS hardware, letting memories feel intimate rather than schematic.</p>
+
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Echo rendered in RealityKit.</figcaption>
+            </figure>
+
+            <ol class="case-flow">
+              <li><span class="case-flow__who">Before</span><span>Unlit caption board; harsh boundary around the image.</span></li>
+              <li><span class="case-flow__who">Blend</span><span>Softened the boundary; the caption board blends into its surroundings.</span></li>
+              <li><span class="case-flow__who">Test</span><span>Checked the result in dark environments.</span></li>
+              <li><span class="case-flow__who">Skins</span><span>A node shader makes it easy to create different bubble skins.</span></li>
+            </ol>
+
+            <div class="case-grid">
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 05 Stages ===== -->
+        <section class="case-section" id="stages">
+          <div class="case-index muted">05 / AR and VR stages</div>
+          <div class="case-body">
+            <h2>Return to the place, or return from elsewhere.</h2>
+            <p>An Echo needs to work whether or not you’re standing where it was made. I designed two states.</p>
+
+            <div class="case-cols">
+              <div>
+                <p class="muted">Case 1 / AR</p>
+                <h3>Return to the place</h3>
+                <dl class="case-list case-list--stack">
+                  <dt>Condition</dt>
+                  <dd><p>The user is at the place where the post was created and pinned.</p></dd>
+                  <dt>Behavior</dt>
+                  <dd><p>Visual relocalization (LPS / image-based matching) re-aligns the Echo, reconnecting the memory to the exact place it was created.</p></dd>
+                  <dt>Support</dt>
+                  <dd><p>A reference image is shown to help with spatial alignment and positioning.</p></dd>
+                </dl>
+              </div>
+              <div>
+                <p class="muted">Case 2 / VR</p>
+                <h3>Return from elsewhere</h3>
+                <dl class="case-list case-list--stack">
+                  <dt>Condition</dt>
+                  <dd><p>The user is far from the location, or the memory was uploaded directly from the photo album.</p></dd>
+                  <dt>Behavior</dt>
+                  <dd><p>The Echo is placed inside a skybox stitched from Google Street View images.</p></dd>
+                  <dt>Intent</dt>
+                  <dd><p>Memories can be experienced without a physical return, which supports longer, reflective engagement.</p></dd>
+                  <dt>Alternatives</dt>
+                  <dd><p>A custom skybox, or a 3D-scanned environment.</p></dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="case-cols">
+              <figure class="case-figure">
+                <div class="placeholder"></div>
+                <figcaption>AR: re-aligned at the original location.</figcaption>
+              </figure>
+              <figure class="case-figure">
+                <div class="placeholder"></div>
+                <figcaption>VR: placed in a Street View skybox.</figcaption>
+              </figure>
+            </div>
+
+            <p class="muted">The same Echo was also explored on visionOS and AR glasses.</p>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 06 What came next ===== -->
+        <section class="case-section" id="next">
+          <div class="case-index muted">06 / What came next</div>
+          <div class="case-body">
+            <h2>The form held. The social premise didn’t.</h2>
+            <p>The prototype’s social reactions reflect the original direction—a spatial social app—rather than evidence of successful public spatial interaction. After launch, usage was weaker than expected, and that premise was the part that needed rethinking.</p>
+            <p>Echo itself stayed. It remained the smallest spatial unit when I reframed AAKO from a spatial social app into a spatial memory system and redesigned the mobile experience around it.</p>
+            <p><a href="aako-redesign.html">Chapter II: Reframing &amp; mobile redesign →</a></p>
+          </div>
+        </section>
+        <hr>
+
+        <div class="row muted">
+          <span>©2026 RIGHTS RESERVED</span>
+          <a href="index.html">Back to index</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="case.js"></script>
+</body>
+</html>

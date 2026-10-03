@@ -12,13 +12,15 @@ function renderProject(p) {
   const media = p.image
     ? `<img src="${p.image}" alt="${escapeHTML(p.title)}" loading="lazy">`
     : `<div class="placeholder"></div>`;
+  // A project can have several pages: links: [{ label, href }]. The image goes to the first.
+  const links = p.links || [{ label: "Read more…", href: p.link }];
   return `
     <article class="project">
-      <a class="project__media" href="${p.link}">${media}</a>
+      <a class="project__media" href="${links[0].href}">${media}</a>
       <div class="project__text">
         <p>${escapeHTML(p.title)}<br>${escapeHTML(p.doc)}</p>
         <p class="muted">${escapeHTML(p.text)}</p>
-        <p><a href="${p.link}">Read more…</a></p>
+        <p>${links.map(l => `<a href="${l.href}">${escapeHTML(l.label)}</a>`).join("<br>")}</p>
       </div>
       <div class="project__icon">${COMMAND_ICON}</div>
     </article>
