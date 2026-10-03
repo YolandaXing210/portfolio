@@ -10,6 +10,7 @@
   --rule: rgba(0, 0, 0, 0.15);
   --bg: #fff;
   --main-width: 70%;
+  --h1-size: 3.5rem;
 }
 
 * { box-sizing: border-box; }
@@ -296,19 +297,22 @@ p { margin: 0; }
   padding-left: 2em;
 }
 
-.case-hero {
-  padding: 4.8em 0 2.4em;
-  max-width: 40em;
-}
+.case-hero { padding: 4.8em 0 2.4em; }
 
-.case-hero h1 {
-  margin: 1.2em 0;
-  text-transform: uppercase;
+.case-hero p { max-width: 40em; }
+
+/* Big title, sampled from Cargo's h1: 3.5rem, line-height 0.9, regular weight, sentence case */
+.case .case-hero h1 {
+  margin: 1.2rem 0 1.6rem;
+  font-size: var(--h1-size);
+  line-height: 0.9;
+  letter-spacing: 0;
+  color: var(--text);
 }
 
 /* Secondary title, directly under the h1 */
 .case-hero .case-subtitle {
-  margin-top: -1.2em;
+  margin-top: -0.8rem;
   margin-bottom: 1.2em;
   color: var(--muted);
 }
