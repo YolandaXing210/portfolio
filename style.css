@@ -306,6 +306,13 @@ p { margin: 0; }
   text-transform: uppercase;
 }
 
+/* Secondary title, directly under the h1 */
+.case-hero .case-subtitle {
+  margin-top: -1.2em;
+  margin-bottom: 1.2em;
+  color: var(--muted);
+}
+
 .case-meta {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
