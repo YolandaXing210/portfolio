@@ -43,7 +43,7 @@
         <div class="case-meta case-meta--4">
           <div><p class="muted">Project</p><p>AAKO, startup product<br>XR / mobile, live on iOS</p></div>
           <div><p class="muted">Role</p><p>Co-founder<br>Product designer<br>XR design lead</p></div>
-          <div><p class="muted">My part</p><p>Echo 3D prototype:<br>concept, form,<br>rendering, AR / VR states</p></div>
+          <div><p class="muted">My part</p><p>Echo 3D prototype:<br>concept, form, rendering,<br>AR / VR states<br>Memory cue research</p></div>
           <div><p class="muted">Link</p><p><a href="https://apps.apple.com/us/app/aako-xr-memory-diary/id6503721703" target="_blank" rel="noopener">App Store →</a></p></div>
         </div>
         <hr>
@@ -113,9 +113,83 @@
         </section>
         <hr>
 
-        <!-- ===== 04 Rendering ===== -->
+        <!-- ===== 04 Research ===== -->
+        <section class="case-section" id="research">
+          <div class="case-index muted">04 / Research process</div>
+          <div class="case-body">
+            <h2>How does a moment come back?</h2>
+            <p>I studied the interaction model itself: which cues help someone reconnect with a memory, and what does sound leave out?</p>
+            <p>This inquiry was distinct from Jinmao’s research into the early mobile app. I worked with participants’ own media to explore recollection, using an audio-first exercise and a related-image exercise. The purpose was to inform the spatial experience, rather than to measure a universal memory mechanism.</p>
+
+            <div class="case-cols">
+              <div>
+                <p class="muted">Study A / Audio + contextual prompts</p>
+                <h3>Listen first. Add context gradually.</h3>
+                <ol>
+                  <li>Select a video at random from the participant’s own photo library.</li>
+                  <li>Play only its audio, withholding the video image.</li>
+                  <li>Ask what the participant remembers about the event.</li>
+                  <li>If recall is limited, introduce clues progressively: year, season, approximate time, and location.</li>
+                  <li>Observe which prompts help the person reconstruct the moment.</li>
+                </ol>
+              </div>
+              <div>
+                <p class="muted">Study B / Related environment imagery</p>
+                <h3>Show the setting, not the original video.</h3>
+                <ol>
+                  <li>Use photographs related to the same place or occasion.</li>
+                  <li>Show those images instead of the video itself.</li>
+                  <li>Ask whether the surrounding environment brings the event back.</li>
+                  <li>Consider what this suggests for an Echo that connects sound, imagery, and place.</li>
+                </ol>
+                <p class="muted">A recalled example: a photograph of a beach helped bring back the experience of building a sandcastle with friends.</p>
+              </div>
+            </div>
+
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Conceptual cue sequence; the study varied prompts when recall was limited. This is not a measured funnel or guaranteed recall progression.</figcaption>
+            </figure>
+
+            <p class="muted">Each cue offers a different way back.</p>
+            <dl class="case-list">
+              <dt>Audio</dt>
+              <dd><h3>Sound can carry atmosphere without enough context.</h3><p>Participants did not always reconstruct a moment from audio alone. That challenged our original idea of a purely audio-led AR experience.</p></dd>
+              <dt>Time / season</dt>
+              <dd><h3>Time is remembered at different levels.</h3><p>Season could offer a stronger association than an exact year in places with distinct seasons. Precise time mattered more in settings where it shaped the experience.</p></dd>
+              <dt>Place / environment</dt>
+              <dd><h3>The setting can bring the event back.</h3><p>Related environmental photos helped reconnect participants with an occasion, including the beach and sandcastle example. This informed a richer combination of imagery and place.</p></dd>
+              <dt>Recollection</dt>
+              <dd><h3>Design for return, not a recall score.</h3><p>The design uses these observations to support revisiting; the study does not supply a quantified prediction of recall.</p></dd>
+            </dl>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 05 Findings ===== -->
+        <section class="case-section" id="findings">
+          <div class="case-index muted">05 / Research findings</div>
+          <div class="case-body">
+            <h2>Context gives a memory somewhere to land.</h2>
+            <p>The exploratory exercises suggested three useful directions. I treated them as design inputs, with room for further testing, rather than as statistically established findings.</p>
+
+            <dl class="case-list">
+              <dt>01 / Visual &amp; environmental</dt>
+              <dd><h3>The surroundings can unlock the event.</h3><p>Relevant photos and environmental cues helped reconnect a person to a moment. Location mattered as lived context—not simply as a coordinate on a map. Audio alone was not a sufficient anchor in the exercises.</p></dd>
+              <dt>02 / Temporal hierarchy</dt>
+              <dd><h3>Season can be more meaningful than year.</h3><p>Exact years were often fuzzy. In places with distinct seasons, spring, summer, autumn, or winter could produce a stronger response. The design should support how people remember time, not just how a database records it.</p></dd>
+              <dt>03 / Context-dependent precision</dt>
+              <dd><h3>More precise does not always mean more useful.</h3><p>Minute-level information added little in many situations. A time-specific setting, such as a bar, could make time of day more relevant. Context should determine which details deserve attention.</p></dd>
+            </dl>
+
+            <p class="muted">Study limits: participant count, prompt-by-prompt records, and formal scoring are not supplied. These observations do not establish cue effectiveness across populations. A subsequent study should compare cue combinations and cue order, and compare recall quality without leading participants.</p>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 06 Rendering ===== -->
         <section class="case-section" id="rendering">
-          <div class="case-index muted">04 / Rendering</div>
+          <div class="case-index muted">06 / Rendering</div>
           <div class="case-body">
             <h2>Intimate rather than schematic.</h2>
             <p>I tested multiple engines and pipelines, including Niantic Lightship, Unity, and Apple ARKit. Lightship performs well for large-scale outdoor tracking, but its visual output felt too utilitarian for AAKO, with limited control over material softness and lighting nuance. RealityKit offered better visual fidelity and tighter integration with iOS hardware, letting memories feel intimate rather than schematic.</p>
@@ -142,9 +216,9 @@
         </section>
         <hr>
 
-        <!-- ===== 05 Stages ===== -->
+        <!-- ===== 07 Stages ===== -->
         <section class="case-section" id="stages">
-          <div class="case-index muted">05 / AR and VR stages</div>
+          <div class="case-index muted">07 / AR and VR stages</div>
           <div class="case-body">
             <h2>Return to the place, or return from elsewhere.</h2>
             <p>An Echo needs to work whether or not you’re standing where it was made. I designed two states.</p>
@@ -194,9 +268,9 @@
         </section>
         <hr>
 
-        <!-- ===== 06 What came next ===== -->
+        <!-- ===== 08 What came next ===== -->
         <section class="case-section" id="next">
-          <div class="case-index muted">06 / What came next</div>
+          <div class="case-index muted">08 / What came next</div>
           <div class="case-body">
             <h2>The form held. The social premise didn’t.</h2>
             <p>The prototype’s social reactions reflect the original direction—a spatial social app—rather than evidence of successful public spatial interaction. After launch, usage was weaker than expected, and that premise was the part that needed rethinking.</p>

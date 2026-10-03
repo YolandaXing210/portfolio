@@ -43,8 +43,8 @@
         <div class="case-meta case-meta--4">
           <div><p class="muted">Project</p><p>AAKO, startup product<br>XR / mobile, live on iOS</p></div>
           <div><p class="muted">Role</p><p>Co-founder<br>Product designer<br>XR design lead</p></div>
-          <div><p class="muted">My part</p><p>Post-launch reframing<br>Mobile redesign<br>Memory cue research</p></div>
-          <div><p class="muted">Evidence</p><p>Launch observations<br>Exploratory memory cue study</p></div>
+          <div><p class="muted">My part</p><p>Post-launch reframing<br>Mobile redesign<br>Album &amp; event design</p></div>
+          <div><p class="muted">Evidence</p><p>Launch observations<br>Post-hoc app data</p></div>
         </div>
         <hr>
 
@@ -87,76 +87,39 @@
         </section>
         <hr>
 
-        <!-- ===== 04 Research ===== -->
-        <section class="case-section" id="research">
-          <div class="case-index muted">04 / Research process</div>
+        <!-- ===== 04 Reading the data ===== -->
+        <section class="case-section" id="data">
+          <div class="case-index muted">04 / Reading the data</div>
           <div class="case-body">
-            <h2>How does a moment come back?</h2>
-            <p>I studied the interaction model itself: which cues help someone reconnect with a memory, and what does sound leave out?</p>
-            <p>This inquiry was distinct from Jinmao’s research into the early mobile app. I worked with participants’ own media to explore recollection, using an audio-first exercise and a related-image exercise. The purpose was to inform the spatial experience, rather than to measure a universal memory mechanism.</p>
-
-            <div class="case-cols">
-              <div>
-                <p class="muted">Study A / Audio + contextual prompts</p>
-                <h3>Listen first. Add context gradually.</h3>
-                <ol>
-                  <li>Select a video at random from the participant’s own photo library.</li>
-                  <li>Play only its audio, withholding the video image.</li>
-                  <li>Ask what the participant remembers about the event.</li>
-                  <li>If recall is limited, introduce clues progressively: year, season, approximate time, and location.</li>
-                  <li>Observe which prompts help the person reconstruct the moment.</li>
-                </ol>
-              </div>
-              <div>
-                <p class="muted">Study B / Related environment imagery</p>
-                <h3>Show the setting, not the original video.</h3>
-                <ol>
-                  <li>Use photographs related to the same place or occasion.</li>
-                  <li>Show those images instead of the video itself.</li>
-                  <li>Ask whether the surrounding environment brings the event back.</li>
-                  <li>Consider what this suggests for an Echo that connects sound, imagery, and place.</li>
-                </ol>
-                <p class="muted">A recalled example: a photograph of a beach helped bring back the experience of building a sandcastle with friends.</p>
-              </div>
-            </div>
-
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>Conceptual cue sequence; the study varied prompts when recall was limited. This is not a measured funnel or guaranteed recall progression.</figcaption>
-            </figure>
-
-            <p class="muted">Each cue offers a different way back.</p>
-            <dl class="case-list">
-              <dt>Audio</dt>
-              <dd><h3>Sound can carry atmosphere without enough context.</h3><p>Participants did not always reconstruct a moment from audio alone. That challenged our original idea of a purely audio-led AR experience.</p></dd>
-              <dt>Time / season</dt>
-              <dd><h3>Time is remembered at different levels.</h3><p>Season could offer a stronger association than an exact year in places with distinct seasons. Precise time mattered more in settings where it shaped the experience.</p></dd>
-              <dt>Place / environment</dt>
-              <dd><h3>The setting can bring the event back.</h3><p>Related environmental photos helped reconnect participants with an occasion, including the beach and sandcastle example. This informed a richer combination of imagery and place.</p></dd>
-              <dt>Recollection</dt>
-              <dd><h3>Design for return, not a recall score.</h3><p>Albums connect moments across people, place, and time. The design uses these observations to support revisiting; the study does not supply a quantified prediction of recall.</p></dd>
-            </dl>
+            <h2>Working backwards from what didn’t work.</h2>
+            <p>The research in this chapter was post-hoc. Rather than running new studies, I worked backwards from launch data and observed behavior to find where the experience broke down: where people hesitated, where they left, and what they never came back to.</p>
+            <p>The pattern pointed at the unit of the product. A single Echo, posted on its own, had to carry a whole memory by itself and gave people little reason to return. Memories don’t live alone; they belong to a trip, a season, a place, or a stretch of time with certain people.</p>
+            <p>That led to the album: instead of distributing isolated posts, AAKO would package moments into albums, and the album would become the unit people create, share, and come back to.</p>
+            <p class="muted">Evidence boundary: these are post-hoc observations from launch data and the team’s account of analytics, not a controlled study. No specific conversion, retention, or abandonment rates are reported here.</p>
           </div>
         </section>
         <hr>
 
-        <!-- ===== 05 Findings ===== -->
-        <section class="case-section" id="findings">
-          <div class="case-index muted">05 / Research findings</div>
+        <!-- ===== 05 AI-assembled events ===== -->
+        <section class="case-section" id="events">
+          <div class="case-index muted">05 / AI-assembled events</div>
           <div class="case-body">
-            <h2>Context gives a memory somewhere to land.</h2>
-            <p>The exploratory exercises suggested three useful directions. I treated them as design inputs, with room for further testing, rather than as statistically established findings.</p>
-
+            <h2>Letting AI find the event a memory belongs to.</h2>
+            <p>An album only works if it matches how people think about their own lives. Asking users to sort hundreds of photos into albums by hand would bring back the same burden the redesign was trying to remove.</p>
+            <p>So events are sorted out by AI. It looks across a person’s memories and groups them into a complete event, starting from whichever signal fits best:</p>
             <dl class="case-list">
-              <dt>01 / Visual &amp; environmental</dt>
-              <dd><h3>The surroundings can unlock the event.</h3><p>Relevant photos and environmental cues helped reconnect a person to a moment. Location mattered as lived context—not simply as a coordinate on a map. Audio alone was not a sufficient anchor in the exercises.</p></dd>
-              <dt>02 / Temporal hierarchy</dt>
-              <dd><h3>Season can be more meaningful than year.</h3><p>Exact years were often fuzzy. In places with distinct seasons, spring, summer, autumn, or winter could produce a stronger response. The design should support how people remember time, not just how a database records it.</p></dd>
-              <dt>03 / Context-dependent precision</dt>
-              <dd><h3>More precise does not always mean more useful.</h3><p>Minute-level information added little in many situations. A time-specific setting, such as a bar, could make time of day more relevant. Context should determine which details deserve attention.</p></dd>
+              <dt>Place</dt>
+              <dd><p>Moments from the same trip or location—three days in Japan become one event.</p></dd>
+              <dt>Holidays</dt>
+              <dd><p>Moments that cluster around a holiday or occasion.</p></dd>
+              <dt>Time and activity</dt>
+              <dd><p>What you were doing during a particular stretch of time.</p></dd>
             </dl>
-
-            <p class="muted">Study limits: participant count, prompt-by-prompt records, and formal scoring are not supplied. These observations do not establish cue effectiveness across populations. A subsequent study should vary cue order and compare recall quality without leading participants.</p>
+            <p>The result reads the way people talk about their memories—“A trip to Japan,” “Summer 2024”—rather than the way a camera roll stores them. AI does the sorting; the person decides what the event means and who it’s shared with.</p>
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Memories grouped by AI into events, each becoming an album.</figcaption>
+            </figure>
           </div>
         </section>
         <hr>
@@ -214,7 +177,7 @@
               <p class="muted">Decision 02 / Information unit</p>
               <h3>From individual bubbles to an album of relationships.</h3>
               <p>An isolated bubble had to carry too much weight. An album allowed multiple moments to build meaning together, offering a sense of a journey rather than a collection of unrelated posts.</p>
-              <p>Place, season, shared people, and occasions became ways to connect memories. This moved the experience toward revisiting and accumulation: an ordinary moment could become meaningful as part of a larger history.</p>
+              <p>Place, season, shared people, and occasions became ways to connect memories, and AI assembles them into events automatically. This moved the experience toward revisiting and accumulation: an ordinary moment could become meaningful as part of a larger history.</p>
               <figure class="case-figure">
                 <div class="placeholder"></div>
                 <figcaption>Post-launch redesign: information-unit exploration, album creation, and album interaction views.</figcaption>
@@ -249,8 +212,8 @@
               </div>
               <div>
                 <h3>What I can—and cannot—claim</h3>
-                <p>I can explain the reasoning behind those decisions and show the design work. I cannot claim a measured increase in retention, trust, or recall from the evidence available in this case study.</p>
-                <p>The next validation should examine whether people complete their first album, understand its audience, feel comfortable keeping imperfect moments, and return voluntarily to revisit them. Recall studies should compare cue combinations and cue order.</p>
+                <p>I can explain the reasoning behind those decisions and show the design work. I cannot claim a measured increase in retention or trust from the evidence available in this case study.</p>
+                <p>The next validation should examine whether people complete their first album, understand its audience, feel comfortable keeping imperfect moments, and return voluntarily to revisit them.</p>
               </div>
             </div>
 
