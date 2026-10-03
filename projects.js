@@ -7,7 +7,7 @@ const LOREM = "Etiam euismod elit id nisl lacinia commodo. Donec non neque quis 
 window.PROJECTS = {
   selected: [
     { title: "001—AAKO", doc: "DOC_45456", text: "Reframing AAKO from a spatial social app into a spatial memory system—built around the people, places, and imperfect moments worth returning to.", image: "images/aako.png", link: "aako.html" },
-    { title: "002— A Garden that I Carry", doc: "DOC_45456", text: "An interactive experience about the emotional relationships people form with the objects they carry every day. Each object becomes a flower; bouquets gather into a shared garden.", image: "images/garden.jpg", link: "garden.html" },
+    { title: "002— What’s in Your Bag?", doc: "DOC_45456", text: "An AI-powered interactive experience that turns emotional relationships with everyday objects into generative forms and messages.", image: "images/garden.jpg", link: "garden.html" },
     { title: "003— Tool Gallery", doc: "DOC_45456", text: LOREM, image: null, link: "project.html" },
     { title: "004—TEST PROJECT_44", doc: "DOC_45456", text: LOREM, image: null, link: "project.html" },
   ],
