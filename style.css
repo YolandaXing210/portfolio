@@ -487,6 +487,30 @@ p { margin: 0; }
 
 .case-receipt-text { padding-top: 1.2em; }
 
+/* Comparison table: rows line up across columns, each row ruled on top */
+.case-table {
+  width: 100%;
+  margin-top: 2.4em;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.case-table th,
+.case-table td {
+  padding: 0.8rem 1rem 0.8rem 0;
+  border-top: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  font-weight: inherit;
+}
+
+.case-table th:last-child,
+.case-table td:last-child { padding-right: 0; }
+
+.case-table tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
+
+.case-table td p { margin-top: 0.4em; }
+
 .case-decision {
   padding-top: 2.4em;
   border-top: 1px solid var(--rule);

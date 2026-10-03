@@ -55,7 +55,7 @@
             <h2>Leave a memory in the place where it happened.</h2>
             <p>AAKO started from a road-trip habit. The founder and I have been friends since middle school and have traveled across many countries together. A trip pulls you out of ordinary life, and that displacement makes places stick: landscapes and moments become personal and memorable.</p>
             <p>Modern tools make it easy to capture everything, but they strip memories of context. Flattened into chronological feeds, moments lose where they happened and how they felt; locations become metadata. The team imagined AAKO as a way to leave digital memories in the physical places where they happened, and to encounter them again through AR.</p>
-            <p>Within that, I developed Echo: the 3D form a memory takes in space. Jinmao designed the original mobile experience around it.</p>
+            <p>Within that, I developed Echo: the 3D form a memory takes in space.</p>
           </div>
         </section>
         <hr>
@@ -83,39 +83,9 @@
         </section>
         <hr>
 
-        <!-- ===== 03 Anatomy ===== -->
-        <section class="case-section" id="anatomy">
-          <div class="case-index muted">03 / Anatomy of an Echo</div>
-          <div class="case-body">
-            <h2>A floating bubble that makes a memory alive.</h2>
-            <p>The design question was how a memory could occupy a place while keeping its content and interactions understandable. Each part of the Echo carries one kind of content.</p>
-
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>Echo concept: the bubble, its caption, audio, and emoji orbit.</figcaption>
-            </figure>
-
-            <dl class="case-list">
-              <dt>Bubble shape</dt>
-              <dd><p>A floating bubble that makes the memory feel alive.</p></dd>
-              <dt>Visual content</dt>
-              <dd><p>Images and video inside the bubble, viewable from different angles.</p></dd>
-              <dt>Textual content</dt>
-              <dd><p>User info and caption above, with activity emoji to enhance search.</p></dd>
-              <dt>Audio content</dt>
-              <dd><p>Sound from a recording, the video, or music.</p></dd>
-              <dt>Emoji orbit</dt>
-              <dd><p>Other people’s reactions orbiting the memory.</p></dd>
-            </dl>
-
-            <p class="muted">The purple bubble is the default. With the same structure, the team considered many more bubble skins with different textures and features that users could purchase.</p>
-          </div>
-        </section>
-        <hr>
-
-        <!-- ===== 04 Research ===== -->
+        <!-- ===== 03 Research ===== -->
         <section class="case-section" id="research">
-          <div class="case-index muted">04 / Research process</div>
+          <div class="case-index muted">03 / Research process</div>
           <div class="case-body">
             <h2>How does a moment come back?</h2>
             <p>I studied the interaction model itself: which cues help someone reconnect with a memory, and what does sound leave out?</p>
@@ -166,9 +136,9 @@
         </section>
         <hr>
 
-        <!-- ===== 05 Findings ===== -->
+        <!-- ===== 04 Findings ===== -->
         <section class="case-section" id="findings">
-          <div class="case-index muted">05 / Research findings</div>
+          <div class="case-index muted">04 / Research findings</div>
           <div class="case-body">
             <h2>Context gives a memory somewhere to land.</h2>
             <p>The exploratory exercises suggested three useful directions. I treated them as design inputs, with room for further testing, rather than as statistically established findings.</p>
@@ -183,6 +153,36 @@
             </dl>
 
             <p class="muted">Study limits: participant count, prompt-by-prompt records, and formal scoring are not supplied. These observations do not establish cue effectiveness across populations. A subsequent study should compare cue combinations and cue order, and compare recall quality without leading participants.</p>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 05 Anatomy ===== -->
+        <section class="case-section" id="anatomy">
+          <div class="case-index muted">05 / Anatomy of an Echo</div>
+          <div class="case-body">
+            <h2>A floating bubble that makes a memory alive.</h2>
+            <p>The design question was how a memory could occupy a place while keeping its content and interactions understandable. Each part of the Echo carries one kind of content.</p>
+
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Echo concept: the bubble, its caption, audio, and emoji orbit.</figcaption>
+            </figure>
+
+            <dl class="case-list">
+              <dt>Bubble shape</dt>
+              <dd><p>A floating bubble that makes the memory feel alive.</p></dd>
+              <dt>Visual content</dt>
+              <dd><p>Images and video inside the bubble, viewable from different angles.</p></dd>
+              <dt>Textual content</dt>
+              <dd><p>User info and caption above, with activity emoji to enhance search.</p></dd>
+              <dt>Audio content</dt>
+              <dd><p>Sound from a recording, the video, or music.</p></dd>
+              <dt>Emoji orbit</dt>
+              <dd><p>Other people’s reactions orbiting the memory.</p></dd>
+            </dl>
+
+            <p class="muted">The purple bubble is the default. With the same structure, the team considered many more bubble skins with different textures and features that users could purchase.</p>
           </div>
         </section>
         <hr>
@@ -223,34 +223,32 @@
             <h2>Return to the place, or return from elsewhere.</h2>
             <p>An Echo needs to work whether or not you’re standing where it was made. I designed two states.</p>
 
-            <div class="case-cols">
-              <div>
-                <p class="muted">Case 1 / AR</p>
-                <h3>Return to the place</h3>
-                <dl class="case-list case-list--stack">
-                  <dt>Condition</dt>
-                  <dd><p>The user is at the place where the post was created and pinned.</p></dd>
-                  <dt>Behavior</dt>
-                  <dd><p>Visual relocalization (LPS / image-based matching) re-aligns the Echo, reconnecting the memory to the exact place it was created.</p></dd>
-                  <dt>Support</dt>
-                  <dd><p>A reference image is shown to help with spatial alignment and positioning.</p></dd>
-                </dl>
-              </div>
-              <div>
-                <p class="muted">Case 2 / VR</p>
-                <h3>Return from elsewhere</h3>
-                <dl class="case-list case-list--stack">
-                  <dt>Condition</dt>
-                  <dd><p>The user is far from the location, or the memory was uploaded directly from the photo album.</p></dd>
-                  <dt>Behavior</dt>
-                  <dd><p>The Echo is placed inside a skybox stitched from Google Street View images.</p></dd>
-                  <dt>Intent</dt>
-                  <dd><p>Memories can be experienced without a physical return, which supports longer, reflective engagement.</p></dd>
-                  <dt>Alternatives</dt>
-                  <dd><p>A custom skybox, or a 3D-scanned environment.</p></dd>
-                </dl>
-              </div>
-            </div>
+            <table class="case-table">
+              <thead>
+                <tr>
+                  <th><span class="muted">Case 1 / AR</span><br>Return to the place</th>
+                  <th><span class="muted">Case 2 / VR</span><br>Return from elsewhere</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="muted">Condition</span><p>The user is at the place where the post was created and pinned.</p></td>
+                  <td><span class="muted">Condition</span><p>The user is far from the location, or the memory was uploaded directly from the photo album.</p></td>
+                </tr>
+                <tr>
+                  <td><span class="muted">Behavior</span><p>Visual relocalization (LPS / image-based matching) re-aligns the Echo, reconnecting the memory to the exact place it was created.</p></td>
+                  <td><span class="muted">Behavior</span><p>The Echo is placed inside a skybox stitched from Google Street View images.</p></td>
+                </tr>
+                <tr>
+                  <td><span class="muted">Intent</span><p>Returning to the place becomes part of remembering: the memory is found where it happened, in the same surroundings.</p></td>
+                  <td><span class="muted">Intent</span><p>Memories can be experienced without a physical return, which supports longer, reflective engagement.</p></td>
+                </tr>
+                <tr>
+                  <td><span class="muted">Support</span><p>A reference image is shown to help with spatial alignment and positioning.</p></td>
+                  <td><span class="muted">Alternatives</span><p>A custom skybox, or a 3D-scanned environment.</p></td>
+                </tr>
+              </tbody>
+            </table>
 
             <div class="case-cols">
               <figure class="case-figure">
@@ -263,6 +261,10 @@
               </figure>
             </div>
 
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Echo on visionOS and AR glasses.</figcaption>
+            </figure>
             <p class="muted">The same Echo was also explored on visionOS and AR glasses.</p>
           </div>
         </section>
