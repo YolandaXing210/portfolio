@@ -481,6 +481,10 @@ p { margin: 0; }
 
 .case-list dt { color: var(--muted); }
 
+/* Findings: label in body color, supporting text muted (the h3 stays body color) */
+.case-list--findings dt { color: var(--text); }
+.case-list--findings dd p { color: var(--muted); }
+
 /* Label above value instead of beside it, for narrow columns */
 .case-list--stack { grid-template-columns: minmax(0, 1fr); }
 .case-list--stack dd { border-top: 0; padding-top: 0; }

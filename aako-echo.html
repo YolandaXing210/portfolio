@@ -143,7 +143,7 @@
             <h2>Context gives a memory somewhere to land.</h2>
             <p>The exploratory exercises suggested three useful directions. I treated them as design inputs, with room for further testing, rather than as statistically established findings.</p>
 
-            <dl class="case-list">
+            <dl class="case-list case-list--findings">
               <dt>01 / Visual &amp; environmental</dt>
               <dd><h3>The surroundings can unlock the event.</h3><p>Relevant photos and environmental cues helped reconnect a person to a moment. Location mattered as lived context—not simply as a coordinate on a map. Audio alone was not a sufficient anchor in the exercises.</p></dd>
               <dt>02 / Temporal hierarchy</dt>
@@ -152,7 +152,6 @@
               <dd><h3>More precise does not always mean more useful.</h3><p>Minute-level information added little in many situations. A time-specific setting, such as a bar, could make time of day more relevant. Context should determine which details deserve attention.</p></dd>
             </dl>
 
-            <p class="muted">Study limits: participant count, prompt-by-prompt records, and formal scoring are not supplied. These observations do not establish cue effectiveness across populations. A subsequent study should compare cue combinations and cue order, and compare recall quality without leading participants.</p>
           </div>
         </section>
         <hr>
@@ -211,6 +210,26 @@
               <div class="placeholder"></div>
               <div class="placeholder"></div>
               <div class="placeholder"></div>
+            </div>
+
+            <div class="case-decision">
+              <p class="muted">From prototype to product</p>
+              <h3>Landing the bubble with engineering</h3>
+              <p>Designing the bubble was half the work; the other half was getting it built. Our engineering team wrote strong front-end and back-end code, but 3D was unfamiliar territory: how things actually work inside a 3D scene wasn’t obvious from a 2D app background.</p>
+              <p>I used my 3D modeling knowledge to bridge that gap, explaining the bubble in terms of the parts it’s made of:</p>
+              <dl class="case-list">
+                <dt>Mesh</dt>
+                <dd><p>The geometry of the bubble: the surface its content is mapped onto.</p></dd>
+                <dt>Normals</dt>
+                <dd><p>Which way each part of that surface faces, which decides how light and reflections fall across it.</p></dd>
+                <dt>Shaders</dt>
+                <dd><p>How the surface is drawn—its softness, transparency, and sheen—and why a node shader lets one bubble take many skins.</p></dd>
+                <dt>Direction</dt>
+                <dd><p>Orientation in space: which way the Echo, its caption, and the light are facing as the viewer moves around it.</p></dd>
+                <dt>Masking</dt>
+                <dd><p>The masks that fit an image or video inside the bubble and soften its edges into the surroundings.</p></dd>
+              </dl>
+              <p>With that shared vocabulary, the engineers could reason about the bubble themselves instead of treating it as a black box, and the soft, intimate Echo from the prototype made it into the app.</p>
             </div>
           </div>
         </section>
