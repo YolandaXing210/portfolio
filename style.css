@@ -605,14 +605,14 @@ p { margin: 0; }
 .case-fromto { margin-top: 2.4em; }
 .case-fromto > div {
   display: grid;
-  grid-template-columns: 22% minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: 22% minmax(0, 1fr) 3em minmax(0, 1fr);
   gap: 0.8rem;
   padding: 0.8rem 0;
   border-top: 1px solid var(--rule);
 }
 .case-fromto > div:last-child { border-bottom: 1px solid var(--rule); }
 .case-fromto s { color: var(--muted); text-decoration-thickness: 1px; }
-.case-fromto i { font-style: normal; color: var(--accent, var(--muted)); }
+.case-fromto i { font-style: normal; text-align: center; color: var(--accent, var(--muted)); }
 
 /* Two cards whose rows line up (Before / After) */
 .case-pair {
@@ -633,6 +633,44 @@ p { margin: 0; }
 /* Small photo squares inside a card */
 .case-sqs { display: flex; gap: 4px; margin-top: 0.8em; }
 .case-sq { display: block; width: 18px; height: 18px; border: 1px solid var(--muted); }
+
+/* Principle cards: red bold titles */
+.case-cards--principles h3 { color: var(--accent, var(--text)); }
+
+/* AI events: camera roll + AI on the left, event cards stacked on the right */
+.case-events {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2.4em;
+}
+.case-events .case-illo { margin: 0; }
+.case-events__cards { display: grid; gap: 0.6rem; }
+.case-events__cards .case-card { padding: 0.7rem 1rem; }
+.case-events__cards p { margin-top: 0.2em; }
+
+/* Big-number card */
+.case-stat-card b {
+  display: block;
+  margin-bottom: 0.3em;
+  font-size: var(--h2-size);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accent, var(--text));
+}
+
+/* Step row with a face at the end; the muted row has grey rules */
+.case-steprow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+}
+.case .case-steprow .case-steps { margin-top: 0.8em; }
+.case-steprow__face { font-size: 2rem; line-height: 1; }
+.case .case-steps--muted li { border-top-color: var(--muted); }
+.case-steps-label--accent { color: var(--accent, var(--text)); }
 
 /* Review page only: an option block, labelled A or B */
 .case-option {
@@ -729,6 +767,10 @@ p { margin: 0; }
 .case-illo .d-fill,
 .case-diagram .d-fill { fill: rgba(0, 0, 0, 0.06); }
 .case-illo .d-dash,
+.case-illo .d-tint,
+.case-diagram .d-tint { fill: var(--accent, var(--text)); fill-opacity: 0.12; stroke: var(--accent, var(--text)); stroke-width: 1.5; }
+.case-illo .d-accent-fill,
+.case-diagram .d-accent-fill { fill: var(--accent, var(--text)); }
 .case-diagram .d-dash { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 3 4; }
 
 /* Small illustration inside a column; 1:1 at its 320px max width */
@@ -839,6 +881,8 @@ p { margin: 0; }
   .case-fromto > div { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
   .case-fromto > div > :first-child { grid-column: 1 / -1; }
   .case-pair { column-gap: 0.6rem; }
+  .case-events { grid-template-columns: minmax(0, 1fr); }
+  .case-events .case-illo { max-width: 270px; }
   .case-diagram { display: none; }
   .case-diagram-fallback { display: grid; }
   .case-meta--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
