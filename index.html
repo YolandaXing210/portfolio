@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yolanda Xing</title>
+  <meta name="description" content="Yolanda Xing — product designer working on human-AI interaction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Main column ===== -->
+  <main class="main">
+
+    <!-- Tabs: the current one renders as plain text, the other as a green link -->
+    <nav class="row tabs">
+      <a href="#" data-tab="works">SELECTED WORKS</a>
+      <a href="#art-experiments" data-tab="art">ART/EXPERIMENTS</a>
+    </nav>
+    <hr>
+
+    <section class="view view--works" data-view="works">
+      <div class="project-list" data-list="selected"></div>
+    </section>
+
+    <section class="view view--art" data-view="art" hidden>
+      <div class="project-list" data-list="art"></div>
+    </section>
+
+  </main>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+
+    <section class="view view--bio" data-view="bio">
+      <div class="row">
+        <span></span>
+        <span class="muted" id="clock">00:00:00</span>
+      </div>
+      <hr>
+      <div class="bio">
+        <p>
+          Yolanda Xing<br>
+          <a href="mailto:xing.yolanda@gmail.com">xing.yolanda@gmail.com</a><br>
+          <a href="https://www.instagram.com/cargoworld/" target="_blank" rel="noopener">Instagram</a>
+        </p>
+        <br>
+        <p>I'm a versatile product designer with a love of code and prototype. I started as a MEDIA ARTIST at UCLA Design Media Arts, where I studied how the body shapes emotion and behavior, and explored identity between humans and computers with a detours into philosophy and game.</p>
+        <p>Currently, I'm pursuing a &nbsp;M.S. in Design Technology &nbsp;at Cornell, where focusing on HUMAN AI INTERACTION design.</p>
+        <p class="muted">Outside of work, I'm a writer and game developer, which keeps my artist side alive. And I do passion tools to help my designer friends whenever they start complaining.</p>
+        <p class="bio__cv"><a href="#cv">CV <span class="icon-arrow">→</span></a></p>
+      </div>
+      <div class="footer">©2026 RIGHTS RESERVED</div>
+    </section>
+
+    <section class="view view--cv" data-view="cv" hidden>
+      <div class="row">
+        <span>CV</span>
+        <a href="#">CLOSE <span class="icon-arrow">→</span></a>
+      </div>
+      <hr>
+      <div class="cv-name">YOLANDA XING</div>
+      <hr>
+
+      <div class="cv-section">
+        <div>Education</div>
+        <div>
+          <p>Cornell University<br>MS. Design Techonology<br>Aug 2026 - May 2028 (expected)</p>
+          <p>University of California, Los Angeles<br>B.A. Design Media Art<br>Oct 2020 - Jul 2024</p>
+        </div>
+      </div>
+      <hr>
+
+      <div class="cv-section">
+        <div>Employment</div>
+        <div>
+          <p>Graduate Research Assistant<br>Cornell Performance Apparel Design Lab<br>Sep 2026 - Present</p>
+          <p>Lead Product Designer<br>Aako Inc.<br>Oct 2023 - Jul 2026</p>
+          <p>Game Developer (part-time)<br>Eversea<br>(since 2020)</p>
+        </div>
+      </div>
+      <hr>
+
+      <div class="cv-section">
+        <div>Recognition</div>
+        <div>
+          <p>Merit Scholarship<br>Cornell APP<br>Aug 2026</p>
+          <p>Best Storytelling &amp; Entertainment Project 1st Place<br>Worlds in Action Hack (SIGGRAPH)<br>Jun 2026</p>
+          <p>Best App Running on Emulator - by PICO Runner-Up<br>Worlds in Action Hack (SIGGRAPH)<br>Jun 2026</p>
+          <p>1st Place<br>Augg.io Summer AR Hackathon<br>Jun 2025</p>
+          <p>Best Student Game Finialist<br>Independent Game Festival, GDC<br>Mar 2025</p>
+        </div>
+      </div>
+      <hr>
+
+      <div class="cv-section">
+        <div>Skills</div>
+        <ul class="cv-list">
+          <li class="muted">Design:</li>
+          <li>Product Design</li>
+          <li>Human-AI Interaction</li>
+          <li>Interaction Design</li>
+          <li>Design Systems</li>
+          <li>AR/VR</li>
+          <li>User Research</li>
+          <li>Usability Testing</li>
+          <li>Wireframing</li>
+          <li class="gap"></li>
+          <li class="muted">AI &amp; Prototyping:</li>
+          <li>Conversational UX</li>
+          <li>LLM Prompt &amp; Persona Design</li>
+          <li>Agentic Workflows</li>
+          <li class="gap"></li>
+          <li class="muted">Tools &amp; Technology:</li>
+          <li>Claude Code</li>
+          <li>Figma</li>
+          <li>Unity</li>
+          <li>Rhino &amp; Grasshopper</li>
+          <li>TouchDesigner</li>
+          <li>WebXR</li>
+          <li class="gap"></li>
+          <li class="muted">Programming:</li>
+          <li>C#</li>
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>HTML/CSS</li>
+          <li>React</li>
+          <li>SwiftUI</li>
+          <li class="gap"></li>
+          <li class="muted">Languages:</li>
+          <li>English</li>
+          <li>Mandarin</li>
+        </ul>
+      </div>
+      <hr>
+
+      <div class="cv-section">
+        <div>Exhibitions</div>
+        <div>
+          <p>Business As Usual,<br>EDA,<br>Los Angeles, USA<br>2024</p>
+          <p>Hey, Can You Pick Me Up? I'm Scared, I’m at the Intersection of Art and Technology,<br>New Wight Gallery,<br>Los Angeles, USA<br>2023</p>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row cv-foot">
+        <span class="muted">Last Updated 24.10.31</span>
+        <a href="#">CLOSE <span class="icon-arrow">→</span></a>
+      </div>
+    </section>
+
+  </aside>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
