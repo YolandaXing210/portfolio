@@ -121,6 +121,20 @@
               <div>
                 <p class="muted">Study A / Audio + contextual prompts</p>
                 <h3>Listen first. Add context gradually.</h3>
+                <svg class="case-illo" viewBox="0 0 320 130" role="img" aria-label="A video with its image hidden plays only sound; clues are added one at a time: year, season, time, location.">
+                  <rect class="d-fill" x="0" y="22" width="120" height="78" rx="6"/>
+                  <rect class="d-line" x="0" y="22" width="120" height="78" rx="6"/>
+                  <text class="d-muted" x="60" y="65" text-anchor="middle">image hidden</text>
+                  <path class="d-accent" d="M134 50 q8 11 0 22"/>
+                  <path class="d-accent" d="M144 42 q14 19 0 38"/>
+                  <path class="d-accent" d="M154 34 q20 27 0 54"/>
+                  <g>
+                    <rect class="d-line" x="196" y="4" width="124" height="22" rx="11"/><text x="210" y="19">+ year</text>
+                    <rect class="d-line" x="196" y="34" width="124" height="22" rx="11"/><text x="210" y="49">+ season</text>
+                    <rect class="d-line" x="196" y="64" width="124" height="22" rx="11"/><text x="210" y="79">+ time</text>
+                    <rect class="d-line" x="196" y="94" width="124" height="22" rx="11"/><text x="210" y="109">+ location</text>
+                  </g>
+                </svg>
                 <ol>
                   <li>Pick a random video from the participant’s own library.</li>
                   <li>Play <strong>only its audio</strong>.</li>
@@ -132,6 +146,21 @@
               <div>
                 <p class="muted">Study B / Related environment imagery</p>
                 <h3>Show the setting, not the original video.</h3>
+                <svg class="case-illo" viewBox="0 0 320 130" role="img" aria-label="The original video is set aside; photos of the same place or occasion are shown instead.">
+                  <rect class="d-dash" x="0" y="30" width="96" height="64" rx="6"/>
+                  <line class="d-dash" x1="0" y1="30" x2="96" y2="94"/>
+                  <text class="d-muted" x="0" y="116">original video</text>
+                  <text class="d-muted" x="110" y="66">→</text>
+                  <g>
+                    <rect class="d-line" x="134" y="38" width="54" height="40" rx="4"/>
+                    <polyline class="d-accent" points="139,72 153,58 162,66 170,59 183,72"/><circle class="d-accent" cx="176" cy="47" r="4"/>
+                    <rect class="d-line" x="200" y="38" width="54" height="40" rx="4"/>
+                    <polyline class="d-accent" points="205,72 219,58 228,66 236,59 249,72"/><circle class="d-accent" cx="242" cy="47" r="4"/>
+                    <rect class="d-line" x="266" y="38" width="54" height="40" rx="4"/>
+                    <polyline class="d-accent" points="271,72 285,58 294,66 302,59 315,72"/><circle class="d-accent" cx="308" cy="47" r="4"/>
+                  </g>
+                  <text class="d-muted" x="320" y="116" text-anchor="end">same place / occasion</text>
+                </svg>
                 <ol>
                   <li>Find photos of the same place or occasion.</li>
                   <li>Show those <strong>instead of the video</strong>.</li>
@@ -140,14 +169,6 @@
                 <p class="muted">e.g. a photo of a beach brought back building a sandcastle with friends.</p>
               </div>
             </div>
-
-            <ol class="case-steps">
-              <li><strong>Audio only</strong><span>Carries atmosphere, but often not enough to place the event.</span></li>
-              <li><strong>+ Time / season</strong><span>Season often lands better than the exact year.</span></li>
-              <li><strong>+ Place / environment</strong><span>The setting can bring the whole event back.</span></li>
-              <li><strong>Recollection</strong><span>The moment is reconstructed.</span></li>
-            </ol>
-            <p class="muted">Cues were added only when recall was limited—a conceptual sequence, not a measured funnel.</p>
           </div>
         </section>
         <hr>
@@ -158,6 +179,14 @@
           <div class="case-body">
             <h2>Context gives a memory somewhere to land.</h2>
             <p>Three directions I took into the design—as inputs to keep testing, not as established findings.</p>
+
+            <ol class="case-steps">
+              <li><b>Audio only</b><span>A mood, rarely the event</span></li>
+              <li><b>+ Time / season</b><span>When it happened</span></li>
+              <li><b>+ Place / environment</b><span>Where it happened</span></li>
+              <li><b>Recollection</b><span>The moment comes back</span></li>
+            </ol>
+            <p class="muted">How recall built up as cues were added—a conceptual sequence, not a measured funnel.</p>
 
             <dl class="case-list case-list--findings">
               <dt>01 / Visual &amp; environmental</dt>
@@ -242,6 +271,7 @@
                 <tr>
                   <th></th>
                   <th>Niantic Lightship</th>
+                  <th>Unity</th>
                   <th>RealityKit <span class="muted">(Apple)</span></th>
                 </tr>
               </thead>
@@ -249,11 +279,13 @@
                 <tr>
                   <td class="muted">Strength</td>
                   <td>Large-scale outdoor tracking</td>
+                  <td>Flexible, cross-platform 3D engine</td>
                   <td>Visual fidelity; tight integration with iOS hardware</td>
                 </tr>
                 <tr>
                   <td class="muted">For AAKO</td>
                   <td>Too utilitarian; limited control over softness and lighting</td>
+                  <td>A separate engine layer; less tightly integrated with iOS hardware</td>
                   <td><strong>Chosen</strong>—memories feel intimate, not schematic</td>
                 </tr>
               </tbody>
