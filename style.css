@@ -640,8 +640,9 @@ p { margin: 0; }
 /* AI events: camera roll + AI on the left, event cards stacked on the right */
 .case-events {
   display: grid;
-  grid-template-columns: 270px minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: 270px 240px;
+  justify-content: center;
+  gap: 1.6rem;
   align-items: center;
   margin-top: 2.4em;
 }
@@ -784,6 +785,11 @@ p { margin: 0; }
 
 .case-illo--wide { max-width: 560px; margin-top: 1.6em; }
 
+/* Charts narrower than the column sit centered in it */
+.case-diagram,
+.case-illo { margin-left: auto; margin-right: auto; }
+.case-events .case-illo { margin: 0; }
+
 /* Shown only where the diagram is too small to read (mobile) */
 .case-diagram-fallback { display: none; }
 
@@ -881,8 +887,7 @@ p { margin: 0; }
   .case-fromto > div { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
   .case-fromto > div > :first-child { grid-column: 1 / -1; }
   .case-pair { column-gap: 0.6rem; }
-  .case-events { grid-template-columns: minmax(0, 1fr); }
-  .case-events .case-illo { max-width: 270px; }
+  .case-events { grid-template-columns: minmax(0, 270px); }
   .case-diagram { display: none; }
   .case-diagram-fallback { display: grid; }
   .case-meta--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
