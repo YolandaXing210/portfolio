@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -66,27 +66,28 @@
             <h2>A compelling spatial idea did not become a reason to return.</h2>
             <p>Usage was weaker than expected: people were <strong>reluctant to engage</strong>, and many <strong>left during onboarding</strong>.</p>
 
-            <table class="case-table case-table--labels">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>What we assumed</th>
-                  <th>What happened</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="muted">Sharing</td>
-                  <td>Our team was comfortable sharing everyday life, so if a memory mattered, people would want to place it in the world and let others respond.</td>
-                  <td>In a spatial product a comment carries <strong>presence</strong>: someone finding your memory at a real place can feel <strong>intrusive</strong>, not welcoming.</td>
-                </tr>
-                <tr>
-                  <td class="muted">Onboarding</td>
-                  <td>A strong, step-by-step AR introduction would teach the product.</td>
-                  <td>It asked for <strong>too much before anything felt personal</strong>, and some devices weren’t supported. Analytics showed people leaving there.</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="case-cards">
+              <div class="case-card">
+                <p class="muted">What we assumed</p>
+                <h3>If a memory mattered, people would share it.</h3>
+                <dl>
+                  <dt>Sharing</dt>
+                  <dd>Our team was comfortable sharing everyday life, so we expected people to place memories in the world and let others respond.</dd>
+                  <dt>Onboarding</dt>
+                  <dd>A strong, step-by-step AR introduction would teach the product.</dd>
+                </dl>
+              </div>
+              <div class="case-card case-card--accent">
+                <p class="muted">What happened</p>
+                <h3>Presence felt intrusive, and onboarding asked too much.</h3>
+                <dl>
+                  <dt>Sharing</dt>
+                  <dd>In a spatial product a comment carries <strong>presence</strong>: someone finding your memory at a real place can feel <strong>intrusive</strong>, not welcoming.</dd>
+                  <dt>Onboarding</dt>
+                  <dd>It asked for <strong>too much before anything felt personal</strong>, and some devices weren’t supported. Analytics showed people leaving there.</dd>
+                </dl>
+              </div>
+            </div>
 
             <p class="muted">Evidence here is qualitative: launch observations and the team’s read of analytics, without specific conversion or retention rates.</p>
           </div>
@@ -130,7 +131,39 @@
           <div class="case-body">
             <h2>Letting AI find the event a memory belongs to.</h2>
             <p>An album only works if it matches how people think about their lives—but sorting hundreds of photos by hand would bring back the burden the redesign was removing. So <strong>AI sorts memories into complete events</strong>, starting from whichever signal fits best:</p>
-            <dl class="case-list">
+            <svg class="case-diagram" viewBox="0 0 640 230" role="img" aria-label="Scattered photos from a camera roll are grouped by AI into events: A trip to Japan by place, Summer 2024 by time, and a holiday.">
+              <text class="d-muted" x="0" y="14">Camera roll</text>
+              <g class="d-line">
+                <rect x="0" y="30" width="22" height="22"/><rect x="28" y="30" width="22" height="22"/><rect x="56" y="30" width="22" height="22"/><rect x="84" y="30" width="22" height="22"/><rect x="112" y="30" width="22" height="22"/>
+                <rect x="0" y="58" width="22" height="22"/><rect x="28" y="58" width="22" height="22"/><rect x="56" y="58" width="22" height="22"/><rect x="84" y="58" width="22" height="22"/><rect x="112" y="58" width="22" height="22"/>
+                <rect x="0" y="86" width="22" height="22"/><rect x="28" y="86" width="22" height="22"/><rect x="56" y="86" width="22" height="22"/><rect x="84" y="86" width="22" height="22"/><rect x="112" y="86" width="22" height="22"/>
+                <rect x="0" y="114" width="22" height="22"/><rect x="28" y="114" width="22" height="22"/><rect x="56" y="114" width="22" height="22"/><rect x="84" y="114" width="22" height="22"/><rect x="112" y="114" width="22" height="22"/>
+                <rect x="0" y="142" width="22" height="22"/><rect x="28" y="142" width="22" height="22"/><rect x="56" y="142" width="22" height="22"/><rect x="84" y="142" width="22" height="22"/><rect x="112" y="142" width="22" height="22"/>
+              </g>
+              <text class="d-muted" x="0" y="190">hundreds of photos,</text>
+              <text class="d-muted" x="0" y="207">in date order</text>
+
+              <line class="d-line" x1="160" y1="97" x2="262" y2="97"/>
+              <path class="d-line" d="M256 92 L262 97 L256 102"/>
+              <text x="211" y="86" text-anchor="middle">AI</text>
+              <text class="d-muted" x="211" y="118" text-anchor="middle">place</text>
+              <text class="d-muted" x="211" y="135" text-anchor="middle">holiday</text>
+              <text class="d-muted" x="211" y="152" text-anchor="middle">time + activity</text>
+
+              <rect class="d-accent" x="290" y="10" width="350" height="60" rx="6"/>
+              <g class="d-line"><rect x="304" y="27" width="26" height="26"/><rect x="336" y="27" width="26" height="26"/><rect x="368" y="27" width="26" height="26"/><rect x="400" y="27" width="26" height="26"/></g>
+              <text x="442" y="38">A trip to Japan</text><text class="d-muted" x="442" y="55">by place</text>
+
+              <rect class="d-accent" x="290" y="84" width="350" height="60" rx="6"/>
+              <g class="d-line"><rect x="304" y="101" width="26" height="26"/><rect x="336" y="101" width="26" height="26"/><rect x="368" y="101" width="26" height="26"/></g>
+              <text x="442" y="112">Summer 2024</text><text class="d-muted" x="442" y="129">by time</text>
+
+              <rect class="d-accent" x="290" y="158" width="350" height="60" rx="6"/>
+              <g class="d-line"><rect x="304" y="175" width="26" height="26"/><rect x="336" y="175" width="26" height="26"/></g>
+              <text x="442" y="186">A holiday</text><text class="d-muted" x="442" y="203">by occasion</text>
+            </svg>
+
+            <dl class="case-list case-diagram-fallback">
               <dt>Place</dt>
               <dd><p>The same trip or location—three days in Japan become one event.</p></dd>
               <dt>Holidays</dt>
@@ -141,7 +174,7 @@
             <p>Events read the way people talk—<strong>“A trip to Japan,” “Summer 2024”</strong>—not the way a camera roll stores them. AI does the sorting; the person decides what the event means and who it’s shared with.</p>
             <figure class="case-figure">
               <div class="placeholder"></div>
-              <figcaption>Memories grouped by AI into events, each becoming an album.</figcaption>
+              <figcaption>Events in the app, each becoming an album.</figcaption>
             </figure>
           </div>
         </section>
@@ -232,6 +265,20 @@
               <p class="muted">Decision 02 / Information unit</p>
               <h3>From individual bubbles to an album of relationships.</h3>
               <p>An isolated bubble had to carry too much weight. In an album, moments <strong>build meaning together</strong>—a journey rather than unrelated posts. Place, season, people, and occasions connect them, and AI assembles them into events automatically.</p>
+              <svg class="case-illo case-illo--wide" viewBox="0 0 560 150" role="img" aria-label="Before: one Echo bubble alone carries a whole memory. After: an album holds several Echoes connected by place, season, and people.">
+                <text class="d-muted" x="0" y="14">Before</text>
+                <circle class="d-accent" cx="70" cy="82" r="40"/>
+                <text class="d-muted" x="0" y="146">one Echo carries it all</text>
+                <text class="d-muted" x="200" y="86">→</text>
+                <text class="d-muted" x="240" y="14">After</text>
+                <rect class="d-line" x="240" y="28" width="320" height="100" rx="8"/>
+                <circle class="d-accent" cx="290" cy="78" r="26"/>
+                <circle class="d-accent" cx="362" cy="78" r="26"/>
+                <circle class="d-accent" cx="434" cy="78" r="26"/>
+                <circle class="d-accent" cx="506" cy="78" r="26"/>
+                <line class="d-dash" x1="316" y1="78" x2="336" y2="78"/><line class="d-dash" x1="388" y1="78" x2="408" y2="78"/><line class="d-dash" x1="460" y1="78" x2="480" y2="78"/>
+                <text class="d-muted" x="240" y="146">an album of connected moments</text>
+              </svg>
               <figure class="case-figure">
                 <div class="placeholder"></div>
                 <figcaption>Information-unit exploration, album creation, and album interaction views.</figcaption>
@@ -242,6 +289,17 @@
               <p class="muted">Decision 03 / First experience</p>
               <h3>Start with a memory, then invite interaction.</h3>
               <p>Onboarding used to demand a guided AR sequence before the product meant anything. Now it starts with <strong>creating an album from your own content</strong>, and Echo creation is shorter: capture and context in fewer steps.</p>
+              <p class="muted case-steps-label">Before</p>
+              <ol class="case-steps" style="--steps: 2">
+                <li><b>Guided AR introduction</b><span>Step by step, before anything personal</span></li>
+                <li><b>Then, maybe, a memory</b><span>Many left before reaching it</span></li>
+              </ol>
+              <p class="muted case-steps-label">After</p>
+              <ol class="case-steps" style="--steps: 3">
+                <li><b>Your own content</b><span>Create an album from moments you care about</span></li>
+                <li><b>Shorter Echo creation</b><span>Capture and context in fewer steps</span></li>
+                <li><b>Spatial interaction</b><span>Once there’s a memory worth it</span></li>
+              </ol>
               <figure class="case-figure">
                 <div class="placeholder"></div>
                 <figcaption>Simplified Echo creation, album-focused onboarding, and UI refinements.</figcaption>
@@ -260,12 +318,18 @@
             <div class="case-cols">
               <div>
                 <h3>What changed</h3>
-                <p>A specific direction: <strong>intimate memory keeping and recollection</strong>. Albums connect moments, one visibility layer replaces four, and onboarding begins with something personal.</p>
+                <p>A specific direction: <strong>intimate memory keeping and recollection</strong>.</p>
               </div>
               <div>
                 <h3>What I can—and cannot—claim</h3>
                 <p>I can show the reasoning and the design work; I <strong>can’t claim a measured lift</strong> in retention or trust. Next: do people complete a first album, understand its audience, and come back on their own?</p>
               </div>
+            </div>
+
+            <div class="case-stats" style="--stats: 3">
+              <div><b>4 → 1</b>visibility layers</div>
+              <div><b>Album</b>the new unit, assembled by AI</div>
+              <div><b>Yours first</b>onboarding starts with your own content</div>
             </div>
 
             <blockquote class="case-quote">My biggest learning: a novel interaction is only valuable when it supports a human reason to use it.</blockquote>
@@ -281,6 +345,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=8"></script>
+  <script src="case.js?v=9"></script>
 </body>
 </html>
