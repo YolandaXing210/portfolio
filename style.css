@@ -315,9 +315,13 @@ p { margin: 0; }
 }
 
 .case .case-body > h2 {
-  display: inline-block;
+  display: inline;
   padding: 0.05em 0.25em 0.1em;
+  line-height: 1.55;
   background: var(--accent, var(--text));
+  /* each wrapped line gets its own tight background */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* Type levels below h2:
