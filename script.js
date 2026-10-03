@@ -13,9 +13,10 @@ function renderProject(p) {
     ? `<img src="${p.image}" alt="${escapeHTML(p.title)}" loading="lazy">`
     : `<div class="placeholder"></div>`;
   // A project can have several pages: links: [{ label, href }]. The image goes to the first.
+  // theme: "aako" | "garden" | "journey" gives the entry its project accent color.
   const links = p.links || [{ label: "Read more…", href: p.link }];
   return `
-    <article class="project">
+    <article class="project${p.theme ? ` case--${p.theme}` : ""}">
       <a class="project__media" href="${links[0].href}">${media}</a>
       <div class="project__text">
         <p>${escapeHTML(p.title)}<br>${escapeHTML(p.doc)}</p>

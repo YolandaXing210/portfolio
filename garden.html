@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -31,7 +31,7 @@
           <p class="muted">Human–AI Interaction · Generative AI · Interaction Design · Experimental</p>
           <h1>What’s in Your Bag?</h1>
           <p class="case-subtitle">A Garden I Carry</p>
-          <p>An AI-powered interactive experience that turns emotional relationships with everyday objects into generative forms and messages.</p>
+          <p>An AI-powered interactive experience that turns <strong>emotional relationships with everyday objects</strong> into generative forms and messages.</p>
           <p><a href="https://a-garden-i-caryy.netlify.app" target="_blank" rel="noopener">Playground →</a></p>
         </div>
 
@@ -54,8 +54,8 @@
           <div class="case-index muted">01 / The Question</div>
           <div class="case-body">
             <h2>AI can recognize what we carry. But can it understand why we carry it?</h2>
-            <p>Take a plush rabbit. Computer vision can say “this is a plush rabbit.” To the person carrying it, it might be a gift from their mother, the thing they brought when they moved abroad, a source of safety, a keepsake from a relationship—or nothing at all, just a habit.</p>
-            <p>Everyday objects often hold meanings that are invisible to computer vision: attachment, memory, comfort, habit, loss. This project starts from that gap.</p>
+            <p>Take a plush rabbit. Computer vision can say <strong>“this is a plush rabbit.”</strong> To the person carrying it, it might be a gift from their mother, the thing they brought when they moved abroad, a keepsake from a relationship—or just a habit.</p>
+            <p>Everyday objects hold meanings that are <strong>invisible to computer vision</strong>: attachment, memory, comfort, habit, loss. This project starts from that gap.</p>
 
             <div class="case-cols case-cols--3">
               <figure class="case-figure"><div class="placeholder"></div></figure>
@@ -63,18 +63,14 @@
               <figure class="case-figure"><div class="placeholder"></div></figure>
             </div>
 
-            <p class="muted">An exploratory survey of 20 people about what they carry, followed by two interviews, showed the gap between use and meaning:</p>
-            <dl class="case-list">
-              <dt>55%</dt>
-              <dd><p>use only a few, or almost none, of the items they carry every day</p></dd>
-              <dt>70%</dt>
-              <dd><p>carry at least one uncommon or unexpected item</p></dd>
-              <dt>80%</dt>
-              <dd><p>identified one item that represents themselves</p></dd>
-              <dt>90%</dt>
-              <dd><p>of people in a relationship carry at least one item connected to their partner</p></dd>
-            </dl>
-            <p>Interviewees described the things they rarely use but keep anyway in terms of comfort, habit, identity, and emotional safety. A function-based label can’t explain why these objects are carried. That pointed the project toward an emotion-based way of reading belongings—and toward a question about what AI should, and shouldn’t, do with them.</p>
+            <p class="muted">From an exploratory survey of 20 people and two follow-up interviews:</p>
+            <div class="case-stats">
+              <div><b>55%</b>use few or none of the items they carry daily</div>
+              <div><b>70%</b>carry at least one unexpected item</div>
+              <div><b>80%</b>have one item that represents themselves</div>
+              <div><b>90%</b>of people in a relationship carry something connected to their partner</div>
+            </div>
+            <p>People described what they rarely use but keep anyway in terms of comfort, habit, identity, and emotional safety. <strong>A function-based label can’t explain why we carry things</strong>—which raised the question of what AI should, and shouldn’t, do with them.</p>
           </div>
         </section>
         <hr>
@@ -84,7 +80,7 @@
           <div class="case-index muted">02 / The Interaction Model</div>
           <div class="case-body">
             <h2>The person gives the meaning. AI gives it a form.</h2>
-            <p>The AI never tells you what an object means to you. The experience runs in a loop: you give the object meaning, AI transforms it, and gives it back to you.</p>
+            <p>The AI <strong>never tells you what an object means to you</strong>. You give the object meaning; AI transforms it and gives it back.</p>
 
             <ol class="case-flow">
               <li><span class="case-flow__who">Object</span><span>You take something out of your bag.</span></li>
@@ -114,7 +110,7 @@
               </div>
             </div>
 
-            <p>To keep AI from taking over the act of meaning-making, I set four rules for the system. It does not:</p>
+            <p>To keep AI from taking over meaning-making, the system <strong>does not</strong>:</p>
             <dl class="case-list">
               <dt>01</dt><dd><p>judge objects</p></dd>
               <dt>02</dt><dd><p>optimize behavior</p></dd>
@@ -130,7 +126,7 @@
           <div class="case-index muted">03 / The Experience</div>
           <div class="case-body">
             <h2>Physical object → digital interaction → generative form → physical artifact.</h2>
-            <p>The experience is designed to be slow. Short pauses are built in to leave room for anticipation and reflection.</p>
+            <p>The experience is designed to be <strong>slow</strong>: short pauses leave room for anticipation and reflection.</p>
 
             <figure class="case-figure">
               <div class="placeholder"></div>
@@ -161,19 +157,45 @@
           <div class="case-index muted">04 / From Emotion to Form</div>
           <div class="case-body">
             <h2>Visualizing the relationship, not the object.</h2>
-            <p>Instead of visualizing the objects themselves, I wanted to visualize the invisible relationships around them. A flower can vary emotionally without ranking anything, so each object becomes a flower that expresses its relationship rather than its function.</p>
-            <p>The AI does not draw the flowers. Each flower is built procedurally in Three.js from two kinds of input: the emotional role the person chooses sets the kind of flower, and the visual qualities Gemini reads from the object set its color and fullness.</p>
+            <p>Instead of visualizing the objects, I wanted to visualize the <strong>invisible relationships around them</strong>. A flower can vary emotionally without ranking anything, so each object becomes a flower that expresses its relationship, not its function.</p>
+            <p><strong>The AI does not draw the flowers.</strong> Each one is built procedurally in Three.js: the <strong>emotional role</strong> the person chooses sets the kind of flower, and the <strong>visual qualities</strong> Gemini reads from the object set its color and fullness.</p>
 
-            <dl class="case-list">
-              <dt>Comfort</dt>
-              <dd><h3>Lotus-like flower</h3><p>Curved, layered petals with a gentle sway—for what makes us feel anchored or safe.</p><p class="muted">e.g. medicine, lip balm, hand cream, snacks</p></dd>
-              <dt>Productivity</dt>
-              <dd><h3>Tulip</h3><p>Upright petals with minimal movement—for what helps us stay focused and in control.</p><p class="muted">e.g. laptop, charger, notebook, headphones</p></dd>
-              <dt>Expression</dt>
-              <dd><h3>Wavy flower</h3><p>Recursive 3D branching that flows in many directions—for what shows identity, taste, or mood.</p><p class="muted">e.g. keychains, stickers, accessories</p></dd>
-              <dt>Inner Self</dt>
-              <dd><h3>Baby’s breath</h3><p>Delicate, L-system-inspired clusters that bob softly—for what we keep private or sacred.</p><p class="muted">e.g. handwritten notes, old receipts, photos, charms</p></dd>
-            </dl>
+            <table class="case-table case-table--labels">
+              <thead>
+                <tr>
+                  <th>Emotional role</th>
+                  <th>Flower</th>
+                  <th>Form &amp; motion</th>
+                  <th>e.g.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Comfort</td>
+                  <td><strong>Lotus-like</strong></td>
+                  <td>Curved, layered petals; gentle sway</td>
+                  <td class="muted">medicine, lip balm, hand cream, snacks</td>
+                </tr>
+                <tr>
+                  <td>Productivity</td>
+                  <td><strong>Tulip</strong></td>
+                  <td>Upright petals; minimal movement</td>
+                  <td class="muted">laptop, charger, notebook, headphones</td>
+                </tr>
+                <tr>
+                  <td>Expression</td>
+                  <td><strong>Wavy flower</strong></td>
+                  <td>Recursive 3D branching; flows in many directions</td>
+                  <td class="muted">keychains, stickers, accessories</td>
+                </tr>
+                <tr>
+                  <td>Inner Self</td>
+                  <td><strong>Baby’s breath</strong></td>
+                  <td>Delicate L-system clusters; soft bobbing</td>
+                  <td class="muted">handwritten notes, old receipts, photos, charms</td>
+                </tr>
+              </tbody>
+            </table>
 
             <dl class="case-list">
               <dt>Primary color</dt>
@@ -189,7 +211,7 @@
               <figcaption>The four flower types, and how color and density vary within each.</figcaption>
             </figure>
 
-            <p>Flowers gather into a bouquet inside a photo of the person’s own bag—different and unranked, the way objects coexist inside a bag. Bouquets from many participants can form a shared garden.</p>
+            <p>Flowers gather into a <strong>bouquet inside a photo of the person’s own bag</strong>—different and unranked, the way objects coexist in a bag. Bouquets from many people can form a shared garden.</p>
           </div>
         </section>
         <hr>
@@ -206,8 +228,8 @@
                 <figcaption>The printed receipt, in hand.</figcaption>
               </figure>
               <div class="case-receipt-text">
-                <p>The experience ends not with an AI response on a screen, but with a physical artifact the participant can take away.</p>
-                <p>The receipt lists every object and its emotional role, then each object’s reply—written by Gemini in the object’s own voice, in answer to the person’s message.</p>
+                <p>The experience ends not with an AI response on a screen, but with a <strong>physical artifact</strong> the participant takes away.</p>
+                <p>It lists every object and its emotional role, then each object’s reply—written by Gemini <strong>in the object’s own voice</strong>.</p>
                 <dl class="case-list case-list--stack">
                   <dt>You, to a water bottle</dt>
                   <dd><p>“You keep me going through long days.”</p></dd>
@@ -227,18 +249,24 @@
           <div class="case-index muted">06 / Reflection</div>
           <div class="case-body">
             <h2>Recognition is not understanding.</h2>
-            <p>Gemini could name a lip balm, a mouse, a pair of sunglasses. It could not know which of them were there for comfort, or for someone. That part had to come from the person.</p>
+            <p>Gemini could name a lip balm, a mouse, a pair of sunglasses. It couldn’t know which were there for comfort, or for someone. <strong>That part had to come from the person.</strong></p>
             <blockquote class="case-quote">The most meaningful role for AI was not to define the user’s relationship with an object, but to give that relationship a new form.</blockquote>
 
             <h3>Designing with AI, building with AI</h3>
-            <p>I also built the project with AI, through vibe coding. The same division of roles applied: I set the structure and judged the results; the AI generated and iterated. When design questions came up mid-build, I had the AI write a plan, validated it, and only then let it implement.</p>
-            <dl class="case-list">
-              <dt>My role</dt>
-              <dd><p>Define structure · Validate plans · Provide equations · Detect drift · Judge</p></dd>
-              <dt>AI’s role</dt>
-              <dd><p>Execute logic · Generate code · Handle syntax · Iterate fast · Apply</p></dd>
-            </dl>
-            <p>Watching friends try it and respond emotionally convinced me that softness, structure, and technical authorship can coexist. That was an informal check, not a study.</p>
+            <p>I built the project with AI too, through vibe coding—with the <strong>same division of roles</strong>. When design questions came up mid-build, the AI wrote a plan, I validated it, and only then did it implement.</p>
+            <table class="case-table">
+              <thead>
+                <tr><th>My role</th><th>AI’s role</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Define structure</td><td>Execute logic</td></tr>
+                <tr><td>Validate plans</td><td>Generate code</td></tr>
+                <tr><td>Provide equations</td><td>Handle syntax</td></tr>
+                <tr><td>Detect drift</td><td>Iterate fast</td></tr>
+                <tr><td><strong>Judge</strong></td><td>Apply</td></tr>
+              </tbody>
+            </table>
+            <p>Watching friends respond emotionally convinced me that softness, structure, and technical authorship can coexist—an informal check, not a study.</p>
 
             <h3>Next</h3>
             <p>Expanding the emotional input beyond four roles, blooming the flowers in space with AR, building the collective garden, and following how people’s relationships with their objects change over time.</p>
@@ -253,6 +281,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=6"></script>
+  <script src="case.js?v=7"></script>
 </body>
 </html>
