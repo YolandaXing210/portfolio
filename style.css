@@ -298,8 +298,7 @@ p { margin: 0; }
 }
 
 /* Per-project accent color (used by h2, the table of contents and the hamburger) */
-.case--aako { --accent: #aa527c; }
-.case--echo { --accent: #bb432a; }   /* rgb(0.733, 0.263, 0.165) */
+.case--aako { --accent: #bb432a; }   /* rgb(0.733, 0.263, 0.165); both AAKO pages */
 .case--garden { --accent: #4f8a2b; }
 .case--journey { --accent: #a8532a; }
 
