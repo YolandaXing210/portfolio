@@ -233,7 +233,7 @@ p { margin: 0; }
   padding: 0;
   border: 0;
   background: none;
-  color: var(--link);
+  color: var(--accent, var(--link));
   cursor: pointer;
 }
 
@@ -273,6 +273,8 @@ p { margin: 0; }
 
 .case-toc li + li { margin-top: 0.4em; }
 
+.case-toc a { color: var(--accent, var(--link)); }
+
 .case-toc a[aria-current] { color: var(--text); }
 
 .case-hero { scroll-margin-top: var(--bar-h, 3rem); }
@@ -295,8 +297,9 @@ p { margin: 0; }
   color: var(--accent, var(--muted));
 }
 
-/* Per-project accent color (used by h2) */
+/* Per-project accent color (used by h2, the table of contents and the hamburger) */
 .case--aako { --accent: #aa527c; }
+.case--echo { --accent: #bb432a; }   /* rgb(0.733, 0.263, 0.165) */
 .case--garden { --accent: #4f8a2b; }
 .case--journey { --accent: #a8532a; }
 
