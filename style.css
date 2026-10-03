@@ -669,7 +669,18 @@ p { margin: 0; }
   align-items: center;
 }
 .case .case-steprow .case-steps { margin-top: 0.8em; }
-.case-steprow__face { font-size: 2rem; line-height: 1; }
+.case-face {
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  fill: none;
+  stroke: var(--accent, var(--text));
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+.case-face--muted { stroke: var(--muted); }
+.case-face .case-face__dot { fill: currentColor; stroke: none; }
+.case-face--muted .case-face__dot { fill: var(--muted); }
 .case .case-steps--muted li { border-top-color: var(--muted); }
 .case-steps-label--accent { color: var(--accent, var(--text)); }
 
