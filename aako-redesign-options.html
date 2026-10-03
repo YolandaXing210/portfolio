@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AAKO: Redesign — Yolanda Xing</title>
+  <title>AAKO: Redesign (options) — Yolanda Xing</title>
+  <meta name="robots" content="noindex">
   <meta name="description" content="AAKO Chapter II: reframing a spatial social app into a spatial memory system, and redesigning its mobile experience.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
 
     <header class="case-bar">
       <div class="row">
-        <span class="case-bar__title"><button class="toc-toggle" type="button" aria-label="Contents" aria-expanded="false" aria-controls="toc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>001—AAKO / REDESIGN</span>
+        <span class="case-bar__title"><button class="toc-toggle" type="button" aria-label="Contents" aria-expanded="false" aria-controls="toc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>001—AAKO / REDESIGN · OPTIONS</span>
         <a href="index.html">← CLOSE</a>
       </div>
       <hr>
@@ -25,6 +26,8 @@
     <div class="case-layout">
       <nav class="case-toc" id="toc" aria-label="Contents"></nav>
       <div class="case-content">
+
+        <p class="case-review-note">Review page: each chart has Option A and Option B. Tell me which you prefer for each, and I’ll apply it to the real page.</p>
 
         <!-- ===== Hero ===== -->
         <div class="case-hero" id="intro">
@@ -66,6 +69,8 @@
             <h2>A compelling spatial idea did not become a reason to return.</h2>
             <p>Usage was weaker than expected: people were <strong>reluctant to engage</strong>, and many <strong>left during onboarding</strong>.</p>
 
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
             <div class="case-cards">
               <div class="case-card">
                 <p class="muted">What we assumed</p>
@@ -87,6 +92,23 @@
                   <dd>It asked for <strong>too much before anything felt personal</strong>, and some devices weren’t supported. Analytics showed people leaving there.</dd>
                 </dl>
               </div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+            <div class="case-flowhead"><span class="muted">What we assumed</span><span>→</span><span class="muted">What happened</span></div>
+            <p class="muted case-steps-label">Sharing</p>
+            <div class="case-flowrow">
+              <div class="case-card">Our team was comfortable sharing everyday life, so we expected people to place memories in the world and let others respond.</div>
+              <span class="case-flowrow__arrow">→</span>
+              <div class="case-card case-card--accent">In a spatial product a comment carries <strong>presence</strong>: someone finding your memory at a real place can feel <strong>intrusive</strong>, not welcoming.</div>
+            </div>
+            <p class="muted case-steps-label">Onboarding</p>
+            <div class="case-flowrow">
+              <div class="case-card">A strong, step-by-step AR introduction would teach the product.</div>
+              <span class="case-flowrow__arrow">→</span>
+              <div class="case-card case-card--accent">It asked for <strong>too much before anything felt personal</strong>, and some devices weren’t supported. Analytics showed people leaving there.</div>
+            </div>
             </div>
 
             <p class="muted">Evidence here is qualitative: launch observations and the team’s read of analytics, without specific conversion or retention rates.</p>
@@ -113,12 +135,24 @@
             <h2>Working backwards from what didn’t work.</h2>
             <p>The research in this chapter was <strong>post-hoc</strong>: rather than running new studies, I worked backwards from launch data and observed behavior to find where the experience broke down.</p>
 
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
             <ol class="case-steps">
               <li><b>Launch data</b><span>Where people hesitated, left, or never came back</span></li>
               <li><b>The unit</b><span>A single Echo had to carry a whole memory alone</span></li>
               <li><b>How memories live</b><span>In a trip, a season, a place, a stretch of time</span></li>
               <li><b>The album</b><span>The unit people create, share, and return to</span></li>
             </ol>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+            <ol class="case-vflow">
+              <li><b>Launch data</b><span>Where people hesitated, left, or never came back</span></li>
+              <li><b>The unit</b><span>A single Echo had to carry a whole memory alone</span></li>
+              <li><b>How memories live</b><span>In a trip, a season, a place, a stretch of time</span></li>
+              <li><b>The album</b><span>The unit people create, share, and return to</span></li>
+            </ol>
+            </div>
 
             <p>Instead of distributing isolated posts, AAKO would <strong>package moments into albums</strong>.</p>
           </div>
@@ -131,6 +165,8 @@
           <div class="case-body">
             <h2>Letting AI find the event a memory belongs to.</h2>
             <p>An album only works if it matches how people think about their lives—but sorting hundreds of photos by hand would bring back the burden the redesign was removing. So <strong>AI sorts memories into complete events</strong>, starting from whichever signal fits best:</p>
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
             <svg class="case-diagram" viewBox="0 0 640 230" role="img" aria-label="Scattered photos from a camera roll are grouped by AI into events: A trip to Japan by place, Summer 2024 by time, and a holiday.">
               <text class="d-muted" x="0" y="14">Camera roll</text>
               <g class="d-line">
@@ -171,6 +207,28 @@
               <dt>Time and activity</dt>
               <dd><p>What you were doing during a particular stretch of time.</p></dd>
             </dl>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+            <p class="muted">Camera roll, in date order → <span style="color:var(--accent)">AI</span> groups by place · holiday · time + activity →</p>
+            <div class="case-cards" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 1.2em">
+              <div class="case-card case-card--accent">
+                <p class="muted">by place</p>
+                <h3>A trip to Japan</h3>
+                <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span></p>
+              </div>
+              <div class="case-card case-card--accent">
+                <p class="muted">by time</p>
+                <h3>Summer 2024</h3>
+                <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span></p>
+              </div>
+              <div class="case-card case-card--accent">
+                <p class="muted">by occasion</p>
+                <h3>A holiday</h3>
+                <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span></p>
+              </div>
+            </div>
+            </div>
             <p>Events read the way people talk—<strong>“A trip to Japan,” “Summer 2024”</strong>—not the way a camera roll stores them. AI does the sorting; the person decides what the event means and who it’s shared with.</p>
             <figure class="case-figure">
               <div class="placeholder"></div>
@@ -187,54 +245,53 @@
             <h2>From spatial social app to spatial memory system.</h2>
             <p>Echo stayed the smallest unit. What changed was everything around it.</p>
 
-            <table class="case-table case-table--labels">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th><span class="muted">Before</span><br>Spatial social app</th>
-                  <th><span class="muted">After</span><br>Spatial memory system</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="muted">Question</td>
-                  <td>How do people share an Echo?</td>
-                  <td>How do people <strong>keep, connect, and return to</strong> meaningful moments?</td>
-                </tr>
-                <tr>
-                  <td class="muted">Behavior</td>
-                  <td>Posting, sharing, discovery</td>
-                  <td>Capture, context, <strong>revisiting, recollection</strong></td>
-                </tr>
-                <tr>
-                  <td class="muted">Unit</td>
-                  <td>A single Echo</td>
-                  <td><strong>An album</strong> of Echoes</td>
-                </tr>
-                <tr>
-                  <td class="muted">Audience</td>
-                  <td>Four visibility layers</td>
-                  <td>You and your <strong>closest friends</strong></td>
-                </tr>
-                <tr>
-                  <td class="muted">First experience</td>
-                  <td>A guided AR introduction</td>
-                  <td>Start with <strong>your own memory</strong></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
+            <div class="case-fromto">
+              <div><span class="muted">Question</span><s>How do people share an Echo?</s><i>→</i><span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</span></div>
+              <div><span class="muted">Behavior</span><s>Posting, sharing, discovery</s><i>→</i><span>Capture, context, <strong>revisiting, recollection</strong></span></div>
+              <div><span class="muted">Unit</span><s>A single Echo</s><i>→</i><span><strong>An album</strong> of Echoes</span></div>
+              <div><span class="muted">Audience</span><s>Four visibility layers</s><i>→</i><span>You and your <strong>closest friends</strong></span></div>
+              <div><span class="muted">First experience</span><s>A guided AR introduction</s><i>→</i><span>Start with <strong>your own memory</strong></span></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+            <div class="case-pair">
+              <div><span class="muted">Before</span><br>Spatial social app</div>
+              <div><span class="muted" style="color:var(--accent)">After</span><br>Spatial memory system</div>
+              <div><span class="muted">Question</span>How do people share an Echo?</div>
+              <div><span class="muted">Question</span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</div>
+              <div><span class="muted">Behavior</span>Posting, sharing, discovery</div>
+              <div><span class="muted">Behavior</span>Capture, context, <strong>revisiting, recollection</strong></div>
+              <div><span class="muted">Unit</span>A single Echo</div>
+              <div><span class="muted">Unit</span><strong>An album</strong> of Echoes</div>
+              <div><span class="muted">Audience</span>Four visibility layers</div>
+              <div><span class="muted">Audience</span>You and your <strong>closest friends</strong></div>
+              <div><span class="muted">First experience</span>A guided AR introduction</div>
+              <div><span class="muted">First experience</span>Start with <strong>your own memory</strong></div>
+            </div>
+            </div>
 
             <p class="muted">Four principles carried the reframe:</p>
-            <dl class="case-list case-list--findings">
-              <dt>01 / Intimacy before exposure</dt>
-              <dd><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></dd>
-              <dt>02 / Connections before isolated posts</dt>
-              <dd><p>Albums connect moments through place, time, people, and shared experience.</p></dd>
-              <dt>03 / Personal meaning before instruction</dt>
-              <dd><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></dd>
-              <dt>04 / Context before precision</dt>
-              <dd><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></dd>
-            </dl>
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
+            <div class="case-cards case-cards--2x2">
+              <div class="case-card"><span class="case-card__n">01</span><h3>Intimacy before exposure</h3><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div class="case-card"><span class="case-card__n">02</span><h3>Connections before isolated posts</h3><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div class="case-card"><span class="case-card__n">03</span><h3>Personal meaning before instruction</h3><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div class="case-card"><span class="case-card__n">04</span><h3>Context before precision</h3><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+            <div class="case-cards case-cards--row">
+              <div class="case-card"><span class="case-card__n">01</span><h3>Intimacy before exposure</h3><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div class="case-card"><span class="case-card__n">02</span><h3>Connections before isolated posts</h3><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div class="case-card"><span class="case-card__n">03</span><h3>Personal meaning before instruction</h3><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div class="case-card"><span class="case-card__n">04</span><h3>Context before precision</h3><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
+            </div>
           </div>
         </section>
         <hr>
@@ -250,11 +307,27 @@
               <p class="muted">Decision 01 / Audience</p>
               <h3>Four layers became one trusted context.</h3>
               <p>The original experience had <strong>four visibility layers</strong>. I reduced them to <strong>one</strong>, simplifying home and navigation, so saving a memory stopped being an audience-management task.</p>
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
               <ol class="case-steps" style="--steps: 3">
                 <li><b>Four visibility layers</b><span>An audience choice for every memory</span></li>
                 <li><b>Fewer decisions</b><span>Less to think about before saving</span></li>
                 <li><b>One trusted context</b><span>You and your closest friends</span></li>
               </ol>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+              <svg class="case-illo case-illo--wide" viewBox="0 0 560 160" role="img" aria-label="Four nested visibility layers become one trusted circle of you and your closest friends.">
+                <text class="d-muted" x="0" y="14">Before: four visibility layers</text>
+                <circle class="d-line" cx="80" cy="90" r="64"/><circle class="d-line" cx="80" cy="90" r="48"/><circle class="d-line" cx="80" cy="90" r="32"/><circle class="d-line" cx="80" cy="90" r="16"/>
+                <text class="d-muted" x="0" y="158">a choice for every memory</text>
+                <text class="d-muted" x="250" y="94">→</text>
+                <text class="d-muted" x="330" y="14">After: one trusted context</text>
+                <circle class="d-accent" cx="410" cy="90" r="48"/>
+                <text x="410" y="86" text-anchor="middle">you +</text><text x="410" y="103" text-anchor="middle">close friends</text>
+                <text class="d-muted" x="330" y="158">nothing to decide</text>
+              </svg>
+            </div>
               <figure class="case-figure">
                 <div class="placeholder"></div>
                 <figcaption>Visibility simplification and related interface explorations.</figcaption>
@@ -289,6 +362,8 @@
               <p class="muted">Decision 03 / First experience</p>
               <h3>Start with a memory, then invite interaction.</h3>
               <p>Onboarding used to demand a guided AR sequence before the product meant anything. Now it starts with <strong>creating an album from your own content</strong>, and Echo creation is shorter: capture and context in fewer steps.</p>
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
               <p class="muted case-steps-label">Before</p>
               <ol class="case-steps" style="--steps: 2">
                 <li><b>Guided AR introduction</b><span>Step by step, before anything personal</span></li>
@@ -300,6 +375,27 @@
                 <li><b>Shorter Echo creation</b><span>Capture and context in fewer steps</span></li>
                 <li><b>Spatial interaction</b><span>Once there’s a memory worth it</span></li>
               </ol>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+              <div class="case-cards">
+                <div class="case-card">
+                  <p class="muted">Before</p>
+                  <ol>
+                    <li>Guided AR introduction, step by step</li>
+                    <li>Then, maybe, a memory—many left before reaching it</li>
+                  </ol>
+                </div>
+                <div class="case-card case-card--accent">
+                  <p class="muted">After</p>
+                  <ol>
+                    <li><strong>Your own content</strong>: create an album from moments you care about</li>
+                    <li>Shorter Echo creation: capture and context in fewer steps</li>
+                    <li>Spatial interaction, once there’s a memory worth it</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
               <figure class="case-figure">
                 <div class="placeholder"></div>
                 <figcaption>Simplified Echo creation, album-focused onboarding, and UI refinements.</figcaption>
@@ -326,10 +422,21 @@
               </div>
             </div>
 
+            <div class="case-option">
+              <p class="case-option__tag">Option A</p>
             <div class="case-stats" style="--stats: 3">
               <div><b>4 → 1</b>visibility layers</div>
               <div><b>Album</b>the new unit, assembled by AI</div>
               <div><b>Yours first</b>onboarding starts with your own content</div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Option B</p>
+            <div class="case-cards" style="grid-template-columns: repeat(3, minmax(0, 1fr))">
+              <div class="case-card case-card--accent"><div class="case-stats" style="--stats:1;margin:0"><div style="border:0;padding:0"><b>4 → 1</b>visibility layers</div></div></div>
+              <div class="case-card case-card--accent"><div class="case-stats" style="--stats:1;margin:0"><div style="border:0;padding:0"><b>Album</b>the new unit, assembled by AI</div></div></div>
+              <div class="case-card case-card--accent"><div class="case-stats" style="--stats:1;margin:0"><div style="border:0;padding:0"><b>Yours first</b>onboarding starts with your own content</div></div></div>
+            </div>
             </div>
 
             <blockquote class="case-quote">My biggest learning: a novel interaction is only valuable when it supports a human reason to use it.</blockquote>
