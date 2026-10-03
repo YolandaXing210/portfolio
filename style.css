@@ -206,6 +206,75 @@ p { margin: 0; }
 /* ---------- Case study (e.g. aako.html) ---------- */
 /* Same single type size as the rest of the site; hierarchy comes from rules, columns and muted labels. */
 
+/* Sticky top bar. Pulled up over .detail's top padding so nothing shows above it. */
+.case-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-top: -1rem;
+  padding-top: 1rem;
+  background: var(--bg);
+}
+
+.case-bar hr { margin-bottom: 0; }
+
+.case-bar__title {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+/* Hamburger: mobile only */
+.toc-toggle {
+  display: none;
+  align-self: center;
+  margin: 0 0.6em 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  cursor: pointer;
+}
+
+.toc-toggle svg {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+/* TOC column + content column */
+.case-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  column-gap: 1rem;
+  padding-top: 0.8rem;
+}
+
+.case-toc {
+  position: sticky;
+  top: calc(var(--bar-h, 3rem) + 0.8rem);
+  align-self: start;
+  max-height: calc(100vh - var(--bar-h, 3rem) - 1.6rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.case-toc::-webkit-scrollbar { display: none; }
+
+.case .case-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.case-toc li + li { margin-top: 0.4em; }
+
+.case-toc a[aria-current] { color: var(--text); }
+
+.case-hero { scroll-margin-top: var(--bar-h, 3rem); }
+
 .case h1,
 .case h2,
 .case h3 {
@@ -245,11 +314,11 @@ p { margin: 0; }
 }
 
 .case-section {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  column-gap: 1rem;
   padding-bottom: 3.6em;
+  scroll-margin-top: calc(var(--bar-h, 3rem) + 1.2em);
 }
+
+.case-index { padding-bottom: 1.2em; }
 
 .case-body > * + * { margin-top: 1.2em; }
 
@@ -371,9 +440,26 @@ p { margin: 0; }
 
   .case-hero { padding-top: 2.4em; }
   .case-meta,
-  .case-section,
   .case-cols { grid-template-columns: minmax(0, 1fr); row-gap: 1.2em; }
-  .case-index { padding-bottom: 1.2em; }
+
+  /* TOC becomes a dropdown under the sticky bar, opened by the hamburger */
+  .toc-toggle { display: block; }
+  .case-layout { display: block; padding-top: 0; }
+  .case-toc {
+    display: none;
+    position: fixed;
+    top: var(--bar-h, 3rem);
+    left: 0;
+    right: 0;
+    z-index: 9;
+    max-height: calc(100dvh - var(--bar-h, 3rem));
+    padding: 0.8rem 1rem 1.2rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+  .toc-open .case-toc { display: block; }
+  .case-toc li + li { margin-top: 0; }
+  .case-toc a { display: block; padding: 0.5em 0; }
   .case-list { grid-template-columns: minmax(0, 1fr); }
   .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-list dd { border-top: 0; padding-top: 0; }
