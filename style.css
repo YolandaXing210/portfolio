@@ -277,6 +277,13 @@ p { margin: 0; }
 .case-toc a,
 .case-content a { color: var(--accent, var(--link)); }
 
+/* Links in the project text are underlined; the table of contents is not */
+.case-content a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
 .case-toc a[aria-current] { color: var(--text); }
 
 .case-hero { scroll-margin-top: var(--bar-h, 3rem); }
