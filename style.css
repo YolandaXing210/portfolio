@@ -12,6 +12,7 @@
   --main-width: 70%;
   --h1-size: 3.5rem;
   --h2-size: 2rem;
+  --caption-size: 0.8rem;
 }
 
 * { box-sizing: border-box; }
@@ -297,6 +298,16 @@ p { margin: 0; }
   color: var(--accent, var(--muted));
 }
 
+/* Type levels below h2:
+   h3 = body size, weight 500 · body = --text · strong = weight 500, full black
+   secondary = .muted · caption = --caption-size, muted */
+.case h3 { font-weight: 500; }
+
+.case strong {
+  font-weight: 500;
+  color: #000;
+}
+
 /* Per-project accent color (used by h2, the table of contents and the hamburger) */
 .case--aako { --accent: #bb432a; }   /* rgb(0.733, 0.263, 0.165); both AAKO pages */
 .case--garden { --accent: #4f8a2b; }
@@ -380,6 +391,7 @@ p { margin: 0; }
 
 .case-figure figcaption {
   margin-top: 0.6em;
+  font-size: var(--caption-size);
   color: var(--muted);
 }
 
@@ -437,7 +449,6 @@ p { margin: 0; }
 
 .case-flow__who { text-transform: uppercase; }
 
-.case-flow strong { font-weight: inherit; }
 
 /* Thumbnail strip under a main image */
 .case-grid {
@@ -491,6 +502,54 @@ p { margin: 0; }
 
 .case-receipt-text { padding-top: 1.2em; }
 
+/* Step diagram: numbered stages in a row, accent rule on top of each */
+.case .case-steps {
+  display: grid;
+  grid-template-columns: repeat(var(--steps, 4), minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.4em 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.case-steps li {
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--accent, var(--text));
+  counter-increment: step;
+}
+
+.case-steps li::before {
+  content: counter(step, decimal-leading-zero) " →";
+  display: block;
+  margin-bottom: 0.4em;
+  color: var(--muted);
+}
+
+.case-steps li:last-child::before { content: counter(step, decimal-leading-zero); }
+
+.case-steps span { display: block; margin-top: 0.4em; color: var(--muted); }
+
+/* Labelled SVG diagram; text matches body size at its 640px max width */
+.case-diagram {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin-top: 2.4em;
+  overflow: visible;
+}
+
+.case-diagram text { font-family: var(--font); font-size: 12.96px; fill: var(--text); }
+.case-diagram .d-muted { fill: var(--muted); }
+.case-diagram .d-line { stroke: var(--muted); stroke-width: 1; fill: none; }
+.case-diagram .d-accent { stroke: var(--accent, var(--text)); stroke-width: 1.5; fill: none; }
+.case-diagram .d-fill { fill: rgba(0, 0, 0, 0.06); }
+.case-diagram .d-dash { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 3 4; }
+
+/* Shown only where the diagram is too small to read (mobile) */
+.case-diagram-fallback { display: none; }
+
 /* Comparison table: rows line up across columns, each row ruled on top */
 .case-table {
   width: 100%;
@@ -514,6 +573,12 @@ p { margin: 0; }
 .case-table tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
 
 .case-table td p { margin-top: 0.4em; }
+
+/* First column holds row labels: keep it narrow */
+.case-table--labels tr > :first-child { width: 22%; }
+
+.case-table td:first-child strong,
+.case-table th strong { font-weight: 500; }
 
 .case-decision {
   padding-top: 2.4em;
@@ -568,6 +633,9 @@ p { margin: 0; }
   .case-toc a { display: block; padding: 0.5em 0; }
   .case-list { grid-template-columns: minmax(0, 1fr); }
   .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case .case-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-diagram { display: none; }
+  .case-diagram-fallback { display: grid; }
   .case-meta--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-cols--3.case-cols--flush { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 0.6rem; }
   .case-flow li { grid-template-columns: 2.4em minmax(0, 1fr); }
