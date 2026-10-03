@@ -788,13 +788,15 @@ p { margin: 0; }
 /* Before / Now pair of diagrams side by side */
 .case-ba {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 380px));
+  grid-template-columns: minmax(0, 360px) minmax(0, 430px);
   justify-content: center;
-  gap: 2rem;
+  align-items: end;
+  gap: 10px;
 }
-.case-ba .case-illo { max-width: 380px; margin: 0; }
+.case-ba .case-illo { max-width: none; margin: 0; }
 .case-illo .d-solid { fill: var(--text); }
 .case-illo .d-pill { fill: #fff; stroke: var(--muted); stroke-width: 1.5; }
+.case-illo .d-pill-accent { fill: #fff; stroke: var(--accent, var(--text)); stroke-width: 2; }
 .case-illo .d-accent-text { fill: var(--accent, var(--text)); }
 .case-illo .d-dash-accent { fill: none; stroke: var(--accent, var(--text)); stroke-width: 1.2; stroke-dasharray: 4 4; }
 
@@ -901,7 +903,7 @@ p { margin: 0; }
   .case-fromto > div > :first-child { grid-column: 1 / -1; }
   .case-pair { column-gap: 0.6rem; }
   .case-events { grid-template-columns: minmax(0, 270px); }
-  .case-ba { grid-template-columns: minmax(0, 380px); }
+  .case-ba { grid-template-columns: minmax(0, 430px); gap: 2rem; }
   .case-diagram { display: none; }
   .case-diagram-fallback { display: grid; }
   .case-meta--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
