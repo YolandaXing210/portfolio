@@ -300,17 +300,13 @@ p { margin: 0; }
 }
 
 /* Type levels below h2:
-   h3 = body size, weight 500 · body = --text · strong = weight 500, full black
+   h3 = body size, weight 500 · body = --text · strong = weight 500, accent color
    secondary = .muted · caption = --caption-size, muted */
 .case h3 { font-weight: 500; }
 
 .case strong {
-  padding: 0 0.2em;
   font-weight: 500;
-  color: #fff;
-  background: var(--accent, var(--text));
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  color: var(--accent, var(--text));
 }
 
 /* All rules on project pages: one opaque light grey, so lines can't stack or render darker */
@@ -338,11 +334,14 @@ p { margin: 0; }
 
 /* Big title, sampled from Cargo's h1: 3.5rem, line-height 0.9, regular weight, sentence case */
 .case .case-hero h1 {
+  display: inline-block;
   margin: 1.2rem 0 1.6rem;
+  padding: 0.1em 0.2em 0.2em;
   font-size: var(--h1-size);
   line-height: 0.9;
   letter-spacing: 0;
-  color: var(--text);
+  color: #fff;
+  background: var(--accent, var(--text));
 }
 
 /* Secondary title, directly under the h1 */
