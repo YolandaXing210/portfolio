@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=30">
+  <link rel="stylesheet" href="style.css?v=31">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -383,31 +383,49 @@
               <p class="muted">Change 02 / First experience</p>
               <h3>Start with a memory, then invite interaction.</h3>
               <p>Onboarding used to demand a guided AR sequence before the product meant anything. Now it starts with <strong>creating an album from your own content</strong>, and Echo creation is shorter: capture and context in fewer steps.</p>
-              <p class="muted case-steps-label">Before</p>
-              <div class="case-steprow">
-                <ol class="case-steps case-steps--muted" style="--steps: 2">
-                  <li><b>Guided AR introduction</b><span>Step by step, before anything personal</span></li>
-                  <li><b>Then, maybe, a memory</b><span>Many left before reaching it</span></li>
-                </ol>
-                <svg class="case-face case-face--muted" viewBox="0 0 40 40" role="img" aria-label="Uneasy face">
-                  <circle cx="20" cy="20" r="18"/>
-                  <path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/>
-                  <circle class="case-face__dot" cx="14.5" cy="19" r="1.6"/><circle class="case-face__dot" cx="25.5" cy="19" r="1.6"/>
-                  <path d="M13 29 Q20 24 27 29"/>
-                </svg>
-              </div>
-              <p class="case-steps-label case-steps-label--accent">After</p>
-              <div class="case-steprow">
-                <ol class="case-steps" style="--steps: 3">
-                  <li><b>Your own content</b><span>Create an album from moments you care about</span></li>
-                  <li><b>Shorter Echo creation</b><span>Capture and context in fewer steps</span></li>
-                  <li><b>Spatial interaction</b><span>Once there’s a memory worth it</span></li>
-                </ol>
-                <svg class="case-face" viewBox="0 0 40 40" role="img" aria-label="Happy face">
-                  <circle cx="20" cy="20" r="18"/>
-                  <path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/>
-                  <path d="M12 24 Q20 32 28 24"/>
-                </svg>
+              <svg class="case-diagram fx-curve" viewBox="0 0 640 300" role="img" aria-label="Feeling over the first experience. Before: the line drops through a guided AR introduction to an uneasy face. After: the line rises through your own content, shorter Echo creation, and spatial interaction to a happy face.">
+                <text class="d-muted" x="0" y="14">feeling ↑</text>
+                <line class="d-line" x1="0" y1="270" x2="560" y2="270"/>
+                <text class="d-muted" x="560" y="290" text-anchor="end">first minutes →</text>
+                <!-- before: falls -->
+                <path class="fx-curve__before" d="M20 150 C 140 160, 220 200, 330 236"/>
+                <circle class="fx-dot-muted" cx="120" cy="164" r="5"/><text class="d-muted" x="120" y="198" text-anchor="middle">Guided AR intro</text>
+                <circle class="fx-dot-muted" cx="300" cy="226" r="5"/><text class="d-muted" x="292" y="248" text-anchor="end">Then, maybe, a memory</text>
+                <!-- after: rises -->
+                <path class="d-accent" d="M20 150 C 140 140, 300 90, 520 46"/>
+                <circle class="d-accent-fill" cx="140" cy="138" r="5"/><text class="d-accent-text" x="132" y="126" text-anchor="end">Your own content</text>
+                <circle class="d-accent-fill" cx="320" cy="96" r="5"/><text class="d-accent-text" x="312" y="84" text-anchor="end">Shorter Echo creation</text>
+                <circle class="d-accent-fill" cx="490" cy="52" r="5"/><text class="d-accent-text" x="482" y="40" text-anchor="end">Spatial interaction</text>
+                <g transform="translate(338,216) scale(1)" class="fx-face-muted"><circle cx="20" cy="20" r="18"/><path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/><circle class="fx-eye" cx="14.5" cy="19" r="1.6"/><circle class="fx-eye" cx="25.5" cy="19" r="1.6"/><path d="M13 29 Q20 24 27 29"/></g>
+                <g transform="translate(560,26)" class="fx-face"><circle cx="20" cy="20" r="18"/><path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/><path d="M12 24 Q20 32 28 24"/></g>
+              </svg>
+              <div class="case-diagram-fallback fx-fallback">
+                <p class="muted case-steps-label">Before</p>
+                <div class="case-steprow">
+                  <ol class="case-steps case-steps--muted" style="--steps: 2">
+                    <li><b>Guided AR introduction</b><span>Step by step, before anything personal</span></li>
+                    <li><b>Then, maybe, a memory</b><span>Many left before reaching it</span></li>
+                  </ol>
+                  <svg class="case-face case-face--muted" viewBox="0 0 40 40" role="img" aria-label="Uneasy face">
+                    <circle cx="20" cy="20" r="18"/>
+                    <path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/>
+                    <circle class="case-face__dot" cx="14.5" cy="19" r="1.6"/><circle class="case-face__dot" cx="25.5" cy="19" r="1.6"/>
+                    <path d="M13 29 Q20 24 27 29"/>
+                  </svg>
+                </div>
+                <p class="case-steps-label case-steps-label--accent">After</p>
+                <div class="case-steprow">
+                  <ol class="case-steps" style="--steps: 3">
+                    <li><b>Your own content</b><span>Create an album from moments you care about</span></li>
+                    <li><b>Shorter Echo creation</b><span>Capture and context in fewer steps</span></li>
+                    <li><b>Spatial interaction</b><span>Once there’s a memory worth it</span></li>
+                  </ol>
+                  <svg class="case-face" viewBox="0 0 40 40" role="img" aria-label="Happy face">
+                    <circle cx="20" cy="20" r="18"/>
+                    <path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/>
+                    <path d="M12 24 Q20 32 28 24"/>
+                  </svg>
+                </div>
               </div>
               <figure class="case-figure">
                 <div class="placeholder"></div>
@@ -454,6 +472,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=30"></script>
+  <script src="case.js?v=31"></script>
 </body>
 </html>

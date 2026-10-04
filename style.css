@@ -753,7 +753,9 @@ p { margin: 0; }
 
 .case .st-pr5 b { color: var(--accent); }
 
-/* ---- First experience style options (review page) ---- */
+/* ---- First experience: feeling curve (desktop) with step rows as the phone fallback ---- */
+.fx-curve { margin-top: 1.6em; }
+.case-diagram-fallback.fx-fallback { grid-template-columns: minmax(0, 1fr); }
 .fx-card__head { display: flex; justify-content: space-between; align-items: center; }
 .fx-card__head .case-face { width: 2.4rem; height: 2.4rem; }
 .case .fx-card ol { margin-top: 0.8em; }
