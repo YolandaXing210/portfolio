@@ -840,7 +840,10 @@ p { margin: 0; }
 .case-annot--row .d-muted { fill: var(--muted); }
 .case-annot--row .d-accent-text { fill: var(--accent, var(--text)); }
 
-/* ---- Echo creation style options (review page) ---- */
+/* ---- Echo creation: connector diagram (desktop), tag rows as the phone fallback ---- */
+.cr-svg { margin-top: 1.6em; }
+.case-diagram-fallback.cr-fallback { grid-template-columns: minmax(0, 1fr); }
+/* (older review-page styles below) */
 .cr-accent { color: var(--accent, var(--text)); }
 .cr-table { width: 100%; margin-top: 1.2em; border-collapse: collapse; }
 .cr-table th { text-align: left; font-weight: 400; padding-bottom: 0.6rem; }
