@@ -842,6 +842,9 @@ p { margin: 0; }
 
 /* ---- Echo creation: connector diagram (desktop), tag rows as the phone fallback ---- */
 .cr-svg { margin-top: 1.6em; }
+.cr-row .cr-svg { margin: 0; }
+.cr-row .case-phone img { height: auto; width: 100%; border-radius: 16px; }
+.cr-row .case-phone { width: auto; }
 .case-diagram-fallback.cr-fallback { grid-template-columns: minmax(0, 1fr); }
 /* (older review-page styles below) */
 .cr-accent { color: var(--accent, var(--text)); }

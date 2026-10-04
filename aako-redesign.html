@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="style.css?v=39">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -479,10 +479,16 @@
               <p class="muted">Change 03 / Echo creation</p>
               <h3>Seven steps became four.</h3>
               <p>Creating an Echo was cut down to <strong>three screens and a post</strong>: the details that used to take three separate steps now sit on one screen, with the emoji suggested automatically.</p>
-              <svg class="case-diagram cr-svg" viewBox="0 0 640 284" role="img" aria-label="Seven creation steps connect into four.">
-                <text class="d-muted" x="0" y="18">Before · 7 steps</text><text class="d-accent-text" x="410" y="18">After · 4 steps</text>
-                <path class="d-accent" d="M254 53 C 330 53, 320 53, 408 53"/><path class="d-accent" d="M254 87 C 330 87, 320 87, 408 87"/><path class="d-accent" d="M254 121 C 330 121, 320 155, 408 155"/><path class="d-accent" d="M254 155 C 330 155, 320 155, 408 155"/><path class="d-accent" d="M254 189 C 330 189, 320 155, 408 155"/><path class="d-accent" d="M254 223 C 330 223, 320 240, 408 240"/><path class="d-accent" d="M254 257 C 330 257, 320 240, 408 240"/><rect class="d-pill" x="0" y="40" width="252" height="26" rx="4"/><text x="10" y="58">Camera</text><rect class="d-pill" x="0" y="74" width="252" height="26" rx="4"/><text x="10" y="92">Confirm or retake</text><rect class="d-pill" x="0" y="108" width="252" height="26" rx="4"/><text x="10" y="126">Add audio</text><rect class="d-pill" x="0" y="142" width="252" height="26" rx="4"/><text x="10" y="160">Choose emoji</text><rect class="d-pill" x="0" y="176" width="252" height="26" rx="4"/><text x="10" y="194">Location, caption, visibility</text><rect class="d-pill" x="0" y="210" width="252" height="26" rx="4"/><text x="10" y="228">Scan and pin</text><rect class="d-pill" x="0" y="244" width="252" height="26" rx="4"/><text x="10" y="262">Post</text><rect class="d-pill-accent" x="410" y="40" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="58">Camera</text><rect class="d-pill-accent" x="410" y="74" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="92">Confirm or retake</text><rect class="d-pill-accent" x="410" y="142" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="160">Details, one screen</text><rect class="d-pill-accent" x="410" y="227" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="245">Scan + pin + post</text>
-              </svg>
+              <div class="fx-row cr-row">
+                <svg class="case-diagram cr-svg" viewBox="0 0 640 284" role="img" aria-label="Seven creation steps connect into four.">
+                  <text class="d-muted" x="0" y="18">Before · 7 steps</text><text class="d-accent-text" x="410" y="18">After · 4 steps</text>
+                  <path class="d-accent" d="M254 53 C 330 53, 320 53, 408 53"/><path class="d-accent" d="M254 87 C 330 87, 320 87, 408 87"/><path class="d-accent" d="M254 121 C 330 121, 320 155, 408 155"/><path class="d-accent" d="M254 155 C 330 155, 320 155, 408 155"/><path class="d-accent" d="M254 189 C 330 189, 320 155, 408 155"/><path class="d-accent" d="M254 223 C 330 223, 320 240, 408 240"/><path class="d-accent" d="M254 257 C 330 257, 320 240, 408 240"/><rect class="d-pill" x="0" y="40" width="252" height="26" rx="4"/><text x="10" y="58">Camera</text><rect class="d-pill" x="0" y="74" width="252" height="26" rx="4"/><text x="10" y="92">Confirm or retake</text><rect class="d-pill" x="0" y="108" width="252" height="26" rx="4"/><text x="10" y="126">Add audio</text><rect class="d-pill" x="0" y="142" width="252" height="26" rx="4"/><text x="10" y="160">Choose emoji</text><rect class="d-pill" x="0" y="176" width="252" height="26" rx="4"/><text x="10" y="194">Location, caption, visibility</text><rect class="d-pill" x="0" y="210" width="252" height="26" rx="4"/><text x="10" y="228">Scan and pin</text><rect class="d-pill" x="0" y="244" width="252" height="26" rx="4"/><text x="10" y="262">Post</text><rect class="d-pill-accent" x="410" y="40" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="58">Camera</text><rect class="d-pill-accent" x="410" y="74" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="92">Confirm or retake</text><rect class="d-pill-accent" x="410" y="142" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="160">Details, one screen</text><rect class="d-pill-accent" x="410" y="227" width="230" height="26" rx="4"/><text class="d-accent-text" x="420" y="245">Scan + pin + post</text>
+                </svg>
+                <figure class="fx-row__img case-phone">
+                  <img src="images/aako-creation-details.jpg" alt="The details screen: an Echo with its emoji, location caption, a note, an audio track, and location, audio, and visibility controls above Pin Bubble." loading="lazy">
+                  <figcaption>The details screen: emoji, location, audio, and visibility in one place</figcaption>
+                </figure>
+              </div>
               <div class="case-diagram-fallback cr-fallback">
                 <p class="muted case-steps-label">Before · 7 steps</p>
                 <div class="fx-chips"><span class="fx-chip fx-chip--muted">Camera</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Confirm or retake</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Add audio</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Choose emoji</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Location, caption, visibility</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Scan and pin</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Post</span></div>
@@ -530,6 +536,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=38"></script>
+  <script src="case.js?v=39"></script>
 </body>
 </html>
