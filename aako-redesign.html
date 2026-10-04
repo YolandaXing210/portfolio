@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=35">
+  <link rel="stylesheet" href="style.css?v=37">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -407,11 +407,11 @@
                 <div><b>3</b>new core features</div>
               </div>
               <p class="muted case-steps-label">Cut</p>
-              <div class="fx-chips"><span class="fx-chip fx-chip--cut">list view</span><span class="fx-chip fx-chip--cut">navigation</span><span class="fx-chip fx-chip--cut">detail view</span><span class="fx-chip fx-chip--cut">magic carpet</span><span class="fx-chip fx-chip--cut">public</span><span class="fx-chip fx-chip--cut">store</span><span class="fx-chip fx-chip--cut">scan</span><span class="fx-chip fx-chip--cut">map view</span><span class="fx-chip fx-chip--cut">Followers</span><span class="fx-chip fx-chip--cut">Following</span><span class="fx-chip fx-chip--cut">Ayo</span></div>
+              <div class="fx-chips fx-chips--box"><span class="fx-chip fx-chip--cut">list view</span><span class="fx-chip fx-chip--cut">navigation</span><span class="fx-chip fx-chip--cut">detail view</span><span class="fx-chip fx-chip--cut">magic carpet</span><span class="fx-chip fx-chip--cut">public</span><span class="fx-chip fx-chip--cut">store</span><span class="fx-chip fx-chip--cut">scan</span><span class="fx-chip fx-chip--cut">map view</span><span class="fx-chip fx-chip--cut">Followers</span><span class="fx-chip fx-chip--cut">Following</span><span class="fx-chip fx-chip--cut">Ayo</span></div>
               <p class="muted case-steps-label">Kept</p>
-              <div class="fx-chips"><span class="fx-chip fx-chip--kept">map</span><span class="fx-chip fx-chip--kept">card view</span><span class="fx-chip fx-chip--kept">AR/VR view</span><span class="fx-chip fx-chip--kept">profile</span><span class="fx-chip fx-chip--kept">notification</span><span class="fx-chip fx-chip--kept">search</span><span class="fx-chip fx-chip--kept">settings</span><span class="fx-chip fx-chip--kept">friends</span><span class="fx-chip fx-chip--kept">Echoes</span></div>
+              <div class="fx-chips fx-chips--box"><span class="fx-chip fx-chip--kept">map</span><span class="fx-chip fx-chip--kept">card view</span><span class="fx-chip fx-chip--kept">AR/VR view</span><span class="fx-chip fx-chip--kept">profile</span><span class="fx-chip fx-chip--kept">notification</span><span class="fx-chip fx-chip--kept">search</span><span class="fx-chip fx-chip--kept">settings</span><span class="fx-chip fx-chip--kept">friends</span><span class="fx-chip fx-chip--kept">Echoes</span></div>
               <p class="case-steps-label case-steps-label--accent">New</p>
-              <div class="fx-chips"><span class="fx-chip">friends list</span><span class="fx-chip">mine list</span><span class="fx-chip">album</span></div>
+              <div class="fx-chips fx-chips--box"><span class="fx-chip">friends list</span><span class="fx-chip">mine list</span><span class="fx-chip">album</span></div>
             </div>
 
             <div class="case-decision">
@@ -447,36 +447,30 @@
                   </svg>
                 </div>
               </figure>
-              <figure class="case-figure">
-                <svg class="case-annot" viewBox="0 0 690 597" role="img" aria-label="Before: three clicks. Open the visibility dropdown, choose a layer, then tap the grid button to see the Echoes in this area.">
-                  <image href="images/aako-vis-before-1.jpg" x="84" y="8" width="270" height="581"/>
-                  <image href="images/aako-vis-before-2.jpg" x="384" y="8" width="270" height="581"/>
-                  <rect class="d-hl" x="99" y="52" width="41" height="24" rx="6"/>
-                  <rect class="d-hl" x="94" y="88" width="95" height="149" rx="6"/>
-                  <rect class="d-hl" x="302" y="429" width="48" height="47" rx="6"/>
-                  <line class="d-hl-line" x1="92" y1="64" x2="99" y2="64"/>
-                  <rect class="d-tag" x="0" y="51" width="90" height="26" rx="13"/><text class="d-tag-text" x="9" y="69">click #1</text>
-                  <line class="d-hl-line" x1="92" y1="99" x2="94" y2="99"/>
-                  <rect class="d-tag" x="0" y="86" width="90" height="26" rx="13"/><text class="d-tag-text" x="9" y="104">click #2</text>
-                  <rect class="d-tag" x="236" y="404" width="90" height="26" rx="13"/><text class="d-tag-text" x="245" y="422">click #3</text>
-                  <line class="d-hl-line" x1="351" y1="453" x2="378" y2="453"/>
-                  <path class="d-hl-line" d="M372 447 L379 453 L372 459"/>
-                  <rect class="d-tag" x="559" y="245" width="99" height="26" rx="13"/><text class="d-tag-text" x="568" y="263">Grid View</text>
+              <figure class="case-figure case-annot-wrap">
+                <svg class="case-annot case-annot--row" viewBox="0 0 840 380" role="img" aria-label="Before, three clicks: open the visibility dropdown, choose a layer, tap the grid button. After, one click: tap the friends count to open your friends' Echoes.">
+                  <text class="d-muted" x="84" y="16">Before · 3 clicks</text>
+                  <text class="d-accent-text" x="506" y="16">After · 1 click</text>
+                  <image href="images/aako-vis-before-1.jpg" x="84" y="30" width="160" height="344"/>
+                  <image href="images/aako-vis-before-2.jpg" x="252" y="30" width="160" height="344"/>
+                  <image href="images/aako-vis-after-1.jpg" x="506" y="30" width="160" height="344"/>
+                  <image href="images/aako-vis-after-2.jpg" x="674" y="30" width="160" height="344"/>
+                  <rect class="d-hl" x="93" y="56" width="24" height="14" rx="5"/>
+                  <rect class="d-hl" x="90" y="77" width="56" height="88" rx="5"/>
+                  <rect class="d-hl" x="213" y="280" width="29" height="28" rx="5"/>
+                  <line class="d-hl-line" x1="78" y1="63" x2="93" y2="63"/>
+                  <rect class="d-tag" x="0" y="52" width="78" height="22" rx="11"/><text class="d-tag-text" x="8" y="67">click #1</text>
+                  <line class="d-hl-line" x1="78" y1="90" x2="90" y2="90"/>
+                  <rect class="d-tag" x="0" y="79" width="78" height="22" rx="11"/><text class="d-tag-text" x="8" y="94">click #2</text>
+                  <rect class="d-tag" x="131" y="262" width="78" height="22" rx="11"/><text class="d-tag-text" x="139" y="277">click #3</text>
+                  <line class="d-hl-line" x1="242" y1="294" x2="248" y2="294"/><path class="d-hl-line" d="M243 289 L249 294 L243 299"/>
+                  <rect class="d-tag" x="328" y="167" width="86" height="22" rx="11"/><text class="d-tag-text" x="336" y="182">Grid View</text>
+                  <rect class="d-hl" x="550" y="69" width="74" height="30" rx="5"/>
+                  <line class="d-hl-line" x1="498" y1="84" x2="550" y2="84"/>
+                  <rect class="d-tag" x="420" y="73" width="78" height="22" rx="11"/><text class="d-tag-text" x="428" y="88">click #1</text>
+                  <line class="d-hl-line" x1="624" y1="84" x2="670" y2="84"/><path class="d-hl-line" d="M665 79 L671 84 L665 89"/>
+                  <rect class="d-tag" x="750" y="167" width="86" height="22" rx="11"/><text class="d-tag-text" x="758" y="182">Grid View</text>
                 </svg>
-                <figcaption>Before: three clicks to reach the Echoes in a place.</figcaption>
-              </figure>
-              <figure class="case-figure">
-                <svg class="case-annot" viewBox="0 0 690 597" role="img" aria-label="After: one click. Tap the friends count on the map to open a grid of your friends' Echoes in this area.">
-                  <image href="images/aako-vis-after-1.jpg" x="84" y="8" width="270" height="581"/>
-                  <image href="images/aako-vis-after-2.jpg" x="384" y="8" width="270" height="581"/>
-                  <rect class="d-hl" x="158" y="74" width="126" height="50" rx="6"/>
-                  <line class="d-hl-line" x1="92" y1="99" x2="158" y2="99"/>
-                  <rect class="d-tag" x="0" y="86" width="90" height="26" rx="13"/><text class="d-tag-text" x="9" y="104">click #1</text>
-                  <line class="d-hl-line" x1="284" y1="99" x2="378" y2="99"/>
-                  <path class="d-hl-line" d="M372 93 L379 99 L372 105"/>
-                  <rect class="d-tag" x="559" y="245" width="99" height="26" rx="13"/><text class="d-tag-text" x="568" y="263">Grid View</text>
-                </svg>
-                <figcaption>After: one click, straight from the numbers on the map.</figcaption>
               </figure>
               <p>The new layout <strong>cuts the clicks from three to one</strong>. Instead of opening a dropdown, picking a layer, and then switching to the grid, you tap the number you care about—<strong>50 friends, 13 mine, 4 fun</strong>—and land straight in those Echoes. The numbers and the information are right there on the map.</p>
             </div>
@@ -530,6 +524,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=35"></script>
+  <script src="case.js?v=37"></script>
 </body>
 </html>
