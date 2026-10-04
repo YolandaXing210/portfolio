@@ -10,7 +10,7 @@ const toggle = document.querySelector(".toc-toggle");
 const targets = [
   { el: document.querySelector(".case-hero"), label: "00 / Intro" },
   ...[...document.querySelectorAll(".case-section")].map(s => ({ el: s, label: s.querySelector(".case-index").textContent })),
-];
+].filter(t => t.el);
 
 toc.innerHTML = `<ol>${targets
   .map(t => `<li><a href="#${t.el.id}">${t.label}</a></li>`)

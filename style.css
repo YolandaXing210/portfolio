@@ -753,6 +753,35 @@ p { margin: 0; }
 
 .case .st-pr5 b { color: var(--accent); }
 
+/* ---- First experience style options (review page) ---- */
+.fx-card__head { display: flex; justify-content: space-between; align-items: center; }
+.fx-card__head .case-face { width: 2.4rem; height: 2.4rem; }
+.case .fx-card ol { margin-top: 0.8em; }
+.case .fx-card li + li { margin-top: 0.6em; }
+
+.fx-timeline { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 1.2em; }
+.case .fx-timeline ol { list-style: none; margin: 0.8em 0 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--accent); }
+.case .fx-timeline__col--muted ol { border-left-color: var(--muted); }
+.fx-timeline li { position: relative; padding-bottom: 1.2em; }
+.fx-timeline li::before { content: ""; position: absolute; left: calc(-1.2rem - 6px); top: 0.25em; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.fx-timeline__col--muted li::before { background: var(--muted); }
+.fx-timeline b { font-weight: 500; }
+.fx-timeline span { display: block; color: var(--muted); }
+.fx-timeline__end { margin-left: -1.2rem; }
+
+.fx-curve__before { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.fx-dot-muted { fill: var(--muted); }
+.fx-face, .fx-face-muted { fill: none; stroke-width: 1.6; stroke-linecap: round; }
+.fx-face { stroke: var(--accent); }
+.fx-face-muted { stroke: var(--muted); }
+.fx-face-muted .fx-eye { fill: var(--muted); stroke: none; }
+
+.fx-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 0.8em; }
+.fx-chip { padding: 0.5em 1em; border: 2px solid var(--accent); border-radius: 999px; color: var(--accent); background: #fff; font-weight: 500; }
+.fx-chip--muted { border-color: var(--muted); color: var(--muted); font-weight: 400; }
+.fx-chip-arrow { color: var(--muted); }
+.fx-chip-face { margin-left: auto; }
+
 /* Review page only: an option block, labelled A or B */
 .case-option {
   margin-top: 2.4em;
@@ -1003,6 +1032,7 @@ p { margin: 0; }
   .case-pair { column-gap: 0.6rem; }
   .st-pr3 > div { grid-template-columns: minmax(0, 1fr); gap: 0.3em; }
   .st-ba5 { grid-template-columns: minmax(0, 1fr); }
+  .fx-timeline { grid-template-columns: minmax(0, 1fr); }
   .st-ba5__mid { transform: rotate(90deg); padding: 0.4em 0; }
   .case-events { grid-template-columns: minmax(0, 270px); }
   .case-ba { grid-template-columns: minmax(0, 430px); gap: 2rem; }
