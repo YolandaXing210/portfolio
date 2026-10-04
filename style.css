@@ -434,6 +434,11 @@ p { margin: 0; }
 
 .case-figure--wide { padding-bottom: 1.2em; }
 
+/* Real screenshots: keep their own proportions instead of the 16:9 crop */
+.case .case-shots .case-figure img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.case .case-shots { padding-top: 1.2em; }
+.case .case-shots + p { margin-top: 1.6em; }
+
 .case-video iframe {
   display: block;
   width: 100%;

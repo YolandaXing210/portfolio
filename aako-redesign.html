@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=27">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -323,7 +323,7 @@
               </ol>
               <figure class="case-figure">
                 <div class="case-ba" style="grid-template-columns: repeat(2, minmax(0, 390px))">
-                  <svg class="case-illo case-illo--ba" viewBox="0 0 390 300" role="img" aria-label="Before: four stacked visibility layers, Public, Following, Friends, and Mine, plus a Hide myself toggle.">
+                  <svg class="case-illo case-illo--ba" viewBox="0 0 390 300" role="img" aria-label="Before: four stacked visibility layers, Public, Following, Friends, and Mine.">
                     <text class="d-muted" x="0" y="14">Before</text>
                     <polygon class="d-layer" points="100,210 200,168 300,210 200,252"/>
                     <polygon class="d-layer" points="100,165 200,123 300,165 200,207"/>
@@ -333,9 +333,6 @@
                     <text x="88" y="125" text-anchor="end">Following</text>
                     <text x="88" y="170" text-anchor="end">Friends</text>
                     <text x="88" y="215" text-anchor="end">Mine</text>
-                    <rect class="d-toggle" x="318" y="96" width="52" height="28" rx="14"/>
-                    <circle class="d-knob" cx="356" cy="110" r="11"/>
-                    <text x="344" y="144" text-anchor="middle">Hide myself</text>
                     <text class="d-muted" x="195" y="292" text-anchor="middle" style="font-size:11px">Flat and complex visibility across content types.</text>
                   </svg>
                   <svg class="case-illo case-illo--ba" viewBox="0 0 390 300" role="img" aria-label="Now: one plane of visibility with pins for Friend and Mine; Public sits apart.">
@@ -353,10 +350,17 @@
                   </svg>
                 </div>
               </figure>
-              <figure class="case-figure">
-                <div class="placeholder"></div>
-                <figcaption>Visibility simplification and related interface explorations.</figcaption>
-              </figure>
+              <div class="case-cols case-shots">
+                <figure class="case-figure">
+                  <img src="images/aako-visibility-before.jpg" alt="Before: a map view with a dropdown to choose World, Following, Friends, Mine, or Hide Me." loading="lazy">
+                  <figcaption>Before: pick a layer from a dropdown, one at a time.</figcaption>
+                </figure>
+                <figure class="case-figure">
+                  <img src="images/aako-visibility-after.jpg" alt="After: the map shows Washington Square with 50 friends, 13 mine, and 4 fun at a glance." loading="lazy">
+                  <figcaption>After: the place shows its counts at a glance.</figcaption>
+                </figure>
+              </div>
+              <p>The new layout <strong>cuts the taps</strong> it takes to see who has been somewhere: instead of switching layers in a dropdown, each place shows its numbers directly—<strong>50 friends, 13 mine, 4 fun</strong>—so the information is right there.</p>
             </div>
 
             <div class="case-decision">
@@ -434,6 +438,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=25"></script>
+  <script src="case.js?v=27"></script>
 </body>
 </html>
