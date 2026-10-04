@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAKO: Reframe styles — Yolanda Xing</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="AAKO Chapter II: reframing a spatial social app into a spatial memory system, and redesigning its mobile experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=23">
+</head>
+<body>
+  <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
+  <main class="detail case case--aako">
+
+    <header class="case-bar">
+      <div class="row">
+        <span class="case-bar__title"><button class="toc-toggle" type="button" aria-label="Contents" aria-expanded="false" aria-controls="toc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>001—AAKO / REFRAME · STYLES</span>
+        <a href="aako-redesign.html">← BACK TO PAGE</a>
+      </div>
+      <hr>
+    </header>
+
+    <div class="case-layout">
+      <nav class="case-toc" id="toc" aria-label="Contents"></nav>
+      <div class="case-content">
+
+        <p class="case-review-note">Review page: five styles for each of the three Product reframe charts. Tell me which style you want for each (e.g. “A3, B5, C2”).</p>
+
+        <div class="case-hero" id="intro" style="padding-top:1.2em"><p class="muted">04 / Product reframe</p></div>
+
+        <section class="case-section" id="answers">
+          <div class="case-index muted">A / Problem → answer</div>
+          <div class="case-body">
+            <h2>Problem → answer</h2>
+            <div class="case-option">
+              <p class="case-option__tag">Style 1</p>
+            <div class="case-fromto case-fromto--answers">
+              <div><span class="muted">Sharing</span><span>Presence felt intrusive</span><i>→</i><span><strong>One trusted context</strong> <a href="#">07</a></span></div>
+              <div><span class="muted">Onboarding</span><span>Too much, too soon</span><i>→</i><span><strong>Your own content first</strong> <a href="#">07</a></span></div>
+              <div><span class="muted">Unit</span><span>One Echo carried it all</span><i>→</i><span><strong>The album</strong> <a href="#">05</a></span></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 2</p>
+            <div class="case-cards" style="grid-template-columns: repeat(3, minmax(0, 1fr))">
+              <div class="case-card st-pa2"><p class="muted">Sharing</p><p class="st-pa2__p">Presence felt intrusive</p><p class="st-pa2__arrow">↓</p><p class="st-pa2__a">One trusted context</p><p class="muted">→ section 07</p></div>
+              <div class="case-card st-pa2"><p class="muted">Onboarding</p><p class="st-pa2__p">Too much, too soon</p><p class="st-pa2__arrow">↓</p><p class="st-pa2__a">Your own content first</p><p class="muted">→ section 07</p></div>
+              <div class="case-card st-pa2"><p class="muted">Unit</p><p class="st-pa2__p">One Echo carried it all</p><p class="st-pa2__arrow">↓</p><p class="st-pa2__a">The album</p><p class="muted">→ section 05</p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 3</p>
+            <div class="case-flowrow">
+              <div class="case-card"><p class="muted">Sharing</p><h3>Presence felt intrusive</h3></div>
+              <span class="case-flowrow__arrow">→</span>
+              <div class="case-card case-card--accent"><p class="muted">Section 07</p><h3 style="color:var(--accent)">One trusted context</h3></div>
+            </div>
+            <div class="case-flowrow">
+              <div class="case-card"><p class="muted">Onboarding</p><h3>Too much, too soon</h3></div>
+              <span class="case-flowrow__arrow">→</span>
+              <div class="case-card case-card--accent"><p class="muted">Section 07</p><h3 style="color:var(--accent)">Your own content first</h3></div>
+            </div>
+            <div class="case-flowrow">
+              <div class="case-card"><p class="muted">Unit</p><h3>One Echo carried it all</h3></div>
+              <span class="case-flowrow__arrow">→</span>
+              <div class="case-card case-card--accent"><p class="muted">Section 05</p><h3 style="color:var(--accent)">The album</h3></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 4</p>
+            <div class="st-pa4">
+              <div><p class="muted">Sharing · Presence felt intrusive →</p><p class="st-pa4__a">One trusted context</p><span class="muted">07</span></div>
+              <div><p class="muted">Onboarding · Too much, too soon →</p><p class="st-pa4__a">Your own content first</p><span class="muted">07</span></div>
+              <div><p class="muted">Unit · One Echo carried it all →</p><p class="st-pa4__a">The album</p><span class="muted">05</span></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 5</p>
+            <svg class="case-diagram st-svg" viewBox="0 0 640 200" role="img" aria-label="Three problems linked to three answers.">
+                <text class="d-muted" x="0" y="14">Problem</text><text class="d-accent-text" x="640" y="14" text-anchor="end">Answer</text>
+                <rect class="d-pill" x="0" y="30" width="203" height="32" rx="16"/><text x="12" y="51">Presence felt intrusive</text>
+                <path class="d-accent" d="M211 46 C 293 46, 298 46, 460 46"/>
+                <rect class="d-pill-accent" x="468" y="30" width="172" height="32" rx="16"/><text class="d-accent-text" x="480" y="51">One trusted context</text>
+                <rect class="d-pill" x="0" y="88" width="164" height="32" rx="16"/><text x="12" y="109">Too much, too soon</text>
+                <path class="d-accent" d="M172 104 C 254 104, 274 104, 436 104"/>
+                <rect class="d-pill-accent" x="444" y="88" width="196" height="32" rx="16"/><text class="d-accent-text" x="456" y="109">Your own content first</text>
+                <rect class="d-pill" x="0" y="146" width="203" height="32" rx="16"/><text x="12" y="167">One Echo carried it all</text>
+                <path class="d-accent" d="M211 162 C 293 162, 376 162, 538 162"/>
+                <rect class="d-pill-accent" x="546" y="146" width="94" height="32" rx="16"/><text class="d-accent-text" x="558" y="167">The album</text>
+            </svg>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <section class="case-section" id="beforeafter">
+          <div class="case-index muted">B / Before and after</div>
+          <div class="case-body">
+            <h2>Before and after</h2>
+            <div class="case-option">
+              <p class="case-option__tag">Style 1</p>
+            <div class="case-fromto">
+              <div><span class="muted">Question</span><s>How do people share an Echo?</s><i>→</i><span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</span></div>
+              <div><span class="muted">Behavior</span><s>Posting, sharing, discovery</s><i>→</i><span>Capture, context, <strong>revisiting, recollection</strong></span></div>
+              <div><span class="muted">Unit</span><s>A single Echo</s><i>→</i><span><strong>An album</strong> of Echoes</span></div>
+              <div><span class="muted">Audience</span><s>Four visibility layers</s><i>→</i><span>You and your <strong>closest friends</strong></span></div>
+              <div><span class="muted">First experience</span><s>A guided AR introduction</s><i>→</i><span>Start with <strong>your own memory</strong></span></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 2</p>
+            <div class="case-pair">
+              <div><span class="muted">Before</span><br>Spatial social app</div>
+              <div><span class="muted" style="color:var(--accent)">After</span><br>Spatial memory system</div>
+              <div><span class="muted">Question</span>How do people share an Echo?</div>
+              <div><span class="muted">Question</span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</div>
+              <div><span class="muted">Behavior</span>Posting, sharing, discovery</div>
+              <div><span class="muted">Behavior</span>Capture, context, <strong>revisiting, recollection</strong></div>
+              <div><span class="muted">Unit</span>A single Echo</div>
+              <div><span class="muted">Unit</span><strong>An album</strong> of Echoes</div>
+              <div><span class="muted">Audience</span>Four visibility layers</div>
+              <div><span class="muted">Audience</span>You and your <strong>closest friends</strong></div>
+              <div><span class="muted">First experience</span>A guided AR introduction</div>
+              <div><span class="muted">First experience</span>Start with <strong>your own memory</strong></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 3</p>
+            <div class="case-cards" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+              <div class="case-card"><p class="muted">Question</p><p class="st-ba3__b">How do people share an Echo?</p><p class="st-ba3__a">How do people <strong>keep, connect, and return to</strong> meaningful moments?</p></div>
+              <div class="case-card"><p class="muted">Behavior</p><p class="st-ba3__b">Posting, sharing, discovery</p><p class="st-ba3__a">Capture, context, <strong>revisiting, recollection</strong></p></div>
+              <div class="case-card"><p class="muted">Unit</p><p class="st-ba3__b">A single Echo</p><p class="st-ba3__a"><strong>An album</strong> of Echoes</p></div>
+              <div class="case-card"><p class="muted">Audience</p><p class="st-ba3__b">Four visibility layers</p><p class="st-ba3__a">You and your <strong>closest friends</strong></p></div>
+              <div class="case-card"><p class="muted">First experience</p><p class="st-ba3__b">A guided AR introduction</p><p class="st-ba3__a">Start with <strong>your own memory</strong></p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 4</p>
+            <table class="case-table case-table--labels">
+              <thead><tr><th></th><th class="muted">Before</th><th style="color:var(--accent)">After</th></tr></thead>
+              <tbody>
+                <tr><td class="muted">Question</td><td class="muted">How do people share an Echo?</td><td>How do people <strong>keep, connect, and return to</strong> meaningful moments?</td></tr>
+                <tr><td class="muted">Behavior</td><td class="muted">Posting, sharing, discovery</td><td>Capture, context, <strong>revisiting, recollection</strong></td></tr>
+                <tr><td class="muted">Unit</td><td class="muted">A single Echo</td><td><strong>An album</strong> of Echoes</td></tr>
+                <tr><td class="muted">Audience</td><td class="muted">Four visibility layers</td><td>You and your <strong>closest friends</strong></td></tr>
+                <tr><td class="muted">First experience</td><td class="muted">A guided AR introduction</td><td>Start with <strong>your own memory</strong></td></tr>
+              </tbody>
+            </table>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 5</p>
+            <div class="st-ba5">
+              <div class="st-ba5__col">
+                <p class="st-ba5__h muted">Spatial social app</p>
+                <div><span class="muted">Question</span><p class="muted">How do people share an Echo?</p></div>
+                <div><span class="muted">Behavior</span><p class="muted">Posting, sharing, discovery</p></div>
+                <div><span class="muted">Unit</span><p class="muted">A single Echo</p></div>
+                <div><span class="muted">Audience</span><p class="muted">Four visibility layers</p></div>
+                <div><span class="muted">First experience</span><p class="muted">A guided AR introduction</p></div>
+              </div>
+              <div class="st-ba5__mid">→</div>
+              <div class="st-ba5__col st-ba5__col--after">
+                <p class="st-ba5__h">Spatial memory system</p>
+                <div><span class="muted">Question</span><p>How do people <strong>keep, connect, and return to</strong> meaningful moments?</p></div>
+                <div><span class="muted">Behavior</span><p>Capture, context, <strong>revisiting, recollection</strong></p></div>
+                <div><span class="muted">Unit</span><p><strong>An album</strong> of Echoes</p></div>
+                <div><span class="muted">Audience</span><p>You and your <strong>closest friends</strong></p></div>
+                <div><span class="muted">First experience</span><p>Start with <strong>your own memory</strong></p></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <section class="case-section" id="principles4">
+          <div class="case-index muted">C / Four principles</div>
+          <div class="case-body">
+            <h2>Four principles</h2>
+            <div class="case-option">
+              <p class="case-option__tag">Style 1</p>
+            <div class="case-cards case-cards--row case-cards--principles">
+              <div class="case-card"><h3>Intimacy before exposure</h3><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div class="case-card"><h3>Connections before isolated posts</h3><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div class="case-card"><h3>Personal meaning before instruction</h3><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div class="case-card"><h3>Context before precision</h3><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 2</p>
+            <div class="case-cards case-cards--2x2 case-cards--principles">
+              <div class="case-card"><h3>Intimacy before exposure</h3><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div class="case-card"><h3>Connections before isolated posts</h3><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div class="case-card"><h3>Personal meaning before instruction</h3><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div class="case-card"><h3>Context before precision</h3><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 3</p>
+            <div class="st-pr3">
+              <div><p class="st-pr3__x">Intimacy</p><p class="muted">before exposure</p><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div><p class="st-pr3__x">Connections</p><p class="muted">before isolated posts</p><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div><p class="st-pr3__x">Personal meaning</p><p class="muted">before instruction</p><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div><p class="st-pr3__x">Context</p><p class="muted">before precision</p><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 4</p>
+            <div class="case-cards case-cards--2x2">
+              <div class="st-pr4"><p><span class="st-chip st-chip--accent">Intimacy</span> <span class="muted">&gt;</span> <span class="st-chip">exposure</span></p><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div class="st-pr4"><p><span class="st-chip st-chip--accent">Connections</span> <span class="muted">&gt;</span> <span class="st-chip">isolated posts</span></p><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div class="st-pr4"><p><span class="st-chip st-chip--accent">Personal meaning</span> <span class="muted">&gt;</span> <span class="st-chip">instruction</span></p><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div class="st-pr4"><p><span class="st-chip st-chip--accent">Context</span> <span class="muted">&gt;</span> <span class="st-chip">precision</span></p><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
+            </div>
+            <div class="case-option">
+              <p class="case-option__tag">Style 5</p>
+            <ol class="case-steps st-pr5">
+              <li><b>Intimacy before exposure</b><span>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</span></li>
+              <li><b>Connections before isolated posts</b><span>Albums connect moments through place, time, people, and shared experience.</span></li>
+              <li><b>Personal meaning before instruction</b><span>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</span></li>
+              <li><b>Context before precision</b><span>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</span></li>
+            </ol>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <div class="row muted">
+          <span>©2026 RIGHTS RESERVED</span>
+          <a href="index.html">Back to index</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="case.js?v=23"></script>
+</body>
+</html>

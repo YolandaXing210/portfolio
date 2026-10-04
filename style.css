@@ -688,6 +688,59 @@ p { margin: 0; }
 .case .case-steps--muted li { border-top-color: var(--muted); }
 .case-steps-label--accent { color: var(--accent, var(--text)); }
 
+/* ---- Reframe style options (review page) ---- */
+.st-pa2 p + p { margin-top: 0.4em; }
+.st-pa2__p { color: var(--muted); }
+.st-pa2__arrow { color: var(--accent); }
+.st-pa2__a { font-size: 1.4rem; font-weight: 500; line-height: 1.2; color: var(--accent); }
+
+.st-pa4 { margin-top: 2.4em; }
+.st-pa4 > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--rule);
+}
+.st-pa4 > div:last-child { border-bottom: 1px solid var(--rule); }
+.st-pa4 > div > p:first-child { grid-column: 1 / -1; }
+.case .st-pa4__a { margin-top: 0.2em; font-size: var(--h2-size); font-weight: 500; line-height: 1.15; color: var(--accent); }
+
+.st-svg { max-width: 640px; }
+
+.st-ba3__b { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; margin-top: 0.4em; }
+.st-ba3__a { margin-top: 0.4em; }
+
+.st-ba5 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 3em minmax(0, 1fr);
+  margin-top: 2.4em;
+}
+.st-ba5__col > div { padding: 0.8rem 0; border-top: 1px solid var(--rule); }
+.st-ba5__col > div p { margin-top: 0.3em; }
+.st-ba5__h { padding-bottom: 0.8rem; font-size: 1.4rem; font-weight: 500; line-height: 1.2; }
+.st-ba5__col--after .st-ba5__h { color: var(--accent); }
+.st-ba5__mid { align-self: center; text-align: center; font-size: 1.6rem; color: var(--accent); }
+
+.st-pr3 { margin-top: 2.4em; }
+.st-pr3 > div {
+  display: grid;
+  grid-template-columns: 30% 22% minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--rule);
+}
+.st-pr3 > div:last-child { border-bottom: 1px solid var(--rule); }
+.st-pr3__x { font-size: 1.4rem; font-weight: 500; line-height: 1.2; color: var(--accent); }
+
+.st-pr4 { padding-top: 0.8rem; border-top: 1px solid var(--rule); }
+.st-pr4 p + p { margin-top: 0.8em; }
+.st-chip { display: inline-block; padding: 0.2em 0.7em; border: 1.5px solid var(--muted); border-radius: 999px; color: var(--muted); }
+.st-chip--accent { border-color: var(--accent); color: var(--accent); font-weight: 500; }
+
+.case .st-pr5 b { color: var(--accent); }
+
 /* Review page only: an option block, labelled A or B */
 .case-option {
   margin-top: 2.4em;
@@ -794,9 +847,11 @@ p { margin: 0; }
 .case-diagram .d-accent-fill { fill: var(--accent, var(--text)); }
 .case-diagram .d-dash { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 3 4; }
 
-/* Small illustration inside a column; 1:1 at its 320px max width */
+/* Small illustration inside a column; 1:1 at its 320px max width.
+   overflow: visible so strokes on the edge of the viewBox aren't cut in half */
 .case-illo {
   display: block;
+  overflow: visible;
   width: 100%;
   max-width: 320px;
   height: auto;
@@ -816,9 +871,12 @@ p { margin: 0; }
 .case-ba .case-illo { max-width: none; margin: 0; }
 .case-illo .d-solid { fill: var(--text); }
 .case-illo .d-tint-fill { fill: var(--accent, var(--text)); fill-opacity: 0.14; }
-.case-illo .d-pill { fill: #fff; stroke: var(--muted); stroke-width: 1.5; }
-.case-illo .d-pill-accent { fill: #fff; stroke: var(--accent, var(--text)); stroke-width: 2; }
-.case-illo .d-accent-text { fill: var(--accent, var(--text)); }
+.case-illo .d-pill,
+.case-diagram .d-pill { fill: #fff; stroke: var(--muted); stroke-width: 1.5; }
+.case-illo .d-pill-accent,
+.case-diagram .d-pill-accent { fill: #fff; stroke: var(--accent, var(--text)); stroke-width: 2; }
+.case-illo .d-accent-text,
+.case-diagram .d-accent-text { fill: var(--accent, var(--text)); }
 .case-illo .d-dash-accent { fill: none; stroke: var(--accent, var(--text)); stroke-width: 1.2; stroke-dasharray: 4 4; }
 
 /* Charts narrower than the column sit centered in it */
@@ -923,6 +981,9 @@ p { margin: 0; }
   .case-fromto > div { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
   .case-fromto > div > :first-child { grid-column: 1 / -1; }
   .case-pair { column-gap: 0.6rem; }
+  .st-pr3 > div { grid-template-columns: minmax(0, 1fr); gap: 0.3em; }
+  .st-ba5 { grid-template-columns: minmax(0, 1fr); }
+  .st-ba5__mid { transform: rotate(90deg); padding: 0.4em 0; }
   .case-events { grid-template-columns: minmax(0, 270px); }
   .case-ba { grid-template-columns: minmax(0, 430px); gap: 2rem; }
   .case-diagram { display: none; }
