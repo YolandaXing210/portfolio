@@ -765,7 +765,8 @@ p { margin: 0; }
 /* A labelled row above a step diagram (e.g. Before / After) */
 .case-steps-label { margin-top: 2.4em; }
 .case .case-steps-label + .case-steps,
-.case .case-steps-label + .case-fromto { margin-top: 0.8em; }
+.case .case-steps-label + .case-fromto,
+.case .case-steps-label + .st-ba5 { margin-top: 0.8em; }
 
 /* Problem → answer rows: links to the section that answers it */
 .case-fromto--answers a { margin-left: 0.4em; color: var(--muted); text-decoration: none; }

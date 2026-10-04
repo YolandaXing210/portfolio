@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=24">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -130,19 +130,43 @@
             <h2>From spatial social app to spatial memory system.</h2>
             <p>Echo stayed the smallest unit. What changed was everything around it—and each problem got an answer:</p>
 
-            <div class="case-fromto case-fromto--answers">
+            <svg class="case-diagram st-svg" viewBox="0 0 640 200" role="img" aria-label="Three problems linked to three answers.">
+                <text class="d-muted" x="0" y="14">Problem</text><text class="d-accent-text" x="640" y="14" text-anchor="end">Answer</text>
+                <rect class="d-pill" x="0" y="30" width="203" height="32" rx="16"/><text x="12" y="51">Presence felt intrusive</text>
+                <path class="d-accent" d="M211 46 C 293 46, 298 46, 460 46"/>
+                <rect class="d-pill-accent" x="468" y="30" width="172" height="32" rx="16"/><text class="d-accent-text" x="480" y="51">One trusted context</text>
+                <rect class="d-pill" x="0" y="88" width="164" height="32" rx="16"/><text x="12" y="109">Too much, too soon</text>
+                <path class="d-accent" d="M172 104 C 254 104, 274 104, 436 104"/>
+                <rect class="d-pill-accent" x="444" y="88" width="196" height="32" rx="16"/><text class="d-accent-text" x="456" y="109">Your own content first</text>
+                <rect class="d-pill" x="0" y="146" width="203" height="32" rx="16"/><text x="12" y="167">One Echo carried it all</text>
+                <path class="d-accent" d="M211 162 C 293 162, 376 162, 538 162"/>
+                <rect class="d-pill-accent" x="546" y="146" width="94" height="32" rx="16"/><text class="d-accent-text" x="558" y="167">The album</text>
+            </svg>
+            <div class="case-fromto case-fromto--answers case-diagram-fallback">
               <div><span class="muted">Sharing</span><span>Presence felt intrusive</span><i>→</i><span><strong>One trusted context</strong> <a href="#redesign">07</a></span></div>
               <div><span class="muted">Onboarding</span><span>Too much, too soon</span><i>→</i><span><strong>Your own content first</strong> <a href="#redesign">07</a></span></div>
               <div><span class="muted">Unit</span><span>One Echo carried it all</span><i>→</i><span><strong>The album</strong> <a href="#album">05</a></span></div>
             </div>
 
             <p class="muted case-steps-label">Before and after</p>
-            <div class="case-fromto case-fromto--tight">
-              <div><span class="muted">Question</span><s>How do people share an Echo?</s><i>→</i><span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</span></div>
-              <div><span class="muted">Behavior</span><s>Posting, sharing, discovery</s><i>→</i><span>Capture, context, <strong>revisiting, recollection</strong></span></div>
-              <div><span class="muted">Unit</span><s>A single Echo</s><i>→</i><span><strong>An album</strong> of Echoes</span></div>
-              <div><span class="muted">Audience</span><s>Four visibility layers</s><i>→</i><span>You and your <strong>closest friends</strong></span></div>
-              <div><span class="muted">First experience</span><s>A guided AR introduction</s><i>→</i><span>Start with <strong>your own memory</strong></span></div>
+            <div class="st-ba5">
+              <div class="st-ba5__col">
+                <p class="st-ba5__h muted">Spatial social app</p>
+                <div><span class="muted">Question</span><p class="muted">How do people share an Echo?</p></div>
+                <div><span class="muted">Behavior</span><p class="muted">Posting, sharing, discovery</p></div>
+                <div><span class="muted">Unit</span><p class="muted">A single Echo</p></div>
+                <div><span class="muted">Audience</span><p class="muted">Four visibility layers</p></div>
+                <div><span class="muted">First experience</span><p class="muted">A guided AR introduction</p></div>
+              </div>
+              <div class="st-ba5__mid">→</div>
+              <div class="st-ba5__col st-ba5__col--after">
+                <p class="st-ba5__h">Spatial memory system</p>
+                <div><span class="muted">Question</span><p>How do people <strong>keep, connect, and return to</strong> meaningful moments?</p></div>
+                <div><span class="muted">Behavior</span><p>Capture, context, <strong>revisiting, recollection</strong></p></div>
+                <div><span class="muted">Unit</span><p><strong>An album</strong> of Echoes</p></div>
+                <div><span class="muted">Audience</span><p>You and your <strong>closest friends</strong></p></div>
+                <div><span class="muted">First experience</span><p>Start with <strong>your own memory</strong></p></div>
+              </div>
             </div>
 
 
@@ -395,6 +419,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=23"></script>
+  <script src="case.js?v=24"></script>
 </body>
 </html>
