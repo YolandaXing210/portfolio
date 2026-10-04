@@ -12,7 +12,9 @@
   --main-width: 70%;
   --h1-size: 3.5rem;
   --h2-size: 2rem;
-  --caption-size: 0.8rem;
+  --caption-size: 1.08rem;
+  --caption-font: "Newsreader", Georgia, serif;
+  --h3-size: 1.3rem;
   --measure: 800px;         /* max width of project content (~103 characters of 12.96px DM Mono) */
 }
 
@@ -314,9 +316,10 @@ p { margin: 0; }
 }
 
 /* Type levels below h2:
-   h3 = body size, weight 500 · body = --text · strong = weight 500, accent color
+   h3 = DM Mono 1.3rem, weight 500 (between body and h2) · body = --text · strong = weight 500, accent color
+   caption = Newsreader italic, --caption-size
    secondary = .muted · caption = --caption-size, muted */
-.case h3 { font-weight: 500; }
+.case h3 { font-size: var(--h3-size); font-weight: 500; line-height: 1.3; }
 
 .case strong {
   font-weight: 500;
@@ -428,6 +431,8 @@ p { margin: 0; }
 .case-figure figcaption {
   margin-top: 0.6em;
   text-align: center;
+  font-family: var(--caption-font);
+  font-style: italic;
   font-size: var(--caption-size);
   color: var(--muted);
 }
@@ -809,6 +814,8 @@ p { margin: 0; }
 .case-phone figcaption {
   margin-top: 0.6em;
   text-align: center;
+  font-family: var(--caption-font);
+  font-style: italic;
   font-size: var(--caption-size);
   color: var(--muted);
 }
@@ -824,7 +831,7 @@ p { margin: 0; }
 .fx-row .fx-curve { margin: 0; }
 .fx-row__img { margin: 0; }
 .fx-row__img img { display: block; width: 100%; height: auto; margin: 0; border-radius: 16px; }
-.fx-row__img figcaption { margin-top: 0.6em; text-align: center; font-size: var(--caption-size); color: var(--muted); }
+.fx-row__img figcaption { margin-top: 0.6em; text-align: center; font-family: var(--caption-font); font-style: italic; font-size: var(--caption-size); color: var(--muted); }
 
 /* Scope tags: cut (struck, faint), kept (neutral), new (accent, from .fx-chip) */
 .fx-chip--cut { border-color: var(--rule); color: var(--muted); font-weight: 400; text-decoration: line-through; text-decoration-thickness: 1px; }
@@ -1159,3 +1166,7 @@ p { margin: 0; }
   body { display: flex; flex-direction: column; }
   .sidebar { order: -1; }
 }
+
+/* Captions drawn inside SVG diagrams use the caption face too */
+.case-illo .d-caption,
+.case-diagram .d-caption { font-family: var(--caption-font); font-style: italic; font-size: 14px; fill: var(--muted); }
