@@ -806,6 +806,7 @@ p { margin: 0; }
 }
 .case-ba .case-illo { max-width: none; margin: 0; }
 .case-illo .d-solid { fill: var(--text); }
+.case-illo .d-tint-fill { fill: var(--accent, var(--text)); fill-opacity: 0.14; }
 .case-illo .d-pill { fill: #fff; stroke: var(--muted); stroke-width: 1.5; }
 .case-illo .d-pill-accent { fill: #fff; stroke: var(--accent, var(--text)); stroke-width: 2; }
 .case-illo .d-accent-text { fill: var(--accent, var(--text)); }
