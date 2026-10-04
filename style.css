@@ -871,6 +871,13 @@ p { margin: 0; }
 }
 .case-ba .case-illo { max-width: none; margin: 0; }
 .case-illo .d-solid { fill: var(--text); }
+.case-illo .d-layer { fill: #d6d6d6; fill-opacity: 0.55; stroke: #8a8a8a; stroke-width: 2.5; stroke-linejoin: round; }
+.case-illo .d-plane { fill: var(--accent, var(--text)); fill-opacity: 0.32; stroke: var(--accent, var(--text)); stroke-width: 3; stroke-linejoin: round; }
+.case-illo .d-ellipse { fill: #e2e2e2; }
+.case-illo .d-toggle { fill: #c8c8c8; }
+.case-illo .d-knob { fill: #fff; stroke: #a8a8a8; stroke-width: 1.5; }
+.case-illo .d-pin { stroke: var(--accent, var(--text)); stroke-width: 2; }
+.case-illo .d-pin-label { fill: var(--accent, var(--text)); font-weight: 500; }
 .case-illo .d-tint-fill { fill: var(--accent, var(--text)); fill-opacity: 0.14; }
 .case-illo .d-pill,
 .case-diagram .d-pill { fill: #fff; stroke: var(--muted); stroke-width: 1.5; }

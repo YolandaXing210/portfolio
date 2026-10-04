@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=24">
+  <link rel="stylesheet" href="style.css?v=25">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -321,23 +321,38 @@
                 <li><b>Fewer decisions</b><span>Less to think about before saving</span></li>
                 <li><b>One trusted context</b><span>You and your closest friends</span></li>
               </ol>
-              <svg class="case-illo case-illo--wide" viewBox="0 0 560 190" role="img" aria-label="Before: a memory sits inside four nested visibility layers and needs an audience decision. After: one trusted circle of you and your closest friends.">
-                <text class="d-muted" x="0" y="14">Before</text>
-                <circle class="d-line" cx="110" cy="100" r="72"/><circle class="d-line" cx="110" cy="100" r="54"/><circle class="d-line" cx="110" cy="100" r="36"/><circle class="d-line" cx="110" cy="100" r="18"/>
-                <text class="d-muted" x="110" y="34" text-anchor="middle" font-size="10">4</text>
-                <text class="d-muted" x="110" y="52" text-anchor="middle" font-size="10">3</text>
-                <text class="d-muted" x="110" y="70" text-anchor="middle" font-size="10">2</text>
-                <text class="d-muted" x="110" y="88" text-anchor="middle" font-size="10">1</text>
-                <circle class="d-accent-fill" cx="110" cy="104" r="4"/>
-                <text class="d-muted" x="0" y="188">four layers: “who sees this?”</text>
-                <line class="d-line" x1="226" y1="100" x2="300" y2="100"/>
-                <path class="d-line" d="M294 95 L300 100 L294 105"/>
-                <text class="d-muted" x="330" y="14">After</text>
-                <circle class="d-tint" cx="440" cy="100" r="62"/>
-                <circle class="d-accent-fill" cx="440" cy="100" r="4"/>
-                <circle class="d-accent" cx="404" cy="80" r="9"/><circle class="d-accent" cx="476" cy="80" r="9"/><circle class="d-accent" cx="420" cy="134" r="9"/><circle class="d-accent" cx="462" cy="134" r="9"/>
-                <text class="d-muted" x="330" y="188">you + closest friends</text>
-              </svg>
+              <figure class="case-figure">
+                <div class="case-ba" style="grid-template-columns: repeat(2, minmax(0, 390px))">
+                  <svg class="case-illo case-illo--ba" viewBox="0 0 390 300" role="img" aria-label="Before: four stacked visibility layers, Public, Following, Friends, and Mine, plus a Hide myself toggle.">
+                    <text class="d-muted" x="0" y="14">Before</text>
+                    <polygon class="d-layer" points="100,210 200,168 300,210 200,252"/>
+                    <polygon class="d-layer" points="100,165 200,123 300,165 200,207"/>
+                    <polygon class="d-layer" points="100,120 200,78 300,120 200,162"/>
+                    <polygon class="d-layer" points="100,75 200,33 300,75 200,117"/>
+                    <text x="88" y="80" text-anchor="end">Public</text>
+                    <text x="88" y="125" text-anchor="end">Following</text>
+                    <text x="88" y="170" text-anchor="end">Friends</text>
+                    <text x="88" y="215" text-anchor="end">Mine</text>
+                    <rect class="d-toggle" x="318" y="96" width="52" height="28" rx="14"/>
+                    <circle class="d-knob" cx="356" cy="110" r="11"/>
+                    <text x="344" y="144" text-anchor="middle">Hide myself</text>
+                    <text class="d-muted" x="195" y="292" text-anchor="middle" style="font-size:11px">Flat and complex visibility across content types.</text>
+                  </svg>
+                  <svg class="case-illo case-illo--ba" viewBox="0 0 390 300" role="img" aria-label="Now: one plane of visibility with pins for Friend and Mine; Public sits apart.">
+                    <text class="d-accent-text" x="0" y="14">Now</text>
+                    <ellipse class="d-ellipse" cx="62" cy="250" rx="44" ry="17"/>
+                    <text class="d-muted" x="62" y="255" text-anchor="middle">Public</text>
+                    <polygon class="d-plane" points="97,178 215,126 333,178 215,230"/>
+                    <line class="d-pin" x1="178" y1="74" x2="178" y2="168"/>
+                    <polygon class="d-accent-fill" points="171,176 185,176 178,163"/>
+                    <text class="d-pin-label" x="178" y="64" text-anchor="middle">FRIEND</text>
+                    <line class="d-pin" x1="246" y1="44" x2="246" y2="196"/>
+                    <polygon class="d-accent-fill" points="239,204 253,204 246,191"/>
+                    <text class="d-pin-label" x="246" y="34" text-anchor="middle">MINE</text>
+                    <text class="d-muted" x="195" y="292" text-anchor="middle" style="font-size:11px">Visibility prioritized by emotional relevance.</text>
+                  </svg>
+                </div>
+              </figure>
               <figure class="case-figure">
                 <div class="placeholder"></div>
                 <figcaption>Visibility simplification and related interface explorations.</figcaption>
@@ -419,6 +434,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=24"></script>
+  <script src="case.js?v=25"></script>
 </body>
 </html>
