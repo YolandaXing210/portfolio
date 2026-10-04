@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=28">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -350,17 +350,38 @@
                   </svg>
                 </div>
               </figure>
-              <div class="case-cols case-shots">
-                <figure class="case-figure">
-                  <img src="images/aako-visibility-before.jpg" alt="Before: a map view with a dropdown to choose World, Following, Friends, Mine, or Hide Me." loading="lazy">
-                  <figcaption>Before: pick a layer from a dropdown, one at a time.</figcaption>
-                </figure>
-                <figure class="case-figure">
-                  <img src="images/aako-visibility-after.jpg" alt="After: the map shows Washington Square with 50 friends, 13 mine, and 4 fun at a glance." loading="lazy">
-                  <figcaption>After: the place shows its counts at a glance.</figcaption>
-                </figure>
-              </div>
-              <p>The new layout <strong>cuts the taps</strong> it takes to see who has been somewhere: instead of switching layers in a dropdown, each place shows its numbers directly—<strong>50 friends, 13 mine, 4 fun</strong>—so the information is right there.</p>
+              <figure class="case-figure">
+                <svg class="case-annot" viewBox="0 0 690 597" role="img" aria-label="Before: three clicks. Open the visibility dropdown, choose a layer, then tap the grid button to see the Echoes in this area.">
+                  <image href="images/aako-vis-before-1.jpg" x="84" y="8" width="270" height="581"/>
+                  <image href="images/aako-vis-before-2.jpg" x="384" y="8" width="270" height="581"/>
+                  <rect class="d-hl" x="99" y="52" width="41" height="24" rx="6"/>
+                  <rect class="d-hl" x="94" y="88" width="95" height="149" rx="6"/>
+                  <rect class="d-hl" x="302" y="429" width="48" height="47" rx="6"/>
+                  <line class="d-hl-line" x1="92" y1="64" x2="99" y2="64"/>
+                  <rect class="d-tag" x="0" y="51" width="90" height="26" rx="13"/><text class="d-tag-text" x="9" y="69">click #1</text>
+                  <line class="d-hl-line" x1="92" y1="99" x2="94" y2="99"/>
+                  <rect class="d-tag" x="0" y="86" width="90" height="26" rx="13"/><text class="d-tag-text" x="9" y="104">click #2</text>
+                  <rect class="d-tag" x="236" y="404" width="90" height="26" rx="13"/><text class="d-tag-text" x="245" y="422">click #3</text>
+                  <line class="d-hl-line" x1="351" y1="453" x2="378" y2="453"/>
+                  <path class="d-hl-line" d="M372 447 L379 453 L372 459"/>
+                  <rect class="d-tag" x="559" y="245" width="99" height="26" rx="13"/><text class="d-tag-text" x="568" y="263">Grid View</text>
+                </svg>
+                <figcaption>Before: three clicks to reach the Echoes in a place.</figcaption>
+              </figure>
+              <figure class="case-figure">
+                <svg class="case-annot" viewBox="0 0 690 597" role="img" aria-label="After: one click. Tap the friends count on the map to open a grid of your friends' Echoes in this area.">
+                  <image href="images/aako-vis-after-1.jpg" x="84" y="8" width="270" height="581"/>
+                  <image href="images/aako-vis-after-2.jpg" x="384" y="8" width="270" height="581"/>
+                  <rect class="d-hl" x="158" y="74" width="126" height="50" rx="6"/>
+                  <line class="d-hl-line" x1="92" y1="99" x2="158" y2="99"/>
+                  <rect class="d-tag" x="0" y="86" width="90" height="26" rx="13"/><text class="d-tag-text" x="9" y="104">click #1</text>
+                  <line class="d-hl-line" x1="284" y1="99" x2="378" y2="99"/>
+                  <path class="d-hl-line" d="M372 93 L379 99 L372 105"/>
+                  <rect class="d-tag" x="559" y="245" width="99" height="26" rx="13"/><text class="d-tag-text" x="568" y="263">Grid View</text>
+                </svg>
+                <figcaption>After: one click, straight from the numbers on the map.</figcaption>
+              </figure>
+              <p>The new layout <strong>cuts the clicks from three to one</strong>. Instead of opening a dropdown, picking a layer, and then switching to the grid, you tap the number you care about—<strong>50 friends, 13 mine, 4 fun</strong>—and land straight in those Echoes. The numbers and the information are right there on the map.</p>
             </div>
 
             <div class="case-decision">
@@ -438,6 +459,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=27"></script>
+  <script src="case.js?v=28"></script>
 </body>
 </html>

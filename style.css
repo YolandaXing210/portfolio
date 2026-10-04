@@ -434,6 +434,13 @@ p { margin: 0; }
 
 .case-figure--wide { padding-bottom: 1.2em; }
 
+/* Annotated screenshots: phone screens with click labels drawn over them */
+.case-annot { display: block; width: 100%; height: auto; overflow: visible; }
+.case-annot .d-hl { fill: none; stroke: var(--accent, var(--text)); stroke-width: 2; }
+.case-annot .d-hl-line { fill: none; stroke: var(--accent, var(--text)); stroke-width: 1.5; }
+.case-annot .d-tag { fill: var(--accent, var(--text)); fill-opacity: 0.22; }
+.case-annot .d-tag-text { font-family: var(--font); font-size: 15px; fill: var(--accent, var(--text)); }
+
 /* Real screenshots: keep their own proportions instead of the 16:9 crop */
 .case .case-shots .case-figure img { aspect-ratio: auto; height: auto; object-fit: contain; }
 .case .case-shots { padding-top: 1.2em; }
