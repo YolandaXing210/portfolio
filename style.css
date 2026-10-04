@@ -784,6 +784,34 @@ p { margin: 0; }
 .fx-chip-arrow { color: var(--muted); }
 .fx-chip-face { margin-left: auto; }
 
+/* Phone screen placeholders: real screenshot proportions (692×1488), capped so they never get too tall */
+.case-phones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 180px));
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 2.4em;
+}
+.case-phone { margin: 0; }
+.case-phone__screen {
+  aspect-ratio: 692 / 1488;
+  border: 2px solid var(--rule);
+  border-radius: 26px;
+  background: #f4f4f4;
+}
+.case-phone img { display: block; width: 100%; height: auto; }
+.case-phone figcaption {
+  margin-top: 0.6em;
+  text-align: center;
+  font-size: var(--caption-size);
+  color: var(--muted);
+}
+
+/* Scope tags: cut (struck, faint), kept (neutral), new (accent, from .fx-chip) */
+.fx-chip--cut { border-color: var(--rule); color: var(--muted); font-weight: 400; text-decoration: line-through; text-decoration-thickness: 1px; }
+.fx-chip--kept { border-color: var(--muted); color: var(--text); font-weight: 400; }
+.case .case-steps-label + .fx-chips { margin-top: 0.8em; }
+
 /* Review page only: an option block, labelled A or B */
 .case-option {
   margin-top: 2.4em;
@@ -1035,6 +1063,8 @@ p { margin: 0; }
   .st-pr3 > div { grid-template-columns: minmax(0, 1fr); gap: 0.3em; }
   .st-ba5 { grid-template-columns: minmax(0, 1fr); }
   .fx-timeline { grid-template-columns: minmax(0, 1fr); }
+  .case-phones { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+  .case-phone__screen { border-radius: 14px; }
   .st-ba5__mid { transform: rotate(90deg); padding: 0.4em 0; }
   .case-events { grid-template-columns: minmax(0, 270px); }
   .case-ba { grid-template-columns: minmax(0, 430px); gap: 2rem; }

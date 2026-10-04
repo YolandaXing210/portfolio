@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=31">
+  <link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -143,8 +143,8 @@
                 <rect class="d-pill-accent" x="546" y="146" width="94" height="32" rx="16"/><text class="d-accent-text" x="558" y="167">The album</text>
             </svg>
             <div class="case-fromto case-fromto--answers case-diagram-fallback">
-              <div><span class="muted">Sharing</span><span>Presence felt intrusive</span><i>→</i><span><strong>One trusted context</strong> <a href="#redesign">07</a></span></div>
-              <div><span class="muted">Onboarding</span><span>Too much, too soon</span><i>→</i><span><strong>Your own content first</strong> <a href="#redesign">07</a></span></div>
+              <div><span class="muted">Sharing</span><span>Presence felt intrusive</span><i>→</i><span><strong>One trusted context</strong> <a href="#redesign">06</a></span></div>
+              <div><span class="muted">Onboarding</span><span>Too much, too soon</span><i>→</i><span><strong>Your own content first</strong> <a href="#album-start">05</a></span></div>
               <div><span class="muted">Unit</span><span>One Echo carried it all</span><i>→</i><span><strong>The album</strong> <a href="#album">05</a></span></div>
             </div>
 
@@ -248,72 +248,174 @@
               </div>
               <figcaption>Emotional meaning does not emerge at capture, but through accumulation and return.</figcaption>
             </figure>
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>Information-unit exploration, album creation, and album interaction views.</figcaption>
-            </figure>
-          </div>
-        </section>
-        <hr>
 
-        <!-- ===== 06 AI-assembled events ===== -->
-        <section class="case-section" id="events">
-          <div class="case-index muted">06 / AI-assembled events</div>
-          <div class="case-body">
-            <h2>Letting AI find the event a memory belongs to.</h2>
-            <p>An album only works if it matches how people think about their lives—but sorting hundreds of photos by hand would bring back the burden the redesign was removing. So <strong>AI sorts memories into complete events</strong>, starting from whichever signal fits best:</p>
-            <div class="case-events">
-              <svg class="case-illo" viewBox="0 0 270 230" role="img" aria-label="Hundreds of photos in date order go to AI, which groups them by place, holiday, or time and activity.">
-                <text class="d-muted" x="0" y="14">Camera roll</text>
-                <g class="d-line">
-                  <rect x="0" y="30" width="22" height="22"/><rect x="28" y="30" width="22" height="22"/><rect x="56" y="30" width="22" height="22"/><rect x="84" y="30" width="22" height="22"/><rect x="112" y="30" width="22" height="22"/>
-                  <rect x="0" y="58" width="22" height="22"/><rect x="28" y="58" width="22" height="22"/><rect x="56" y="58" width="22" height="22"/><rect x="84" y="58" width="22" height="22"/><rect x="112" y="58" width="22" height="22"/>
-                  <rect x="0" y="86" width="22" height="22"/><rect x="28" y="86" width="22" height="22"/><rect x="56" y="86" width="22" height="22"/><rect x="84" y="86" width="22" height="22"/><rect x="112" y="86" width="22" height="22"/>
-                  <rect x="0" y="114" width="22" height="22"/><rect x="28" y="114" width="22" height="22"/><rect x="56" y="114" width="22" height="22"/><rect x="84" y="114" width="22" height="22"/><rect x="112" y="114" width="22" height="22"/>
-                  <rect x="0" y="142" width="22" height="22"/><rect x="28" y="142" width="22" height="22"/><rect x="56" y="142" width="22" height="22"/><rect x="84" y="142" width="22" height="22"/><rect x="112" y="142" width="22" height="22"/>
-                </g>
-                <text class="d-muted" x="0" y="190">hundreds of photos,</text>
-                <text class="d-muted" x="0" y="207">in date order</text>
-                <line class="d-line" x1="160" y1="97" x2="262" y2="97"/>
-                <path class="d-line" d="M256 92 L262 97 L256 102"/>
-                <text x="211" y="86" text-anchor="middle">AI</text>
-              </svg>
-              <div class="case-events__cards">
-                <div class="case-card case-card--accent">
-                  <strong>by place</strong>
-                  <p class="muted">A trip to Japan</p>
-                  <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span></p>
-                </div>
-                <div class="case-card case-card--accent">
-                  <strong>by time</strong>
-                  <p class="muted">Summer 2024</p>
-                  <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span></p>
-                </div>
-                <div class="case-card case-card--accent">
-                  <strong>by occasion</strong>
-                  <p class="muted">A holiday</p>
-                  <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span></p>
+            <div class="case-decision" id="album-making">
+              <p class="muted">The album / How it’s made</p>
+              <h3>AI suggests the events; you make them albums.</h3>
+              <p>An album only works if it matches how people think about their lives—but sorting hundreds of photos by hand would bring back the burden the redesign was removing. So <strong>AI sorts memories into complete events</strong>, starting from whichever signal fits best:</p>
+              <div class="case-events">
+                <svg class="case-illo" viewBox="0 0 270 230" role="img" aria-label="Hundreds of photos in date order go to AI, which groups them by place, holiday, or time and activity.">
+                  <text class="d-muted" x="0" y="14">Camera roll</text>
+                  <g class="d-line">
+                    <rect x="0" y="30" width="22" height="22"/><rect x="28" y="30" width="22" height="22"/><rect x="56" y="30" width="22" height="22"/><rect x="84" y="30" width="22" height="22"/><rect x="112" y="30" width="22" height="22"/>
+                    <rect x="0" y="58" width="22" height="22"/><rect x="28" y="58" width="22" height="22"/><rect x="56" y="58" width="22" height="22"/><rect x="84" y="58" width="22" height="22"/><rect x="112" y="58" width="22" height="22"/>
+                    <rect x="0" y="86" width="22" height="22"/><rect x="28" y="86" width="22" height="22"/><rect x="56" y="86" width="22" height="22"/><rect x="84" y="86" width="22" height="22"/><rect x="112" y="86" width="22" height="22"/>
+                    <rect x="0" y="114" width="22" height="22"/><rect x="28" y="114" width="22" height="22"/><rect x="56" y="114" width="22" height="22"/><rect x="84" y="114" width="22" height="22"/><rect x="112" y="114" width="22" height="22"/>
+                    <rect x="0" y="142" width="22" height="22"/><rect x="28" y="142" width="22" height="22"/><rect x="56" y="142" width="22" height="22"/><rect x="84" y="142" width="22" height="22"/><rect x="112" y="142" width="22" height="22"/>
+                  </g>
+                  <text class="d-muted" x="0" y="190">hundreds of photos,</text>
+                  <text class="d-muted" x="0" y="207">in date order</text>
+                  <line class="d-line" x1="160" y1="97" x2="262" y2="97"/>
+                  <path class="d-line" d="M256 92 L262 97 L256 102"/>
+                  <text x="211" y="86" text-anchor="middle">AI</text>
+                </svg>
+                <div class="case-events__cards">
+                  <div class="case-card case-card--accent">
+                    <strong>by place</strong>
+                    <p class="muted">A trip to Japan</p>
+                    <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span></p>
+                  </div>
+                  <div class="case-card case-card--accent">
+                    <strong>by time</strong>
+                    <p class="muted">Summer 2024</p>
+                    <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span><span class="case-sq"></span></p>
+                  </div>
+                  <div class="case-card case-card--accent">
+                    <strong>by occasion</strong>
+                    <p class="muted">A holiday</p>
+                    <p class="case-sqs"><span class="case-sq"></span><span class="case-sq"></span></p>
+                  </div>
                 </div>
               </div>
+              <p>Events read the way people talk—<strong>“A trip to Japan,” “Summer 2024”</strong>—not the way a camera roll stores them. AI does the sorting; the person decides what the event means and who it’s shared with.</p>
+              <div class="case-phones">
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>AI suggests events from your memories</figcaption>
+                </figure>
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Choose an event and its moments</figcaption>
+                </figure>
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Name it, set who sees it—an album</figcaption>
+                </figure>
+              </div>
             </div>
-            <p>Events read the way people talk—<strong>“A trip to Japan,” “Summer 2024”</strong>—not the way a camera roll stores them. AI does the sorting; the person decides what the event means and who it’s shared with.</p>
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>Events in the app, each becoming an album.</figcaption>
-            </figure>
+
+            <div class="case-decision" id="album-finding">
+              <p class="muted">The album / Where it lives</p>
+              <h3>A way back to every album.</h3>
+              <p>Albums need an entry point in everyday use, so people can come back to them—not just make them once.</p>
+              <div class="case-phones">
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Albums on your profile</figcaption>
+                </figure>
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Opening an album</figcaption>
+                </figure>
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Revisiting a moment inside it</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="case-decision" id="album-start">
+              <p class="muted">The album / Where you start</p>
+              <h3>Start with a memory, then invite interaction.</h3>
+              <p>Onboarding used to demand a guided AR sequence before the product meant anything. Now it starts with <strong>creating an album from your own content</strong>.</p>
+              <svg class="case-diagram fx-curve" viewBox="0 0 640 300" role="img" aria-label="Feeling over the first experience. Before: the line drops through a guided AR introduction to an uneasy face. After: the line rises through your own content, shorter Echo creation, and spatial interaction to a happy face.">
+                <text class="d-muted" x="0" y="14">feeling ↑</text>
+                <line class="d-line" x1="0" y1="270" x2="560" y2="270"/>
+                <text class="d-muted" x="560" y="290" text-anchor="end">first minutes →</text>
+                <!-- before: falls -->
+                <path class="fx-curve__before" d="M20 150 C 140 160, 220 200, 330 236"/>
+                <circle class="fx-dot-muted" cx="120" cy="164" r="5"/><text class="d-muted" x="120" y="198" text-anchor="middle">Guided AR intro</text>
+                <circle class="fx-dot-muted" cx="300" cy="226" r="5"/><text class="d-muted" x="292" y="248" text-anchor="end">Then, maybe, a memory</text>
+                <!-- after: rises -->
+                <path class="d-accent" d="M20 150 C 140 140, 300 90, 520 46"/>
+                <circle class="d-accent-fill" cx="140" cy="138" r="5"/><text class="d-accent-text" x="132" y="126" text-anchor="end">Your own content</text>
+                <circle class="d-accent-fill" cx="320" cy="96" r="5"/><text class="d-accent-text" x="312" y="84" text-anchor="end">Shorter Echo creation</text>
+                <circle class="d-accent-fill" cx="490" cy="52" r="5"/><text class="d-accent-text" x="482" y="40" text-anchor="end">Spatial interaction</text>
+                <g transform="translate(338,216) scale(1)" class="fx-face-muted"><circle cx="20" cy="20" r="18"/><path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/><circle class="fx-eye" cx="14.5" cy="19" r="1.6"/><circle class="fx-eye" cx="25.5" cy="19" r="1.6"/><path d="M13 29 Q20 24 27 29"/></g>
+                <g transform="translate(560,26)" class="fx-face"><circle cx="20" cy="20" r="18"/><path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/><path d="M12 24 Q20 32 28 24"/></g>
+              </svg>
+              <div class="case-diagram-fallback fx-fallback">
+                <p class="muted case-steps-label">Before</p>
+                <div class="case-steprow">
+                  <ol class="case-steps case-steps--muted" style="--steps: 2">
+                    <li><b>Guided AR introduction</b><span>Step by step, before anything personal</span></li>
+                    <li><b>Then, maybe, a memory</b><span>Many left before reaching it</span></li>
+                  </ol>
+                  <svg class="case-face case-face--muted" viewBox="0 0 40 40" role="img" aria-label="Uneasy face">
+                    <circle cx="20" cy="20" r="18"/>
+                    <path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/>
+                    <circle class="case-face__dot" cx="14.5" cy="19" r="1.6"/><circle class="case-face__dot" cx="25.5" cy="19" r="1.6"/>
+                    <path d="M13 29 Q20 24 27 29"/>
+                  </svg>
+                </div>
+                <p class="case-steps-label case-steps-label--accent">After</p>
+                <div class="case-steprow">
+                  <ol class="case-steps" style="--steps: 3">
+                    <li><b>Your own content</b><span>Create an album from moments you care about</span></li>
+                    <li><b>Shorter Echo creation</b><span>Capture and context in fewer steps</span></li>
+                    <li><b>Spatial interaction</b><span>Once there’s a memory worth it</span></li>
+                  </ol>
+                  <svg class="case-face" viewBox="0 0 40 40" role="img" aria-label="Happy face">
+                    <circle cx="20" cy="20" r="18"/>
+                    <path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/>
+                    <path d="M12 24 Q20 32 28 24"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="case-phones">
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Welcome: start with your own photos</figcaption>
+                </figure>
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Your first album</figcaption>
+                </figure>
+                <figure class="case-phone">
+                  <div class="case-phone__screen"></div>
+                  <figcaption>Then, place it in space</figcaption>
+                </figure>
+              </div>
+            </div>
           </div>
         </section>
         <hr>
 
-        <!-- ===== 07 Interface changes ===== -->
+        <!-- ===== 06 Simplifying around the album ===== -->
         <section class="case-section" id="redesign">
-          <div class="case-index muted">07 / Interface changes</div>
+          <div class="case-index muted">06 / Simplifying around the album</div>
           <div class="case-body">
-            <h2>Two smaller changes around the album.</h2>
-            <p>With the album at the center, two interface changes answered the other problems: <strong>who you share with</strong>, and <strong>how you start</strong>.</p>
+            <h2>Everything else got smaller.</h2>
+            <p>With the album at the center, the rest of the app was cut back to what supports it: <strong>fewer features</strong>, <strong>one audience</strong>, and <strong>fewer steps</strong> to make an Echo.</p>
 
             <div class="case-decision">
-              <p class="muted">Change 01 / Audience</p>
+              <p class="muted">Change 01 / Scope</p>
+              <h3>Centering the MVP.</h3>
+              <p>Any feature that didn’t serve keeping and revisiting memories was cut; three new core features were added around the album.</p>
+              <div class="case-stats" style="--stats: 2">
+                <div><b>11</b>features cut</div>
+                <div><b>3</b>new core features</div>
+              </div>
+              <p class="muted case-steps-label">Cut</p>
+              <div class="fx-chips"><span class="fx-chip fx-chip--cut">list view</span><span class="fx-chip fx-chip--cut">navigation</span><span class="fx-chip fx-chip--cut">detail view</span><span class="fx-chip fx-chip--cut">magic carpet</span><span class="fx-chip fx-chip--cut">public</span><span class="fx-chip fx-chip--cut">store</span><span class="fx-chip fx-chip--cut">scan</span><span class="fx-chip fx-chip--cut">map view</span><span class="fx-chip fx-chip--cut">Followers</span><span class="fx-chip fx-chip--cut">Following</span><span class="fx-chip fx-chip--cut">Ayo</span></div>
+              <p class="muted case-steps-label">Kept</p>
+              <div class="fx-chips"><span class="fx-chip fx-chip--kept">map</span><span class="fx-chip fx-chip--kept">card view</span><span class="fx-chip fx-chip--kept">AR/VR view</span><span class="fx-chip fx-chip--kept">profile</span><span class="fx-chip fx-chip--kept">notification</span><span class="fx-chip fx-chip--kept">search</span><span class="fx-chip fx-chip--kept">settings</span><span class="fx-chip fx-chip--kept">friends</span><span class="fx-chip fx-chip--kept">Echoes</span></div>
+              <p class="case-steps-label case-steps-label--accent">New</p>
+              <div class="fx-chips"><span class="fx-chip">friends list</span><span class="fx-chip">mine list</span><span class="fx-chip">album</span></div>
+            </div>
+
+            <div class="case-decision">
+              <p class="muted">Change 02 / Audience</p>
               <h3>Four layers became one trusted context.</h3>
               <p>The original experience had <strong>four visibility layers</strong>. I reduced them to <strong>one</strong>, simplifying home and navigation, so saving a memory stopped being an audience-management task.</p>
               <figure class="case-figure">
@@ -380,65 +482,21 @@
             </div>
 
             <div class="case-decision">
-              <p class="muted">Change 02 / First experience</p>
-              <h3>Start with a memory, then invite interaction.</h3>
-              <p>Onboarding used to demand a guided AR sequence before the product meant anything. Now it starts with <strong>creating an album from your own content</strong>, and Echo creation is shorter: capture and context in fewer steps.</p>
-              <svg class="case-diagram fx-curve" viewBox="0 0 640 300" role="img" aria-label="Feeling over the first experience. Before: the line drops through a guided AR introduction to an uneasy face. After: the line rises through your own content, shorter Echo creation, and spatial interaction to a happy face.">
-                <text class="d-muted" x="0" y="14">feeling ↑</text>
-                <line class="d-line" x1="0" y1="270" x2="560" y2="270"/>
-                <text class="d-muted" x="560" y="290" text-anchor="end">first minutes →</text>
-                <!-- before: falls -->
-                <path class="fx-curve__before" d="M20 150 C 140 160, 220 200, 330 236"/>
-                <circle class="fx-dot-muted" cx="120" cy="164" r="5"/><text class="d-muted" x="120" y="198" text-anchor="middle">Guided AR intro</text>
-                <circle class="fx-dot-muted" cx="300" cy="226" r="5"/><text class="d-muted" x="292" y="248" text-anchor="end">Then, maybe, a memory</text>
-                <!-- after: rises -->
-                <path class="d-accent" d="M20 150 C 140 140, 300 90, 520 46"/>
-                <circle class="d-accent-fill" cx="140" cy="138" r="5"/><text class="d-accent-text" x="132" y="126" text-anchor="end">Your own content</text>
-                <circle class="d-accent-fill" cx="320" cy="96" r="5"/><text class="d-accent-text" x="312" y="84" text-anchor="end">Shorter Echo creation</text>
-                <circle class="d-accent-fill" cx="490" cy="52" r="5"/><text class="d-accent-text" x="482" y="40" text-anchor="end">Spatial interaction</text>
-                <g transform="translate(338,216) scale(1)" class="fx-face-muted"><circle cx="20" cy="20" r="18"/><path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/><circle class="fx-eye" cx="14.5" cy="19" r="1.6"/><circle class="fx-eye" cx="25.5" cy="19" r="1.6"/><path d="M13 29 Q20 24 27 29"/></g>
-                <g transform="translate(560,26)" class="fx-face"><circle cx="20" cy="20" r="18"/><path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/><path d="M12 24 Q20 32 28 24"/></g>
-              </svg>
-              <div class="case-diagram-fallback fx-fallback">
-                <p class="muted case-steps-label">Before</p>
-                <div class="case-steprow">
-                  <ol class="case-steps case-steps--muted" style="--steps: 2">
-                    <li><b>Guided AR introduction</b><span>Step by step, before anything personal</span></li>
-                    <li><b>Then, maybe, a memory</b><span>Many left before reaching it</span></li>
-                  </ol>
-                  <svg class="case-face case-face--muted" viewBox="0 0 40 40" role="img" aria-label="Uneasy face">
-                    <circle cx="20" cy="20" r="18"/>
-                    <path d="M11 14 L16 15.5"/><path d="M29 14 L24 15.5"/>
-                    <circle class="case-face__dot" cx="14.5" cy="19" r="1.6"/><circle class="case-face__dot" cx="25.5" cy="19" r="1.6"/>
-                    <path d="M13 29 Q20 24 27 29"/>
-                  </svg>
-                </div>
-                <p class="case-steps-label case-steps-label--accent">After</p>
-                <div class="case-steprow">
-                  <ol class="case-steps" style="--steps: 3">
-                    <li><b>Your own content</b><span>Create an album from moments you care about</span></li>
-                    <li><b>Shorter Echo creation</b><span>Capture and context in fewer steps</span></li>
-                    <li><b>Spatial interaction</b><span>Once there’s a memory worth it</span></li>
-                  </ol>
-                  <svg class="case-face" viewBox="0 0 40 40" role="img" aria-label="Happy face">
-                    <circle cx="20" cy="20" r="18"/>
-                    <path d="M11.5 17 Q14.5 13.5 17.5 17"/><path d="M22.5 17 Q25.5 13.5 28.5 17"/>
-                    <path d="M12 24 Q20 32 28 24"/>
-                  </svg>
-                </div>
-              </div>
-              <figure class="case-figure">
-                <div class="placeholder"></div>
-                <figcaption>Simplified Echo creation, album-focused onboarding, and UI refinements.</figcaption>
-              </figure>
+              <p class="muted">Change 03 / Echo creation</p>
+              <h3>Seven steps became four.</h3>
+              <p>Creating an Echo was cut down to <strong>three screens and a post</strong>: the details that used to take three separate steps now sit on one screen, with the emoji suggested automatically.</p>
+              <p class="muted case-steps-label">Before · 7 steps</p>
+              <div class="fx-chips"><span class="fx-chip fx-chip--muted">Camera</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Confirm or retake</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Add audio</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Choose emoji</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Location, caption, visibility</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Scan and pin</span><span class="fx-chip-arrow">→</span><span class="fx-chip fx-chip--muted">Post</span></div>
+              <p class="case-steps-label case-steps-label--accent">After · 4 steps</p>
+              <div class="fx-chips"><span class="fx-chip ">Camera</span><span class="fx-chip-arrow">→</span><span class="fx-chip ">Confirm or retake</span><span class="fx-chip-arrow">→</span><span class="fx-chip ">Details: auto-suggested emoji · location caption · audio (optional) · visibility</span><span class="fx-chip-arrow">→</span><span class="fx-chip ">Scan + pin + post</span></div>
             </div>
           </div>
         </section>
         <hr>
 
-        <!-- ===== 08 Outcome ===== -->
+        <!-- ===== 07 Outcome ===== -->
         <section class="case-section" id="outcome">
-          <div class="case-index muted">08 / Outcome &amp; reflection</div>
+          <div class="case-index muted">07 / Outcome &amp; reflection</div>
           <div class="case-body">
             <h2>A clearer purpose. An impact still to validate.</h2>
 
@@ -472,6 +530,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=31"></script>
+  <script src="case.js?v=32"></script>
 </body>
 </html>
