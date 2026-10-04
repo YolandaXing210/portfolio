@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -59,12 +59,12 @@
         </section>
         <hr>
 
-        <!-- ===== 02 Diagnosis ===== -->
+        <!-- ===== 02 What broke ===== -->
         <section class="case-section" id="diagnosis">
-          <div class="case-index muted">02 / Launch diagnosis</div>
+          <div class="case-index muted">02 / What broke</div>
           <div class="case-body">
             <h2>A compelling spatial idea did not become a reason to return.</h2>
-            <p>Usage was weaker than expected: people were <strong>reluctant to engage</strong>, and many <strong>left during onboarding</strong>.</p>
+            <p>Usage was weaker than expected: people were <strong>reluctant to engage</strong>, and many <strong>left during onboarding</strong>. The research was <strong>post-hoc</strong>—I worked backwards from launch data and observed behavior to find where the experience broke down. Three things stood out.</p>
 
             <div class="case-flowhead"><span class="muted">What we assumed</span><span>→</span><span class="muted">What happened</span></div>
             <div class="case-flowrow">
@@ -89,6 +89,17 @@
                 <p>It asked for <strong>too much before anything felt personal</strong>, and some devices weren’t supported. Analytics showed people leaving there.</p>
               </div>
             </div>
+            <div class="case-flowrow">
+              <div class="case-card">
+                <h3>One Echo can hold a memory.</h3>
+                <p>A single bubble—image, sound, and text—would be enough to carry a moment on its own.</p>
+              </div>
+              <span class="case-flowrow__arrow">→</span>
+              <div class="case-card case-card--accent">
+                <h3>A memory doesn’t live alone.</h3>
+                <p>One Echo had to carry a <strong>whole memory by itself</strong>. Memories belong to a trip, a season, a place, or a stretch of time—and a lone post gave people little reason to return.</p>
+              </div>
+            </div>
 
             <!-- TODO: replace each —% with the real (or estimated) figure from AAKO's launch analytics -->
             <div class="case-stats" style="--stats: 3">
@@ -96,11 +107,19 @@
               <div><b>—%</b>of devices couldn’t run the AR introduction</div>
               <div><b>—%</b>of users who posted an Echo came back within a week</div>
             </div>
+
+            <p class="muted case-steps-label">How the data pointed to a new unit</p>
+            <ol class="case-steps">
+              <li><b>Launch data</b><span>Where people hesitated, left, or never came back</span></li>
+              <li><b>The unit</b><span>A single Echo had to carry a whole memory alone</span></li>
+              <li><b>How memories live</b><span>In a trip, a season, a place, a stretch of time</span></li>
+              <li><b>The album</b><span>The unit people create, share, and return to</span></li>
+            </ol>
           </div>
         </section>
         <hr>
 
-        <!-- ===== 03 Trust ===== -->
+        <!-- ===== 03 Privacy & trust ===== -->
         <section class="case-section" id="trust">
           <div class="case-index muted">03 / Privacy &amp; trust</div>
           <div class="case-body">
@@ -112,28 +131,118 @@
         </section>
         <hr>
 
-        <!-- ===== 04 Reading the data ===== -->
-        <section class="case-section" id="data">
-          <div class="case-index muted">04 / Reading the data</div>
+        <!-- ===== 04 Product reframe ===== -->
+        <section class="case-section" id="principles">
+          <div class="case-index muted">04 / Product reframe</div>
           <div class="case-body">
-            <h2>Working backwards from what didn’t work.</h2>
-            <p>The research in this chapter was <strong>post-hoc</strong>: rather than running new studies, I worked backwards from launch data and observed behavior to find where the experience broke down.</p>
+            <h2>From spatial social app to spatial memory system.</h2>
+            <p>Echo stayed the smallest unit. What changed was everything around it—and each problem got an answer:</p>
 
-            <ol class="case-steps">
-              <li><b>Launch data</b><span>Where people hesitated, left, or never came back</span></li>
-              <li><b>The unit</b><span>A single Echo had to carry a whole memory alone</span></li>
-              <li><b>How memories live</b><span>In a trip, a season, a place, a stretch of time</span></li>
-              <li><b>The album</b><span>The unit people create, share, and return to</span></li>
-            </ol>
+            <div class="case-fromto case-fromto--answers">
+              <div><span class="muted">Sharing</span><span>Presence felt intrusive</span><i>→</i><span><strong>One trusted context</strong> <a href="#redesign">07</a></span></div>
+              <div><span class="muted">Onboarding</span><span>Too much, too soon</span><i>→</i><span><strong>Your own content first</strong> <a href="#redesign">07</a></span></div>
+              <div><span class="muted">Unit</span><span>One Echo carried it all</span><i>→</i><span><strong>The album</strong> <a href="#album">05</a></span></div>
+            </div>
 
-            <p>Instead of distributing isolated posts, AAKO would <strong>package moments into albums</strong>.</p>
+            <p class="muted case-steps-label">Before and after</p>
+            <div class="case-fromto case-fromto--tight">
+              <div><span class="muted">Question</span><s>How do people share an Echo?</s><i>→</i><span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</span></div>
+              <div><span class="muted">Behavior</span><s>Posting, sharing, discovery</s><i>→</i><span>Capture, context, <strong>revisiting, recollection</strong></span></div>
+              <div><span class="muted">Unit</span><s>A single Echo</s><i>→</i><span><strong>An album</strong> of Echoes</span></div>
+              <div><span class="muted">Audience</span><s>Four visibility layers</s><i>→</i><span>You and your <strong>closest friends</strong></span></div>
+              <div><span class="muted">First experience</span><s>A guided AR introduction</s><i>→</i><span>Start with <strong>your own memory</strong></span></div>
+            </div>
+
+
+            <p class="muted">Four principles carried the reframe:</p>
+            <div class="case-cards case-cards--row case-cards--principles">
+              <div class="case-card"><h3>Intimacy before exposure</h3><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
+              <div class="case-card"><h3>Connections before isolated posts</h3><p>Albums connect moments through place, time, people, and shared experience.</p></div>
+              <div class="case-card"><h3>Personal meaning before instruction</h3><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
+              <div class="case-card"><h3>Context before precision</h3><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
+            </div>
           </div>
         </section>
         <hr>
 
-        <!-- ===== 05 AI-assembled events ===== -->
+        <!-- ===== 05 The album ===== -->
+        <section class="case-section" id="album">
+          <div class="case-index muted">05 / The album</div>
+          <div class="case-body">
+            <h2>From individual bubbles to an album of relationships.</h2>
+            <p>The core change. An isolated bubble had to carry too much weight; in an album, moments <strong>build meaning together</strong>—a journey rather than unrelated posts. Place, season, people, and occasions connect them.</p>
+            <figure class="case-figure">
+              <div class="case-ba">
+                <svg class="case-illo case-illo--ba" viewBox="10 0 360 300" role="img" aria-label="Before: a person in the middle of six separate memory bubbles, with question marks between them. Enter, view, exit.">
+                <text class="d-muted" x="12" y="14">Before</text>
+                <g class="d-line">
+                  <circle cx="125" cy="62" r="24"/><circle cx="255" cy="62" r="24"/><circle cx="315" cy="140" r="24"/>
+                  <circle cx="255" cy="218" r="24"/><circle cx="125" cy="218" r="24"/><circle cx="65" cy="140" r="24"/>
+                </g>
+                <g class="d-fill"><circle cx="125" cy="62" r="17"/><circle cx="255" cy="62" r="17"/><circle cx="315" cy="140" r="17"/><circle cx="255" cy="218" r="17"/><circle cx="125" cy="218" r="17"/><circle cx="65" cy="140" r="17"/></g>
+                <g class="d-muted">
+                  <text x="186" y="58">?</text><text x="290" y="104">?</text><text x="290" y="186">?</text>
+                  <text x="186" y="228">?</text><text x="88" y="186">?</text><text x="88" y="104">?</text>
+                </g>
+                <circle class="d-solid" cx="190" cy="122" r="14"/>
+                <path class="d-solid" d="M166 162 a24 22 0 0 1 48 0 Z"/>
+                <text class="d-muted" x="216" y="118" style="font-size:22px">?</text>
+                <g class="d-muted"><text x="40" y="290">Enter</text><text x="166" y="290">View</text><text x="300" y="290">Exit</text></g>
+                <line class="d-line" x1="90" y1="286" x2="156" y2="286"/><path class="d-line" d="M151 282 L156 286 L151 290"/>
+                <line class="d-line" x1="206" y1="286" x2="290" y2="286"/><path class="d-line" d="M285 282 L290 286 L285 290"/>
+              </svg>
+                <svg class="case-illo case-illo--ba" viewBox="0 0 430 300" role="img" aria-label="Now: a person surrounded by tags such as @ Paris, Winter 2024, Japan 2023, and w/ Bestie. The LA 23 tag opens into an album holding many moments. Enter, revisit, accumulate, and return.">
+                <text class="d-accent-text" x="0" y="14">Now</text>
+                <!-- album, expanded from the LA 23’ tag (dashed lines link the tag to the album) -->
+                <rect class="d-dash-accent" x="236" y="22" width="194" height="206" rx="16"/>
+                <g class="d-tint-fill">
+                  <circle cx="291" cy="64" r="18"/><circle cx="375" cy="64" r="18"/>
+                  <circle cx="291" cy="126" r="18"/><circle cx="375" cy="126" r="18"/>
+                  <circle cx="291" cy="188" r="18"/><circle cx="375" cy="188" r="18"/>
+                </g>
+                <g class="d-accent">
+                  <circle cx="291" cy="64" r="25"/><circle cx="375" cy="64" r="25"/>
+                  <circle cx="291" cy="126" r="25"/><circle cx="375" cy="126" r="25"/>
+                  <circle cx="291" cy="188" r="25"/><circle cx="375" cy="188" r="25"/>
+                </g>
+                <line class="d-dash-accent" x1="218" y1="170" x2="236" y2="38"/>
+                <line class="d-dash-accent" x1="218" y1="198" x2="236" y2="212"/>
+                <rect class="d-pill-accent" x="140" y="168" width="86" height="32" rx="16"/>
+                <text class="d-accent-text" x="155" y="190" style="font-size:16px">LA 23’</text>
+                <!-- person + signal -->
+                <path class="d-accent" d="M84 106 A31 31 0 0 0 84 150"/>
+                <path class="d-accent" d="M70 94 A48 48 0 0 0 70 162"/>
+                <path class="d-accent" d="M136 106 A31 31 0 0 1 136 150"/>
+                <path class="d-accent" d="M150 94 A48 48 0 0 1 150 162"/>
+                <circle class="d-solid" cx="110" cy="118" r="13"/>
+                <path class="d-solid" d="M88 156 a22 20 0 0 1 44 0 Z"/>
+                <!-- tags -->
+                <rect class="d-pill" x="40" y="24" width="73" height="24" rx="12"/><text x="49" y="40">@ Paris</text>
+                <rect class="d-pill" x="112" y="56" width="104" height="24" rx="12"/><text x="121" y="72">Winter 2024</text>
+                <rect class="d-pill" x="0" y="64" width="96" height="24" rx="12"/><text x="9" y="80">Japan 2023</text>
+                <rect class="d-pill" x="0" y="178" width="88" height="24" rx="12"/><text x="9" y="194">w/ Bestie</text>
+                <!-- flow with return loop, centered in the panel -->
+                <g transform="translate(26,0)">
+                  <g class="d-muted"><text x="0" y="290">Enter</text><text x="128" y="290">Revisit</text><text x="300" y="290">Accumulate</text></g>
+                  <line class="d-line" x1="50" y1="286" x2="120" y2="286"/><path class="d-line" d="M115 282 L120 286 L115 290"/>
+                  <line class="d-line" x1="194" y1="286" x2="292" y2="286"/><path class="d-line" d="M287 282 L292 286 L287 290"/>
+                  <path class="d-accent" d="M339 274 V258 H158 V270"/><path class="d-accent" d="M153 265 L158 271 L163 265"/>
+                </g>
+              </svg>
+              </div>
+              <figcaption>Emotional meaning does not emerge at capture, but through accumulation and return.</figcaption>
+            </figure>
+            <figure class="case-figure">
+              <div class="placeholder"></div>
+              <figcaption>Information-unit exploration, album creation, and album interaction views.</figcaption>
+            </figure>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 06 AI-assembled events ===== -->
         <section class="case-section" id="events">
-          <div class="case-index muted">05 / AI-assembled events</div>
+          <div class="case-index muted">06 / AI-assembled events</div>
           <div class="case-body">
             <h2>Letting AI find the event a memory belongs to.</h2>
             <p>An album only works if it matches how people think about their lives—but sorting hundreds of photos by hand would bring back the burden the redesign was removing. So <strong>AI sorts memories into complete events</strong>, starting from whichever signal fits best:</p>
@@ -180,41 +289,15 @@
         </section>
         <hr>
 
-        <!-- ===== 06 Reframe ===== -->
-        <section class="case-section" id="principles">
-          <div class="case-index muted">06 / Product reframe</div>
-          <div class="case-body">
-            <h2>From spatial social app to spatial memory system.</h2>
-            <p>Echo stayed the smallest unit. What changed was everything around it.</p>
-
-            <div class="case-fromto">
-              <div><span class="muted">Question</span><s>How do people share an Echo?</s><i>→</i><span>How do people <strong>keep, connect, and return to</strong> meaningful moments?</span></div>
-              <div><span class="muted">Behavior</span><s>Posting, sharing, discovery</s><i>→</i><span>Capture, context, <strong>revisiting, recollection</strong></span></div>
-              <div><span class="muted">Unit</span><s>A single Echo</s><i>→</i><span><strong>An album</strong> of Echoes</span></div>
-              <div><span class="muted">Audience</span><s>Four visibility layers</s><i>→</i><span>You and your <strong>closest friends</strong></span></div>
-              <div><span class="muted">First experience</span><s>A guided AR introduction</s><i>→</i><span>Start with <strong>your own memory</strong></span></div>
-            </div>
-
-            <p class="muted">Four principles carried the reframe:</p>
-            <div class="case-cards case-cards--row case-cards--principles">
-              <div class="case-card"><h3>Intimacy before exposure</h3><p>A clear sharing context for the closest circle; fewer decisions about who sees each moment.</p></div>
-              <div class="case-card"><h3>Connections before isolated posts</h3><p>Albums connect moments through place, time, people, and shared experience.</p></div>
-              <div class="case-card"><h3>Personal meaning before instruction</h3><p>Begin with something the user cares about; introduce spatial interaction once there’s a memory worth it.</p></div>
-              <div class="case-card"><h3>Context before precision</h3><p>Combine visual and environmental cues with meaningful time; don’t make every detail equally prominent.</p></div>
-            </div>
-          </div>
-        </section>
-        <hr>
-
-        <!-- ===== 07 Redesign ===== -->
+        <!-- ===== 07 Interface changes ===== -->
         <section class="case-section" id="redesign">
-          <div class="case-index muted">07 / Mobile redesign decisions</div>
+          <div class="case-index muted">07 / Interface changes</div>
           <div class="case-body">
-            <h2>Make recollection the organizing idea.</h2>
-            <p>Three connected decisions carried the reframe into the phone: <strong>simplify visibility</strong>, make the <strong>album</strong> the organizing structure, and bring <strong>personal content</strong> into onboarding earlier.</p>
+            <h2>Two smaller changes around the album.</h2>
+            <p>With the album at the center, two interface changes answered the other problems: <strong>who you share with</strong>, and <strong>how you start</strong>.</p>
 
             <div class="case-decision">
-              <p class="muted">Decision 01 / Audience</p>
+              <p class="muted">Change 01 / Audience</p>
               <h3>Four layers became one trusted context.</h3>
               <p>The original experience had <strong>four visibility layers</strong>. I reduced them to <strong>one</strong>, simplifying home and navigation, so saving a memory stopped being an audience-management task.</p>
               <ol class="case-steps" style="--steps: 3">
@@ -246,78 +329,7 @@
             </div>
 
             <div class="case-decision">
-              <p class="muted">Decision 02 / Information unit</p>
-              <h3>From individual bubbles to an album of relationships.</h3>
-              <p>An isolated bubble had to carry too much weight. In an album, moments <strong>build meaning together</strong>—a journey rather than unrelated posts. Place, season, people, and occasions connect them, and AI assembles them into events automatically.</p>
-              <figure class="case-figure">
-                <div class="case-ba">
-                  <svg class="case-illo case-illo--ba" viewBox="10 0 360 300" role="img" aria-label="Before: a person in the middle of six separate memory bubbles, with question marks between them. Enter, view, exit.">
-                  <text class="d-muted" x="12" y="14">Before</text>
-                  <g class="d-line">
-                    <circle cx="125" cy="62" r="24"/><circle cx="255" cy="62" r="24"/><circle cx="315" cy="140" r="24"/>
-                    <circle cx="255" cy="218" r="24"/><circle cx="125" cy="218" r="24"/><circle cx="65" cy="140" r="24"/>
-                  </g>
-                  <g class="d-fill"><circle cx="125" cy="62" r="17"/><circle cx="255" cy="62" r="17"/><circle cx="315" cy="140" r="17"/><circle cx="255" cy="218" r="17"/><circle cx="125" cy="218" r="17"/><circle cx="65" cy="140" r="17"/></g>
-                  <g class="d-muted">
-                    <text x="186" y="58">?</text><text x="290" y="104">?</text><text x="290" y="186">?</text>
-                    <text x="186" y="228">?</text><text x="88" y="186">?</text><text x="88" y="104">?</text>
-                  </g>
-                  <circle class="d-solid" cx="190" cy="122" r="14"/>
-                  <path class="d-solid" d="M166 162 a24 22 0 0 1 48 0 Z"/>
-                  <text class="d-muted" x="216" y="118" style="font-size:22px">?</text>
-                  <g class="d-muted"><text x="40" y="290">Enter</text><text x="166" y="290">View</text><text x="300" y="290">Exit</text></g>
-                  <line class="d-line" x1="90" y1="286" x2="156" y2="286"/><path class="d-line" d="M151 282 L156 286 L151 290"/>
-                  <line class="d-line" x1="206" y1="286" x2="290" y2="286"/><path class="d-line" d="M285 282 L290 286 L285 290"/>
-                </svg>
-                  <svg class="case-illo case-illo--ba" viewBox="0 0 430 300" role="img" aria-label="Now: a person surrounded by tags such as @ Paris, Winter 2024, Japan 2023, and w/ Bestie. The LA 23 tag opens into an album holding many moments. Enter, revisit, accumulate, and return.">
-                  <text class="d-accent-text" x="0" y="14">Now</text>
-                  <!-- album, expanded from the LA 23’ tag (dashed lines link the tag to the album) -->
-                  <rect class="d-dash-accent" x="236" y="22" width="194" height="206" rx="16"/>
-                  <g class="d-tint-fill">
-                    <circle cx="291" cy="64" r="18"/><circle cx="375" cy="64" r="18"/>
-                    <circle cx="291" cy="126" r="18"/><circle cx="375" cy="126" r="18"/>
-                    <circle cx="291" cy="188" r="18"/><circle cx="375" cy="188" r="18"/>
-                  </g>
-                  <g class="d-accent">
-                    <circle cx="291" cy="64" r="25"/><circle cx="375" cy="64" r="25"/>
-                    <circle cx="291" cy="126" r="25"/><circle cx="375" cy="126" r="25"/>
-                    <circle cx="291" cy="188" r="25"/><circle cx="375" cy="188" r="25"/>
-                  </g>
-                  <line class="d-dash-accent" x1="218" y1="170" x2="236" y2="38"/>
-                  <line class="d-dash-accent" x1="218" y1="198" x2="236" y2="212"/>
-                  <rect class="d-pill-accent" x="140" y="168" width="86" height="32" rx="16"/>
-                  <text class="d-accent-text" x="155" y="190" style="font-size:16px">LA 23’</text>
-                  <!-- person + signal -->
-                  <path class="d-accent" d="M84 106 A31 31 0 0 0 84 150"/>
-                  <path class="d-accent" d="M70 94 A48 48 0 0 0 70 162"/>
-                  <path class="d-accent" d="M136 106 A31 31 0 0 1 136 150"/>
-                  <path class="d-accent" d="M150 94 A48 48 0 0 1 150 162"/>
-                  <circle class="d-solid" cx="110" cy="118" r="13"/>
-                  <path class="d-solid" d="M88 156 a22 20 0 0 1 44 0 Z"/>
-                  <!-- tags -->
-                  <rect class="d-pill" x="40" y="24" width="73" height="24" rx="12"/><text x="49" y="40">@ Paris</text>
-                  <rect class="d-pill" x="112" y="56" width="104" height="24" rx="12"/><text x="121" y="72">Winter 2024</text>
-                  <rect class="d-pill" x="0" y="64" width="96" height="24" rx="12"/><text x="9" y="80">Japan 2023</text>
-                  <rect class="d-pill" x="0" y="178" width="88" height="24" rx="12"/><text x="9" y="194">w/ Bestie</text>
-                  <!-- flow with return loop, centered in the panel -->
-                  <g transform="translate(26,0)">
-                    <g class="d-muted"><text x="0" y="290">Enter</text><text x="128" y="290">Revisit</text><text x="300" y="290">Accumulate</text></g>
-                    <line class="d-line" x1="50" y1="286" x2="120" y2="286"/><path class="d-line" d="M115 282 L120 286 L115 290"/>
-                    <line class="d-line" x1="194" y1="286" x2="292" y2="286"/><path class="d-line" d="M287 282 L292 286 L287 290"/>
-                    <path class="d-accent" d="M339 274 V258 H158 V270"/><path class="d-accent" d="M153 265 L158 271 L163 265"/>
-                  </g>
-                </svg>
-                </div>
-                <figcaption>Emotional meaning does not emerge at capture, but through accumulation and return.</figcaption>
-              </figure>
-              <figure class="case-figure">
-                <div class="placeholder"></div>
-                <figcaption>Information-unit exploration, album creation, and album interaction views.</figcaption>
-              </figure>
-            </div>
-
-            <div class="case-decision">
-              <p class="muted">Decision 03 / First experience</p>
+              <p class="muted">Change 02 / First experience</p>
               <h3>Start with a memory, then invite interaction.</h3>
               <p>Onboarding used to demand a guided AR sequence before the product meant anything. Now it starts with <strong>creating an album from your own content</strong>, and Echo creation is shorter: capture and context in fewer steps.</p>
               <p class="muted case-steps-label">Before</p>
@@ -391,6 +403,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=20"></script>
+  <script src="case.js?v=21"></script>
 </body>
 </html>

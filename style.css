@@ -711,7 +711,12 @@ p { margin: 0; }
 
 /* A labelled row above a step diagram (e.g. Before / After) */
 .case-steps-label { margin-top: 2.4em; }
-.case-steps-label + .case-steps { margin-top: 0.8em; }
+.case .case-steps-label + .case-steps,
+.case .case-steps-label + .case-fromto { margin-top: 0.8em; }
+
+/* Problem → answer rows: links to the section that answers it */
+.case-fromto--answers a { margin-left: 0.4em; color: var(--muted); text-decoration: none; }
+.case-fromto--answers a::before { content: "→ "; }
 
 /* Stat row: big accent numbers with a short label under each */
 .case-stats {
