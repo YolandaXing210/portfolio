@@ -19,7 +19,7 @@ function renderProject(p) {
     <article class="project${p.theme ? ` case--${p.theme}` : ""}">
       <a class="project__media" href="${links[0].href}">${media}</a>
       <div class="project__text">
-        <p>${escapeHTML(p.title)}<br>${escapeHTML(p.doc)}</p>
+        <p>${escapeHTML(p.title)}<br><span class="project__tags">${(p.tags || []).map(t => `<span>${escapeHTML(t)}</span>`).join(" · ")}</span></p>
         <p class="muted">${escapeHTML(p.text)}</p>
         <p>${links.map(l => `<a href="${l.href}">${escapeHTML(l.label)}</a>`).join("<br>")}</p>
       </div>
@@ -32,31 +32,19 @@ document.querySelectorAll("[data-list]").forEach(el => {
   el.innerHTML = (window.PROJECTS[el.dataset.list] || []).map(renderProject).join("");
 });
 
-// ---------- Routing: tabs swap the main column (#art-experiments), #cv swaps the sidebar ----------
+// ---------- Routing: #cv swaps the sidebar to the CV ----------
 
 const views = {};
 document.querySelectorAll("[data-view]").forEach(el => (views[el.dataset.view] = el));
-const tabs = document.querySelectorAll("[data-tab]");
 
-// Which main tab is showing. #cv leaves it alone, so opening the CV doesn't reset the tab.
-let mainView = "works";
 // Scroll position before opening the CV, so its CLOSE returns there instead of jumping to the top.
 let savedScroll = 0;
 
 function route() {
-  const hash = location.hash.slice(1);
-  if (hash !== "cv") mainView = hash === "art-experiments" ? "art" : "works";
-
-  views.works.hidden = mainView !== "works";
-  views.art.hidden = mainView !== "art";
-  tabs.forEach(a => {
-    if (a.dataset.tab === mainView) a.setAttribute("aria-current", "page");
-    else a.removeAttribute("aria-current");
-  });
-
-  views.bio.hidden = hash === "cv";
-  views.cv.hidden = hash !== "cv";
-  if (hash === "cv") document.querySelector(".sidebar").scrollTop = 0;
+  const cv = location.hash === "#cv";
+  views.bio.hidden = cv;
+  views.cv.hidden = !cv;
+  if (cv) document.querySelector(".sidebar").scrollTop = 0;
 }
 
 // Handle in-page links ourselves: a plain href="#" makes the browser jump to the top first.
@@ -65,15 +53,13 @@ document.addEventListener("click", e => {
   if (!a) return;
   e.preventDefault();
 
-  const from = location.hash.slice(1);
-  let href = a.getAttribute("href");
-  // Closing the CV returns to whichever tab was open.
-  if (from === "cv" && href === "#" && mainView === "art") href = "#art-experiments";
+  const fromCV = location.hash === "#cv";
+  const href = a.getAttribute("href");
   if (href === "#cv") savedScroll = window.scrollY;
 
   history.pushState(null, "", href === "#" ? location.pathname + location.search : href);
   route();
-  if (from === "cv") window.scrollTo(0, savedScroll);
+  if (fromCV) window.scrollTo(0, savedScroll);
 });
 
 window.addEventListener("popstate", route);

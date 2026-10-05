@@ -68,11 +68,6 @@ p { margin: 0; }
 
 .view[hidden] { display: none; }
 
-.tabs a[aria-current="page"] {
-  color: var(--text);
-  pointer-events: none;
-}
-
 .project {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -333,6 +328,10 @@ p { margin: 0; }
 .project.case--aako .project__text > p:first-child,
 .project.case--garden .project__text > p:first-child,
 .project.case--journey .project__text > p:first-child { color: var(--accent); }
+
+/* Skill keywords under the title: body color, so they read apart from the accent title */
+.project__tags { color: var(--text); }
+.project__tags span { white-space: nowrap; }
 
 .project[class*="case--"] .project__text a {
   color: var(--accent);
