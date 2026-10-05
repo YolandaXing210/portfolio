@@ -15,11 +15,13 @@ function renderProject(p) {
   // A project can have several pages: links: [{ label, href }]. The image goes to the first.
   // theme: "aako" | "garden" | "journey" gives the entry its project accent color.
   const links = p.links || [{ label: "Read more…", href: p.link }];
+  // Each keyword keeps its trailing "·", so a line never starts with a dot.
+  const tags = (p.tags || []).map((t, i, all) => `<span>${escapeHTML(t)}${i < all.length - 1 ? " ·" : ""}</span>`).join(" ");
   return `
     <article class="project${p.theme ? ` case--${p.theme}` : ""}">
       <a class="project__media" href="${links[0].href}">${media}</a>
       <div class="project__text">
-        <p>${escapeHTML(p.title)}<br><span class="project__tags">${(p.tags || []).map(t => `<span>${escapeHTML(t)}</span>`).join(" · ")}</span></p>
+        <p>${escapeHTML(p.title)}<br><span class="project__tags">${tags}</span></p>
         <p class="muted">${escapeHTML(p.text)}</p>
         <p>${links.map(l => `<a href="${l.href}">${escapeHTML(l.label)}</a>`).join("<br>")}</p>
       </div>
