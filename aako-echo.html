@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=44">
+  <link rel="stylesheet" href="style.css?v=45">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -100,11 +100,15 @@
             </table>
 
             <p class="muted">Visual inspiration: mystery solving and conquering · a sense of achievement · reflections of the object and its surroundings · dreamy, childhood, nostalgia.</p>
-            <div class="case-grid">
-              <div class="placeholder"></div>
-              <div class="placeholder"></div>
-              <div class="placeholder"></div>
-              <div class="placeholder"></div>
+            <div class="case-grid case-grid--square">
+              <img src="images/echo-inspiration-1.jpg" alt="Text that curves around a form." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-2.jpg" alt="A glowing orb: the reward of discovery." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-3.jpg" alt="A soap bubble: soft, iridescent, fragile." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-4.jpg" alt="Liquid glass: a surface you want to touch." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-5.jpg" alt="Light radiating from a core." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-6.jpg" alt="A glowing pool: a way into somewhere else." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-7.jpg" alt="A crystal ball reflecting its surroundings." width="200" height="200" loading="lazy">
+              <img src="images/echo-inspiration-8.jpg" alt="A bubble character: playful, childlike." width="200" height="200" loading="lazy">
             </div>
           </div>
         </section>
@@ -292,7 +296,11 @@
             </table>
 
             <figure class="case-figure">
-              <div class="placeholder"></div>
+              <div class="case-grid case-grid--3 case-grid--square">
+                <video src="images/echo-render-purple.mp4" poster="images/echo-render-purple-poster.jpg" width="720" height="720" autoplay muted loop playsinline aria-label="Echo rendered in RealityKit: purple skin." data-caption="Echo rendered in RealityKit: purple skin."></video>
+                <video src="images/echo-render-yellow.mp4" poster="images/echo-render-yellow-poster.jpg" width="720" height="720" autoplay muted loop playsinline aria-label="Echo rendered in RealityKit: yellow skin." data-caption="Echo rendered in RealityKit: yellow skin."></video>
+                <video src="images/echo-render-blue.mp4" poster="images/echo-render-blue-poster.jpg" width="720" height="720" autoplay muted loop playsinline aria-label="Echo rendered in RealityKit: blue skin, with a wobbling surface." data-caption="Echo rendered in RealityKit: blue skin, with a wobbling surface."></video>
+              </div>
               <figcaption>Echo rendered in RealityKit.</figcaption>
             </figure>
 
@@ -303,12 +311,18 @@
               <li><span class="case-flow__who">Skins</span><span>A <strong>node shader</strong> makes new bubble skins easy.</span></li>
             </ol>
 
-            <div class="case-grid">
-              <div class="placeholder"></div>
-              <div class="placeholder"></div>
-              <div class="placeholder"></div>
-              <div class="placeholder"></div>
-            </div>
+            <figure class="case-figure">
+              <div class="case-justify">
+                <img src="images/echo-shader-1.png" alt="The full bubble shader: base color, Fresnel rim, emissive glow, and geometry animation." width="672" height="521" style="--ar: 672 / 521" loading="lazy">
+                <img src="images/echo-shader-2.png" alt="Skin variant A: a lighter graph built from the same nodes." width="572" height="334" style="--ar: 572 / 334" loading="lazy">
+              </div>
+              <div class="case-justify">
+                <img src="images/echo-shader-3.png" alt="Skin variant B: a lighter graph built from the same nodes." width="665" height="277" style="--ar: 665 / 277" loading="lazy">
+                <img src="images/echo-shader-4.png" alt="Skin variant C: a lighter graph built from the same nodes." width="541" height="252" style="--ar: 541 / 252" loading="lazy">
+                <img src="images/echo-shader-5.png" alt="Skin variant D: a lighter graph built from the same nodes." width="403" height="157" style="--ar: 403 / 157" loading="lazy">
+              </div>
+              <figcaption>One node shader, many bubble skins.</figcaption>
+            </figure>
 
             <div class="case-decision">
               <p class="muted">From prototype to product</p>
@@ -366,19 +380,19 @@
               </tbody>
             </table>
 
-            <div class="case-cols">
-              <figure class="case-figure">
-                <div class="placeholder"></div>
+            <div class="case-phones">
+              <figure class="case-phone">
+                <div class="case-phone__screen"></div>
                 <figcaption>AR: re-aligned at the original location.</figcaption>
               </figure>
-              <figure class="case-figure">
-                <div class="placeholder"></div>
+              <figure class="case-phone">
+                <img src="images/echo-vr-streetview.jpg" alt="An Echo floating in a Street View street scene, with its caption above it." width="432" height="844" loading="lazy">
                 <figcaption>VR: placed in a Street View skybox.</figcaption>
               </figure>
             </div>
 
             <figure class="case-figure">
-              <div class="placeholder"></div>
+              <img src="images/echo-visionos.jpg" alt="An Echo floating outside a shop, with its caption and reactions beside it." width="1600" height="900" loading="lazy">
               <figcaption>The same Echo, also explored on visionOS and AR glasses.</figcaption>
             </figure>
           </div>
@@ -404,6 +418,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=44"></script>
+  <script src="case.js?v=45"></script>
 </body>
 </html>
