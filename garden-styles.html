@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What’s in Your Bag?: section styles — Yolanda Xing</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=46">
+  <style>
+    /* Review page only: styles for the five options per section. Removed once a style is picked. */
+    .case--garden { --tint: color-mix(in srgb, var(--accent) 14%, #fff); --tint-2: color-mix(in srgb, var(--accent) 38%, #fff); --ai: #b9b9b9; }
+    .gs-h { margin: 0 0 0.8em; color: var(--muted); }
+    .gs-ph { height: auto; aspect-ratio: 3 / 4; }
+    .gs-ph--sq { aspect-ratio: 1 / 1; }
+    .gs-ph--wide { aspect-ratio: 16 / 9; }
+    .gs-cap { margin-top: 0.6em; font-family: var(--caption-font); font-style: italic; font-size: var(--caption-size); color: var(--muted); text-align: center; }
+    .gs-fine { margin-top: 0.8em; color: var(--muted); }
+    .gs-svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .gs-svg text { font-family: var(--font); fill: var(--text); }
+    .gs-svg .m { fill: var(--muted); }
+    .gs-svg .a { fill: var(--accent); }
+    .gs-legend { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 1em; color: var(--muted); }
+    .gs-legend span::before { content: ""; display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.4em; vertical-align: -0.05em; border-radius: 2px; }
+    .gs-legend .you::before { background: var(--accent); }
+    .gs-legend .ai::before { border: 2px solid var(--ai); background: #fff; }
+    .gs-not { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6em; }
+    .gs-not span { padding: 0.3em 0.8em; border: 1px dashed var(--muted); border-radius: 4px; color: var(--muted); text-decoration: line-through; }
+
+    /* 01 — stats */
+    .gs-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .gs-tiles b { display: block; font-size: var(--h2-size); font-weight: 500; line-height: 1.1; color: var(--accent); }
+    .gs-track { height: 6px; margin: 0.6em 0 0.8em; background: #ececec; border-radius: 3px; overflow: hidden; }
+    .gs-track i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+    .gs-bars { display: grid; grid-template-columns: minmax(0, 14em) minmax(0, 1fr) 3em; column-gap: 1rem; row-gap: 1rem; align-items: center; }
+    .gs-bar { height: 14px; background: #f0f0f0; border-radius: 0 4px 4px 0; }
+    .gs-bar i { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }
+    .gs-bars b { font-weight: 500; }
+    .gs-axis { display: flex; justify-content: space-between; color: var(--muted); grid-column: 2; border-top: 1px solid var(--rule); padding-top: 0.3em; }
+    .gs-waffles { display: grid; grid-template-columns: 4.5em minmax(0, 1fr); column-gap: 1rem; row-gap: 1.4rem; align-items: start; }
+    .gs-waffles b { font-size: 1.6rem; font-weight: 500; color: var(--accent); line-height: 1; }
+    .gs-waffle { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 3px; max-width: 440px; margin-bottom: 0.5em; }
+    .gs-waffle i { aspect-ratio: 1; background: #e9e9e9; border-radius: 2px; }
+    .gs-waffle i.on { background: var(--accent); }
+    .gs-rings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; text-align: center; }
+    .gs-rings svg { width: 100%; max-width: 132px; display: block; margin: 0 auto 0.6em; }
+    .gs-seen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1rem; margin-bottom: 1.6em; }
+    .gs-seen > div { padding: 1rem; border: 2px solid var(--rule); border-radius: 6px; }
+    .gs-seen > div:last-child { border-color: var(--accent); background: var(--tint); }
+    .gs-seen b { display: block; margin-top: 0.4em; font-weight: 500; }
+    .gs-seen ul { margin: 0.4em 0 0; padding-left: 1.1em; }
+    .gs-mini { display: grid; grid-template-columns: 3.5em 80px minmax(0, 1fr); column-gap: 0.8rem; row-gap: 0.5rem; align-items: center; }
+    .gs-mini b { font-weight: 500; color: var(--accent); }
+
+    /* 02 — interaction model */
+    .gs-lanes { display: grid; grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr); }
+    .gs-lanes > * { padding: 0.45rem 0; }
+    .gs-lanes .head { color: var(--muted); padding-bottom: 0.8rem; }
+    .gs-lanes .head:last-child { text-align: left; }
+    .gs-spine { display: flex; justify-content: center; align-items: center; background: linear-gradient(var(--rule), var(--rule)) center / 2px 100% no-repeat; color: var(--muted); }
+    .gs-spine span { background: #fff; padding: 0.2em 0; }
+    .gs-card { padding: 0.7rem 0.9rem; border: 2px solid var(--ai); border-radius: 6px; background: #fff; }
+    .gs-card--you { border-color: var(--accent); background: var(--tint); }
+    .gs-card b { display: block; font-weight: 500; }
+    .gs-card--you b { color: var(--accent); }
+    .gs-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .gs-split > div { padding: 1rem; border: 2px solid var(--ai); border-radius: 6px; }
+    .gs-split > div:first-child { border-color: var(--accent); background: var(--tint); }
+    .gs-split .big { margin: 0.4em 0 0.8em; font-size: 1.4rem; line-height: 1.35; }
+    .gs-split > div:first-child .big { color: var(--accent); }
+    .gs-steps { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .gs-steps span { padding: 0.2em 0.6em; border: 1px solid currentColor; border-radius: 4px; color: var(--muted); }
+    .gs-chain { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.5rem 0.4rem; }
+    .gs-chain .arrow { padding-top: 0.45em; color: var(--muted); }
+    .gs-pill { display: flex; flex-direction: column; align-items: center; max-width: 11em; text-align: center; }
+    .gs-pill b { padding: 0.45em 0.9em; border: 2px solid var(--ai); border-radius: 999px; font-weight: 500; white-space: nowrap; }
+    .gs-pill--you b { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .gs-pill small { margin-top: 0.4em; font-size: 1em; color: var(--muted); }
+    .gs-qa { width: 100%; border-collapse: collapse; }
+    .gs-qa th { text-align: left; font-weight: 400; color: var(--muted); padding: 0 0.8rem 0.6rem 0; }
+    .gs-qa td { padding: 0.8rem 0.8rem 0.8rem 0; border-top: 1px solid var(--rule); vertical-align: top; }
+    .gs-qa tr:last-child td { border-bottom: 1px solid var(--rule); }
+    .gs-qa .q { font-weight: 500; }
+    .gs-who { display: inline-block; padding: 0.1em 0.6em; border: 2px solid var(--ai); border-radius: 999px; white-space: nowrap; }
+    .gs-who--you { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+    /* 03 — the experience */
+    .gs-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.8rem; }
+    .gs-strip p { margin-top: 0.5em; }
+    .gs-strip .n { color: var(--accent); font-weight: 500; }
+    .gs-bands { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.8rem; }
+    .gs-band { padding: 0.4em 0.6em; border-top: 2px solid var(--accent); color: var(--accent); font-weight: 500; }
+    .gs-band--digital { border-top-style: dashed; }
+    .gs-bands .mode { display: none; color: var(--accent); }
+    .gs-slow { list-style: none; margin: 0; padding: 0; }
+    .gs-slow li { display: grid; grid-template-columns: 2.4em minmax(0, 1fr) 96px; column-gap: 1rem; align-items: center; }
+    .gs-slow .n { color: var(--accent); font-weight: 500; }
+    .gs-slow b { font-weight: 500; }
+    .gs-slow p { margin: 0.2em 0 0; color: var(--muted); }
+    .gs-slow .pause { display: grid; grid-template-columns: 2.4em minmax(0, 1fr); column-gap: 1rem; height: 2.6rem; align-items: center; color: var(--muted); }
+    .gs-slow .pause::before { content: ""; justify-self: center; align-self: stretch; border-left: 2px dotted var(--accent); }
+    .gs-hero4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; }
+    .gs-hero4 > :first-child { grid-column: 1 / -1; }
+    .gs-hero4 p { margin-top: 0.4em; }
+    .gs-hero4 .n { color: var(--accent); font-weight: 500; }
+    .gs-zig { display: grid; gap: 1.6rem; }
+    .gs-zig > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; align-items: center; }
+    .gs-zig > div:nth-child(even) > :first-child { order: 2; }
+    .gs-zig .n { display: block; font-size: var(--h2-size); font-weight: 500; color: var(--accent); line-height: 1; }
+    .gs-zig b { display: block; margin: 0.4em 0; font-weight: 500; }
+    .gs-zig p { margin: 0; color: var(--muted); }
+
+    /* 04 — emotion to form */
+    .gs-flower { width: 64px; height: 64px; display: block; fill: var(--tint); stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .gs-flower--lg { width: 88px; height: 88px; }
+    .gs-flowers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .gs-flowers > div { padding: 1rem; border: 2px solid var(--rule); border-radius: 6px; }
+    .gs-flowers .role { color: var(--muted); }
+    .gs-flowers b { display: block; margin: 0.2em 0 0.5em; font-weight: 500; color: var(--accent); }
+    .gs-flowers p { margin: 0; }
+    .gs-flowers .eg { margin-top: 0.6em; color: var(--muted); }
+    .gs-map { display: grid; grid-template-columns: minmax(0, 1.1fr) 2em minmax(0, 1fr) 2em minmax(0, 0.8fr); align-items: center; row-gap: 0.8rem; }
+    .gs-map .in { padding: 0.8rem; border: 2px solid var(--ai); border-radius: 6px; }
+    .gs-map .in--you { border-color: var(--accent); background: var(--tint); }
+    .gs-map .in small { display: block; color: var(--muted); font-size: 1em; }
+    .gs-map .in b { font-weight: 500; }
+    .gs-map .arrow { text-align: center; color: var(--muted); }
+    .gs-map .param { padding: 0.8rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .gs-map .param b { color: var(--accent); font-weight: 500; }
+    .gs-map .out { grid-row: 1 / span 2; grid-column: 5; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .gs-map .join { grid-row: 1 / span 2; grid-column: 4; align-self: stretch; display: flex; align-items: center; justify-content: center; color: var(--muted); border-right: 0; }
+    .gs-swatch { display: inline-block; width: 1em; height: 1em; border-radius: 2px; vertical-align: -0.15em; margin-right: 0.3em; border: 1px solid rgba(0,0,0,0.15); }
+    .gs-glyph-table td:first-child { width: 72px; }
+    .gs-density { max-width: 600px; margin: 0 auto; }
+    .gs-glyph-table .gs-flower { width: 52px; height: 52px; }
+    .gs-motion { list-style: none; margin: 0; padding: 0; }
+    .gs-motion li { display: grid; grid-template-columns: 10em 2em minmax(0, 9em) 96px minmax(0, 1fr); column-gap: 0.8rem; align-items: center; padding: 0.7rem 0; border-top: 1px solid var(--rule); }
+    .gs-motion li:last-child { border-bottom: 1px solid var(--rule); }
+    .gs-motion .role { padding: 0.3em 0.7em; border: 2px solid var(--accent); border-radius: 999px; color: var(--accent); text-align: center; }
+    .gs-motion .arrow { color: var(--muted); text-align: center; }
+    .gs-motion b { font-weight: 500; }
+    .gs-motion svg { width: 96px; height: 28px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+    .gs-motion p { margin: 0; color: var(--muted); }
+
+    /* 05 — the receipt */
+    .gs-receipt-wrap { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+    .gs-receipt { padding: 1.2rem 1rem 1.6rem; background: #fbfbf8; box-shadow: 0 1px 6px rgba(0,0,0,0.12); text-transform: uppercase; line-height: 1.55;
+      -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+              mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%; }
+    .gs-receipt p { margin: 0; }
+    .gs-receipt .c { text-align: center; }
+    .gs-receipt .cut { margin: 0.7em 0; border-top: 1px dashed #999; }
+    .gs-receipt .q { margin: 0.2em 0 0.8em; text-transform: none; }
+    .gs-receipt .sk { display: flex; justify-content: space-between; gap: 1em; margin: 0.35em 0; }
+    .gs-receipt .sk i { height: 0.7em; background: #ddd; border-radius: 2px; }
+    .gs-chat { display: grid; gap: 0.9rem; max-width: 34em; }
+    .gs-msg { max-width: 80%; padding: 0.8rem 1rem; border-radius: 14px; }
+    .gs-msg small { display: block; margin-bottom: 0.3em; color: var(--muted); font-size: 1em; }
+    .gs-msg--you { justify-self: start; border: 2px solid var(--rule); border-bottom-left-radius: 4px; }
+    .gs-msg--obj { justify-self: end; background: var(--tint); border: 2px solid var(--accent); border-bottom-right-radius: 4px; }
+    .gs-msg--obj small { color: var(--accent); }
+    .gs-printed { justify-self: end; color: var(--muted); }
+    .gs-annot { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 1.6rem; align-items: center; }
+    .gs-annot .photo { position: relative; }
+    .gs-dot { display: inline-flex; align-items: center; justify-content: center; width: 1.7em; height: 1.7em; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 500; flex: none; }
+    .gs-annot .photo .gs-dot { position: absolute; right: -0.85em; }
+    .gs-annot ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2rem; }
+    .gs-annot li { display: flex; gap: 0.8rem; }
+    .gs-annot li b { display: block; font-weight: 500; }
+    .gs-annot li p { margin: 0.2em 0 0; color: var(--muted); }
+    .gs-pipe { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+    .gs-pipe .box { padding: 0.6rem 0.8rem; border: 2px solid var(--accent); border-radius: 6px; }
+    .gs-pipe .box small { display: block; color: var(--muted); font-size: 1em; }
+    .gs-pipe .box--end { background: var(--accent); color: #fff; }
+    .gs-pipe .box--end small { color: rgba(255,255,255,0.8); }
+    .gs-pipe .arrow { color: var(--muted); }
+    .gs-pipe--cycle .box { border-color: var(--ai); min-width: 11em; text-align: center; font-weight: 500; }
+    .gs-pipe--cycle .box small { font-weight: 400; }
+    .gs-pipe--cycle .box--you { border-color: var(--accent); background: var(--tint); color: var(--accent); }
+    .gs-return { margin: 0.8em 0 0; color: var(--accent); }
+    .gs-bypass { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 1rem; color: var(--muted); }
+    .gs-bypass s { padding: 0.4rem 0.8rem; border: 1px dashed var(--muted); border-radius: 6px; }
+    .gs-quotes { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 1.6rem; align-items: center; }
+    .gs-quote { position: relative; padding-left: 2.2rem; }
+    .gs-quote::before { content: "“"; position: absolute; left: 0; top: -0.35em; font-family: var(--caption-font); font-size: 3.6rem; line-height: 1; color: var(--rule); }
+    .gs-quote small { display: block; color: var(--muted); font-size: 1em; }
+    .gs-quote p { margin: 0.3em 0 0; font-size: 1.3rem; line-height: 1.4; }
+    .gs-quote--obj::before { color: var(--accent); }
+    .gs-quote--obj p, .gs-quote--obj small { color: var(--accent); }
+    .gs-quotes .pair { display: grid; gap: 1.4rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+
+    /* 06 — reflection */
+    .gs-mirror { display: grid; grid-template-columns: minmax(0, 1fr) 3em minmax(0, 1fr); row-gap: 0.2rem; }
+    .gs-mirror > * { padding: 0.6rem 0; border-top: 1px solid var(--rule); }
+    .gs-mirror .head { border-top: 0; color: var(--muted); }
+    .gs-mirror .me { text-align: right; color: var(--accent); }
+    .gs-mirror .mid { text-align: center; color: var(--muted); }
+    .gs-mirror .last { font-weight: 500; font-size: 1.3rem; }
+    .gs-par { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr); }
+    .gs-par > * { padding: 0.9rem 0.8rem 0.9rem 0; border-top: 1px solid var(--rule); }
+    .gs-par .head { border-top: 0; color: var(--muted); padding-bottom: 0.4rem; }
+    .gs-par .you { color: var(--accent); font-weight: 500; }
+    .gs-par .row-h { color: var(--muted); }
+    .gs-par .same { grid-column: 1 / -1; border-top: 0; padding-top: 0.2rem; color: var(--muted); font-family: var(--caption-font); font-style: italic; font-size: var(--caption-size); }
+    .gs-bigq { margin: 0 0 1.4em; padding-left: 1.2rem; border-left: 3px solid var(--accent); font-size: 1.3rem; line-height: 1.45; }
+    .gs-pairs { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .gs-pairs span { display: inline-flex; border: 2px solid var(--accent); border-radius: 999px; overflow: hidden; }
+    .gs-pairs span b, .gs-pairs span i { padding: 0.3em 0.8em; font-style: normal; font-weight: 400; }
+    .gs-pairs span b { background: var(--accent); color: #fff; }
+    .gs-road { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; position: relative; }
+    .gs-road > div { padding-top: 1.6rem; position: relative; }
+    .gs-road > div::before { content: ""; position: absolute; top: 0.45rem; left: 0; right: -1rem; border-top: 2px dotted var(--accent); }
+    .gs-road > div:last-child::before { right: 0; }
+    .gs-road > div::after { content: ""; position: absolute; top: 0; left: 0; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: #fff; border: 2px solid var(--accent); }
+    .gs-road .now { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--rule); }
+    .gs-road b { display: block; margin-top: 0.3em; font-weight: 500; color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .gs-tiles, .gs-rings, .gs-flowers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gs-bars { grid-template-columns: minmax(0, 1fr) 3em; }
+      .gs-bars > p { grid-column: 1 / -1; margin-bottom: -0.6rem; }
+      .gs-axis { grid-column: 1; }
+      .gs-waffles { grid-template-columns: 3.6em minmax(0, 1fr); }
+      .gs-seen, .gs-split, .gs-annot, .gs-receipt-wrap, .gs-quotes { grid-template-columns: minmax(0, 1fr); }
+      .gs-lanes { grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr); }
+      .gs-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gs-bands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gs-band { display: none; }
+      .gs-bands .mode { display: block; }
+      .gs-hero4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gs-zig > div { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.8rem; }
+      .gs-map { grid-template-columns: minmax(0, 1fr); }
+      .gs-map .arrow, .gs-map .join { display: none; }
+      .gs-map .out { grid-row: auto; grid-column: auto; flex-direction: row; gap: 1rem; text-align: left; order: 1; }
+      .gs-svg.case-diagram { display: none; }
+      .gs-glyph-table td:first-child, .gs-glyph-table th:first-child { width: 44px; }
+      .gs-glyph-table .gs-flower { width: 36px; height: 36px; }
+      .gs-glyph-table td p { display: none; }
+      .gs-annot { grid-template-columns: minmax(0, 1fr); }
+      .gs-annot .photo, .gs-quotes > .placeholder { max-width: 200px; }
+      .gs-motion li { grid-template-columns: 9.5em minmax(0, 1fr) 72px; }
+      .gs-pipe--cycle .box { min-width: 0; }
+      .gs-motion li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 72px; row-gap: 0.4rem; }
+      .gs-motion .arrow { display: none; }
+      .gs-motion p { grid-column: 1 / -1; }
+      .gs-motion svg { width: 72px; }
+      .gs-mirror { grid-template-columns: minmax(0, 1fr) 2em minmax(0, 1fr); }
+      .gs-par { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .gs-par .row-h { grid-column: 1 / -1; padding-bottom: 0; }
+      .gs-par .row-h + * , .gs-par .row-h + * + * { border-top: 0; }
+      .gs-par .head:first-child { display: none; }
+      .gs-road { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.6rem; }
+      .gs-road > div::before { right: 0; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="fl-lotus" viewBox="0 0 100 100">
+      <path d="M50 80 C30 80 14 72 6 58 C24 55 40 64 50 80Z"/>
+      <path d="M50 80 C70 80 86 72 94 58 C76 55 60 64 50 80Z"/>
+      <path d="M50 80 C33 72 22 56 22 38 C37 44 47 60 50 80Z"/>
+      <path d="M50 80 C67 72 78 56 78 38 C63 44 53 60 50 80Z"/>
+      <path d="M50 80 C39 63 39 40 50 20 C61 40 61 63 50 80Z"/>
+      <path d="M28 90 Q50 84 72 90" fill="none"/>
+    </symbol>
+    <symbol id="fl-tulip" viewBox="0 0 100 100">
+      <path d="M50 96 V60" fill="none"/>
+      <path d="M50 84 C42 74 34 72 28 74 C34 82 42 86 50 84Z"/>
+      <path d="M50 60 C35 60 29 46 31 20 L41 31 L50 16 L59 31 L69 20 C71 46 65 60 50 60Z"/>
+    </symbol>
+    <symbol id="fl-wavy" viewBox="0 0 100 100">
+      <path d="M50 96 C50 82 47 70 50 58" fill="none"/>
+      <path d="M50 58 C40 50 30 53 27 43 C24 32 37 29 40 37 C42 43 34 46 33 40" fill="none"/>
+      <path d="M50 58 C61 51 72 54 75 44 C78 33 65 30 62 38 C60 44 68 47 69 41" fill="none"/>
+      <path d="M50 58 C49 46 43 36 49 25 C55 15 66 22 60 30 C56 35 50 31 53 27" fill="none"/>
+      <circle cx="33" cy="40" r="3"/><circle cx="69" cy="41" r="3"/><circle cx="53" cy="27" r="3"/>
+    </symbol>
+    <symbol id="fl-breath" viewBox="0 0 100 100">
+      <path d="M50 96 V62 M50 62 L35 46 M50 62 L65 44 M50 62 L50 36 M35 46 L26 38 M35 46 L37 31 M65 44 L74 34 M65 44 L61 29 M50 36 L43 23 M50 36 L57 23" fill="none"/>
+      <circle cx="26" cy="38" r="4.5"/><circle cx="37" cy="31" r="4.5"/><circle cx="74" cy="34" r="4.5"/><circle cx="61" cy="29" r="4.5"/><circle cx="43" cy="23" r="4.5"/><circle cx="57" cy="23" r="4.5"/><circle cx="50" cy="36" r="3.5"/><circle cx="35" cy="46" r="3"/><circle cx="65" cy="44" r="3"/>
+    </symbol>
+  </svg>
+
+  <main class="detail case case--garden">
+
+    <header class="case-bar">
+      <div class="row">
+        <span class="case-bar__title"><button class="toc-toggle" type="button" aria-label="Contents" aria-expanded="false" aria-controls="toc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>002—WHAT’S IN YOUR BAG? · STYLES</span>
+        <a href="garden.html">← BACK TO PAGE</a>
+      </div>
+      <hr>
+    </header>
+
+    <div class="case-layout">
+      <nav class="case-toc" id="toc" aria-label="Contents"></nav>
+      <div class="case-content">
+
+        <p class="case-review-note">Review page: five styles for each section of What’s in Your Bag?. Pick one per section (e.g. “01 Style 3, 02 Style 1…”). All text comes from the current page; image boxes are placeholders.</p>
+
+        <!-- ===== 01 ===== -->
+        <section class="case-section" id="question">
+          <div class="case-index muted">01 / The Question</div>
+          <div class="case-body">
+            <h2>AI can recognize what we carry. But can it understand why we carry it?</h2>
+            <p class="muted">The survey numbers (20 people, two follow-up interviews), five ways.</p>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 1 · Tiles with a meter</p>
+              <div class="gs-tiles">
+                <div><b>55%</b><div class="gs-track"><i style="width:55%"></i></div><p>use few or none of the items they carry daily</p></div>
+                <div><b>70%</b><div class="gs-track"><i style="width:70%"></i></div><p>carry at least one unexpected item</p></div>
+                <div><b>80%</b><div class="gs-track"><i style="width:80%"></i></div><p>have one item that represents themselves</p></div>
+                <div><b>90%</b><div class="gs-track"><i style="width:90%"></i></div><p>of people in a relationship carry something connected to their partner</p></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 2 · Bar chart, one scale</p>
+              <div class="gs-bars">
+                <p>Use few or none of the items they carry daily</p><div class="gs-bar" title="55%"><i style="width:55%"></i></div><b>55%</b>
+                <p>Carry at least one unexpected item</p><div class="gs-bar" title="70%"><i style="width:70%"></i></div><b>70%</b>
+                <p>Have one item that represents themselves</p><div class="gs-bar" title="80%"><i style="width:80%"></i></div><b>80%</b>
+                <p>Carry something connected to their partner*</p><div class="gs-bar" title="90%"><i style="width:90%"></i></div><b>90%</b>
+                <div class="gs-axis"><span>0</span><span>50</span><span>100%</span></div>
+              </div>
+              <p class="gs-fine">* of people in a relationship</p>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 3 · Squares (each = 5%)</p>
+              <div class="gs-waffles">
+                <b>55%</b><div><div class="gs-waffle" title="55%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>use few or none of the items they carry daily</span></div>
+                <b>70%</b><div><div class="gs-waffle" title="70%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>carry at least one unexpected item</span></div>
+                <b>80%</b><div><div class="gs-waffle" title="80%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><span>have one item that represents themselves</span></div>
+                <b>90%</b><div><div class="gs-waffle" title="90%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>of people in a relationship carry something connected to their partner</span></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 4 · Rings</p>
+              <div class="gs-rings">
+                <div><svg viewBox="0 0 100 100" role="img" aria-label="55%"><circle cx="50" cy="50" r="40" fill="none" stroke="#ececec" stroke-width="9"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="55 100" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" style="font-size:20px;font-weight:500">55%</text></svg><p>use few or none of the items they carry daily</p></div>
+                <div><svg viewBox="0 0 100 100" role="img" aria-label="70%"><circle cx="50" cy="50" r="40" fill="none" stroke="#ececec" stroke-width="9"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="70 100" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" style="font-size:20px;font-weight:500">70%</text></svg><p>carry at least one unexpected item</p></div>
+                <div><svg viewBox="0 0 100 100" role="img" aria-label="80%"><circle cx="50" cy="50" r="40" fill="none" stroke="#ececec" stroke-width="9"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="80 100" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" style="font-size:20px;font-weight:500">80%</text></svg><p>have one item that represents themselves</p></div>
+                <div><svg viewBox="0 0 100 100" role="img" aria-label="90%"><circle cx="50" cy="50" r="40" fill="none" stroke="#ececec" stroke-width="9"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="90 100" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" style="font-size:20px;font-weight:500">90%</text></svg><p>of people in a relationship carry something connected to their partner</p></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 5 · What it sees vs. why we carry it</p>
+              <div class="gs-seen">
+                <div><span class="muted">Computer vision sees</span><b>“This is a plush rabbit.”</b></div>
+                <div><span class="muted">The person carries</span>
+                  <ul><li>a gift from their mother</li><li>the thing they brought when they moved abroad</li><li>a keepsake from a relationship</li><li>or just a habit</li></ul>
+                </div>
+              </div>
+              <div class="gs-mini">
+                <b>55%</b><div class="gs-track"><i style="width:55%"></i></div><span>use few or none of the items they carry daily</span>
+                <b>70%</b><div class="gs-track"><i style="width:70%"></i></div><span>carry at least one unexpected item</span>
+                <b>80%</b><div class="gs-track"><i style="width:80%"></i></div><span>have one item that represents themselves</span>
+                <b>90%</b><div class="gs-track"><i style="width:90%"></i></div><span>of people in a relationship carry something connected to their partner</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 02 ===== -->
+        <section class="case-section" id="model">
+          <div class="case-index muted">02 / The Interaction Model</div>
+          <div class="case-body">
+            <h2>The person gives the meaning. AI gives it a form.</h2>
+            <p class="muted">The six-step flow, and who does what.</p>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 1 · Swimlanes</p>
+              <div class="gs-lanes">
+                <div class="head">You</div><div class="head"></div><div class="head">AI &amp; system</div>
+                <div class="gs-card gs-card--you"><b>Object</b>Take something out of your bag.</div><div class="gs-spine"><span>01</span></div><div></div>
+                <div></div><div class="gs-spine"><span>02</span></div><div class="gs-card"><b>Recognizes</b>“What is it?” Names it; reads two colors and density.</div>
+                <div class="gs-card gs-card--you"><b>Reflects</b>“What does it mean to me?” Choose a role; write a message.</div><div class="gs-spine"><span>03</span></div><div></div>
+                <div></div><div class="gs-spine"><span>04</span></div><div class="gs-card"><b>Interprets</b>Relationship + visual qualities become a flower’s parameters.</div>
+                <div></div><div class="gs-spine"><span>05</span></div><div class="gs-card"><b>Form emerges</b>A flower grows into a bouquet in your bag.</div>
+                <div class="gs-card gs-card--you"><b>Takes it home</b>The object’s reply, printed on a receipt.</div><div class="gs-spine"><span>06</span></div><div class="gs-card"><b>Speaks back</b>A reply in the object’s voice.</div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 2 · A loop that starts and ends with you</p>
+              <div class="gs-legend"><span class="you">You</span><span class="ai">AI &amp; system</span></div>
+              <svg class="gs-svg case-diagram" viewBox="0 0 960 440" role="img" aria-label="A loop of six steps, starting and ending with you.">
+                <ellipse cx="480" cy="230" rx="300" ry="150" fill="none" stroke="#e6e6e6" stroke-width="2"/>
+                <path d="M-7 -6 L4 0 L-7 6" fill="none" stroke="#b9b9b9" stroke-width="2" transform="translate(630.0 100.1) rotate(16.1)"/>
+                <path d="M-7 -6 L4 0 L-7 6" fill="none" stroke="#b9b9b9" stroke-width="2" transform="translate(780.0 230.0) rotate(90.0)"/>
+                <path d="M-7 -6 L4 0 L-7 6" fill="none" stroke="#b9b9b9" stroke-width="2" transform="translate(630.0 359.9) rotate(163.9)"/>
+                <path d="M-7 -6 L4 0 L-7 6" fill="none" stroke="#b9b9b9" stroke-width="2" transform="translate(330.0 359.9) rotate(-163.9)"/>
+                <path d="M-7 -6 L4 0 L-7 6" fill="none" stroke="#b9b9b9" stroke-width="2" transform="translate(180.0 230.0) rotate(-90.0)"/>
+                <path d="M-7 -6 L4 0 L-7 6" fill="none" stroke="#b9b9b9" stroke-width="2" transform="translate(330.0 100.1) rotate(-16.1)"/>
+                <circle cx="480.0" cy="80.0" r="11" fill="var(--accent)"/>
+                <text x="480.0" y="36.0" text-anchor="middle" style="font-size:17px;font-weight:500" class="a">01 Object</text>
+                <text class="m" x="480.0" y="57.0" text-anchor="middle" style="font-size:16px">you take it out of your bag</text>
+                <circle cx="739.8" cy="155.0" r="10" fill="#fff" stroke="#b9b9b9" stroke-width="3"/>
+                <text x="761.8" y="151.0" text-anchor="start" style="font-size:17px;font-weight:500">02 AI recognizes</text>
+                <text class="m" x="761.8" y="172.0" text-anchor="start" style="font-size:16px">“What is it?”</text>
+                <circle cx="739.8" cy="305.0" r="11" fill="var(--accent)"/>
+                <text x="761.8" y="301.0" text-anchor="start" style="font-size:17px;font-weight:500" class="a">03 Human reflects</text>
+                <text class="m" x="761.8" y="322.0" text-anchor="start" style="font-size:16px">“What does it mean</text>
+                <text class="m" x="761.8" y="343.0" text-anchor="start" style="font-size:16px">to me?”</text>
+                <circle cx="480.0" cy="380.0" r="10" fill="#fff" stroke="#b9b9b9" stroke-width="3"/>
+                <text x="480.0" y="416.0" text-anchor="middle" style="font-size:17px;font-weight:500">04 AI interprets</text>
+                <text class="m" x="480.0" y="437.0" text-anchor="middle" style="font-size:16px">role + looks → a flower’s parameters</text>
+                <circle cx="220.2" cy="305.0" r="10" fill="#fff" stroke="#b9b9b9" stroke-width="3"/>
+                <text x="198.2" y="301.0" text-anchor="end" style="font-size:17px;font-weight:500">05 Form emerges</text>
+                <text class="m" x="198.2" y="322.0" text-anchor="end" style="font-size:16px">a flower grows</text>
+                <text class="m" x="198.2" y="343.0" text-anchor="end" style="font-size:16px">into a bouquet</text>
+                <circle cx="220.2" cy="155.0" r="10" fill="#fff" stroke="#b9b9b9" stroke-width="3"/>
+                <text x="198.2" y="151.0" text-anchor="end" style="font-size:17px;font-weight:500">06 Object speaks back</text>
+                <text class="m" x="198.2" y="172.0" text-anchor="end" style="font-size:16px">a reply, printed —</text>
+                <text class="m" x="198.2" y="193.0" text-anchor="end" style="font-size:16px">back in your hands</text>
+                <text class="a" x="480" y="224" text-anchor="middle" style="font-size:19px;font-weight:500">You give the meaning.</text>
+                <text x="480" y="250" text-anchor="middle" style="font-size:19px">AI gives it a form.</text>
+              </svg>
+              <ol class="case-flow case-diagram-fallback">
+                <li><span class="case-flow__who" style="color:var(--accent)">Object</span><span>you take it out of your bag</span></li>
+                <li><span class="case-flow__who">AI recognizes</span><span>“What is it?”</span></li>
+                <li><span class="case-flow__who" style="color:var(--accent)">Human reflects</span><span>“What does it mean to me?”</span></li>
+                <li><span class="case-flow__who">AI interprets</span><span>role + looks → a flower’s parameters</span></li>
+                <li><span class="case-flow__who">Form emerges</span><span>a flower grows into a bouquet</span></li>
+                <li><span class="case-flow__who">Object speaks back</span><span>a reply, printed — back in your hands</span></li>
+              </ol>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 3 · What each side contributes</p>
+              <div class="gs-split">
+                <div><span class="muted">You give</span><p class="big">Memory<br>Emotion<br>Meaning</p><div class="gs-steps" style="color:var(--accent)"><span>01 Object</span><span>03 Reflect</span></div></div>
+                <div><span class="muted">AI gives</span><p class="big">Recognition<br>Transformation<br>Generative response</p><div class="gs-steps"><span>02 Recognize</span><span>04 Interpret</span><span>05 Form</span><span>06 Speak back</span></div></div>
+              </div>
+              <p class="gs-fine">The system does not:</p>
+              <div class="gs-not"><span>judge objects</span><span>optimize behavior</span><span>explain meaning</span><span>assign correctness</span></div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 4 · Hand-off chain</p>
+              <div class="gs-legend"><span class="you">You</span><span class="ai">AI &amp; system</span></div>
+              <div class="gs-chain">
+                <div class="gs-pill gs-pill--you"><b>Object</b><small>take it out</small></div><span class="arrow">→</span>
+                <div class="gs-pill"><b>Recognize</b><small>“What is it?”</small></div><span class="arrow">→</span>
+                <div class="gs-pill gs-pill--you"><b>Reflect</b><small>“What does it mean to me?”</small></div><span class="arrow">→</span>
+                <div class="gs-pill"><b>Interpret</b><small>flower parameters</small></div><span class="arrow">→</span>
+                <div class="gs-pill"><b>Form</b><small>a flower grows</small></div><span class="arrow">→</span>
+                <div class="gs-pill"><b>Speak back</b><small>printed reply</small></div>
+              </div>
+              <p class="gs-fine">Never:</p>
+              <div class="gs-not"><span>judge objects</span><span>optimize behavior</span><span>explain meaning</span><span>assign correctness</span></div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 5 · Two questions, two owners</p>
+              <table class="gs-qa">
+                <thead><tr><th>Question</th><th>Answered by</th><th>How</th></tr></thead>
+                <tbody>
+                  <tr><td class="q">“What is it?”</td><td><span class="gs-who">AI</span></td><td>Gemini names the object and reads its two dominant colors and how visually dense it is.</td></tr>
+                  <tr><td class="q">“What does it mean to me?”</td><td><span class="gs-who gs-who--you">You</span></td><td>Choose its emotional role—Comfort, Productivity, Expression, or Inner Self—and write it a short message.</td></tr>
+                  <tr><td class="q">What form does it take?</td><td><span class="gs-who">AI &amp; system</span></td><td>The relationship and the visual qualities become a flower’s parameters; the flower grows.</td></tr>
+                  <tr><td class="q">What does it say back?</td><td><span class="gs-who">AI</span></td><td>Gemini replies in the object’s voice; the reply prints on a receipt.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 03 ===== -->
+        <section class="case-section" id="experience">
+          <div class="case-index muted">03 / The Experience</div>
+          <div class="case-body">
+            <h2>Physical object → digital interaction → generative form → physical artifact.</h2>
+            <p class="muted">Laying out the five step images (placeholders for now).</p>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 1 · Filmstrip</p>
+              <div class="gs-strip">
+                <div><div class="placeholder gs-ph"></div><p><span class="n">01</span> Choose an object</p></div>
+                <div><div class="placeholder gs-ph"></div><p><span class="n">02</span> Scan</p></div>
+                <div><div class="placeholder gs-ph"></div><p><span class="n">03</span> Describe the relationship</p></div>
+                <div><div class="placeholder gs-ph"></div><p><span class="n">04</span> Grow the bag’s emotional garden</p></div>
+                <div><div class="placeholder gs-ph"></div><p><span class="n">05</span> Receive a note from your object</p></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 2 · Grouped by physical / digital</p>
+              <div class="gs-bands">
+                <div class="gs-band">Physical object</div>
+                <div class="gs-band gs-band--digital" style="grid-column: span 2">Digital interaction</div>
+                <div class="gs-band gs-band--digital">Generative form</div>
+                <div class="gs-band">Physical artifact</div>
+                <div><span class="mode">Physical</span><div class="placeholder gs-ph"></div><p>01 Choose an object</p></div>
+                <div><span class="mode">Digital</span><div class="placeholder gs-ph"></div><p>02 Scan</p></div>
+                <div><span class="mode">Digital</span><div class="placeholder gs-ph"></div><p>03 Describe the relationship</p></div>
+                <div><span class="mode">Generative</span><div class="placeholder gs-ph"></div><p>04 Grow the garden</p></div>
+                <div><span class="mode">Physical</span><div class="placeholder gs-ph"></div><p>05 Receive a note</p></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 3 · Slow timeline, pauses drawn in</p>
+              <ol class="gs-slow">
+                <li><span class="n">01</span><div><b>Choose an object</b><p>Take something out of your bag.</p></div><div class="placeholder gs-ph gs-ph--sq"></div></li>
+                <li class="pause">pause</li>
+                <li><span class="n">02</span><div><b>Scan</b><p>Gemini names it and reads its colors and density.</p></div><div class="placeholder gs-ph gs-ph--sq"></div></li>
+                <li class="pause">pause</li>
+                <li><span class="n">03</span><div><b>Describe the relationship</b><p>Choose its role and write it a message.</p></div><div class="placeholder gs-ph gs-ph--sq"></div></li>
+                <li class="pause">pause</li>
+                <li><span class="n">04</span><div><b>Grow the bag’s emotional garden</b><p>A flower grows; your objects gather into a bouquet.</p></div><div class="placeholder gs-ph gs-ph--sq"></div></li>
+                <li class="pause">pause</li>
+                <li><span class="n">05</span><div><b>Receive a note from your object</b><p>Its reply prints on a receipt.</p></div><div class="placeholder gs-ph gs-ph--sq"></div></li>
+              </ol>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 4 · The garden large, the rest small</p>
+              <div class="gs-hero4">
+                <div><div class="placeholder gs-ph gs-ph--wide"></div><p><span class="n">04</span> Grow the bag’s emotional garden</p></div>
+                <div><div class="placeholder gs-ph gs-ph--sq"></div><p><span class="n">01</span> Choose an object</p></div>
+                <div><div class="placeholder gs-ph gs-ph--sq"></div><p><span class="n">02</span> Scan</p></div>
+                <div><div class="placeholder gs-ph gs-ph--sq"></div><p><span class="n">03</span> Describe the relationship</p></div>
+                <div><div class="placeholder gs-ph gs-ph--sq"></div><p><span class="n">05</span> Receive a note</p></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 5 · Alternating rows</p>
+              <div class="gs-zig">
+                <div><div class="placeholder gs-ph gs-ph--wide"></div><div><span class="n">01</span><b>Choose an object</b><p>Take something out of your bag.</p></div></div>
+                <div><div class="placeholder gs-ph gs-ph--wide"></div><div><span class="n">02</span><b>Scan</b><p>Gemini names it and reads its colors and density.</p></div></div>
+                <div><div class="placeholder gs-ph gs-ph--wide"></div><div><span class="n">03</span><b>Describe the relationship</b><p>Choose its role and write it a message.</p></div></div>
+                <div><div class="placeholder gs-ph gs-ph--wide"></div><div><span class="n">04</span><b>Grow the bag’s emotional garden</b><p>A flower grows; your objects gather into a bouquet.</p></div></div>
+                <div><div class="placeholder gs-ph gs-ph--wide"></div><div><span class="n">05</span><b>Receive a note from your object</b><p>Its reply prints on a receipt.</p></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 04 ===== -->
+        <section class="case-section" id="form">
+          <div class="case-index muted">04 / From Emotion to Form</div>
+          <div class="case-body">
+            <h2>Visualizing the relationship, not the object.</h2>
+            <p class="muted">Role → flower, and what sets color and fullness. Flower drawings are line-art icons, not the Three.js output.</p>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 1 · Four flower cards</p>
+              <div class="gs-flowers">
+                <div><svg class="gs-flower"><use href="#fl-lotus"/></svg><span class="role">Comfort</span><b>Lotus-like</b><p>Curved, layered petals; gentle sway</p><p class="eg">medicine, lip balm, hand cream, snacks</p></div>
+                <div><svg class="gs-flower"><use href="#fl-tulip"/></svg><span class="role">Productivity</span><b>Tulip</b><p>Upright petals; minimal movement</p><p class="eg">laptop, charger, notebook, headphones</p></div>
+                <div><svg class="gs-flower"><use href="#fl-wavy"/></svg><span class="role">Expression</span><b>Wavy flower</b><p>Recursive 3D branching; flows in many directions</p><p class="eg">keychains, stickers, accessories</p></div>
+                <div><svg class="gs-flower"><use href="#fl-breath"/></svg><span class="role">Inner Self</span><b>Baby’s breath</b><p>Delicate L-system clusters; soft bobbing</p><p class="eg">handwritten notes, old receipts, photos, charms</p></div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 2 · Two inputs, one flower</p>
+              <div class="gs-map">
+                <div class="in in--you"><small>You choose</small><b>Emotional role</b></div>
+                <div class="arrow">→</div>
+                <div class="param"><b>Kind of flower</b><br><span class="muted">lotus · tulip · wavy · baby’s breath</span></div>
+                <div class="join">→</div>
+                <div class="out"><svg class="gs-flower gs-flower--lg"><use href="#fl-lotus"/></svg><span>A flower for<br>the relationship</span></div>
+                <div class="in"><small>Gemini reads</small><b>Visual qualities</b></div>
+                <div class="arrow">→</div>
+                <div class="param"><b>Color &amp; fullness</b><br><span class="muted">primary · secondary · density 1–10</span></div>
+              </div>
+              <p class="gs-fine"><strong>The AI does not draw the flowers</strong>—each is built procedurally in Three.js.</p>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 3 · How density and color vary</p>
+              <svg class="gs-svg gs-density" viewBox="0 0 720 250" role="img" aria-label="The same flower drawn at density 2, 5 and 9, with more petals as density rises.">
+                <line x1="40" y1="208" x2="680" y2="208" stroke="#e6e6e6" stroke-width="2"/>
+                <ellipse cx="130" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(0.0 130 100)"/>
+                <ellipse cx="130" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(120.0 130 100)"/>
+                <ellipse cx="130" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(240.0 130 100)"/>
+                <circle cx="130" cy="100" r="11" fill="#f2d36b" stroke="#6b6b6b" stroke-width="1.2"/>
+                <text x="130" y="198" text-anchor="middle" style="font-size:24px">Density 2</text>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(0.0 360 100)"/>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(51.4 360 100)"/>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(102.9 360 100)"/>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(154.3 360 100)"/>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(205.7 360 100)"/>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(257.1 360 100)"/>
+                <ellipse cx="360" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(308.6 360 100)"/>
+                <circle cx="360" cy="100" r="11" fill="#f2d36b" stroke="#6b6b6b" stroke-width="1.2"/>
+                <text x="360" y="198" text-anchor="middle" style="font-size:24px">Density 5</text>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(0.0 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(27.7 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(55.4 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(83.1 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(110.8 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(138.5 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(166.2 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(193.8 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(221.5 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(249.2 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(276.9 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(304.6 590 100)"/>
+                <ellipse cx="590" cy="70" rx="9" ry="27" fill="#efb8c6" stroke="#6b6b6b" stroke-width="1.2" transform="rotate(332.3 590 100)"/>
+                <circle cx="590" cy="100" r="11" fill="#f2d36b" stroke="#6b6b6b" stroke-width="1.2"/>
+                <text x="590" y="198" text-anchor="middle" style="font-size:24px">Density 9</text>
+                <text class="m" x="40" y="240" style="font-size:20px">fewer petals</text>
+                <text class="m" x="680" y="240" text-anchor="end" style="font-size:20px">more petals →</text>
+              </svg>
+              <p class="gs-fine"><span class="gs-swatch" style="background:#efb8c6"></span>primary color · <span class="gs-swatch" style="background:#f2d36b"></span>secondary color — both read from the object (example colors).</p>
+              <p class="gs-fine">Illustration of the rule—density sets the number of petals or branches; the two colors come from the object. Not the actual Three.js output.</p>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 4 · The table, with flower icons</p>
+              <table class="case-table gs-glyph-table">
+                <thead><tr><th></th><th>Emotional role</th><th>Flower</th><th>Form &amp; motion</th></tr></thead>
+                <tbody>
+                  <tr><td><svg class="gs-flower"><use href="#fl-lotus"/></svg></td><td>Comfort<p class="muted">medicine, lip balm, hand cream, snacks</p></td><td><strong>Lotus-like</strong></td><td>Curved, layered petals; gentle sway</td></tr>
+                  <tr><td><svg class="gs-flower"><use href="#fl-tulip"/></svg></td><td>Productivity<p class="muted">laptop, charger, notebook, headphones</p></td><td><strong>Tulip</strong></td><td>Upright petals; minimal movement</td></tr>
+                  <tr><td><svg class="gs-flower"><use href="#fl-wavy"/></svg></td><td>Expression<p class="muted">keychains, stickers, accessories</p></td><td><strong>Wavy flower</strong></td><td>Recursive 3D branching; flows in many directions</td></tr>
+                  <tr><td><svg class="gs-flower"><use href="#fl-breath"/></svg></td><td>Inner Self<p class="muted">handwritten notes, old receipts, photos, charms</p></td><td><strong>Baby’s breath</strong></td><td>Delicate L-system clusters; soft bobbing</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 5 · Role → flower, with its motion</p>
+              <ul class="gs-motion">
+                <li><span class="role">Comfort</span><span class="arrow">→</span><b>Lotus-like</b><svg viewBox="0 0 96 28"><path d="M2 14 C14 2 22 2 34 14 S54 26 66 14 S86 2 94 14"/></svg><p>gentle sway</p></li>
+                <li><span class="role">Productivity</span><span class="arrow">→</span><b>Tulip</b><svg viewBox="0 0 96 28"><path d="M2 14 H94"/><path d="M48 9 V19"/></svg><p>upright; minimal movement</p></li>
+                <li><span class="role">Expression</span><span class="arrow">→</span><b>Wavy flower</b><svg viewBox="0 0 96 28"><path d="M8 14 C30 14 40 2 62 4 M8 14 C34 14 50 14 90 12 M8 14 C30 14 44 26 70 24"/></svg><p>flows in many directions</p></li>
+                <li><span class="role">Inner Self</span><span class="arrow">→</span><b>Baby’s breath</b><svg viewBox="0 0 96 28"><path d="M4 18 Q12 8 20 18 T36 18 T52 18 T68 18 T84 18 T92 18"/></svg><p>soft bobbing</p></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 05 ===== -->
+        <section class="case-section" id="receipt">
+          <div class="case-index muted">05 / The Receipt</div>
+          <div class="case-body">
+            <h2>A note from your object.</h2>
+            <p class="muted">The printed artifact and the water-bottle exchange.</p>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 1 · A receipt, drawn in type</p>
+              <div class="gs-receipt-wrap">
+                <div class="gs-receipt">
+                  <p class="c">What’s in your bag?</p>
+                  <p class="c">A garden I carry</p>
+                  <div class="cut"></div>
+                  <p>Your objects</p>
+                  <div class="sk"><i style="width:55%"></i><i style="width:25%"></i></div>
+                  <div class="sk"><i style="width:45%"></i><i style="width:30%"></i></div>
+                  <div class="sk"><i style="width:60%"></i><i style="width:22%"></i></div>
+                  <div class="cut"></div>
+                  <p>You, to a water bottle</p>
+                  <p class="q">“You keep me going through long days.”</p>
+                  <p>The water bottle</p>
+                  <p class="q">“I’m here for you, always ready. Your hydration is my purpose.”</p>
+                  <div class="cut"></div>
+                  <p class="c">* * *</p>
+                </div>
+                <div>
+                  <p>The experience ends not with an AI response on a screen, but with a <strong>physical artifact</strong> the participant takes away.</p>
+                  <p class="gs-fine">Grey bars stand in for the object list—swap in the real receipt text or a photo.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 2 · The exchange as a conversation</p>
+              <div class="gs-chat">
+                <div class="gs-msg gs-msg--you"><small>You, to a water bottle</small>“You keep me going through long days.”</div>
+                <div class="gs-msg gs-msg--obj"><small>The water bottle</small>“I’m here for you, always ready. Your hydration is my purpose.”</div>
+                <p class="gs-printed">↳ printed on a 58mm receipt</p>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 3 · Photo with numbered parts</p>
+              <div class="gs-annot">
+                <div class="photo"><div class="placeholder gs-ph"></div><span class="gs-dot" style="top:12%">1</span><span class="gs-dot" style="top:40%">2</span><span class="gs-dot" style="top:70%">3</span></div>
+                <ol>
+                  <li><span class="gs-dot">1</span><div><b>Every object</b><p>listed with its emotional role</p></div></li>
+                  <li><span class="gs-dot">2</span><div><b>Your message</b><p>“You keep me going through long days.”</p></div></li>
+                  <li><span class="gs-dot">3</span><div><b>The object’s reply</b><p>written by Gemini in the object’s own voice: “I’m here for you, always ready.”</p></div></li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 4 · How it prints</p>
+              <div class="gs-pipe">
+                <div class="box">Gemini<small>reply in the object’s voice</small></div><span class="arrow">→</span>
+                <div class="box">Python server<small>small</small></div><span class="arrow">→</span>
+                <div class="box">Raw ESC/POS<small>printer commands</small></div><span class="arrow">→</span>
+                <div class="box box--end">58mm thermal printer<small>receipt in hand</small></div>
+              </div>
+              <div class="gs-bypass"><span>bypassed:</span><s>macOS default print pipeline</s></div>
+              <p class="gs-fine">Workaround documented in my <a href="https://github.com/YolandaXing210/mac-raw-thermal-printer" target="_blank" rel="noopener">GitHub repository</a>.</p>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 5 · The two lines, large</p>
+              <div class="gs-quotes">
+                <div class="placeholder gs-ph"></div>
+                <div class="pair">
+                  <div class="gs-quote"><small>You, to a water bottle</small><p>You keep me going through long days.</p></div>
+                  <div class="gs-quote gs-quote--obj"><small>The water bottle</small><p>I’m here for you, always ready. Your hydration is my purpose.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <!-- ===== 06 ===== -->
+        <section class="case-section" id="reflection">
+          <div class="case-index muted">06 / Reflection</div>
+          <div class="case-body">
+            <h2>Recognition is not understanding.</h2>
+            <p class="muted">Designing with AI, building with AI—the division of roles, and what’s next.</p>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 1 · Mirrored roles</p>
+              <div class="gs-mirror">
+                <div class="head" style="text-align:right">My role</div><div class="head"></div><div class="head">AI’s role</div>
+                <div class="me">Define structure</div><div class="mid">→</div><div>Execute logic</div>
+                <div class="me">Validate plans</div><div class="mid">→</div><div>Generate code</div>
+                <div class="me">Provide equations</div><div class="mid">→</div><div>Handle syntax</div>
+                <div class="me">Detect drift</div><div class="mid">→</div><div>Iterate fast</div>
+                <div class="me last">Judge</div><div class="mid last">→</div><div class="last">Apply</div>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 2 · Plan → validate → implement</p>
+              <div class="gs-legend"><span class="you">Me</span><span class="ai">AI</span></div>
+              <div class="gs-pipe gs-pipe--cycle">
+                <div class="box">AI plans<small>writes a plan</small></div><span class="arrow">→</span>
+                <div class="box box--you">I validate<small>judge · detect drift</small></div><span class="arrow">→</span>
+                <div class="box">AI implements<small>generates code</small></div>
+              </div>
+              <p class="gs-return">↺ drift? back to the plan</p>
+              <p class="gs-fine">When design questions came up mid-build, the AI wrote a plan, I validated it, and only then did it implement.</p>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 3 · The same split, twice</p>
+              <div class="gs-par">
+                <div class="head"></div><div class="head">Human</div><div class="head">AI</div>
+                <div class="row-h">In the product</div><div class="you">gives the meaning</div><div>gives it a form</div>
+                <div class="row-h">In the build</div><div class="you">judges</div><div>applies</div>
+                <p class="same">Same division of roles: what AI shouldn’t decide stays with the person.</p>
+              </div>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 4 · Quote first, roles as pairs</p>
+              <p class="gs-bigq">The most meaningful role for AI was not to define the user’s relationship with an object, but to give that relationship a new form.</p>
+              <div class="gs-pairs">
+                <span><b>Define structure</b><i>Execute logic</i></span>
+                <span><b>Validate plans</b><i>Generate code</i></span>
+                <span><b>Provide equations</b><i>Handle syntax</i></span>
+                <span><b>Detect drift</b><i>Iterate fast</i></span>
+                <span><b>Judge</b><i>Apply</i></span>
+              </div>
+              <p class="gs-fine">Filled: my role · outlined: AI’s role.</p>
+            </div>
+
+            <div class="case-option">
+              <p class="case-option__tag">Style 5 · Next, as a road from now</p>
+              <div class="gs-road">
+                <div><span class="now">four emotional roles</span><b>More roles</b></div>
+                <div><span class="now">flowers on a screen</span><b>Blooming in space (AR)</b></div>
+                <div><span class="now">one person’s bouquet</span><b>A collective garden</b></div>
+                <div><span class="now">a single visit</span><b>Relationships over time</b></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <div class="row muted">
+          <span>Review page</span>
+          <a href="garden.html">Back to the page</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="case.js?v=46"></script>
+</body>
+</html>
