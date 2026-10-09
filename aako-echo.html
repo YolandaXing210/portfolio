@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=45">
+  <link rel="stylesheet" href="style.css?v=46">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -34,11 +34,6 @@
           <p>A <strong>3D post</strong> that gives images, sound, and text a physical form—the <strong>smallest spatial unit</strong> of AAKO, an XR memory app, and the foundation the rest of the product was built around.</p>
           <p><a href="aako-redesign.html">Chapter II: Reframing &amp; mobile redesign →</a></p>
         </div>
-
-        <figure class="case-figure case-figure--wide">
-          <div class="placeholder"></div>
-          <figcaption>An Echo: a floating bubble holding a memory, with its caption and orbiting reactions.</figcaption>
-        </figure>
 
         <div class="case-meta case-meta--4">
           <div><p class="muted">Project</p><p>AAKO, startup product<br>XR / mobile, live on iOS</p></div>
@@ -100,7 +95,7 @@
             </table>
 
             <p class="muted">Visual inspiration: mystery solving and conquering · a sense of achievement · reflections of the object and its surroundings · dreamy, childhood, nostalgia.</p>
-            <div class="case-grid case-grid--square">
+            <div class="case-grid case-grid--8 case-grid--square">
               <img src="images/echo-inspiration-1.jpg" alt="Text that curves around a form." width="200" height="200" loading="lazy">
               <img src="images/echo-inspiration-2.jpg" alt="A glowing orb: the reward of discovery." width="200" height="200" loading="lazy">
               <img src="images/echo-inspiration-3.jpg" alt="A soap bubble: soft, iridescent, fragile." width="200" height="200" loading="lazy">
@@ -253,8 +248,8 @@
               <dt>Emoji orbit</dt><dd><p>Other people’s reactions.</p></dd>
             </dl>
 
-            <figure class="case-figure">
-              <div class="placeholder"></div>
+            <figure class="case-figure case-figure--natural case-figure--narrow">
+              <img src="images/echo-anatomy-render.jpg" alt="Annotated Echo concept: bubble shape, visual, textual and audio content, and an emoji orbit, shown at human scale beside a silhouette." width="895" height="1080" loading="lazy">
               <figcaption>Echo concept render.</figcaption>
             </figure>
 
@@ -312,16 +307,21 @@
             </ol>
 
             <figure class="case-figure">
-              <div class="case-justify">
-                <img src="images/echo-shader-1.png" alt="The full bubble shader: base color, Fresnel rim, emissive glow, and geometry animation." width="672" height="521" style="--ar: 672 / 521" loading="lazy">
-                <img src="images/echo-shader-2.png" alt="Skin variant A: a lighter graph built from the same nodes." width="572" height="334" style="--ar: 572 / 334" loading="lazy">
-              </div>
-              <div class="case-justify">
-                <img src="images/echo-shader-3.png" alt="Skin variant B: a lighter graph built from the same nodes." width="665" height="277" style="--ar: 665 / 277" loading="lazy">
-                <img src="images/echo-shader-4.png" alt="Skin variant C: a lighter graph built from the same nodes." width="541" height="252" style="--ar: 541 / 252" loading="lazy">
-                <img src="images/echo-shader-5.png" alt="Skin variant D: a lighter graph built from the same nodes." width="403" height="157" style="--ar: 403 / 157" loading="lazy">
+              <div class="case-shader">
+                <img src="images/echo-shader-1.png" alt="The full bubble shader: base color, Fresnel rim, emissive glow, and geometry animation." width="672" height="521" loading="lazy">
+                <div class="case-shader__small">
+                  <img src="images/echo-shader-2.png" alt="Skin variant A: a lighter graph built from the same nodes." width="572" height="334" loading="lazy">
+                  <img src="images/echo-shader-3.png" alt="Skin variant B: a lighter graph built from the same nodes." width="665" height="277" loading="lazy">
+                  <img src="images/echo-shader-4.png" alt="Skin variant C: a lighter graph built from the same nodes." width="541" height="252" loading="lazy">
+                  <img src="images/echo-shader-5.png" alt="Skin variant D: a lighter graph built from the same nodes." width="403" height="157" loading="lazy">
+                </div>
               </div>
               <figcaption>One node shader, many bubble skins.</figcaption>
+            </figure>
+
+            <figure class="case-figure">
+              <img src="images/echo-in-place.jpg" alt="An Echo floating outside a shop: a photo inside the bubble, its caption above, and reactions beside it." width="1600" height="900" loading="lazy">
+              <figcaption>An Echo: a floating bubble holding a memory, with its caption and orbiting reactions.</figcaption>
             </figure>
 
             <div class="case-decision">
@@ -391,8 +391,8 @@
               </figure>
             </div>
 
-            <figure class="case-figure">
-              <img src="images/echo-visionos.jpg" alt="An Echo floating outside a shop, with its caption and reactions beside it." width="1600" height="900" loading="lazy">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/echo-visionos-room.jpg" alt="An Echo in a living room on visionOS: the bubble with its place, caption, comments around it, and orbiting reactions." width="1600" height="873" loading="lazy">
               <figcaption>The same Echo, also explored on visionOS and AR glasses.</figcaption>
             </figure>
           </div>
@@ -418,6 +418,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=45"></script>
+  <script src="case.js?v=46"></script>
 </body>
 </html>

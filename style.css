@@ -522,22 +522,34 @@ p { margin: 0; }
 }
 
 .case-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.case-grid--8 { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 0.6rem; }
 .case-grid--square img,
 .case-grid--square video { aspect-ratio: 1 / 1; }
 .case-figure > .case-grid { margin: 0; }
 
-/* Images of different shapes in one row, all the same height: each grows by its aspect ratio (--ar) */
-.case-justify { display: flex; gap: 1rem; align-items: flex-start; }
-.case-justify + .case-justify { margin-top: 1rem; }
-.case-justify img {
-  flex: calc(var(--ar)) 1 0;
-  min-width: 0;
-  width: 0;
-  height: auto;
-  aspect-ratio: var(--ar);
-  margin: 0;
+/* Shader graphs: the full graph on the left, the four small skins packed 2x2 on the right at the same height */
+.case-shader { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.case-shader img {
   display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #e8e8e7;
 }
+.case-shader__small {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  aspect-ratio: 672 / 521;
+}
+.case-shader__small img { height: 100%; min-height: 0; }
+
+/* Figures that keep the image's own proportions instead of the 16:9 crop */
+.case-figure--natural img { aspect-ratio: auto; object-fit: contain; }
+.case-figure--narrow img { max-width: 520px; margin: 0 auto; }
 
 /* Lightbox: any image or video in a case study opens full screen with its caption */
 .case-content img.is-zoomable,
@@ -1210,8 +1222,8 @@ p { margin: 0; }
   .case-list { grid-template-columns: minmax(0, 1fr); }
   .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
-  .case-justify { gap: 0.6rem; }
-  .case-justify + .case-justify { margin-top: 0.6rem; }
+  .case-grid--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .case-shader { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
   .case .case-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-cards,
