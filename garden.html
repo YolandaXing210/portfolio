@@ -8,10 +8,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=46">
+  <link rel="stylesheet" href="style.css?v=47">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
+  <!-- Line-art flower icons for the 04 table (not the Three.js output) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="fl-lotus" viewBox="0 0 100 100">
+      <path d="M50 80 C30 80 14 72 6 58 C24 55 40 64 50 80Z"/>
+      <path d="M50 80 C70 80 86 72 94 58 C76 55 60 64 50 80Z"/>
+      <path d="M50 80 C33 72 22 56 22 38 C37 44 47 60 50 80Z"/>
+      <path d="M50 80 C67 72 78 56 78 38 C63 44 53 60 50 80Z"/>
+      <path d="M50 80 C39 63 39 40 50 20 C61 40 61 63 50 80Z"/>
+      <path d="M28 90 Q50 84 72 90" fill="none"/>
+    </symbol>
+    <symbol id="fl-tulip" viewBox="0 0 100 100">
+      <path d="M50 96 V60" fill="none"/>
+      <path d="M50 84 C42 74 34 72 28 74 C34 82 42 86 50 84Z"/>
+      <path d="M50 60 C35 60 29 46 31 20 L41 31 L50 16 L59 31 L69 20 C71 46 65 60 50 60Z"/>
+    </symbol>
+    <symbol id="fl-wavy" viewBox="0 0 100 100">
+      <path d="M50 96 C50 82 47 70 50 58" fill="none"/>
+      <path d="M50 58 C40 50 30 53 27 43 C24 32 37 29 40 37 C42 43 34 46 33 40" fill="none"/>
+      <path d="M50 58 C61 51 72 54 75 44 C78 33 65 30 62 38 C60 44 68 47 69 41" fill="none"/>
+      <path d="M50 58 C49 46 43 36 49 25 C55 15 66 22 60 30 C56 35 50 31 53 27" fill="none"/>
+      <circle cx="33" cy="40" r="3"/><circle cx="69" cy="41" r="3"/><circle cx="53" cy="27" r="3"/>
+    </symbol>
+    <symbol id="fl-breath" viewBox="0 0 100 100">
+      <path d="M50 96 V62 M50 62 L35 46 M50 62 L65 44 M50 62 L50 36 M35 46 L26 38 M35 46 L37 31 M65 44 L74 34 M65 44 L61 29 M50 36 L43 23 M50 36 L57 23" fill="none"/>
+      <circle cx="26" cy="38" r="4.5"/><circle cx="37" cy="31" r="4.5"/><circle cx="74" cy="34" r="4.5"/><circle cx="61" cy="29" r="4.5"/><circle cx="43" cy="23" r="4.5"/><circle cx="57" cy="23" r="4.5"/><circle cx="50" cy="36" r="3.5"/><circle cx="35" cy="46" r="3"/><circle cx="65" cy="44" r="3"/>
+    </symbol>
+  </svg>
   <main class="detail case case--garden">
 
     <header class="case-bar">
@@ -64,12 +91,13 @@
             </div>
 
             <p class="muted">From an exploratory survey of 20 people and two follow-up interviews:</p>
-            <div class="case-stats">
-              <div><b>55%</b>use few or none of the items they carry daily</div>
-              <div><b>70%</b>carry at least one unexpected item</div>
-              <div><b>80%</b>have one item that represents themselves</div>
-              <div><b>90%</b>of people in a relationship carry something connected to their partner</div>
+            <div class="case-waffles">
+              <b>55%</b><div><div class="case-waffle" role="img" aria-label="55%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>use few or none of the items they carry daily</span></div>
+              <b>70%</b><div><div class="case-waffle" role="img" aria-label="70%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>carry at least one unexpected item</span></div>
+              <b>80%</b><div><div class="case-waffle" role="img" aria-label="80%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><span>have one item that represents themselves</span></div>
+              <b>90%</b><div><div class="case-waffle" role="img" aria-label="90%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>of people in a relationship carry something connected to their partner</span></div>
             </div>
+            <p class="muted">Each square is 5%.</p>
             <p>People described what they rarely use but keep anyway in terms of comfort, habit, identity, and emotional safety. <strong>A function-based label can’t explain why we carry things</strong>—which raised the question of what AI should, and shouldn’t, do with them.</p>
           </div>
         </section>
@@ -82,14 +110,15 @@
             <h2>The person gives the meaning. AI gives it a form.</h2>
             <p>The AI <strong>never tells you what an object means to you</strong>. You give the object meaning; AI transforms it and gives it back.</p>
 
-            <ol class="case-flow">
-              <li><span class="case-flow__who">Object</span><span>You take something out of your bag.</span></li>
-              <li><span class="case-flow__who">AI recognizes</span><span><strong>“What is it?”</strong> Gemini names the object and reads its two dominant colors and how visually dense it is.</span></li>
-              <li><span class="case-flow__who">Human reflects</span><span><strong>“What does it mean to me?”</strong> You choose its emotional role—Comfort, Productivity, Expression, or Inner Self—and write it a short message.</span></li>
-              <li><span class="case-flow__who">AI interprets</span><span>The relationship and the object’s visual qualities become the parameters of a flower.</span></li>
-              <li><span class="case-flow__who">Form emerges</span><span>A generative flower grows; your objects gather into a bouquet in your bag.</span></li>
-              <li><span class="case-flow__who">Object speaks back</span><span>Gemini writes a reply in the object’s voice, answering your message. It’s printed on a receipt.</span></li>
-            </ol>
+            <div class="case-lanes">
+              <div class="case-lanes__head">You</div><div class="case-lanes__head"></div><div class="case-lanes__head">AI &amp; system</div>
+              <div class="case-lane-card case-lane-card--you"><b>Object</b>Take something out of your bag.</div><div class="case-lanes__spine"><span>01</span></div><div></div>
+              <div></div><div class="case-lanes__spine"><span>02</span></div><div class="case-lane-card"><b>Recognizes</b>“What is it?” Names it; reads two colors and density.</div>
+              <div class="case-lane-card case-lane-card--you"><b>Reflects</b>“What does it mean to me?” Choose a role; write a message.</div><div class="case-lanes__spine"><span>03</span></div><div></div>
+              <div></div><div class="case-lanes__spine"><span>04</span></div><div class="case-lane-card"><b>Interprets</b>Relationship + visual qualities become a flower’s parameters.</div>
+              <div></div><div class="case-lanes__spine"><span>05</span></div><div class="case-lane-card"><b>Form emerges</b>A flower grows into a bouquet in your bag.</div>
+              <div class="case-lane-card case-lane-card--you"><b>Takes it home</b>The object’s reply, printed on a receipt.</div><div class="case-lanes__spine"><span>06</span></div><div class="case-lane-card"><b>Speaks back</b>A reply in the object’s voice.</div>
+            </div>
 
             <div class="case-cols">
               <div>
@@ -128,26 +157,13 @@
             <h2>Physical object → digital interaction → generative form → physical artifact.</h2>
             <p>The experience is designed to be <strong>slow</strong>: short pauses leave room for anticipation and reflection.</p>
 
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>01 Choose an object</figcaption>
-            </figure>
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>02 Scan</figcaption>
-            </figure>
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>03 Describe the relationship</figcaption>
-            </figure>
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>04 Grow the bag’s emotional garden</figcaption>
-            </figure>
-            <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>05 Receive a note from your object</figcaption>
-            </figure>
+            <div class="case-shots4">
+              <figure><div class="placeholder"></div><figcaption><span>04</span> Grow the bag’s emotional garden</figcaption></figure>
+              <figure><div class="placeholder"></div><figcaption><span>01</span> Choose an object</figcaption></figure>
+              <figure><div class="placeholder"></div><figcaption><span>02</span> Scan</figcaption></figure>
+              <figure><div class="placeholder"></div><figcaption><span>03</span> Describe the relationship</figcaption></figure>
+              <figure><div class="placeholder"></div><figcaption><span>05</span> Receive a note from your object</figcaption></figure>
+            </div>
           </div>
         </section>
         <hr>
@@ -160,40 +176,15 @@
             <p>Instead of visualizing the objects, I wanted to visualize the <strong>invisible relationships around them</strong>. A flower can vary emotionally without ranking anything, so each object becomes a flower that expresses its relationship, not its function.</p>
             <p><strong>The AI does not draw the flowers.</strong> Each one is built procedurally in Three.js: the <strong>emotional role</strong> the person chooses sets the kind of flower, and the <strong>visual qualities</strong> Gemini reads from the object set its color and fullness.</p>
 
-            <table class="case-table case-table--labels">
+            <table class="case-table case-table--glyph">
               <thead>
-                <tr>
-                  <th>Emotional role</th>
-                  <th>Flower</th>
-                  <th>Form &amp; motion</th>
-                  <th>e.g.</th>
-                </tr>
+                <tr><th></th><th>Emotional role</th><th>Flower</th><th>Form &amp; motion</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Comfort</td>
-                  <td><strong>Lotus-like</strong></td>
-                  <td>Curved, layered petals; gentle sway</td>
-                  <td class="muted">medicine, lip balm, hand cream, snacks</td>
-                </tr>
-                <tr>
-                  <td>Productivity</td>
-                  <td><strong>Tulip</strong></td>
-                  <td>Upright petals; minimal movement</td>
-                  <td class="muted">laptop, charger, notebook, headphones</td>
-                </tr>
-                <tr>
-                  <td>Expression</td>
-                  <td><strong>Wavy flower</strong></td>
-                  <td>Recursive 3D branching; flows in many directions</td>
-                  <td class="muted">keychains, stickers, accessories</td>
-                </tr>
-                <tr>
-                  <td>Inner Self</td>
-                  <td><strong>Baby’s breath</strong></td>
-                  <td>Delicate L-system clusters; soft bobbing</td>
-                  <td class="muted">handwritten notes, old receipts, photos, charms</td>
-                </tr>
+                <tr><td><svg class="case-flower" role="img" aria-label="Lotus-like"><use href="#fl-lotus"/></svg></td><td>Comfort<p class="muted">medicine, lip balm, hand cream, snacks</p></td><td><strong>Lotus-like</strong></td><td>Curved, layered petals; gentle sway</td></tr>
+                <tr><td><svg class="case-flower" role="img" aria-label="Tulip"><use href="#fl-tulip"/></svg></td><td>Productivity<p class="muted">laptop, charger, notebook, headphones</p></td><td><strong>Tulip</strong></td><td>Upright petals; minimal movement</td></tr>
+                <tr><td><svg class="case-flower" role="img" aria-label="Wavy flower"><use href="#fl-wavy"/></svg></td><td>Expression<p class="muted">keychains, stickers, accessories</p></td><td><strong>Wavy flower</strong></td><td>Recursive 3D branching; flows in many directions</td></tr>
+                <tr><td><svg class="case-flower" role="img" aria-label="Baby’s breath"><use href="#fl-breath"/></svg></td><td>Inner Self<p class="muted">handwritten notes, old receipts, photos, charms</p></td><td><strong>Baby’s breath</strong></td><td>Delicate L-system clusters; soft bobbing</td></tr>
               </tbody>
             </table>
 
@@ -222,20 +213,27 @@
           <div class="case-body">
             <h2>A note from your object.</h2>
 
-            <div class="case-cols case-cols--flush">
-              <figure class="case-figure case-figure--tall">
-                <div class="placeholder"></div>
-                <figcaption>The printed receipt, in hand.</figcaption>
-              </figure>
+            <div class="case-receipt-wrap">
+              <!-- The grey bars stand in for the object list: swap in the real receipt lines -->
+              <div class="case-receipt" role="img" aria-label="A receipt: the object list, then your message to a water bottle and its reply.">
+                <p class="c">What’s in your bag?</p>
+                <p class="c">A garden I carry</p>
+                <div class="cut"></div>
+                <p>Your objects</p>
+                <div class="sk"><i style="width:55%"></i><i style="width:25%"></i></div>
+                <div class="sk"><i style="width:45%"></i><i style="width:30%"></i></div>
+                <div class="sk"><i style="width:60%"></i><i style="width:22%"></i></div>
+                <div class="cut"></div>
+                <p>You, to a water bottle</p>
+                <p class="q">“You keep me going through long days.”</p>
+                <p>The water bottle</p>
+                <p class="q">“I’m here for you, always ready. Your hydration is my purpose.”</p>
+                <div class="cut"></div>
+                <p class="c">* * *</p>
+              </div>
               <div class="case-receipt-text">
                 <p>The experience ends not with an AI response on a screen, but with a <strong>physical artifact</strong> the participant takes away.</p>
                 <p>It lists every object and its emotional role, then each object’s reply—written by Gemini <strong>in the object’s own voice</strong>.</p>
-                <dl class="case-list case-list--stack">
-                  <dt>You, to a water bottle</dt>
-                  <dd><p>“You keep me going through long days.”</p></dd>
-                  <dt>The water bottle</dt>
-                  <dd><p>“I’m here for you, always ready. Your hydration is my purpose.”</p></dd>
-                </dl>
               </div>
             </div>
 
@@ -254,6 +252,13 @@
 
             <h3>Designing with AI, building with AI</h3>
             <p>I built the project with AI too, through vibe coding—with the <strong>same division of roles</strong>. When design questions came up mid-build, the AI wrote a plan, I validated it, and only then did it implement.</p>
+            <div class="case-legend"><span class="case-legend__you">Me</span><span class="case-legend__ai">AI</span></div>
+            <div class="case-cycle">
+              <div class="case-cycle__box">AI plans<small>writes a plan</small></div><span class="case-cycle__arrow">→</span>
+              <div class="case-cycle__box case-cycle__box--you">I validate<small>judge · detect drift</small></div><span class="case-cycle__arrow">→</span>
+              <div class="case-cycle__box">AI implements<small>generates code</small></div>
+            </div>
+            <p class="case-return">↺ drift? back to the plan</p>
             <table class="case-table">
               <thead>
                 <tr><th>My role</th><th>AI’s role</th></tr>
@@ -281,6 +286,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=46"></script>
+  <script src="case.js?v=47"></script>
 </body>
 </html>

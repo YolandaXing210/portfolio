@@ -1262,3 +1262,83 @@ p { margin: 0; }
 /* Captions drawn inside SVG diagrams use the caption face too */
 .case-illo .d-caption,
 .case-diagram .d-caption { font-family: var(--caption-font); font-style: italic; font-size: 14px; fill: var(--muted); }
+
+/* ---------- What’s in Your Bag? components ---------- */
+
+.case { --tint: color-mix(in srgb, var(--accent, #000) 14%, #fff); --ai-line: #b9b9b9; }
+
+/* Squares: one row of 20 per stat, each square = 5% */
+.case-waffles { display: grid; grid-template-columns: 4.5em minmax(0, 1fr); column-gap: 1rem; row-gap: 1.4rem; align-items: start; }
+.case-waffles b { font-size: 1.6rem; font-weight: 500; line-height: 1; color: var(--accent); }
+.case-waffle { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 3px; max-width: 440px; margin-bottom: 0.5em; }
+.case-waffle i { aspect-ratio: 1; background: #e9e9e9; border-radius: 2px; }
+.case-waffle i.on { background: var(--accent); }
+
+/* Swimlanes: you on the left, AI & system on the right, steps numbered down the spine */
+.case-lanes { display: grid; grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr); margin-top: 2.4em; }
+.case-lanes__head { padding-bottom: 0.6rem; color: var(--muted); }
+.case-lanes__spine { display: flex; justify-content: center; align-items: center; background: linear-gradient(var(--rule), var(--rule)) center / 2px 100% no-repeat; color: var(--muted); }
+.case-lanes__spine span { padding: 0.2em 0; background: var(--bg); }
+.case-lane-card { margin: 0.3rem 0; padding: 0.7rem 0.9rem; border: 2px solid var(--ai-line); border-radius: 6px; background: var(--bg); }
+.case-lane-card--you { border-color: var(--accent); background: var(--tint); }
+.case-lane-card b { display: block; font-weight: 500; }
+.case-lane-card--you b { color: var(--accent); }
+
+/* Five step images: the first one large, the rest small */
+.case-shots4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; }
+.case-shots4 figure { margin: 0; }
+.case-shots4 > :first-child { grid-column: 1 / -1; }
+.case-shots4 .placeholder,
+.case-shots4 img { display: block; width: 100%; height: auto; margin: 0; aspect-ratio: 1 / 1; object-fit: cover; }
+.case-shots4 > :first-child .placeholder,
+.case-shots4 > :first-child img { aspect-ratio: 16 / 9; }
+.case-shots4 figcaption { margin-top: 0.4em; }
+.case-shots4 figcaption span { color: var(--accent); font-weight: 500; }
+
+/* Table with a line-art icon in the first column */
+.case-flower { display: block; width: 52px; height: 52px; fill: var(--tint); stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.case-table--glyph tr > :first-child { width: 72px; }
+
+/* A receipt drawn in type, with a torn bottom edge */
+.case-receipt-wrap { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+.case-receipt-wrap .case-receipt-text { padding-top: 0; }
+.case-receipt-text > p + p { margin-top: 1.2em; }
+.case-receipt {
+  padding: 1.2rem 1rem 1.6rem;
+  background: #fbfbf8;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  text-transform: uppercase;
+  line-height: 1.55;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+          mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+}
+.case .case-receipt p { margin: 0; }
+.case-receipt .c { text-align: center; }
+.case-receipt .cut { margin: 0.7em 0; border-top: 1px dashed #999; }
+.case .case-receipt .q { margin: 0.2em 0 0.8em; text-transform: none; }
+.case-receipt .sk { display: flex; justify-content: space-between; gap: 1em; margin: 0.35em 0; }
+.case-receipt .sk i { height: 0.7em; background: #ddd; border-radius: 2px; }
+
+/* Plan → validate → implement */
+.case-legend { display: flex; flex-wrap: wrap; gap: 1.2rem; color: var(--muted); }
+.case-legend span::before { content: ""; display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.4em; vertical-align: -0.05em; border-radius: 2px; }
+.case-legend__you::before { background: var(--accent); }
+.case-legend__ai::before { border: 2px solid var(--ai-line); }
+.case-body > .case-legend + .case-cycle { margin-top: 0.8em; }
+.case-cycle { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.case-cycle__box { min-width: 11em; padding: 0.6rem 0.8rem; border: 2px solid var(--ai-line); border-radius: 6px; text-align: center; font-weight: 500; }
+.case-cycle__box small { display: block; font-size: 1em; font-weight: 400; color: var(--muted); }
+.case-cycle__box--you { border-color: var(--accent); background: var(--tint); color: var(--accent); }
+.case-cycle__arrow { color: var(--muted); }
+.case-body > .case-cycle + .case-return { margin-top: 0.8em; color: var(--accent); }
+
+@media (max-width: 768px) {
+  .case-waffles { grid-template-columns: 3.6em minmax(0, 1fr); }
+  .case-lanes { grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr); }
+  .case-shots4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-table--glyph tr > :first-child { width: 44px; }
+  .case-table--glyph .case-flower { width: 36px; height: 36px; }
+  .case-table--glyph td p { display: none; }
+  .case-receipt-wrap { grid-template-columns: minmax(0, 1fr); }
+  .case-cycle__box { min-width: 0; }
+}
