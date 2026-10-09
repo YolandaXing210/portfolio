@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Journey to the Forgotten — Yolanda Xing</title>
-  <meta name="description" content="Journey to the Forgotten: a VR interactive installation about embodiment and being watched.">
+  <meta name="description" content="Journey to the Forgotten: a body-centered VR journey about embodiment, ritual, and being watched.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=47">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=48">
 </head>
-<body>
-  <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
-  <main class="detail case case--journey">
+<body class="jn-page">
+  <!-- Layout and images follow the case-study PDF (land journey). Images are cropped from its pages. -->
+  <main class="detail case case--journey jn">
 
     <header class="case-bar">
       <div class="row">
@@ -25,12 +25,23 @@
     <div class="case-layout">
       <nav class="case-toc" id="toc" aria-label="Contents"></nav>
       <div class="case-content">
-      <!-- ===== Hero ===== -->
-      <div class="case-hero" id="intro">
-        <p class="muted">Selected work / VR installation</p>
-        <h1><span>Journey to<br>the Forgotten</span></h1>
-        <p>An interactive installation about <strong>being watched</strong>.</p>
-        <p><a href="files/land.pdf" target="_blank" rel="noopener">Detailed case study (PDF) →</a></p>
+
+      <!-- ===== Hero (PDF cover) ===== -->
+      <div class="case-hero jn-hero" id="intro">
+        <div class="jn-hero__text">
+          <p class="muted">Selected work / VR installation</p>
+          <h1><span>Journey to<br>the Forgotten</span></h1>
+          <p class="case-subtitle">A body-centered VR journey</p>
+          <dl class="jn-meta">
+            <div><dt>Timeframe</dt><dd>March–June 2024</dd></div>
+            <div><dt>Type</dt><dd>Solo project</dd></div>
+            <div><dt>Focus</dt><dd>Embodied interaction, worldbuilding, HCI</dd></div>
+            <div><dt>Outcome</dt><dd>VR game</dd></div>
+            <div><dt>Tools</dt><dd>Unity, Meta Quest</dd></div>
+          </dl>
+          <p class="jn-intro">A VR interactive experience that explores <strong>embodiment</strong> in virtual space through spatial layout, bodily movement, and interaction design. By staging resistance, ritualized motion, and attention-driven environments, the work shifts VR away from mind-centric control toward <strong>physical awareness</strong>. Its goal is to reframe immersion as an embodied process of <strong>participation and acceptance</strong> rather than navigation or achievement.</p>
+        </div>
+        <img class="jn-hero__img" src="images/journey-cover.jpg" alt="The High Ground: a beam of light rising behind a labyrinth suspended above a hazy golden plain." width="1000" height="1469">
       </div>
 
       <figure class="case-figure case-figure--wide">
@@ -42,117 +53,598 @@
         <figcaption>Project film</figcaption>
       </figure>
 
-      <div class="case-meta">
-        <div><p class="muted">Type</p><p>Solo project</p></div>
-        <div><p class="muted">Year</p><p>2024</p></div>
-        <div><p class="muted">Tools</p><p>Unity<br>Meta Quest</p></div>
-      </div>
-      <hr>
-
-      <!-- ===== 01 Overview ===== -->
-      <section class="case-section" id="overview">
-        <div class="case-index muted">01 / Overview</div>
+      <!-- ===== 01 Start with ===== -->
+      <section class="case-section jn-band" id="start">
+        <div class="case-index muted">01 / Start with</div>
         <div class="case-body">
-          <h2>Immersion as an embodied process.</h2>
-          <p>A VR interactive experience about <strong>embodiment</strong>: through spatial layout, bodily movement, and interaction design, it shifts VR away from mind-centric control toward <strong>physical awareness</strong>.</p>
-          <p>Immersion becomes <strong>participation and acceptance</strong> rather than navigation or achievement. The journey moves through two contrasting spaces:</p>
+          <h2>From abstract control to bodily awareness.</h2>
 
-            <table class="case-table case-table--labels">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>HighLand</th>
-                  <th>The River</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="muted">Movement</td>
-                  <td>Uphill terrain, falling obstacles, elevated puzzles, <strong>vertical climbing</strong></td>
-                  <td>Seated, <strong>rhythmic hand-pedaling</strong></td>
-                </tr>
-                <tr>
-                  <td class="muted">Space</td>
-                  <td>Vast; the player is small against its scale</td>
-                  <td>A compressed corridor of pillars that guides attention forward</td>
-                </tr>
-                <tr>
-                  <td class="muted">The body</td>
-                  <td>Brought into awareness through <strong>strain and repetition</strong></td>
-                  <td>Agency shifts fully into the body; movement as <strong>flow</strong></td>
-                </tr>
-                <tr>
-                  <td class="muted">Feeling</td>
-                  <td>Resistance and effort</td>
-                  <td><strong>Being watched</strong>: eyes in the environment reverse the gaze</td>
-                </tr>
-              </tbody>
-            </table>
+          <h3>Inspiration</h3>
+          <div class="jn-insp">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-inspiration.jpg" alt="Collage: overhead frames of Francis Alÿs’ Sheep, a man walking sheep into a circle; people seated in VR headsets; a Vision Pro headset." width="1400" height="515">
+              <figcaption>Francis Alÿs’ Sheep beside seated VR viewers.</figcaption>
+            </figure>
+            <div>
+              <p>Inspired by Francis Alÿs’ performance <em>Sheep</em> (2002), where collective movement reads like a choreography of the mind: <strong class="jn-hl">drifting attention, social gravity, and quiet surrender.</strong></p>
+              <p>In VR, participants are often treated as primarily <strong class="jn-hl">“attention-centric”</strong> viewers, present through attention but detached from physical consequence.</p>
+            </div>
+          </div>
+          <p class="jn-question">How can a virtual world guide players from abstract control to bodily awareness through interaction alone?</p>
+          <p class="jn-pill">Rather than telling a story through narrative, this project treats the body itself as the narrative medium.</p>
+
+          <h3>Problem: interaction as a design material</h3>
+          <p>Many VR experiences mistake immersion for participation, leaving users visually present but agency-less: <strong>disembodied observers</strong>. That exposes ethical flaws in interaction design.</p>
+          <ol class="jn-chain">
+            <li>Immersion ≠ participation</li>
+            <li>Voyeuristic immersion</li>
+            <li>Disembodied presence</li>
+            <li>Loss of participant subjectivity</li>
+            <li>Interaction as ethical positioning</li>
+          </ol>
+
+          <h3>Conclusion</h3>
+          <div class="jn-concl">
+            <p class="jn-card">With interaction understood as <strong>a material that shapes participant subjectivity</strong>, I approached the design process as a gradual reconstruction of the body’s role in virtual space.</p>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-interface.jpg" alt="Line drawing of a person in a head-mounted display inside a virtual interface environment, surrounded by floating panels, with labels for gesture tracking, voice input and tactile feedback." width="653" height="531">
+              <figcaption>Virtual interface environment.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Ideation: a spectrum of interaction in VR</h3>
+          <p>Rather than treating interaction as a fixed category, <strong>I frame VR interaction as a spectrum of bodily involvement</strong>, from visual immersion to embodied participation:</p>
+          <div class="jn-spectrum">
+            <div class="jn-stages">
+              <div class="jn-stage">
+                <div class="jn-stage__head">
+                  <b>360 video</b><span>Disembodied observation</span>
+                  <svg class="jn-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="7"/><ellipse cx="16" cy="16" rx="3" ry="7"/><path d="M9 16h14"/><path d="M4.5 13a12 12 0 0 1 19.5-7.5"/><path d="M24 2v3.6h-3.6"/><path d="M27.5 19a12 12 0 0 1-19.5 7.5"/><path d="M8 30v-3.6h3.6"/></svg>
+                </div>
+                <ul>
+                  <li>Fixed camera position</li>
+                  <li>No bodily consequence</li>
+                  <li>No agency beyond attention</li>
+                  <li>Strong voyeuristic positioning</li>
+                </ul>
+              </div>
+              <div class="jn-stage">
+                <div class="jn-stage__head">
+                  <b>Abstract input</b><span>Symbolic control</span>
+                  <svg class="jn-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="5"/><path d="M16 14v9"/><path d="M8 27h16l-2.5-4h-11z"/></svg>
+                </div>
+                <ul>
+                  <li>Relies on buttons, joysticks, and triggers</li>
+                  <li>Efficient and familiar</li>
+                  <li>Agency without embodiment</li>
+                  <li>The body operates the system from outside</li>
+                </ul>
+              </div>
+              <div class="jn-stage">
+                <div class="jn-stage__head">
+                  <b>Representational interaction</b><span>Partial body</span>
+                  <svg class="jn-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="14" height="14" rx="2"/><rect x="14" y="14" width="14" height="14" rx="2"/><path d="M8 22v3a2 2 0 0 0 2 2h1.5"/><path d="M24 10V7a2 2 0 0 0-2-2h-1.5"/></svg>
+                </div>
+                <ul>
+                  <li>Increased presence</li>
+                  <li>Partial embodiment</li>
+                  <li>The body functions primarily as a tool</li>
+                </ul>
+              </div>
+              <div class="jn-stage">
+                <div class="jn-stage__head">
+                  <b>Embodied interaction</b><span>Body as medium</span>
+                  <svg class="jn-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="10" cy="7" r="3"/><path d="M10 11v9l-4 9M10 20l4 9M10 13l9-5M10 14l-5 5"/><rect x="20" y="3" width="9" height="7" rx="1"/></svg>
+                </div>
+                <ul>
+                  <li>Sustained physical effort</li>
+                  <li>Rhythm, posture, and repetition matter</li>
+                  <li>Movement carries emotional and expressive meaning</li>
+                </ul>
+              </div>
+              <div class="jn-axis" aria-hidden="true"></div>
+            </div>
+            <p class="jn-ends"><span>Participants are a point of view.</span><i aria-hidden="true"></i><span>The body itself becomes the interface.</span></p>
+          </div>
         </div>
       </section>
-      <hr>
 
-      <!-- ===== 02 HighLand ===== -->
-      <section class="case-section" id="highland">
-        <div class="case-index muted">02 / HighLand</div>
+      <!-- ===== 02 Game flow map ===== -->
+      <section class="case-section jn-band jn-band--flow" id="flow">
+        <div class="case-index muted">02 / Game flow map</div>
         <div class="case-body">
-          <h2>A space of resistance and effort.</h2>
-          <p>Uphill terrain, falling obstacles, elevated puzzles, and vertical climbing gradually bring the body into awareness. Movement takes <strong>persistence, balance, and labor</strong>, and the player is small against the scale of the environment. Embodiment emerges through <strong>strain and repetition rather than mastery</strong>.</p>
-
-          <figure class="case-figure">
-            <div class="placeholder"></div>
-            <figcaption>HighLand, main view.</figcaption>
+          <h2>Game flow map</h2>
+          <figure class="case-figure case-figure--natural">
+            <img src="images/journey-flow-map.jpg" alt="Illustrated game flow map. Left, the High Ground: mountains with a ladder up to a light beam, a storm field, a labyrinth and a meadow of sheep. Right, the River: a purple world of eyes and pillars, with a boat on a winding river." width="2000" height="1414">
+            <figcaption>Level 1, the High Ground (left), flows into Level 2, the River (right).</figcaption>
           </figure>
-          <div class="case-grid">
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
+          <p class="jn-card">Inspired by Francis Alÿs’ <em>Sheep</em>, the sheep are the game’s only collectible. They mark shifts in embodiment rather than progress toward a score: collecting them completes <strong>a ritual of acceptance, not achievement</strong>.</p>
+          <div class="jn-levels">
+            <div class="jn-level">
+              <p class="jn-level__tag">Level 1</p>
+              <h3 class="jn-ribbon">The High Ground</h3>
+              <ol class="jn-stops">
+                <li>
+                  <p class="jn-stop__name">Arriving</p>
+                  <ul><li>A scroll asks the player to collect 4 sheep</li><li>The 1st sheep is close by, as a tutorial</li></ul>
+                </li>
+                <li>
+                  <p class="jn-stop__name">The labyrinth puzzle</p>
+                  <p>Abstract control with a joystick</p>
+                  <ul><li>Tilt the joystick to guide a ball to the endpoint</li><li>Once it’s solved, the 2nd sheep appears and is collected</li></ul>
+                </li>
+                <li>
+                  <p class="jn-stop__name">Storm field</p>
+                  <p>Bodily consequence</p>
+                  <ul><li>Walk uphill against a rain of falling electric appliances</li><li>At the top, the 3rd sheep is collected</li></ul>
+                </li>
+                <li>
+                  <p class="jn-stop__name">Ladder climb</p>
+                  <p>Hands as locomotion</p>
+                  <ul><li>Climb a very long ladder to reach the beacon</li><li>Collect the 4th sheep on the top platform</li><li>The player is teleported back to the ritual</li></ul>
+                </li>
+                <li>
+                  <p class="jn-stop__name">Ritual walk</p>
+                  <p>Embodied performance</p>
+                  <ul><li>Walking one full cycle with the sheep activates the ritual</li><li>The player enters the River world</li></ul>
+                </li>
+              </ol>
+            </div>
+            <div class="jn-level jn-level--river">
+              <p class="jn-level__tag">Level 2</p>
+              <h3 class="jn-ribbon">The River</h3>
+              <ol class="jn-stops">
+                <li>
+                  <p class="jn-stop__name">Boat</p>
+                  <p>Full agency over the boat</p>
+                  <ul><li>Mechanic: sit down, grab the paddle ends, and wind your hands to drive</li><li>Output: speed and direction</li></ul>
+                </li>
+                <li>
+                  <p class="jn-stop__name">Ending</p>
+                  <p>Quiet ascending</p>
+                  <ul><li>The player arrives inside a palace and stands on a platform</li><li>The platform rises, and the experience ends</li></ul>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
-      <hr>
 
-      <!-- ===== 03 The River ===== -->
-      <section class="case-section" id="river">
-        <div class="case-index muted">03 / The River</div>
+      <!-- ===== 03 Design development ===== -->
+      <section class="case-section jn-band jn-band--dev" id="development">
+        <div class="case-index muted">03 / Design development</div>
         <div class="case-body">
-          <h2>Movement as flow rather than struggle.</h2>
-          <p>A compressed corridor of pillars guides attention forward. Seated, <strong>rhythmic hand-pedaling</strong> generates motion, shifting agency fully into the body. <strong>Eyes embedded in the environment reverse the gaze</strong>, so the player feels observed as they move quietly toward enclosure and release.</p>
+          <h2>Design development</h2>
 
-          <figure class="case-figure">
-            <div class="placeholder"></div>
-            <figcaption>The River, main view.</figcaption>
+          <h3>Visual reference</h3>
+          <p>I draw visual inspiration from <strong>LSD, citypunk, and brutalism</strong>. LSD informs hallucinatory perception and fluid reality; citypunk shapes dense, hyper-urban atmospheres; brutalism grounds the world through raw structure, weight, and uncompromising material presence.</p>
+          <figure class="case-figure case-figure--natural">
+            <img src="images/journey-dd-reference.jpg" alt="Three references: a rainbow op-art spiral, a purple and cyan citypunk skyline, and sharp grey brutalist concrete spikes." width="1200" height="348">
+            <figcaption>LSD, citypunk, brutalism.</figcaption>
           </figure>
-          <div class="case-grid">
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
+
+          <h3>Sketches &amp; 3D modeling</h3>
+          <figure class="case-figure case-figure--natural">
+            <img src="images/journey-dd-sketches.jpg" alt="Pencil sketches of a creature and a palace on pink cards, beside iridescent 3D sculpts of the same forms." width="1200" height="465">
+            <figcaption>From sketch to sculpt.</figcaption>
+          </figure>
+
+          <h3>Fog + volume</h3>
+          <div class="jn-split jn-split--fog">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-dd-fog-panels.jpg" alt="Unity inspector panels for Height Fog Global and a Volume profile with color wheels." width="610" height="771">
+              <figcaption>Height fog and volume in Unity.</figcaption>
+            </figure>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-dd-fog.jpg" alt="The High Ground with fog and volume, a soft golden haze; and without, a hard dark sky over yellow ground." width="1400" height="589">
+              <figcaption>The High Ground with fog and volume, and without.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Spatial structure &amp; atmosphere</h3>
+          <div class="jn-split">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-dd-terrain.jpg" alt="The High Ground terrain as a wireframe under a night sky, with the labyrinth and the beam in the distance, framed in a circle." width="1400" height="927">
+              <figcaption>The High Ground terrain.</figcaption>
+            </figure>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-dd-river.jpg" alt="Two views of the River: orange striped pillars around a green creature, with volume and without." width="1400" height="566">
+              <figcaption>The River, with volume and without.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Audio design</h3>
+          <p class="jn-question jn-question--flush">Sound as attentional framing</p>
+          <p class="jn-lead jn-lead--accent">Gaze-activated audio cues</p>
+          <div class="jn-split">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-dd-audio-layers.jpg" alt="Three overlapping circles over the River: River base, River layer 1, River layer 2." width="457" height="343">
+              <figcaption>The river’s sound in layers.</figcaption>
+            </figure>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-dd-audio-gaze.jpg" alt="A figure on the High Ground inside a dotted gaze target with an eye icon." width="471" height="343">
+              <figcaption>A cue that plays when you look.</figcaption>
+            </figure>
           </div>
         </div>
       </section>
-      <hr>
 
-      <!-- ===== 04 Installation ===== -->
-      <section class="case-section" id="installation">
-        <div class="case-index muted">04 / Installation</div>
+      <!-- ===== 04 Interaction core ===== -->
+      <section class="case-section jn-band jn-band--core" id="core">
+        <div class="case-index muted">04 / Interaction core</div>
         <div class="case-body">
-          <h2>The installation.</h2>
-          <div class="case-cols case-cols--3">
-            <figure class="case-figure"><div class="placeholder"></div></figure>
-            <figure class="case-figure"><div class="placeholder"></div></figure>
-            <figure class="case-figure"><div class="placeholder"></div></figure>
+          <h2>Interaction core: body-centered</h2>
+          <h3>From mind-led control to embodied agency</h3>
+          <p>This experience is structured as a gradual relocation of movement and attention into the body. Rather than treating embodiment as a single state, the design stages <strong>how different parts of the body come online over time</strong>, shifting the participant from abstract control toward physical presence, effort, and acceptance.</p>
+          <ol class="jn-parts">
+            <li class="jn-part">
+              <img src="images/journey-ic-head.jpg" alt="The labyrinth board seen up close." width="416" height="419">
+              <div class="jn-card">
+                <p class="jn-part__meta"><span class="jn-part__where">The labyrinth puzzle</span><span class="jn-chip jn-chip--abstract">Abstract control</span></p>
+                <h3>Head / mind — orientation &amp; precision</h3>
+                <p class="jn-part__lead">The body is present primarily as perception and fine motor control.</p>
+                <p>At the beginning of the experience, interaction is mind-led. Attention is focused on reading, looking, and precise hand control. The participant relates to the world through cognition and accuracy, reflecting a familiar, mind-centric mode of VR interaction.</p>
+              </div>
+            </li>
+            <li class="jn-part">
+              <img src="images/journey-ic-torso.jpg" alt="Falling objects tumbling toward the player on the storm field slope." width="416" height="416">
+              <div class="jn-card">
+                <p class="jn-part__meta"><span class="jn-part__where">Storm field slope</span><span class="jn-chip jn-chip--rep">Representational interaction</span></p>
+                <h3>Torso / balance — bodily resistance</h3>
+                <p class="jn-part__lead">The body becomes something that can be displaced, resisted, and corrected.</p>
+                <p>As falling objects knock the participant backward, the body is no longer neutral. Balance, position, and recovery matter. Attention shifts from solving to stabilizing, marking the first moment where the participant must account for their physical presence.</p>
+              </div>
+            </li>
+            <li class="jn-part">
+              <img src="images/journey-ic-arms.jpg" alt="A virtual hand gripping a rung of the ladder." width="389" height="395">
+              <div class="jn-card">
+                <p class="jn-part__meta"><span class="jn-part__where">Ladder climb</span><span class="jn-chip jn-chip--rep">Representational interaction</span></p>
+                <h3>Arms &amp; hands — labor and effort</h3>
+                <p class="jn-part__lead">The hands become engines of movement.</p>
+                <p>Climbing requires repeated grabbing and dragging motions. Progress depends on effort and rhythm rather than input efficiency. The body is now a tool that must work, introducing labor as a core interaction quality.</p>
+              </div>
+            </li>
+            <li class="jn-part">
+              <img src="images/journey-ic-legs.jpg" alt="Golden sheep walking in a line around the ritual pole." width="420" height="414">
+              <div class="jn-card">
+                <p class="jn-part__meta"><span class="jn-part__where">Sheep walking ritual</span><span class="jn-chip jn-chip--rep">Representational interaction</span></p>
+                <h3>Legs — ritualized movement</h3>
+                <p class="jn-part__lead">Legs carry the body in slow, synchronized motion.</p>
+                <p>Walking in a circle with the sheep shifts movement from effort to acceptance. The legs are no longer overcoming resistance; they sustain rhythm. Becoming part of the flock reframes movement as belonging rather than task completion.</p>
+              </div>
+            </li>
+            <li class="jn-part">
+              <img src="images/journey-ic-full.jpg" alt="Rowing down the river between orange pillars toward the green palace." width="420" height="417">
+              <div class="jn-card">
+                <p class="jn-part__meta"><span class="jn-part__where">Boat epilogue</span><span class="jn-chip jn-chip--embodied">Embodied interaction</span></p>
+                <h3>Full body — embodied agency</h3>
+                <p class="jn-part__lead">The body generates motion and pace.</p>
+                <p>Although seated, the body is fully engaged. The legs ground the posture, while the arms generate propulsion through pedaling gestures. Movement is authored through rhythm and coordination rather than standing locomotion.</p>
+              </div>
+            </li>
+            <li class="jn-part">
+              <img src="images/journey-ic-still.jpg" alt="Standing on the yellow platform above the cracked purple floor inside the palace." width="420" height="417">
+              <div class="jn-card">
+                <p class="jn-part__meta"><span class="jn-part__where">Palace platform ascent</span><span class="jn-chip jn-chip--none">No control</span></p>
+                <h3>Still body — reflection</h3>
+                <p class="jn-part__lead">The body rests; attention turns inward.</p>
+                <p>The experience ends without action. After sustained effort, stillness allows bodily memory to settle, leaving space for reflection rather than narrative closure.</p>
+              </div>
+            </li>
+          </ol>
+
+          <h3>Touch as claim and recognition</h3>
+          <div class="jn-split">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-ic-touch.jpg" alt="A virtual hand reaching out to touch a patterned orange sheep." width="836" height="719">
+            </figure>
+            <p class="jn-card"><strong>Sheep</strong> are collected through direct hand contact, an intentionally simple and repeated gesture. Touch functions as a human act of claiming and acknowledging presence, grounding reward in physical proximity rather than abstraction. By being handled instead of earned, the sheep reinforce the body as the site of meaning-making.</p>
           </div>
         </div>
       </section>
-      <hr>
 
-      <!-- ===== 05 Credits ===== -->
-      <section class="case-section" id="credits">
-        <div class="case-index muted">05 / Credits</div>
+      <!-- ===== 05 High Ground: spatial design ===== -->
+      <section class="case-section jn-band jn-band--space" id="highground-space">
+        <div class="case-index muted">05 / High Ground: space</div>
+        <div class="case-body">
+          <h2>Level 1 <i>High Ground</i>: spatial design</h2>
+          <p class="jn-lead">Using space to stage bodily awareness</p>
+          <p>The spatial layout is designed as an active agent in shaping embodiment rather than a neutral container. Instead of prioritizing efficiency or spectacle, space is used to guide how the body moves, resists, and settles over time, using <strong>distance, elevation, and enclosure</strong> to shift attention without explicit instruction.</p>
+
+          <h3>Establishing orientation through open space</h3>
+          <p>The opening area is open and legible, with long sightlines and minimal physical resistance. This allows attention to settle before movement begins. The body remains mostly static, reinforcing a mind-led mode of interaction where observation and understanding come first. A beam shining in the distance establishes direction and attention.</p>
+          <p><strong>Key words: flat ground | clear landmarks</strong></p>
+
+          <div class="jn-points">
+            <div class="jn-card jn-point">
+              <img src="images/journey-hg-gp1.jpg" alt="Top-down view of sheep standing in a near-complete circle around a dark pole, with one gap." width="621" height="408">
+              <p class="jn-gp">Game point 1</p>
+              <h3>Resolving tension through circular completion</h3>
+              <p class="jn-lead">The ritual area is arranged as a near-complete circle, with a visible gap left among the sheep.</p>
+              <p>The missing segment activates an instinct to complete the form, inviting the participant to step in and make the circle whole. Progress is communicated through spatial coherence rather than UI indicators.</p>
+              <ul><li>Near-complete circular formation</li><li>Body-sized gap inviting occupation</li><li>Completion achieved through occupying space</li></ul>
+            </div>
+            <div class="jn-card jn-point">
+              <img src="images/journey-hg-gp2.jpg" alt="The labyrinth suspended in the air on a pedestal, a pink sheep beside it." width="403" height="417">
+              <p class="jn-gp">Game point 2</p>
+              <h3>Elevated cognitive space</h3>
+              <p class="jn-lead">The labyrinth is suspended in the air, filling the player’s visual field instead of sitting on a surface.</p>
+              <p>This removes a sense of physical handling and emphasizes visual control and cognition, establishing a disembodied baseline that later embodied interactions contrast against.</p>
+            </div>
+            <div class="jn-card jn-point">
+              <img src="images/journey-hg-gp3.jpg" alt="A long uphill slope littered with fallen boxes and appliances under a dusty orange sky." width="1200" height="297">
+              <p class="jn-gp">Game point 3</p>
+              <h3>Introducing resistance through slope and direction</h3>
+              <p class="jn-lead">The storm field is designed as a long, upward slope with falling obstacles extending beyond the player’s view.</p>
+              <p>The continuous incline and endless obstacles create a sense of inevitability, positioning the participant against a force of nature. With no alternate route, movement becomes an act of physical persistence rather than navigation.</p>
+              <ul><li>Continuous uphill terrain</li><li>Vertically extended obstacle field</li><li>Single forward direction with no bypass routes</li></ul>
+            </div>
+            <div class="jn-card jn-point jn-point--tall">
+              <img src="images/journey-hg-gp4.jpg" alt="A pale ladder rising up a narrow red shaft toward a point of light." width="354" height="835">
+              <p class="jn-gp">Game point 4</p>
+              <h3>Shifting the body vertically</h3>
+              <p class="jn-lead">Vertical movement is introduced after horizontal resistance has been experienced.</p>
+              <p>While most VR movement remains horizontal, vertical space reframes movement as labor, not navigation. The ladder’s enclosure focuses attention inward, onto repetitive bodily action.</p>
+              <ul><li>Vertical shaft</li><li>Limited visual distraction</li><li>Clear upward constraint</li></ul>
+            </div>
+          </div>
+          <div class="jn-linear">
+            <span>1 Ritual circle</span><span>2 Labyrinth</span><span>3 Storm field</span><span>4 Ladder</span>
+            <i aria-hidden="true"></i>
+            <b>Linear map layout</b>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 06 High Ground: game mechanics ===== -->
+      <section class="case-section jn-band jn-band--mech" id="highground-mechanics">
+        <div class="case-index muted">06 / High Ground: mechanics</div>
+        <div class="case-body">
+          <h2>Level 1 <i>High Ground</i>: game mechanics</h2>
+
+          <h3>Labyrinth</h3>
+          <p class="jn-type"><span>Interaction type</span>Controller-driven rotational input mapped to world-space object rotation.</p>
+          <div class="jn-mech">
+            <div class="jn-card">
+              <p class="jn-tag"><span>01</span>Mechanic</p>
+              <ul><li>Joystick tilt mapped to X/Z rotation of the labyrinth board</li><li>Physics-driven ball movement with gravity and collision</li><li>Failure state triggered by ball–hole collision, resetting the ball’s position</li></ul>
+              <p class="jn-tag"><span>02</span>Implementation focus</p>
+              <ul><li>Tight input sensitivity to emphasize precision</li><li>No body translation or collision involved</li><li>Visual feedback prioritized over physical feedback</li></ul>
+              <p class="jn-tag"><span>03</span>Design takeaway</p>
+              <p>This interaction isolates fine motor control and cognitive precision. By removing bodily consequence, the mechanic establishes a baseline of mind-led interaction against which later embodied mechanics are contrasted.</p>
+            </div>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-me-labyrinth.jpg" alt="A wooden tilt-labyrinth toy beside a Meta Quest controller." width="600" height="732">
+              <figcaption>The tabletop toy, mapped onto a controller.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Storm field</h3>
+          <p class="jn-type"><span>Interaction type</span>Physical locomotion with environment-driven force feedback.</p>
+          <div class="jn-card">
+            <p class="jn-tag"><span>01</span>Mechanic</p>
+            <ul><li>Player movement handled through continuous walking locomotion</li><li>Falling objects instantiated with rigidbody physics</li><li>On collision, an impulse force is applied to the player’s movement vector, producing knockback</li></ul>
+            <p class="jn-tag"><span>02</span>Implementation focus</p>
+            <ul><li>Knockback magnitude tuned to interrupt progress without disorientation</li><li>No health or damage system; consequence is spatial displacement only</li><li>Objects chosen for readable mass and rolling behavior</li></ul>
+            <p class="jn-tag"><span>03</span>Design takeaway</p>
+            <p>Introducing collision-based interruption shifts locomotion from navigation to bodily negotiation. The environment gains physical authority, forcing the player to manage balance, position, and recovery rather than optimization.</p>
+          </div>
+          <figure class="case-figure">
+<pre class="jn-code"><code><span class="k">public class</span> <span class="t">PlayerKnockback</span> : <span class="t">MonoBehaviour</span>
+{
+    <span class="k">private</span> <span class="t">CharacterController</span> characterController;
+    <span class="k">private</span> <span class="t">Vector3</span> knockbackDirection;
+    <span class="k">private float</span> knockbackTimer = 0f;
+    <span class="k">public float</span> knockbackForce = 10f;
+    <span class="k">public float</span> knockbackDuration = 0.5f;
+
+    <span class="k">void</span> <span class="f">Start</span>()
+    {
+        characterController = <span class="f">GetComponent</span>&lt;<span class="t">CharacterController</span>&gt;();
+    }
+
+    <span class="k">void</span> <span class="f">Update</span>()
+    {
+        <span class="k">if</span> (knockbackTimer &gt; 0)
+        {
+            characterController.<span class="f">Move</span>(knockbackDirection * knockbackForce * <span class="t">Time</span>.deltaTime);
+            knockbackTimer -= <span class="t">Time</span>.deltaTime;
+        }
+    }
+
+    <span class="k">public void</span> <span class="f">ApplyKnockback</span>(<span class="t">Vector3</span> direction)
+    {
+        knockbackDirection = direction;
+        knockbackTimer = knockbackDuration;
+    }
+
+    <span class="k">void</span> <span class="f">OnTriggerEnter</span>(<span class="t">Collider</span> other)
+    {
+        <span class="k">if</span> (other.gameObject.<span class="f">CompareTag</span>(<span class="s">"Item"</span>))
+        {
+            <span class="t">Debug</span>.<span class="f">Log</span>(<span class="s">"Got hit by an item"</span>);
+            <span class="t">Vector3</span> direction = (transform.position - other.transform.position).normalized;
+            <span class="f">ApplyKnockback</span>(direction);
+
+            <span class="c">// Destroy the item after hitting the player</span>
+            <span class="f">Destroy</span>(other.gameObject);
+        }
+    }
+}</code></pre>
+            <figcaption>PlayerKnockback, the main player script.</figcaption>
+          </figure>
+
+          <h3>Ladder</h3>
+          <p class="jn-type"><span>Interaction type</span>Direct hand-to-body translation through grab-and-pull gestures.</p>
+          <div class="jn-mech">
+            <div class="jn-card">
+              <p class="jn-tag"><span>01</span>Mechanic</p>
+              <ul><li>Hand grab detected via proximity and trigger input</li><li>Vertical player movement calculated as inverse hand displacement</li><li>Continuous grabbing required to maintain upward progress</li></ul>
+              <p class="jn-tag"><span>02</span>Implementation focus</p>
+              <ul><li>No teleport or snap movement</li><li>Vertical motion gated entirely by repeated hand actions</li><li>Camera movement directly coupled to body translation</li></ul>
+              <p class="jn-tag"><span>03</span>Design takeaway</p>
+              <p>This mechanic reframes movement as labor. Vertical progression is slow, repetitive, and effortful, emphasizing physical engagement over efficiency and resisting common VR locomotion shortcuts.</p>
+            </div>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-me-ladder.jpg" alt="Playtesting the ladder in a Meta Quest headset, one arm raised mid-pull." width="550" height="1372">
+              <figcaption>Grab, pull, repeat.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Sheep ritual</h3>
+          <p class="jn-type"><span>Interaction type</span>Body-positioned spatial alignment and continuous locomotion.</p>
+          <div class="jn-card">
+            <p class="jn-tag"><span>01</span>Mechanic</p>
+            <ul><li>The sheep form an incomplete circle that closes when the player walks inside</li></ul>
+            <p class="jn-tag"><span>02</span>Implementation focus</p>
+            <ul><li>No buttons; progress is sensed through body placement, movement, and spatial coherence</li></ul>
+            <p class="jn-tag"><span>03</span>Design takeaway</p>
+            <p>Completion emerges through spatial wholeness, shifting players’ interaction to participation.</p>
+          </div>
+
+          <h3>Discarded mechanic: following the flock</h3>
+          <div class="jn-card">
+            <p>Early in development, I made the collected sheep follow the participant continuously, a literal reenactment of leading the flock. While visually striking, this conflicted with vertical movement like ladder climbing, and shifted attention toward <strong>authorship and spectacle rather than bodily awareness</strong>.</p>
+            <img class="jn-flock" src="images/journey-me-flock.jpg" alt="Icon of a walking person followed by a long line of sheep." width="1000" height="126">
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 07 The River ===== -->
+      <section class="case-section jn-band jn-band--river" id="river">
+        <div class="case-index muted">07 / The River</div>
+        <div class="case-body">
+          <h2>Level 2 <i>River</i>: spatial design and mechanics</h2>
+          <p class="jn-lead jn-lead--accent">This river space is informed by the River Model of immersive storytelling articulated by Jessica Brillhart, which frames immersion as a continuous flow shaped by attention rather than cuts, branching paths, or explicit navigation cues. Instead of encouraging the player to explore freely, the river is designed to guide movement, pacing, and awareness through spatial constraints and perceptual framing.</p>
+
+          <h3>Compressed forward corridor</h3>
+          <div class="jn-split jn-split--media">
+            <div>
+              <p class="jn-lead">The river is enclosed by a dense forest of tall pillars, compressing lateral space and leaving only a narrow opening forward.</p>
+              <p>By restricting side movement and visibility, the space removes the feeling of open exploration. The river becomes a passage rather than a landscape. Progress is no longer about choosing direction, but about committing to forward motion. This spatial compression naturally guides attention forward, allowing pacing and rhythm to emerge from movement rather than instruction.</p>
+            </div>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-rv-gp1.jpg" alt="Top-down view of the boat at the start of the river, on a cracked purple riverbed." width="749" height="398">
+              <figcaption>Game point 1: the start of the river.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Inverted gaze</h3>
+          <div class="jn-split jn-split--narrow">
+            <div>
+              <p class="jn-lead">Eye-like forms are embedded throughout the pillar forest, oriented toward the river and the participant.</p>
+              <p>Instead of encouraging visual exploration, the eyes establish <strong>a constant sense of being watched</strong>. This reverses the usual viewer–world relationship and shifts attention toward bodily awareness during movement.</p>
+            </div>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-rv-eye.jpg" alt="A large eyeball emerging from a striped pillar, looking at the player." width="321" height="379">
+            </figure>
+          </div>
+
+          <h3>Palace of the womb</h3>
+          <div class="jn-split jn-split--media">
+            <div>
+              <p class="jn-lead">The palace is designed as a monumental, enclosing structure with a low opening letting the water inside.</p>
+              <p>Inspired by the mother’s womb as the origin of the body, the palace emphasizes containment rather than conquest. Its scale and curved form position the belly-like opening as a receiving threshold, reframing the end of the journey as <strong>a return to bodily origin and acceptance</strong> rather than arrival or achievement.</p>
+            </div>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-rv-palace.jpg" alt="The palace: a glossy green, womb-like mass with a low arched opening where the river flows in, framed by orange pillars." width="1089" height="1035">
+              <figcaption>Game point 2: the palace.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Rising platform</h3>
+          <p class="jn-lead">At the end of the river, the player stands on a platform that slowly rises above the environment before fading to white.</p>
+          <p>The ascent frames the moment as a departure rather than a destination. As the world below comes into view and the eyes return the player’s gaze, the experience shifts toward release. The white fade gently dissolves the virtual space, guiding the player back toward physical reality.</p>
+          <figure class="case-figure case-figure--natural">
+            <img src="images/journey-rv-rising.jpg" alt="The pillar forest dissolving into white light." width="1300" height="327">
+            <figcaption>Game point 3: the fade to white.</figcaption>
+          </figure>
+
+          <h3>Boat driving</h3>
+          <p class="jn-type"><span>Interaction type</span>Seated, full-body interaction with arm-driven propulsion.</p>
+          <div class="jn-mech">
+            <div class="jn-card">
+              <p class="jn-tag"><span>01</span>Mechanic</p>
+              <ul><li>Player seated; leg movement stabilizes posture</li><li>Hand pedaling gestures detected through circular motion tracking</li><li>Speed and direction derived from gesture amplitude and rhythm</li></ul>
+              <p class="jn-tag"><span>02</span>Implementation focus</p>
+              <ul><li>No automatic forward motion</li><li>Movement only occurs when rhythmic input is sustained</li><li>Steering and propulsion unified in a single gesture system</li></ul>
+              <p class="jn-tag"><span>03</span>Design takeaway</p>
+              <p>Rhythmic motion turns locomotion from scripted movement into <strong>embodied authorship</strong>.</p>
+            </div>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-rv-boat.jpg" alt="Seated in a Meta Quest headset on a draped-cloth boat, winding both hands to row." width="572" height="637">
+              <figcaption>Rowing with both hands.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 08 Exhibition ===== -->
+      <section class="case-section jn-band jn-band--show" id="exhibition">
+        <div class="case-index muted">08 / Exhibition</div>
+        <div class="case-body">
+          <h2>Exhibition</h2>
+          <p><strong>Business As Usual</strong>, June 2024<br>Group exhibition @ EDA, Los Angeles, CA</p>
+          <p>A two-channel display. Screen #1 shows the sheep ritual view, presenting progression; screen #2 mirrors the player’s in-headset view.</p>
+          <figure class="case-figure case-figure--natural">
+            <img src="images/journey-ex-photo.jpg" alt="In a Meta Quest headset, holding controllers, beside a wall screen showing the sheep circle from above and a monitor mirroring the headset view." width="1600" height="1253">
+            <figcaption>Business As Usual, EDA, Los Angeles.</figcaption>
+          </figure>
+
+          <h3>HMD view</h3>
+          <div class="case-grid jn-hmd">
+            <img src="images/journey-ex-hmd-1.jpg" alt="Title screen: Journey to the Forgotten, with (1) High Ground and (2) River." width="564" height="332">
+            <img src="images/journey-ex-hmd-2.jpg" alt="The High Ground: the beam and the labyrinth across the golden plain." width="565" height="332">
+            <img src="images/journey-ex-hmd-3.jpg" alt="Tilting the purple labyrinth with the controller." width="564" height="332">
+            <img src="images/journey-ex-hmd-4.jpg" alt="Falling objects on the storm field." width="565" height="332">
+            <img src="images/journey-ex-hmd-5.jpg" alt="Looking up the ladder while gripping a rung." width="564" height="332">
+            <img src="images/journey-ex-hmd-6.jpg" alt="Golden sheep walking the ritual circle." width="565" height="332">
+            <img src="images/journey-ex-hmd-7.jpg" alt="Rowing toward the green palace, hands visible." width="564" height="332">
+            <img src="images/journey-ex-hmd-8.jpg" alt="The pillar forest in red light." width="565" height="332">
+          </div>
+
+          <h3>Next step</h3>
+          <p class="jn-card">A next step for this project would be to extend embodiment beyond the headset by integrating physical architecture into the experience. I am interested in exploring a hybrid installation where <strong>real pillars are placed in the gallery</strong>, allowing participants to walk and complete the ritual through full-body movement without controllers. By aligning virtual space with physical structure, the ritual could be completed through actual walking and spatial alignment, further collapsing the distance between virtual interaction and bodily presence.</p>
+        </div>
+      </section>
+
+      <!-- ===== 09 Player feedback ===== -->
+      <section class="case-section jn-band jn-band--voices" id="feedback">
+        <div class="case-index muted">09 / Player feedback</div>
+        <div class="case-body">
+          <h2>Player feedback</h2>
+          <p>Based on feedback from about <strong>20 players</strong> during the exhibition, these lines show how the experience was perceived and felt.</p>
+          <ul class="jn-quotes">
+            <li><q>I didn’t realize how much my body was doing until the storm pushed me back.</q></li>
+            <li><q>The ladder felt tiring in a way VR usually doesn’t.</q></li>
+            <li><q>Walking with the sheep felt less like finishing a task and more like joining something.</q></li>
+            <li><q>Rowing the boat made me slow down. I stopped trying to get somewhere.</q></li>
+            <li><q>It felt quiet, but not empty.</q></li>
+          </ul>
+          <div class="jn-photos">
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-fb-photo-1.jpg" alt="Black-and-white photo: a visitor in the headset at the installation, a monitor beside her." width="1000" height="1332">
+            </figure>
+            <figure class="case-figure case-figure--natural">
+              <img src="images/journey-fb-photo-2.jpg" alt="Black-and-white photo: a crowd gathered around a player in the headset at the opening." width="1000" height="927">
+              <figcaption>At the opening.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 10 Reflection ===== -->
+      <section class="case-section jn-band jn-band--voices" id="reflection">
+        <div class="case-index muted">10 / Reflection</div>
+        <div class="case-body">
+          <h2>Reflection</h2>
+          <p>Through building and testing the work, I learned to trust <strong>minimal mechanics and spatial cues as narrative tools.</strong> I successfully translated abstract ideas of collectivity and participation into embodied experiences rather than symbolic representations. Audience feedback revealed that moments of hesitation, alignment, and gradual synchronization were often more memorable than visually dramatic events. This encouraged me to value subtle behavioral shifts as meaningful outcomes, and to see VR not as a spectacle-driven medium, but <strong>as one capable of fostering quiet, reflective forms of engagement.</strong></p>
+        </div>
+      </section>
+
+      <!-- ===== 11 Credits ===== -->
+      <section class="case-section jn-band" id="credits">
+        <div class="case-index muted">11 / Credits</div>
         <div class="case-body">
           <dl class="case-list">
             <dt>Project</dt>
@@ -172,6 +664,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=47"></script>
+  <script src="case.js?v=48"></script>
 </body>
 </html>
