@@ -16,7 +16,7 @@ window.PROJECTS = {
     ] },
     { title: "002— What’s in Your Bag?", theme: "garden", tags: ["Human–AI interaction", "Generative AI", "Interaction design", "Creative coding", "Physical computing"], text: "An AI-powered interactive experience that turns emotional relationships with everyday objects into generative forms and messages.", image: "images/garden.jpg", link: "garden.html" },
     { title: "003— Journey to the Forgotten", theme: "journey", tags: ["VR", "Embodied interaction", "Unity", "Spatial design", "Installation"], text: "A VR interactive installation about being watched. Resistance, ritualized motion, and attention-driven environments shift VR from mind-centric control toward physical awareness.", image: "images/journey.jpg", link: "journey.html" },
-    { title: "004— Tool Gallery", tags: ["Hackathons", "Design tools", "Games", "Creative coding"], text: "A collection of mini tools or hackathon projects that I had done.", image: null, link: "?p=tool-gallery" },
+    { title: "004— Tool Gallery", tags: ["Hackathons", "Design tools", "Games", "Creative coding"], text: "A collection of mini tools or hackathon projects that I had done.", image: "images/tool-gallery.jpg", link: "?p=tool-gallery" },
     { title: "005—TEST PROJECT", hidden: true, tags: ["Keyword", "Keyword", "Keyword"], text: LOREM, image: null, link: "project.html" },
   ],
 };

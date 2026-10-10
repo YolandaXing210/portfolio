@@ -36,7 +36,8 @@ document.querySelectorAll("[data-list]").forEach(el => {
 
 // ---------- Routing ----------
 // Two independent states live in the URL:
-//   ?p=tool-gallery  opens a panel over the main column only (the list underneath keeps its scroll)
+//   ?p=tool-gallery  opens a panel over the main column only (the list underneath keeps its scroll);
+//                    ?p=paper-trail etc. are the tool pages inside it
 //   #cv              swaps the sidebar to the CV
 // Opening or closing one never changes the other.
 
@@ -59,11 +60,29 @@ function route() {
 
   const name = new URLSearchParams(location.search).get("p");
   const panel = panels[name] ? name : null;
+  if (shownPanel && shownPanel !== panel) stopMedia(panels[shownPanel]);
   Object.entries(panels).forEach(([n, el]) => (el.hidden = n !== panel));
   // The page behind a panel stays put: no scrolling it while the panel is open.
   document.documentElement.classList.toggle("panel-open", !!panel);
-  if (panel && panel !== shownPanel) panels[panel].scrollTop = 0;
+  if (panel && panel !== shownPanel) {
+    panels[panel].scrollTop = 0;
+    panels[panel].querySelectorAll("video[data-autoplay]").forEach(v => v.play().catch(() => {}));
+  }
   shownPanel = panel;
+}
+
+// Leaving a panel stops what it was playing: looping clips, and YouTube (embedded with enablejsapi=1).
+function stopMedia(el) {
+  el.querySelectorAll("video").forEach(v => v.pause());
+  el.querySelectorAll('iframe[src*="youtube.com/embed"]').forEach(f =>
+    f.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*"));
+}
+
+// One level up: a tool page goes back to the gallery (data-parent), the gallery closes.
+function closePanel() {
+  const parent = panels[shownPanel]?.dataset.parent;
+  history.pushState(null, "", (parent ? "?p=" + parent : location.pathname) + location.hash);
+  route();
 }
 
 // Handle in-page links ourselves: a plain href="#" makes the browser jump to the top first.
@@ -77,8 +96,7 @@ document.addEventListener("click", e => {
   const href = a.getAttribute("href");
 
   if (a.hasAttribute("data-close-panel")) {
-    history.pushState(null, "", location.pathname + location.hash);
-    route();
+    closePanel();
     return;
   }
   if (href.startsWith("?")) {
@@ -94,11 +112,9 @@ document.addEventListener("click", e => {
   if (fromCV) window.scrollTo(0, savedScroll);
 });
 
-// Escape closes an open panel.
+// Escape goes one level up.
 document.addEventListener("keydown", e => {
-  if (e.key !== "Escape" || !shownPanel) return;
-  history.pushState(null, "", location.pathname + location.hash);
-  route();
+  if (e.key === "Escape" && shownPanel) closePanel();
 });
 
 window.addEventListener("popstate", route);

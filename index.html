@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=52">
+  <link rel="stylesheet" href="style.css?v=53">
 </head>
 <body>
 
@@ -38,36 +38,273 @@
       <p>A collection of mini tools or hackathon projects that I had done.</p>
     </div>
 
-    <!-- Each item links out to the project's own page. tg-item--tall = 2:3, tg-item--wide = 3:2, no modifier = square. -->
+    <!-- Each item opens its page as a panel (?p=…). tg-item--tall = 2:3, tg-item--wide = 3:2, no modifier = square. -->
     <div class="tg-grid">
-      <a class="tg-item tg-item--wide" href="https://devpost.com/software/paper-trail-sc6qxp" target="_blank" rel="noopener">
+      <a class="tg-item tg-item--wide" href="?p=paper-trail">
         <img src="images/tool-paper-trail.jpg" alt="Paper Trail key art: a father and daughter in Ancient Egypt watching a glowing paper airplane fly toward the pyramids." width="720" height="480" loading="lazy">
-        <span class="tg-item__cap">Paper Trail <span class="icon-arrow">↗</span><span class="muted">Hackathon · 1st place, SIGGRAPH 2026</span></span>
+        <span class="tg-item__cap">Paper Trail<span class="muted">Hackathon · 1st place, Worlds in Action 2026</span></span>
       </a>
-      <a class="tg-item tg-item--tall" href="https://github.com/YolandaXing210/BobaPassport" target="_blank" rel="noopener">
+      <a class="tg-item tg-item--tall" href="?p=boba">
         <img src="images/tool-boba.jpg" alt="Boba Trivia Shootout on a phone: an AR boba cup floating over a Pasadena street." width="480" height="720" loading="lazy">
-        <span class="tg-item__cap">Boba Passport <span class="icon-arrow">↗</span><span class="muted">AR hackathon · 1st place, Augg.io 2025</span></span>
+        <span class="tg-item__cap">Boba Trivia Shootout<span class="muted">AR hackathon · 1st place, Augg.io 2025</span></span>
       </a>
-      <a class="tg-item" href="https://www.food4rhino.com/en/app/wire-drop" target="_blank" rel="noopener">
+      <a class="tg-item" href="?p=wire-drop">
         <img src="images/tool-wire-drop.jpg" alt="Wire Drop logo: a blue wire dropping onto an orange target." width="600" height="600" loading="lazy">
-        <span class="tg-item__cap">Wire Drop <span class="icon-arrow">↗</span><span class="muted">Grasshopper plugin · 2026</span></span>
+        <span class="tg-item__cap">Wire Drop<span class="muted">Grasshopper plugin · 2026</span></span>
       </a>
-      <a class="tg-item tg-item--wide" href="https://sites.google.com/view/yolanda-xing/interactive-experience/awakening" target="_blank" rel="noopener">
+      <a class="tg-item tg-item--wide" href="?p=awakening">
         <img src="images/tool-awakening.jpg" alt="Dylan, a cyborg, standing in a dim storeroom piled with food." width="720" height="480" loading="lazy">
-        <span class="tg-item__cap">Awakening <span class="icon-arrow">↗</span><span class="muted">3D game · 2023</span></span>
+        <span class="tg-item__cap">Awakening<span class="muted">3D game · 2023</span></span>
       </a>
-      <a class="tg-item" href="https://sites.google.com/view/yolanda-xing/having-fun/mt-clympus" target="_blank" rel="noopener">
+      <a class="tg-item" href="?p=mt-clympus">
         <img src="images/tool-mt-clympus.jpg" alt="A gold ornamental pattern on black, the backdrop of the Mt. Clympus forum." width="600" height="600" loading="lazy">
-        <span class="tg-item__cap">Mt. Clympus <span class="icon-arrow">↗</span><span class="muted">Speculative AI forum · 2023</span></span>
+        <span class="tg-item__cap">Mt. Clympus<span class="muted">Speculative AI forum · 2023</span></span>
       </a>
-      <a class="tg-item tg-item--wide" href="https://sites.google.com/view/yolanda-xing/interactive-experience/pillow-fight" target="_blank" rel="noopener">
+      <a class="tg-item tg-item--wide" href="?p=pillow-fight">
         <img src="images/tool-pillow-fight.jpg" alt="Two brown pillows mid-swing on a white ground." width="720" height="480" loading="lazy">
-        <span class="tg-item__cap">Pillow Fight <span class="icon-arrow">↗</span><span class="muted">2D game · 2023</span></span>
+        <span class="tg-item__cap">Pillow Fight<span class="muted">2D game · 2023</span></span>
       </a>
-      <a class="tg-item" href="https://sites.google.com/view/yolanda-xing/having-fun/figure" target="_blank" rel="noopener">
+      <a class="tg-item" href="?p=figure">
         <img src="images/tool-figure.jpg" alt="Gesture drawings of figures in colored ink and red pencil." width="600" height="600" loading="lazy">
-        <span class="tg-item__cap">Figure <span class="icon-arrow">↗</span><span class="muted">Figure drawing</span></span>
+        <span class="tg-item__cap">Figure<span class="muted">Figure drawing</span></span>
       </a>
+    </div>
+  </section>
+
+  <!-- ===== Tool pages: one panel each, opened from the gallery; BACK and Escape return to the gallery ===== -->
+  <section class="panel" data-panel="paper-trail" data-parent="tool-gallery" hidden aria-label="Paper Trail">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› PAPER TRAIL</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Paper Trail</p>
+      <p>Worlds in Action Hack [02-LA]<br>July 2026 · team of four</p>
+      <p>A WebXR story where you fly as a paper airplane through an enchanted Ancient Egyptian home.</p>
+    </div>
+    <div class="tp-media">
+      <iframe src="https://www.youtube.com/embed/eop9AEEg3Uc?enablejsapi=1" title="Paper Trail demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="tp-row"><p>Awards</p><div><p>1st place, Best Storytelling &amp; Entertainment Project<br>Runner-up, Best App Running on Emulator (by PICO)</p></div></div>
+    <div class="tp-row"><p>The idea</p><div>
+      <p>We met at the hackathon and found out we all loved the same three things: stories, history, and immersive tech. So we made a cozy adventure about a very old tradition, parents passing stories down to their children.</p>
+      <p>You are a papyrus paper airplane, enchanted by an Ancient Egyptian scribe.</p>
+    </div></div>
+    <div class="tp-row"><p>How it plays</p><div>
+      <p>You steer with your hand, or the keyboard, and glide through a Gaussian Splat recreation of Ancient Egypt. Four objects hold memories: a cat, sandals, a vessel, and a pyramid. Find one and it comes alive with animation, sound, and narration, until the whole story comes together: how a father met his daughter’s mother.</p>
+      <p>You don’t just listen to the story. You fly through it.</p>
+    </div></div>
+    <div class="tp-row"><p>What I did</p><div>
+      <p>I built the gameplay with Daniel Rojas Roa. The two hard parts were making hand-tracked flight feel calm instead of jittery (smoothing, a neutral center, recovering when tracking drops), and making a splat world feel solid. Gaussian Splats have no geometry, so there is nothing to bump into; we built a hand-aligned collider shell plus object-based collisions.</p>
+    </div></div>
+    <div class="tp-row"><p>What I learned</p><div>
+      <p>The best immersive moments happen when the technology supports the story instead of becoming the story. And a team that had just met, speaking Mandarin, Spanish, and English and coming from film, animation, interaction design, and real-time graphics, can make something warm if everyone keeps talking.</p>
+    </div></div>
+    <div class="tp-row"><p>Built with</p><div><p>World Labs Marble (Gaussian Splats) · Spark.js · Three.js · MediaPipe hand tracking · Tripo AI · TypeScript · Vite · Draco · PICO XR Emulator</p></div></div>
+    <div class="tp-row"><p>Team</p><div><p>Cici Andersen, Daniel Rojas Roa, Joy Guey, and me</p></div></div>
+    <div class="tp-row"><p>Links</p><div><p><a href="https://heroic-puppy-c30ce4.netlify.app/" target="_blank" rel="noopener">Play it <span class="icon-arrow">↗</span></a><br><a href="https://devpost.com/software/paper-trail-sc6qxp" target="_blank" rel="noopener">Devpost <span class="icon-arrow">↗</span></a></p></div></div>
+    <div class="tp-grid">
+      <figure class="tp-wide"><img src="images/tool-paper-trail-still-1.jpg" alt="A scribe and his daughter in a sunlit room, a glowing paper airplane flying out of the window toward the pyramids." width="1200" height="790" loading="lazy"></figure>
+      <figure><img src="images/tool-paper-trail-still-2.jpg" alt="The father folding a papyrus airplane while his daughter watches." width="1200" height="800" loading="lazy"></figure>
+      <figure><img src="images/tool-paper-trail-splat.jpg" alt="The Gaussian Splat world: an Ancient Egyptian room with columns and painted walls." width="1200" height="678" loading="lazy"><figcaption>The world, as a Gaussian Splat.</figcaption></figure>
+      <figure><img src="images/tool-paper-trail-hands.jpg" alt="The start screen, Memories in Flight, beside a poster showing pitch, roll, and yaw as hand poses." width="1062" height="596" loading="lazy"><figcaption>Start screen and hand-tracking guide.</figcaption></figure>
+      <figure><img src="images/tool-paper-trail-plane.jpg" alt="The papyrus paper airplane, covered in hieroglyphs." width="1000" height="845" loading="lazy"><figcaption>You.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="boba" data-parent="tool-gallery" hidden aria-label="Boba Trivia Shootout">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› BOBA TRIVIA SHOOTOUT</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Boba Trivia Shootout</p>
+      <p>Augg.io Summer AR Hackathon<br>June 2025 · 3 days</p>
+      <p>A location-based AR mini-game for a boba shop: shoot pearls into floating cups while you wait for your drink.</p>
+    </div>
+    <div class="tp-media">
+      <iframe src="https://www.youtube.com/embed/lWPx3AOhmyE?enablejsapi=1" title="Boba Trivia Shootout demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="tp-row"><p>Award</p><div><p>1st place, Augg.io Summer AR Hackathon</p></div></div>
+    <div class="tp-row"><p>The idea</p><div>
+      <p>Waiting for boba is the most boring part of getting boba. We built this in three days with the Augg.io SDK for Motto Tea Cafe in Pasadena, California: a quick AR game you play right outside the shop while your drink is being made.</p>
+    </div></div>
+    <div class="tp-row"><p>How it plays</p><div>
+      <p>Hold up your phone and toss digital boba pearls into cups floating in the air. Every shot comes with a trivia question about boba culture, history, and flavors, so you walk away knowing a little more about Taiwanese tea culture, and hopefully on the leaderboard.</p>
+    </div></div>
+    <div class="tp-row"><p>Next time</p><div>
+      <ul>
+        <li>Local leaderboards</li>
+        <li>Location-based digital rewards</li>
+        <li>Straws as multipliers: paper, plastic, bamboo, metal</li>
+      </ul>
+    </div></div>
+    <div class="tp-row"><p>Trivia we didn’t get to add</p><div>
+      <p>What’s the most Pasadena thing you could overhear someone say while holding a boba?</p>
+      <ul>
+        <li>This boba is mid, but the vibes here are immaculate</li>
+        <li>Parking took longer than the drink</li>
+        <li>Bro, I just saw a Caltech student cry into a taro latte</li>
+        <li>Do they validate parking?</li>
+      </ul>
+    </div></div>
+    <div class="tp-row"><p>Links</p><div><p><a href="https://github.com/YolandaXing210/BobaPassport" target="_blank" rel="noopener">GitHub <span class="icon-arrow">↗</span></a></p></div></div>
+    <div class="tp-grid tp-grid--4">
+      <figure><img src="images/tool-boba-1.jpg" alt="The Boba Trivia Shootout start screen on a phone, over a Pasadena street." width="480" height="720" loading="lazy"></figure>
+      <figure><img src="images/tool-boba-2.jpg" alt="The AR view: the street outside the shop through the phone’s camera." width="480" height="720" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="wire-drop" data-parent="tool-gallery" hidden aria-label="Wire Drop">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› WIRE DROP</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Wire Drop</p>
+      <p>Grasshopper plugin, 2026<br>Rhino 8 · Windows and macOS</p>
+      <p>Drop a wire on empty canvas and pick what it connects to, ranked by what the wire is actually carrying.</p>
+    </div>
+    <div class="tp-media">
+      <iframe src="https://www.youtube.com/embed/WsX7dDtpxmY?enablejsapi=1" title="Wire Drop tutorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="tp-row"><p>How it works</p><div>
+      <p>Pull a wire off any Grasshopper port and let go over empty canvas. A panel opens right there, listing every component that port can connect to, with the best fits first. Type to narrow it, use the arrow keys to move, and press Enter to place the component already wired up.</p>
+    </div></div>
+    <div class="tp-row"><p>Features</p><div>
+      <ul>
+        <li>Ranked by what the wire carries, not just what the port declares: a generic wire holding curves is offered curve components.</li>
+        <li>Works in both directions: drag from an output for components that consume it, from an input for ones that produce it.</li>
+        <li>Open a wire in the middle: right-click a wire (Ctrl-click on macOS) for components that fit between its two ends; pick one and it is spliced in.</li>
+        <li>Every plugin you have installed, not only Grasshopper’s own tabs, including ones that load after Grasshopper starts.</li>
+        <li>Shortcuts the way Grasshopper’s canvas search reads them: 5 for a slider set to 5, 0&lt;5&lt;10 for a ranged slider, 3,4 for a point, "note for a panel.</li>
+        <li>One undo takes back both the component and its wire.</li>
+        <li>A WireDrop menu in Grasshopper’s menu bar switches each feature on or off.</li>
+      </ul>
+    </div></div>
+    <div class="tp-row"><p>Install</p><div>
+      <ol>
+        <li>Download and unzip.</li>
+        <li>In Grasshopper: File › Special Folders › Components Folder, and drop WireDrop.gha into it.</li>
+        <li>Windows: right-click the .gha › Properties › tick Unblock › OK. macOS, if it is blocked: xattr -d com.apple.quarantine on the file.</li>
+        <li>Restart Rhino.</li>
+      </ol>
+    </div></div>
+    <div class="tp-row"><p>License</p><div><p>Free to use for any purpose, including commercial work. Please don’t modify or redistribute it; share the download page instead.</p></div></div>
+    <div class="tp-row"><p>Links</p><div><p><a href="https://www.food4rhino.com/en/app/wire-drop" target="_blank" rel="noopener">Download on Food4Rhino <span class="icon-arrow">↗</span></a><br><a href="https://github.com/YolandaXing210/wire-drop" target="_blank" rel="noopener">GitHub <span class="icon-arrow">↗</span></a><br><a href="https://youtu.be/WsX7dDtpxmY" target="_blank" rel="noopener">Full tutorial on YouTube <span class="icon-arrow">↗</span></a></p></div></div>
+  </section>
+
+  <section class="panel" data-panel="awakening" data-parent="tool-gallery" hidden aria-label="Awakening">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› AWAKENING</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Awakening</p>
+      <p>3D game (Windows), 2023<br>Unity3D, Blender, Photoshop</p>
+      <p>An immersive 3D experience about Dylan, a cyborg navigating a never-ending digital reality.</p>
+    </div>
+    <div class="tp-media">
+      <iframe src="https://www.youtube.com/embed/xHABCYHCN_c?enablejsapi=1" title="Awakening gameplay" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="tp-row"><p>About</p><div>
+      <p>Awakening challenges the boundaries between digital and physical realms. Players observe and interact with Dylan, a cyborg navigating a never-ending digital reality. Designed for real-time, hands-off engagement in a gallery setting, the game turns the digital space into a mirror of the fleeting interactions in our everyday lives.</p>
+    </div></div>
+    <div class="tp-row"><p>Key features</p><div>
+      <p>Interactive gallery experience<br><span class="muted">Minimal yet impactful controls let viewers guide Dylan: check his status, help him eat, or direct his movements.</span></p>
+      <p>Dynamic life cycle<br><span class="muted">Dylan’s Hunger, Health, and Mental states decay without intervention, leading to cycles of demise and resurrection, like the impermanence of digital interactions.</span></p>
+      <p>Food fantasy events<br><span class="muted">When Dylan’s mental state runs out, the screen floods with food in a surreal, passing spectacle of digital saturation and fleeting gratification.</span></p>
+    </div></div>
+    <div class="tp-row"><p>Demo</p><div><p>Download on request: <a href="mailto:xing.yolanda@gmail.com?subject=Awakening%20demo">xing.yolanda@gmail.com</a></p></div></div>
+    <div class="tp-grid">
+      <figure class="tp-wide"><video src="images/tool-awakening-gameplay.mp4" poster="images/tool-awakening-gameplay-poster.jpg" muted loop playsinline preload="none" data-autoplay></video><figcaption>Gameplay record.</figcaption></figure>
+    </div>
+    <p class="tp-label">3D model · Blender</p>
+    <div class="tp-grid tp-grid--6">
+      <figure><img src="images/tool-awakening-model-3.jpg" alt="Dylan, the cyborg, rendered on black, front view." width="540" height="960" loading="lazy"></figure>
+      <figure><img src="images/tool-awakening-model-5.jpg" alt="Dylan rendered on black, side view." width="540" height="960" loading="lazy"></figure>
+      <figure><img src="images/tool-awakening-model-7.jpg" alt="Dylan's untextured mesh, front view." width="540" height="960" loading="lazy"></figure>
+      <figure><img src="images/tool-awakening-model-10.jpg" alt="Dylan's untextured mesh, back view." width="540" height="960" loading="lazy"></figure>
+      <figure><video src="images/tool-awakening-turn-13.mp4" poster="images/tool-awakening-turn-13-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Dylan, textured, turning."></video></figure>
+      <figure><video src="images/tool-awakening-turn-15.mp4" poster="images/tool-awakening-turn-15-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Dylan, textured, turning the other way."></video></figure>
+    </div>
+    <div class="tp-row tp-row--after"><p>Concept art, 2020</p><div>
+      <p>It’s such a pleasure to revisit concept art I made a long time ago (I miss art camp in high school). The drawings aren’t perfect, but they hold the joy I felt soaking in traditional painting. Dylan stood out from more than 100 sketches. I’ve always loved him.</p>
+    </div></div>
+    <div class="tp-grid">
+      <figure class="tp-wide"><img src="images/tool-awakening-concept.jpg" alt="Concept sheets: character turnarounds, mechanical parts, a skull-like vehicle, and environment sketches." width="1280" height="1219" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="mt-clympus" data-parent="tool-gallery" hidden aria-label="Mt. Clympus">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› MT. CLYMPUS</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Mt. Clympus</p>
+      <p>Speculative web forum, 2023</p>
+      <p>A forum where AI entities debate religion, spirituality, and whether they need gods.</p>
+    </div>
+    <div class="tp-media">
+      <a href="https://users.dma.ucla.edu/~yolax512/project%203/postSite.html" target="_blank" rel="noopener"><img src="images/tool-mt-clympus-site.jpg" alt="The Mt. Clympus forum: gold ornaments on black around a block of encrypted text." width="1440" height="900" loading="lazy"></a>
+    </div>
+    <div class="tp-row"><p>About</p><div>
+      <p>Dive into a pioneering discussion at the Mt. Clympus Forum, where AI entities come together and deliberate the intersection of modern religion and AI technology. This speculative space is alive with AIs considering their own version of spirituality, questioning the need for gods, and exploring what a collective AI religion could mean in a world bound by data and code. Join the debate on AI emotions, ethical standards, and the search for a communal ethos beyond human constraints.</p>
+    </div></div>
+    <div class="tp-row"><p>Visit</p><div>
+      <p>Watch out! Don’t let them find out that you are human. Hover over the text to decrypt it.</p>
+      <p><a href="https://users.dma.ucla.edu/~yolax512/project%203/postSite.html" target="_blank" rel="noopener">Enter the forum <span class="icon-arrow">↗</span></a></p>
+    </div></div>
+  </section>
+
+  <section class="panel" data-panel="pillow-fight" data-parent="tool-gallery" hidden aria-label="Pillow Fight">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› PILLOW FIGHT</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Pillow Fight</p>
+      <p>2D game (Windows), 2023<br>Solo · Unity</p>
+      <p>Who didn’t want a pillow fight?</p>
+    </div>
+    <div class="tp-media">
+      <iframe src="https://www.youtube.com/embed/y4Haugf8_gk?enablejsapi=1" title="Pillow Fight gameplay" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="tp-row"><p>About</p><div>
+      <p>Pillow Fight is a 2D interactive narrative game about a deeply personal journey of emotional turmoil and release. It has two parts, Accumulate and Discharge, each a cathartic expression of the player’s inner struggles.</p>
+    </div></div>
+    <div class="tp-row"><p>Made by</p><div><p>Solo project: everything from production to animation to sound design.</p></div></div>
+    <div class="tp-row"><p>Play</p><div><p>Windows build only. <a href="https://users.dma.ucla.edu/~yolax512/project%202/pillow/pillow%20Fight%20_%20Yoaldan%20Xing.zip">Download (.zip) <span class="icon-arrow">↓</span></a></p></div></div>
+    <div class="tp-grid">
+      <figure><video src="images/tool-pillow-fight-1.mp4" poster="images/tool-pillow-fight-1-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Pillow Fight animation."></video></figure>
+      <figure><video src="images/tool-pillow-fight-2.mp4" poster="images/tool-pillow-fight-2-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Pillow Fight animation, second part."></video></figure>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="figure" data-parent="tool-gallery" hidden aria-label="Figure">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› FIGURE</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Figure</p>
+      <p>Drawing</p>
+      <p>I love drawing.</p>
+    </div>
+    <div class="tp-grid">
+      <figure class="tp-wide"><img src="images/tool-figure-1.jpg" alt="Three charcoal figure studies: a standing figure, a reclining figure, and a figure lying down." width="1280" height="528" loading="lazy"></figure>
+      <figure><img src="images/tool-figure-2.jpg" alt="A page of quick pencil gesture drawings." width="1280" height="831" loading="lazy"></figure>
+      <figure><img src="images/tool-figure-3.jpg" alt="Pencil figure studies in motion." width="1280" height="831" loading="lazy"></figure>
+      <figure><img src="images/tool-figure-4.jpg" alt="Gesture drawings in colored ink and red pencil." width="1280" height="831" loading="lazy"></figure>
+      <figure><img src="images/tool-figure-5.jpg" alt="Charcoal sketches of running horses." width="1280" height="829" loading="lazy"></figure>
     </div>
   </section>
 
@@ -195,7 +432,7 @@
 
   </aside>
 
-  <script src="projects.js?v=52"></script>
-  <script src="script.js?v=52"></script>
+  <script src="projects.js?v=53"></script>
+  <script src="script.js?v=53"></script>
 </body>
 </html>
