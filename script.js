@@ -31,18 +31,28 @@ function renderProject(p) {
 }
 
 document.querySelectorAll("[data-list]").forEach(el => {
-  el.innerHTML = (window.PROJECTS[el.dataset.list] || []).map(renderProject).join("");
+  el.innerHTML = (window.PROJECTS[el.dataset.list] || []).filter(p => !p.hidden).map(renderProject).join("");
 });
+
+// ---------- Sidebar ----------
+// Other pages (e.g. tool-gallery.html) borrow the index's sidebar, so the bio and CV are written once.
+
+async function loadSidebar() {
+  const aside = document.querySelector(".sidebar[data-from]");
+  if (!aside) return;
+  const html = await (await fetch(aside.dataset.from)).text();
+  aside.innerHTML = new DOMParser().parseFromString(html, "text/html").querySelector(".sidebar").innerHTML;
+}
 
 // ---------- Routing: #cv swaps the sidebar to the CV ----------
 
 const views = {};
-document.querySelectorAll("[data-view]").forEach(el => (views[el.dataset.view] = el));
 
 // Scroll position before opening the CV, so its CLOSE returns there instead of jumping to the top.
 let savedScroll = 0;
 
 function route() {
+  if (!views.bio) return;
   const cv = location.hash === "#cv";
   views.bio.hidden = cv;
   views.cv.hidden = !cv;
@@ -65,17 +75,22 @@ document.addEventListener("click", e => {
 });
 
 window.addEventListener("popstate", route);
-route();
 
 // ---------- 24-hour clock ----------
 
-const clock = document.getElementById("clock");
 const pad = n => String(n).padStart(2, "0");
 
 function tick() {
+  const clock = document.getElementById("clock");
+  if (!clock) return;
   const d = new Date();
   clock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 }
 
-tick();
-setInterval(tick, 1000);
+// Once the sidebar is in place: find its views, show the right one, start the clock.
+loadSidebar().catch(() => {}).then(() => {
+  document.querySelectorAll("[data-view]").forEach(el => (views[el.dataset.view] = el));
+  route();
+  tick();
+  setInterval(tick, 1000);
+});
