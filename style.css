@@ -230,18 +230,25 @@ p { margin: 0; }
   padding: 1.6em 0 4.8em;
 }
 
+/* Each item spans an image row and a caption row (subgrid), so images in a row share a bottom edge
+   even when captions run to different lengths */
 .tg-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 3.6em 1.2rem;
-  align-items: end;
+  column-gap: 1.2rem;
 }
 
-.tg-item { margin: 0; }
+.tg-item {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  color: var(--text);
+}
 
 .tg-item .placeholder,
 .tg-item img {
   display: block;
+  align-self: end;
   width: 100%;
   height: auto;
   aspect-ratio: var(--ratio, 1);
@@ -251,11 +258,15 @@ p { margin: 0; }
 .tg-item--tall { --ratio: 2 / 3; }
 .tg-item--wide { --ratio: 3 / 2; }
 
-.tg-item figcaption { margin-top: 0.6em; }
+.tg-item__cap { margin: 0.6em 0 3.6em; }
+.tg-item__cap .muted { display: block; }
+.tg-item__cap .icon-arrow { color: var(--link); }
+.tg-item:hover img { opacity: 0.85; }
 
 @media (max-width: 768px) {
   .tg-info { grid-template-columns: minmax(0, 1fr); row-gap: 1.2em; padding-bottom: 3.6em; }
-  .tg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.4em; }
+  .tg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tg-item__cap { margin-bottom: 2.4em; }
   .panel { right: 0; width: auto; z-index: 20; }
 }
 
