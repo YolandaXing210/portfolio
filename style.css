@@ -204,9 +204,25 @@ p { margin: 0; }
   margin: 1.2em 0;
 }
 
-/* ---------- Tool gallery (tool-gallery.html) ---------- */
-/* Same two columns as the index: the main column shows the gallery, the sidebar keeps the bio.
-   Info row in three columns, then images five to a row, bottoms aligned, a caption under each. */
+/* ---------- Panels: a project view laid over the main column (index.html?p=…) ---------- */
+/* Covers the main column only, up to the divider; the sidebar and the list underneath keep their state. */
+.panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: calc(var(--main-width) - 1px);
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg);
+}
+
+.panel[hidden] { display: none; }
+.panel-open { overflow: hidden; }
+
+/* Tool gallery panel: info row in three columns, then images five to a row, bottoms aligned, a caption under each */
 .tg-info {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -240,8 +256,7 @@ p { margin: 0; }
 @media (max-width: 768px) {
   .tg-info { grid-template-columns: minmax(0, 1fr); row-gap: 1.2em; padding-bottom: 3.6em; }
   .tg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.4em; }
-  /* The gallery comes first here; the bio follows (the index puts the bio first) */
-  .tg-page .sidebar { order: 0; }
+  .panel { right: 0; width: auto; z-index: 20; }
 }
 
 /* ---------- Case study (e.g. aako.html) ---------- */

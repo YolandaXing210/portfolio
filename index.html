@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=50">
+  <link rel="stylesheet" href="style.css?v=51">
 </head>
 <body>
 
@@ -23,6 +23,34 @@
     <div class="project-list" data-list="selected"></div>
 
   </main>
+
+  <!-- ===== Panels: open over the main column only (?p=name), the sidebar keeps its state ===== -->
+  <section class="panel" data-panel="tool-gallery" hidden aria-label="Tool Gallery">
+    <div class="row">
+      <span>004—TOOL GALLERY</span>
+      <a href="./" data-close-panel><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+
+    <div class="tg-info">
+      <p>Mini Tool Gallery</p>
+      <p>Vivamus sed sapien<br>March 2047</p>
+      <p>A collection of mini tools or hackathon projects that I had done.</p>
+    </div>
+
+    <!-- Placeholders for now: swap each <div class="placeholder"></div> for an <img>, and each caption for the tool's name.
+         tg-item--tall = 2:3, tg-item--wide = 3:2, no modifier = square. -->
+    <div class="tg-grid">
+      <figure class="tg-item"><div class="placeholder"></div><figcaption>Image 1</figcaption></figure>
+      <figure class="tg-item tg-item--tall"><div class="placeholder"></div><figcaption>Image 2</figcaption></figure>
+      <figure class="tg-item"><div class="placeholder"></div><figcaption>Image 3</figcaption></figure>
+      <figure class="tg-item tg-item--wide"><div class="placeholder"></div><figcaption>Image 4</figcaption></figure>
+      <figure class="tg-item"><div class="placeholder"></div><figcaption>Image 5</figcaption></figure>
+      <figure class="tg-item"><div class="placeholder"></div><figcaption>Image 6</figcaption></figure>
+      <figure class="tg-item tg-item--wide"><div class="placeholder"></div><figcaption>Image 7</figcaption></figure>
+      <figure class="tg-item"><div class="placeholder"></div><figcaption>Image 8</figcaption></figure>
+    </div>
+  </section>
 
   <div class="divider" aria-hidden="true"></div>
 
@@ -148,7 +176,7 @@
 
   </aside>
 
-  <script src="projects.js?v=50"></script>
-  <script src="script.js?v=50"></script>
+  <script src="projects.js?v=51"></script>
+  <script src="script.js?v=51"></script>
 </body>
 </html>

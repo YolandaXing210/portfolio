@@ -34,63 +34,85 @@ document.querySelectorAll("[data-list]").forEach(el => {
   el.innerHTML = (window.PROJECTS[el.dataset.list] || []).filter(p => !p.hidden).map(renderProject).join("");
 });
 
-// ---------- Sidebar ----------
-// Other pages (e.g. tool-gallery.html) borrow the index's sidebar, so the bio and CV are written once.
-
-async function loadSidebar() {
-  const aside = document.querySelector(".sidebar[data-from]");
-  if (!aside) return;
-  const html = await (await fetch(aside.dataset.from)).text();
-  aside.innerHTML = new DOMParser().parseFromString(html, "text/html").querySelector(".sidebar").innerHTML;
-}
-
-// ---------- Routing: #cv swaps the sidebar to the CV ----------
+// ---------- Routing ----------
+// Two independent states live in the URL:
+//   ?p=tool-gallery  opens a panel over the main column only (the list underneath keeps its scroll)
+//   #cv              swaps the sidebar to the CV
+// Opening or closing one never changes the other.
 
 const views = {};
+document.querySelectorAll("[data-view]").forEach(el => (views[el.dataset.view] = el));
+const panels = {};
+document.querySelectorAll("[data-panel]").forEach(el => (panels[el.dataset.panel] = el));
 
 // Scroll position before opening the CV, so its CLOSE returns there instead of jumping to the top.
 let savedScroll = 0;
+let shownCV = false;
+let shownPanel = null;
 
 function route() {
-  if (!views.bio) return;
   const cv = location.hash === "#cv";
   views.bio.hidden = cv;
   views.cv.hidden = !cv;
-  if (cv) document.querySelector(".sidebar").scrollTop = 0;
+  if (cv && !shownCV) document.querySelector(".sidebar").scrollTop = 0;
+  shownCV = cv;
+
+  const name = new URLSearchParams(location.search).get("p");
+  const panel = panels[name] ? name : null;
+  Object.entries(panels).forEach(([n, el]) => (el.hidden = n !== panel));
+  // The page behind a panel stays put: no scrolling it while the panel is open.
+  document.documentElement.classList.toggle("panel-open", !!panel);
+  if (panel && panel !== shownPanel) panels[panel].scrollTop = 0;
+  shownPanel = panel;
 }
 
 // Handle in-page links ourselves: a plain href="#" makes the browser jump to the top first.
+//   href="#…"         sidebar links (CV, CLOSE): keep the open panel
+//   href="?p=…"       opens a panel: keep the sidebar as it is
+//   data-close-panel  closes the panel: keep the sidebar as it is
 document.addEventListener("click", e => {
-  const a = e.target.closest('a[href^="#"]');
+  const a = e.target.closest('a[href^="#"], a[href^="?"], a[data-close-panel]');
   if (!a) return;
   e.preventDefault();
+  const href = a.getAttribute("href");
+
+  if (a.hasAttribute("data-close-panel")) {
+    history.pushState(null, "", location.pathname + location.hash);
+    route();
+    return;
+  }
+  if (href.startsWith("?")) {
+    history.pushState(null, "", href + location.hash);
+    route();
+    return;
+  }
 
   const fromCV = location.hash === "#cv";
-  const href = a.getAttribute("href");
   if (href === "#cv") savedScroll = window.scrollY;
-
   history.pushState(null, "", href === "#" ? location.pathname + location.search : href);
   route();
   if (fromCV) window.scrollTo(0, savedScroll);
 });
 
+// Escape closes an open panel.
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape" || !shownPanel) return;
+  history.pushState(null, "", location.pathname + location.hash);
+  route();
+});
+
 window.addEventListener("popstate", route);
+route();
 
 // ---------- 24-hour clock ----------
 
+const clock = document.getElementById("clock");
 const pad = n => String(n).padStart(2, "0");
 
 function tick() {
-  const clock = document.getElementById("clock");
-  if (!clock) return;
   const d = new Date();
   clock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 }
 
-// Once the sidebar is in place: find its views, show the right one, start the clock.
-loadSidebar().catch(() => {}).then(() => {
-  document.querySelectorAll("[data-view]").forEach(el => (views[el.dataset.view] = el));
-  route();
-  tick();
-  setInterval(tick, 1000);
-});
+tick();
+setInterval(tick, 1000);
