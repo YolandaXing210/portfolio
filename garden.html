@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=48">
+  <link rel="stylesheet" href="style.css?v=49">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -62,10 +62,10 @@
           <p><a href="https://a-garden-i-caryy.netlify.app" target="_blank" rel="noopener">Playground →</a></p>
         </div>
 
-        <div class="case-cols case-cols--3 case-cols--flush">
-          <figure class="case-figure"><div class="placeholder"></div><figcaption>Object</figcaption></figure>
-          <figure class="case-figure"><div class="placeholder"></div><figcaption>→ Flower</figcaption></figure>
-          <figure class="case-figure"><div class="placeholder"></div><figcaption>→ Receipt</figcaption></figure>
+        <div class="case-trio">
+          <figure class="case-trio__big"><img src="images/bag-object.jpg" alt="Everything from one bag spread on a café table: laptop, pouch, wallet, glasses case, pens, lip balm, a Frecciarossa wipe packet, sanitizer, charger, umbrella, and a belt bag." width="1315" height="1400" data-caption="Object: everything one bag carries."><figcaption>Object</figcaption></figure>
+          <figure><img src="images/bag-scan.jpg" alt="Holding the wipe packet up to the laptop camera." width="810" height="1080" data-caption="Scan: the object, held up to the camera."><figcaption>→ Scan</figcaption></figure>
+          <figure><img src="images/bag-flower.jpg" alt="The laptop screen: flowers growing out of the photographed bag." width="1100" height="1062" data-caption="Flower: the bag grows a bouquet."><figcaption>→ Flower</figcaption></figure>
         </div>
 
         <div class="case-meta case-meta--4">
@@ -84,11 +84,10 @@
             <p>Take a plush rabbit. Computer vision can say <strong>“this is a plush rabbit.”</strong> To the person carrying it, it might be a gift from their mother, the thing they brought when they moved abroad, a keepsake from a relationship—or just a habit.</p>
             <p>Everyday objects hold meanings that are <strong>invisible to computer vision</strong>: attachment, memory, comfort, habit, loss. This project starts from that gap.</p>
 
-            <div class="case-cols case-cols--3">
-              <figure class="case-figure"><div class="placeholder"></div></figure>
-              <figure class="case-figure"><div class="placeholder"></div></figure>
-              <figure class="case-figure"><div class="placeholder"></div></figure>
-            </div>
+            <figure class="case-figure">
+              <img src="images/bag-reach.jpg" alt="A woman reaches into her shoulder bag without looking, labeled: embodied habit, touch without use, touch as regulation, unconscious searching." width="1600" height="900" loading="lazy">
+              <figcaption>Reaching into a bag: embodied habit, touch without use, touch as regulation, unconscious searching.</figcaption>
+            </figure>
 
             <p class="muted">From an exploratory survey of 20 people and two follow-up interviews:</p>
             <div class="case-waffles">
@@ -98,6 +97,60 @@
               <b>90%</b><div><div class="case-waffle" role="img" aria-label="90%"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>of people in a relationship carry something connected to their partner</span></div>
             </div>
             <p class="muted">Each square is 5%.</p>
+
+            <p class="muted">From the two follow-up interviews:</p>
+            <div class="case-personas">
+              <article class="case-persona">
+                <div class="case-persona__face"><svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle cx="60" cy="60" r="58" class="bg"/>
+                  <path class="hair" d="M41 52 C34 64 38 76 32 88 C40 92 44 84 44 76 M79 52 C86 64 82 76 88 88 C80 92 76 84 76 76"/>
+                  <path class="skin" d="M22 118 C26 98 42 90 60 90 C78 90 94 98 98 118"/>
+                  <path class="line" d="M53 80 V91 M67 80 V91"/>
+                  <ellipse class="skin" cx="60" cy="60" rx="18" ry="21"/>
+                  <path class="cap" d="M41 52 C41 33 79 33 79 52 Z"/>
+                  <path class="line" d="M41 52 C55 48 76 48 92 55"/>
+                  <path class="line" d="M52 62 q3 -3 6 0 M62 62 q3 -3 6 0 M54 70 q6 5 12 0"/>
+                </svg></div>
+                <p class="case-persona__name">The bag as modular identities</p>
+                <blockquote class="case-persona__box case-persona__quote">“I carry an ugly big backpack every day for school. But if I’m going out or having fun, I’ll put on a cute little handbag with all my makeup and stuff.”</blockquote>
+                <div class="case-persona__facts"><p class="case-persona__box">Age 22</p><p class="case-persona__box">Undergraduate junior</p></div>
+                <p class="case-persona__label">Bag habit</p>
+                <div class="case-persona__habit"><p class="case-persona__box">One bag for class and commute. Another for going out, parties, or social moments.</p><img src="images/bag-persona-1-items.jpg" alt="Her school bag’s contents: pouch, earphones, cables, and a laptop with stickers." width="212" height="132" loading="lazy"></div>
+                <p class="case-persona__label">Carrying behavior</p>
+                <ul class="case-persona__box">
+                  <li>Carries essentials for school, study, and transit</li>
+                  <li>Chooses items that signal taste or personality</li>
+                  <li>Switches bags entirely from “day mode” to “fun mode”</li>
+                </ul>
+                <p class="case-persona__label">Relationship to objects</p>
+                <p class="case-persona__box"><strong>Both practical and expressive.</strong> The bag isn’t fixed—it’s a curated surface that changes with context.</p>
+              </article>
+              <article class="case-persona">
+                <div class="case-persona__face"><svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle cx="60" cy="60" r="58" class="bg"/>
+                  <path class="hair" d="M38 60 C36 34 84 34 82 60 L85 98 L35 98 Z"/>
+                  <path class="skin" d="M22 118 C26 98 42 90 60 90 C78 90 94 98 98 118"/>
+                  <path class="line" d="M53 80 V91 M67 80 V91"/>
+                  <ellipse class="skin" cx="60" cy="61" rx="17" ry="21"/>
+                  <path class="hair" d="M43 54 C46 42 58 38 66 40 C60 46 52 50 43 54 Z"/>
+                  <path class="line" d="M52 63 q3 -3 6 0 M62 63 q3 -3 6 0 M54 71 q6 5 12 0"/>
+                  <g class="pearl"><circle cx="50" cy="95" r="2"/><circle cx="55" cy="98" r="2"/><circle cx="60" cy="99" r="2"/><circle cx="65" cy="98" r="2"/><circle cx="70" cy="95" r="2"/></g>
+                </svg></div>
+                <p class="case-persona__name">The bag as a mobile base</p>
+                <blockquote class="case-persona__box case-persona__quote">“As a freelancer, I get to work wherever I want. I spend most of the day outside, at a café or bar, chilling and working. I make sure I have everything I need for the day.”</blockquote>
+                <div class="case-persona__facts"><p class="case-persona__box">Age 27</p><p class="case-persona__box">Product designer</p></div>
+                <p class="case-persona__label">Bag habit</p>
+                <div class="case-persona__habit"><p class="case-persona__box">Her bag is a mobile base: it holds everything she might need across a full day.</p><img src="images/bag-persona-2-items.jpg" alt="Her bag’s contents: laptop, wallet, glasses case, cosmetics, chargers, umbrella, and a belt bag." width="216" height="134" loading="lazy"></div>
+                <p class="case-persona__label">Carrying behavior</p>
+                <ul class="case-persona__box">
+                  <li>Uses large, heavy, or structured bags</li>
+                  <li>Carries tech, chargers, personal items, and comfort objects</li>
+                  <li>Rarely empties the bag completely</li>
+                </ul>
+                <p class="case-persona__label">Relationship to objects</p>
+                <p class="case-persona__box"><strong>Tools for survival in the city.</strong> The bag becomes an extension of living space rather than a temporary carry.</p>
+              </article>
+            </div>
             <p>People described what they rarely use but keep anyway in terms of comfort, habit, identity, and emotional safety. <strong>A function-based label can’t explain why we carry things</strong>—which raised the question of what AI should, and shouldn’t, do with them.</p>
           </div>
         </section>
@@ -158,10 +211,10 @@
             <p>The experience is designed to be <strong>slow</strong>: short pauses leave room for anticipation and reflection.</p>
 
             <div class="case-shots4">
-              <figure><div class="placeholder"></div><figcaption><span>04</span> Grow the bag’s emotional garden</figcaption></figure>
-              <figure><div class="placeholder"></div><figcaption><span>01</span> Choose an object</figcaption></figure>
-              <figure><div class="placeholder"></div><figcaption><span>02</span> Scan</figcaption></figure>
-              <figure><div class="placeholder"></div><figcaption><span>03</span> Describe the relationship</figcaption></figure>
+              <figure><img src="images/bag-step-garden.jpg" alt="A red tote with procedurally grown flowers rising out of it." width="1080" height="1502" loading="lazy"><figcaption><span>04</span> Grow the bag’s emotional garden</figcaption></figure>
+              <figure><img src="images/bag-step-choose.jpg" alt="The camera view: a hand holds a Frecciarossa wipe packet inside a circle, under “A memory, held gently, its edges softened by time.”" width="1080" height="1563" loading="lazy"><figcaption><span>01</span> Choose an object</figcaption></figure>
+              <figure><img src="images/bag-step-scan.jpg" alt="“This is a … sanitizing wipe packet… Why do you carry this?” with four roles: Comfort, Productivity, Expression, Inner Self." width="1080" height="1562" loading="lazy"><figcaption><span>02</span> Scan and identify</figcaption></figure>
+              <figure><img src="images/bag-step-describe.jpg" alt="“Sanitizing wipe packet is your inner self. What thing you wanna tell your sanitizing wipe packet?” with a text field." width="1080" height="1563" loading="lazy"><figcaption><span>03</span> Describe the relationship</figcaption></figure>
               <figure><div class="placeholder"></div><figcaption><span>05</span> Receive a note from your object</figcaption></figure>
             </div>
           </div>
@@ -198,8 +251,25 @@
             </dl>
 
             <figure class="case-figure">
-              <div class="placeholder"></div>
-              <figcaption>The four flower types, and how color and density vary within each.</figcaption>
+              <div class="case-procedural">
+                <svg class="case-procedural__anno" viewBox="0 0 500 800" role="img" aria-label="A lotus, annotated: primary color, secondary color, organic bending stem.">
+                  <image href="images/bag-flower-lotus.jpg" x="10" y="0" width="185" height="787"/>
+                  <path class="lead" d="M80 178 L160 104 H225 M175 238 H225 M102 540 L150 500 H225"/>
+                  <text x="232" y="111">Primary color</text>
+                  <text x="232" y="245">Secondary color</text>
+                  <text x="232" y="507">Organic bending stem</text>
+                  <text class="name" x="130" y="720">Lotus</text>
+                </svg>
+                <div>
+                  <p class="muted">Generated procedurally by flower type</p>
+                  <div class="case-procedural__types">
+                    <div><b>Lotus &amp; tulip</b><p>Individual skinned petals with C-curve deformation</p><img src="images/bag-flower-pink.jpg" alt="A pink lotus-type flower with skinned petals." width="264" height="535" loading="lazy"></div>
+                    <div><b>Wavy</b><p>Recursive 3D branching with Bézier curves</p><img src="images/bag-flower-wavy.jpg" alt="An orange wavy flower of fine recursive branches." width="254" height="535" loading="lazy"></div>
+                    <div><b>Baby’s breath</b><p>L-system-inspired tree with clustered blooms</p><img src="images/bag-flower-breath.jpg" alt="A pink baby’s breath: a branching tree with clustered blooms." width="448" height="530" loading="lazy"></div>
+                  </div>
+                </div>
+              </div>
+              <figcaption>Procedural flowers in Three.js: what the two colors set, and how each type is generated.</figcaption>
             </figure>
 
             <p>Flowers gather into a <strong>bouquet inside a photo of the person’s own bag</strong>—different and unranked, the way objects coexist in a bag. Bouquets from many people can form a shared garden.</p>
@@ -286,6 +356,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=48"></script>
+  <script src="case.js?v=49"></script>
 </body>
 </html>

@@ -1284,14 +1284,12 @@ p { margin: 0; }
 .case-lane-card b { display: block; font-weight: 500; }
 .case-lane-card--you b { color: var(--accent); }
 
-/* Five step images: the first one large, the rest small */
-.case-shots4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; }
+/* Five step screens: the first one large on the left, the other four 2x2 beside it */
+.case-shots4 { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); gap: 0.8rem; align-items: start; }
 .case-shots4 figure { margin: 0; }
-.case-shots4 > :first-child { grid-column: 1 / -1; }
+.case-shots4 > :first-child { grid-row: span 2; }
 .case-shots4 .placeholder,
-.case-shots4 img { display: block; width: 100%; height: auto; margin: 0; aspect-ratio: 1 / 1; object-fit: cover; }
-.case-shots4 > :first-child .placeholder,
-.case-shots4 > :first-child img { aspect-ratio: 16 / 9; }
+.case-shots4 img { display: block; width: 100%; height: auto; margin: 0; aspect-ratio: 1080 / 1563; object-fit: cover; }
 .case-shots4 figcaption { margin-top: 0.4em; }
 .case-shots4 figcaption span { color: var(--accent); font-weight: 500; }
 
@@ -1336,6 +1334,7 @@ p { margin: 0; }
   .case-waffles { grid-template-columns: 3.6em minmax(0, 1fr); }
   .case-lanes { grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr); }
   .case-shots4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-shots4 > :first-child { grid-column: 1 / -1; grid-row: auto; }
   .case-table--glyph tr > :first-child { width: 44px; }
   .case-table--glyph .case-flower { width: 36px; height: 36px; }
   .case-table--glyph td p { display: none; }
@@ -1564,4 +1563,64 @@ p { margin: 0; }
   .jn-part { align-items: start; gap: 0.8rem; }
   .jn-linear { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .jn-quotes li { font-size: 1.6rem; }
+}
+
+/* Hero: one large image, two smaller ones beside it */
+.case-trio { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0.8rem 1rem; align-items: start; }
+.case-trio figure { margin: 0; }
+.case-trio__big { grid-row: span 2; }
+.case-trio img { display: block; width: 100%; height: auto; margin: 0; aspect-ratio: 1 / 1; object-fit: cover; }
+.case-trio__big img { aspect-ratio: 1315 / 1400; }
+.case-trio figcaption { margin-top: 0.5em; text-align: center; font-family: var(--caption-font); font-style: italic; font-size: var(--caption-size); color: var(--muted); }
+
+/* Persona cards on light graph paper, after the sample */
+.case-personas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.case-persona {
+  --grid: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 1.2rem;
+  border: 2px solid var(--rule);
+  border-radius: 8px;
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.case .case-persona > * + * { margin-top: 0.7rem; }
+.case .case-persona .case-persona__label { margin-top: 1.2rem; color: var(--accent); font-weight: 500; }
+.case-persona__face { width: 96px; margin: 0 auto; }
+.case-persona__face svg { display: block; width: 100%; height: auto; }
+.case-persona__face .bg { fill: var(--tint); }
+.case-persona__face .skin { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+.case-persona__face .hair { fill: color-mix(in srgb, var(--accent) 45%, #fff); stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.case-persona__face .cap { fill: var(--accent); }
+.case-persona__face .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+.case-persona__face .pearl { fill: var(--bg); stroke: var(--accent); stroke-width: 1.2; }
+.case .case-persona__name { text-align: center; font-weight: 500; color: var(--accent); }
+.case-persona__box { margin: 0; padding: 0.7rem 0.9rem; background: var(--bg); border-radius: 4px; box-shadow: 0 0 0 1px var(--rule); }
+.case-persona__quote { font-family: var(--caption-font); font-style: italic; font-size: 1.15rem; line-height: 1.45; }
+.case-persona__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; text-align: center; }
+.case .case-persona__facts > p { margin: 0; }
+.case-persona__habit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.6rem; align-items: stretch; }
+.case-persona__habit img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1px var(--rule); }
+.case .case-persona ul.case-persona__box { margin: 0; padding-left: 1.9rem; list-style: disc; }
+
+/* Procedural flowers: an annotated lotus beside the three generation methods */
+.case-procedural { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 1.6rem; align-items: end; padding: 1.2rem; border: 2px solid var(--rule); border-radius: 8px; }
+.case-procedural__anno { display: block; width: 100%; height: auto; }
+.case-procedural__anno text { font-family: var(--font); font-size: 22px; fill: var(--text); }
+.case-procedural__anno .name { font-size: 26px; font-weight: 500; fill: var(--accent); }
+.case-procedural__anno .lead { fill: none; stroke: #bdbdbd; stroke-width: 2; }
+.case-procedural__types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 0.8rem; }
+.case-procedural__types > div { display: flex; flex-direction: column; }
+.case-procedural__types b { font-weight: 500; color: var(--accent); }
+.case .case-procedural__types p { margin: 0.3em 0 0.8em; }
+.case .case-procedural__types img { display: block; width: auto; max-width: 100%; height: 200px; margin: auto auto 0; aspect-ratio: auto; object-fit: contain; }
+
+@media (max-width: 768px) {
+  .case-trio { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-trio__big { grid-column: 1 / -1; grid-row: auto; }
+  .case-personas,
+  .case-procedural { grid-template-columns: minmax(0, 1fr); }
+  .case-procedural__anno { max-width: 300px; margin: 0 auto; }
+  .case-procedural__types { gap: 0.6rem; }
+  .case .case-procedural__types img { height: 140px; }
 }
