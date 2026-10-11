@@ -1,9 +1,18 @@
 /* Rebuilt from the Cargo "Wireframe Z207" layout.
    Original font is Monument Grotesk Mono (licensed via Cargo); DM Mono is the free stand-in.
-   To use the real font, add an @font-face and put its name first in --font. */
+   To use the real font, add an @font-face and put its name first in --font.
+
+   Type roles follow UCLA Design Media Arts (design.ucla.edu/programs): a serif for running text,
+   a semi-mono grotesk for titles, a mono for labels, tables, diagrams and boxed asides.
+   Their faces are licensed too, so free stand-ins come first: Crimson Pro for Practice
+   (same widths and x-height), Space Grotesk for ABC Diatype Semi-Mono. */
 
 :root {
   --font: "DM Mono", "Monument Grotesk Mono", ui-monospace, Menlo, monospace;
+  --serif: "Crimson Pro", "Practice", Georgia, serif;
+  --sans: "Space Grotesk", "ABC Diatype Semi-Mono", system-ui, sans-serif;
+  --prose-size: 1.95rem;      /* 25.3px, line-height 1.2: DMA's body text */
+  --prose-size-s: 1.65rem;    /* 21.4px: DMA's body on phones; here also columns, the sidebar and the homepage list */
   --text: rgba(0, 0, 0, 0.85);
   --muted: rgba(0, 0, 0, 0.4);
   --link: rgba(102, 210, 43, 0.85);
@@ -12,8 +21,8 @@
   --main-width: 70%;
   --h1-size: 3.5rem;
   --h2-size: 2rem;
-  --caption-size: 1.08rem;
-  --caption-font: "Newsreader", Georgia, serif;
+  --caption-size: 1.3rem;     /* Crimson Pro's x-height is small (0.42em), so captions run larger than the mono */
+  --caption-font: var(--serif);
   --h3-size: 1.3rem;
   --measure: 800px;         /* max width of project content (~103 characters of 12.96px DM Mono) */
 }
@@ -310,7 +319,7 @@ p { margin: 0; }
 }
 
 /* ---------- Case study (e.g. aako.html) ---------- */
-/* Same single type size as the rest of the site; hierarchy comes from rules, columns and muted labels. */
+/* Mono for the frame (bar, contents, labels, meta); serif for running text; semi-mono for titles. */
 
 /* Sticky top bar. Pulled up over .detail's top padding so nothing shows above it. */
 .case-bar {
@@ -406,25 +415,70 @@ p { margin: 0; }
   margin: 0;
 }
 
-/* Section title, sampled from Cargo's h2: 2rem, weight 500, line-height 1.3, sentence case, project accent */
+/* Section title: the semi-mono at 2rem, regular, tracked in like DMA's titles; sentence case, project accent */
 .case h2 {
+  font-family: var(--sans);
   font-size: var(--h2-size);
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   color: var(--accent, var(--muted));
 }
 
 /* Type levels below h2:
-   h3 = DM Mono 1.3rem, weight 500 (between body and h2) · body = --text · strong = weight 500, accent color
-   caption = Newsreader italic, --caption-size
-   secondary = .muted · caption = --caption-size, muted */
+   running text = serif, --prose-size (--prose-size-s in columns) · h3 over running text = serif bold, same size
+   h3 in cards, lists and Journey = DM Mono 1.3rem, weight 500 · strong = accent color, weight 500 (600 in the serif)
+   caption = serif italic, --caption-size · labels, tables, diagrams, cards = DM Mono, .muted for secondary */
 .case h3 { font-size: var(--h3-size); font-weight: 500; line-height: 1.3; }
 
 .case strong {
   font-weight: 500;
   color: var(--accent, var(--text));
 }
+
+/* ---------- Running text: the serif ---------- */
+/* Plain paragraphs only (no class): labels (.muted), cards, tables and diagrams keep the mono. */
+.case-hero > p:not([class]),
+.case-body > p:not([class]),
+.case-decision > p:not([class]),
+.case-body > .case-quote,
+.jn-hero .jn-intro {
+  font-family: var(--serif);
+  font-size: var(--prose-size);
+  line-height: 1.2;
+}
+
+/* Two-up columns, the homepage list, the bio and tool pages: the smaller size */
+.case-cols > div > p:not([class]),
+.case-cols > div > ol:not([class]) > li,
+.jn-split > div > p:not([class]),
+.jn-insp > div > p:not([class]),
+.case-receipt-text > p,
+.project__text > p.muted,
+.bio > p:not(:first-child):not(.bio__cv),
+.tp-row > div p,
+.tp-row > div li {
+  font-family: var(--serif);
+  font-size: var(--prose-size-s);
+  line-height: 1.2;
+}
+
+/* A subhead over running text is the serif in bold, at the text's size (DMA's bold Practice lines) */
+.case:not(.jn) :is(.case-body, .case-decision) > h3,
+.case:not(.jn) .case-cols > div > h3 {
+  font-family: var(--serif);
+  font-size: var(--prose-size);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.case:not(.jn) .case-cols > div > h3 { font-size: var(--prose-size-s); }
+
+/* ...and sits close to its label above and its text below */
+.case:not(.jn) :is(.case-body, .case-decision, .case-cols > div) > .muted + h3 { margin-top: 0.4em; }
+.case:not(.jn) :is(.case-body, .case-decision, .case-cols > div) > h3 + p:not([class]) { margin-top: 0.3em; }
+
+:is(.case-hero, .case-body, .case-decision) > p:not([class]) strong,
+.case-cols > div > :is(p:not([class]), ol:not([class]) > li) strong { font-weight: 600; }
 
 /* All rules on project pages: one opaque light grey, so lines can't stack or render darker */
 .case { --rule: #e6e6e6; }
@@ -466,12 +520,14 @@ p { margin: 0; }
 .case-hero { padding: 4.8em 0 2.4em; }
 
 
-/* Big title, sampled from Cargo's h1: 3.5rem, line-height 0.9, regular weight, sentence case */
+/* Big title: the semi-mono at 3.5rem, regular, tracked in like DMA's page titles; sentence case */
 .case .case-hero h1 {
   margin: 1.2rem 0 1.6rem;
+  font-family: var(--sans);
   font-size: var(--h1-size);
+  font-weight: 400;
   line-height: 1.2;
-  letter-spacing: 0;
+  letter-spacing: -0.025em;
   color: #fff;
 }
 
@@ -715,12 +771,13 @@ p { margin: 0; }
 .lightbox__nav { display: flex; gap: 1.6rem; }
 .lightbox__count { color: var(--muted); }
 
+/* Pull quote: the serif in italic, between rules (set with the running text above) */
 .case-quote {
-  margin: 2.4em 0 0;
-  padding: 1.2em 0;
+  margin: 2.4rem 0 0;
+  padding: 0.8em 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 .case-list {
@@ -1284,6 +1341,8 @@ p { margin: 0; }
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
+  :root { --prose-size: var(--prose-size-s); }   /* one text size on phones, as on DMA */
+
   .main,
   .sidebar {
     position: static;
@@ -1366,7 +1425,7 @@ p { margin: 0; }
 
 /* Captions drawn inside SVG diagrams use the caption face too */
 .case-illo .d-caption,
-.case-diagram .d-caption { font-family: var(--caption-font); font-style: italic; font-size: 14px; fill: var(--muted); }
+.case-diagram .d-caption { font-family: var(--caption-font); font-style: italic; font-size: 17px; fill: var(--muted); }
 
 /* ---------- What’s in Your Bag? components ---------- */
 
@@ -1449,7 +1508,7 @@ p { margin: 0; }
 
 /* ---------- Journey to the Forgotten: dark theme sampled from the case-study PDF ---------- */
 /* The page walks through the PDF's spreads: each section is a full-width band in its spread's color,
-   titles in Instrument Serif, ▶ before subheads, orange for key lines, lilac for highlights. Body text stays DM Mono. */
+   titles in Instrument Serif, ▶ before subheads, orange for key lines, lilac for highlights. Running text is the site serif; cards stay DM Mono. */
 .jn-page {
   --bg: #34312a;
   --text: #efe9df;
@@ -1473,7 +1532,7 @@ p { margin: 0; }
 .jn h3 { color: #f4efd2; }
 .jn h3::before { content: ""; display: inline-block; margin-right: 0.6em; border-left: 0.75em solid var(--jn-tri); border-top: 0.45em solid transparent; border-bottom: 0.45em solid transparent; vertical-align: -0.05em; }
 .jn .jn-hl { color: var(--jn-lilac); }
-.jn-lead { font-family: var(--caption-font); font-style: italic; font-size: 1.3rem; line-height: 1.35; color: #f4efd2; }
+.jn-lead { font-family: var(--caption-font); font-style: italic; font-size: 1.55rem; line-height: 1.35; color: #f4efd2; }
 .jn-lead--accent { color: var(--accent); }
 .jn-gp { font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: #f0a5e6; }
 
@@ -1597,7 +1656,7 @@ p { margin: 0; }
 .jn-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .jn .jn-point > img { width: 100%; height: auto; aspect-ratio: 16 / 10; margin: 0; border-radius: 6px; object-fit: cover; }
 .jn-point--tall > img { object-position: center 35%; }
-.jn-point .jn-lead { font-size: 1.15rem; }
+.jn-point .jn-lead { font-size: 1.4rem; }
 .jn-linear { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6em 1rem; margin-top: 1.6em; color: var(--muted); }
 .jn-linear i { position: relative; grid-column: 1 / -1; height: 1px; background: #c2552c; }
 .jn-linear i::after { content: ""; position: absolute; right: -1px; top: 50%; border-left: 9px solid #c2552c; border-top: 5px solid transparent; border-bottom: 5px solid transparent; transform: translateY(-50%); }
@@ -1701,7 +1760,7 @@ p { margin: 0; }
 .case-persona__face .pearl { fill: var(--bg); stroke: var(--accent); stroke-width: 1.2; }
 .case .case-persona__name { text-align: center; font-weight: 500; color: var(--accent); }
 .case-persona__box { margin: 0; padding: 0.7rem 0.9rem; background: var(--bg); border-radius: 4px; box-shadow: 0 0 0 1px var(--rule); }
-.case-persona__quote { font-family: var(--caption-font); font-style: italic; font-size: 1.15rem; line-height: 1.45; }
+.case-persona__quote { font-family: var(--caption-font); font-style: italic; font-size: 1.4rem; line-height: 1.45; }
 .case-persona__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; text-align: center; }
 .case .case-persona__facts > p { margin: 0; }
 .case-persona__habit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.6rem; align-items: stretch; }
