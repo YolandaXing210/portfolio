@@ -67,6 +67,20 @@ p { margin: 0; }
 
 .muted { color: var(--muted); }
 
+/* Labels without a highlighter: the site color (SELECTED WORKS, CV headings) */
+.label { color: var(--ink); }
+
+/* The name, in the sidebar and the CV: the semi-mono, large, in the site color */
+.name {
+  font-family: var(--sans);
+  font-variation-settings: var(--sans-axes);
+  font-size: var(--name-size);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
 .row {
   display: flex;
   justify-content: space-between;
@@ -196,7 +210,9 @@ p { margin: 0; }
 
 .cv-section p + p { margin-top: 1.2em; }
 
-.cv-name { padding-bottom: 4.8em; }
+.cv-section > :first-child { color: var(--ink); }
+
+.cv-name { padding-bottom: 0.8em; }
 
 .cv-list {
   list-style: none;
@@ -463,7 +479,7 @@ p { margin: 0; }
 .jn-insp > div > p:not([class]),
 .case-receipt-text > p,
 .project__text > p.muted,
-.bio > p:not(:first-child):not(.bio__cv),
+.bio > p:not(.name):not(.bio__contact):not(.bio__cv),
 .tp-row > div p,
 .tp-row > div li {
   font-family: var(--serif);
@@ -491,23 +507,32 @@ p { margin: 0; }
 /* All rules on project pages: one opaque light grey, so lines can't stack or render darker */
 .case { --rule: #e6e6e6; }
 
-/* Homepage: a project entry takes its project's accent for its title and links */
-.project.case--aako .project__text > p:first-child,
-.project.case--garden .project__text > p:first-child,
-.project.case--journey .project__text > p:first-child { color: var(--accent); }
+/* Homepage entry: number, links and ⌘ in the site color (one color on the homepage); the title is the semi-mono */
+.project__num { color: var(--ink); }
 
-/* Skill keywords under the title: body color, so they read apart from the accent title */
+.project__text .project__title {
+  margin-top: 0.3em;
+  font-family: var(--sans);
+  font-variation-settings: var(--sans-axes);
+  font-size: var(--title-size);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.project__text .project__tags { margin-top: 0.8em; }
+
+/* Skill keywords under the title: body color, so they read apart from the number and links */
 .project__tags { color: var(--text); }
 .project__tags span { white-space: nowrap; }
 
-.project[class*="case--"] .project__text a {
-  color: var(--accent);
+.project__text a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
-.project[class*="case--"] .project__icon { color: var(--accent); }
+.project__icon { color: var(--ink); }
 
 /* Per-project accent color (used by h2, the table of contents and the hamburger) */
 .case--aako { --accent: #bb432a; }   /* rgb(0.733, 0.263, 0.165); both AAKO pages */
@@ -1350,7 +1375,7 @@ p { margin: 0; }
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
-  :root { --prose-size: var(--prose-size-s); }   /* one text size on phones, as on DMA */
+  :root { --prose-size: var(--prose-size-s); --title-size: 2.3rem; --name-size: 4.3rem; }   /* one text size on phones, as on DMA */
 
   .main,
   .sidebar {
