@@ -3,6 +3,7 @@
 // title: the project name, shown large in the semi-mono.
 // tags:  keywords shown under the title: the skills this project shows, so a reader can scan for them.
 // image: path to an image (3:2 works best), or null for the wireframe placeholder.
+//        Shown as dots in the site color until hovered (script.js, "Thumbnail dots").
 // link:  where "Read more…" and the image go. "?p=name" opens that panel over the list (see index.html).
 // links: use instead of link when a project has several pages: [{ label, href }]. The image goes to the first.
 // hidden: true keeps an entry off the page without deleting it.

@@ -155,6 +155,29 @@ p { margin: 0; }
     #fff;
 }
 
+/* ---------- Thumbnail dots (script.js draws them) ---------- */
+/* One color on white, in the entry's accent or the site color. Hover or keyboard focus shows the photo. */
+.dither {
+  position: relative;
+  color: var(--accent, var(--ink));
+}
+
+.dither__dots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.dither--painted .dither__dots { opacity: 1; }
+
+.dither--painted:is(:hover, :focus-visible) .dither__dots,
+a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
+
 /* ---------- Vertical divider ---------- */
 
 .divider {
@@ -270,29 +293,36 @@ p { margin: 0; }
   column-gap: 1.2rem;
 }
 
+/* Each item is a box in the site color (Berkeley's Student Work grid): image, then caption */
 .tg-item {
   display: grid;
   grid-row: span 2;
   grid-template-rows: subgrid;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem 0.8rem 0;
+  border: 1px solid var(--ink);
   color: var(--text);
 }
 
-.tg-item .placeholder,
-.tg-item img {
+.tg-item__media {
   display: block;
   align-self: end;
-  width: 100%;
-  height: auto;
   aspect-ratio: var(--ratio, 1);
+  overflow: hidden;
+}
+
+.tg-item__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .tg-item--tall { --ratio: 2 / 3; }
 .tg-item--wide { --ratio: 3 / 2; }
 
-.tg-item__cap { margin: 0.6em 0 3.6em; }
+.tg-item__cap { margin: 0.6em 0 0.8rem; }
 .tg-item__cap .muted { display: block; }
-.tg-item:hover img { opacity: 0.85; }
 
 /* Tool pages (panels opened from the gallery): the gallery's info row, a hero video or image,
    then label | text rows whose text lines up with the info row's second column, then images */
@@ -332,7 +362,6 @@ p { margin: 0; }
 @media (max-width: 768px) {
   .tg-info { grid-template-columns: minmax(0, 1fr); row-gap: 1.2em; padding-bottom: 3.6em; }
   .tg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tg-item__cap { margin-bottom: 2.4em; }
   .tp-row { grid-template-columns: minmax(0, 1fr); row-gap: 0.4em; }
   .tp-row > :last-child { grid-column: auto; }
   .tp-grid { grid-template-columns: minmax(0, 1fr); }
