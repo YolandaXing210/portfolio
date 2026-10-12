@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=63">
+  <link rel="stylesheet" href="style.css?v=64">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -32,7 +32,6 @@
           <h1><span>Echo</span></h1>
           <p class="case-subtitle">Giving a memory a presence in space.</p>
           <p>A <strong>3D post</strong> that gives images, sound, and text a physical form—the <strong>smallest spatial unit</strong> of AAKO, an XR memory app, and the foundation the rest of the product was built around.</p>
-          <p><a href="aako-redesign.html">Chapter II: Reframing &amp; mobile redesign →</a></p>
         </div>
 
         <div class="case-meta case-meta--4">
@@ -48,9 +47,9 @@
           <div class="case-index muted">01 / Context</div>
           <div class="case-body">
             <h2>Leave a memory in the place where it happened.</h2>
-            <p>AAKO started from road trips. The founder and I have been friends since middle school and have traveled across many countries together. A trip pulls you out of ordinary life, and that displacement makes <strong>places stick</strong>.</p>
-            <p>Modern tools capture everything but <strong>strip memories of context</strong>: in a chronological feed, moments lose where they happened and how they felt. AAKO set out to leave memories in the physical places where they happened, and let people encounter them again through AR.</p>
-            <p>Within that, I designed <strong>Echo: the 3D form a memory takes in space.</strong></p>
+            <p>The idea started from the heart of a road-trip lover. My teammate Yasushi, and I have roadtrip and camping together across many countries. A road trip is more than movement—it is a fast transition into unfamiliar surroundings, away from ordinary urban life. This displacement sharpens awareness and creates a strong <strong>emotional attachment to places</strong>, where landscapes and moments become deeply personal and memorable.</p>
+            <p>This attachment is not driven solely by achievement. It is shaped by instinctive human forces: the desire to explore, to escape routine, to reconnect with nature, and to experience freedom. Locations therefore become emotional beacons, carrying layered meanings. Similar feelings appear in our connection to hometowns, pilgrimages, cities like New York, and ideas such as the American Dream—forms of <strong>locational symbolism</strong> that anchor identity and memory.</p>
+            <p>To recreate this attachment and embrace the physicalness of presence, we created Aako. Aako seeks to <strong>transform the experience of being somewhere into something tangible</strong>. Through thoughtful design and materiality, we capture the emotional weight of places—so that moments once lived can be revisited not only through memory, but through physical form and touch.</p>
           </div>
         </section>
         <hr>
@@ -59,8 +58,9 @@
         <section class="case-section" id="concept">
           <div class="case-index muted">02 / Concept</div>
           <div class="case-body">
-            <h2>No competitor had an actual entity of what a post is.</h2>
-            <p>Apps that touch on place, memory, and sharing—Google Maps, Instagram, Yik Yak, Yelp—still rely on <strong>linear thread models</strong> from the early 2000s. A post is a row in a feed, not a thing. The goal: a 3D post that occupies space and extends communication into the physical world.</p>
+            <h2>Post, Physicalization of Memory on the Web.</h2>
+            <p>We look into apps that touch on place, memory, and sharing, Google Maps, Instagram, Yik Yak, Yelp. The basic unit of memory in the web is a <strong>POST</strong>. However, its form has not changed since the early 2000s. They still rely on <strong>linear thread models</strong>.</p>
+            <p>We started exploring a <strong>physical form of post</strong>. A basic unit in the web that concludes a memory.</p>
 
             <table class="case-table case-table--labels">
               <thead>
@@ -94,7 +94,7 @@
               </tbody>
             </table>
 
-            <p class="muted">Visual inspiration: mystery solving and conquering · a sense of achievement · reflections of the object and its surroundings · dreamy, childhood, nostalgia.</p>
+            <p class="muted">Visual keywords: mirror &amp; reflection · dreamy · childhood · nostalgia</p>
             <div class="case-grid case-grid--8 case-grid--square">
               <img src="images/echo-inspiration-1.jpg" alt="Text that curves around a form." width="200" height="200" loading="lazy">
               <img src="images/echo-inspiration-2.jpg" alt="A glowing orb: the reward of discovery." width="200" height="200" loading="lazy">
@@ -144,11 +144,11 @@
               </div>
               <div>
                 <p class="muted">Study B / Related environment imagery</p>
-                <h3>Show the setting, not the original video.</h3>
-                <svg class="case-illo" viewBox="0 0 320 130" role="img" aria-label="The original video is set aside; photos of the same place or occasion are shown instead.">
+                <h3>Show the setting, not the action.</h3>
+                <svg class="case-illo" viewBox="0 0 320 130" role="img" aria-label="The action itself is hidden; only images of its surroundings are shown.">
                   <rect class="d-dash" x="0" y="30" width="96" height="64" rx="6"/>
                   <line class="d-dash" x1="0" y1="30" x2="96" y2="94"/>
-                  <text class="d-muted" x="0" y="116">original video</text>
+                  <text class="d-muted" x="0" y="116">the action</text>
                   <text class="d-muted" x="110" y="66">→</text>
                   <g>
                     <rect class="d-line" x="134" y="38" width="54" height="40" rx="4"/>
@@ -158,11 +158,11 @@
                     <rect class="d-line" x="266" y="38" width="54" height="40" rx="4"/>
                     <polyline class="d-accent" points="271,72 285,58 294,66 302,59 315,72"/><circle class="d-accent" cx="308" cy="47" r="4"/>
                   </g>
-                  <text class="d-muted" x="320" y="116" text-anchor="end">same place / occasion</text>
+                  <text class="d-muted" x="320" y="116" text-anchor="end">surroundings only</text>
                 </svg>
                 <ol>
-                  <li>Find photos of the same place or occasion.</li>
-                  <li>Show those <strong>instead of the video</strong>.</li>
+                  <li>Find a series of photos or videos of an event.</li>
+                  <li>Only show <strong>images of the surroundings</strong>, not the action.</li>
                   <li>Ask whether the surroundings bring the event back.</li>
                 </ol>
                 <p class="muted">e.g. a photo of a beach brought back building a sandcastle with friends.</p>
@@ -177,25 +177,23 @@
           <div class="case-index muted">04 / Research findings</div>
           <div class="case-body">
             <h2>Context gives a memory somewhere to land.</h2>
-            <p>Three directions I took into the design—as inputs to keep testing, not as established findings.</p>
+            <p>Three directions I took from the process. How recall built up as cues were added.</p>
 
-            <ol class="case-steps">
-              <li><b>Audio only</b><span>A mood, rarely the event</span></li>
-              <li><b>+ Time / season</b><span>When it happened</span></li>
-              <li><b>+ Place / environment</b><span>Where it happened</span></li>
-              <li><b>Recollection</b><span>The moment comes back</span></li>
+            <ol class="case-steps" style="--steps: 3">
+              <li><b>Audio</b><span>A mood, rarely the event</span></li>
+              <li><b>Time / season</b><span>When it happened</span></li>
+              <li><b>Place / environment</b><span>Where it happened</span></li>
             </ol>
-            <p class="muted">How recall built up as cues were added—a conceptual sequence, not a measured funnel.</p>
 
+            <p class="muted case-list-label">Finding I figured</p>
             <dl class="case-list case-list--findings">
               <dt>01 / Visual &amp; environmental</dt>
-              <dd><h3>The surroundings can unlock the event.</h3><p>Location mattered as lived context, not as a coordinate. Audio alone was not a sufficient anchor.</p></dd>
+              <dd><h3>The surroundings can unlock the event.</h3><p>Location mattered as a lived context, not as a coordinate. Audio alone was not a sufficient anchor.</p></dd>
               <dt>02 / Temporal hierarchy</dt>
               <dd><h3>Season can be more meaningful than year.</h3><p>Exact years were fuzzy; spring, summer, autumn, or winter often triggered more. Design for how people remember time, not how a database stores it.</p></dd>
               <dt>03 / Context-dependent precision</dt>
               <dd><h3>More precise isn’t always more useful.</h3><p>Minute-level detail rarely helped—unless the setting was time-specific, like a bar at night.</p></dd>
             </dl>
-            <p>That’s why an Echo combines <strong>sound, imagery, and place</strong> rather than relying on any one of them.</p>
           </div>
         </section>
         <hr>
@@ -205,7 +203,7 @@
           <div class="case-index muted">05 / Anatomy of an Echo</div>
           <div class="case-body">
             <h2>A floating bubble that makes a memory alive.</h2>
-            <p>The question was how a memory could <strong>occupy a place</strong> while staying easy to read. Each part of the Echo carries one kind of content.</p>
+            <p>This is what <strong>3D post</strong> looks like, containing images, sound, and text with a physical form.</p>
 
             <svg class="case-diagram" viewBox="0 0 640 360" role="img" aria-label="Diagram of an Echo: a caption board above a bubble holding images and video, an emoji orbit around it, and audio below.">
               <!-- caption board -->
@@ -253,7 +251,7 @@
               <figcaption>Echo concept render.</figcaption>
             </figure>
 
-            <p class="muted">The purple bubble is the default; the same structure supports other skins with different textures and features, which users could purchase.</p>
+            <p class="muted">Versatile Design: Purple bubble is the default bubble. With similar structure, we may have infinite bubble skin, allowing room for monetization and customization.</p>
           </div>
         </section>
         <hr>
@@ -263,7 +261,7 @@
           <div class="case-index muted">06 / Rendering</div>
           <div class="case-body">
             <h2>Intimate rather than schematic.</h2>
-            <p>I tested Niantic Lightship, Unity, and Apple ARKit. The deciding factor was <strong>material softness and lighting</strong>—a memory shouldn’t look like a map pin.</p>
+            <p>I tested Niantic Lightship, Unity, and Apple ARKit. The deciding factor was <strong>rendering and engineering architecture</strong>.</p>
 
             <table class="case-table case-table--labels">
               <thead>
@@ -285,7 +283,7 @@
                   <td class="muted">For AAKO</td>
                   <td>Too utilitarian; limited control over softness and lighting</td>
                   <td>A separate engine layer; less tightly integrated with iOS hardware</td>
-                  <td><strong>Chosen</strong>—memories feel intimate, not schematic</td>
+                  <td><strong>Chosen</strong>—memories feel intimate, not schematic, most native with Apple.</td>
                 </tr>
               </tbody>
             </table>
@@ -418,6 +416,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=63"></script>
+  <script src="case.js?v=64"></script>
 </body>
 </html>

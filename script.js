@@ -15,16 +15,22 @@ function renderProject(p) {
   // A project can have several pages: links: [{ label, href }]. The image goes to the first.
   const links = p.links || [{ label: "Read more…", href: p.link }];
   // Each keyword keeps its trailing "·", so a line never starts with a dot.
-  const tags = (p.tags || []).map((t, i, all) => `<span>${escapeHTML(t)}${i < all.length - 1 ? " ·" : ""}</span>`).join(" ");
+  const tagLine = (ts, cls = "") =>
+    `<p class="project__tags${cls}">${ts.map((t, i, all) => `<span>${escapeHTML(t)}${i < all.length - 1 ? " ·" : ""}</span>`).join(" ")}</p>`;
+  const link = l => `<a href="${l.href}">${escapeHTML(l.label)}</a>`;
+  // Links with their own tags each get a tag line above them (AAKO's two chapters).
+  const linkBlock = links.some(l => l.tags)
+    ? links.map(l => `${l.tags ? tagLine(l.tags, " project__tags--link") : ""}<p class="project__link">${link(l)}</p>`).join("")
+    : `<p>${links.map(link).join("<br>")}</p>`;
   return `
     <article class="project">
       <a class="project__media${p.image ? " dither" : ""}" href="${links[0].href}">${media}</a>
       <div class="project__text">
         <p class="project__num">${escapeHTML(p.n)}</p>
         <p class="project__title">${escapeHTML(p.title)}</p>
-        <p class="project__tags">${tags}</p>
+        ${p.tags ? tagLine(p.tags) : ""}
         <p class="muted">${escapeHTML(p.text)}</p>
-        <p>${links.map(l => `<a href="${l.href}">${escapeHTML(l.label)}</a>`).join("<br>")}</p>
+        ${linkBlock}
       </div>
       <div class="project__icon">${COMMAND_ICON}</div>
     </article>

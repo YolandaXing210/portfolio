@@ -555,7 +555,12 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
   letter-spacing: -0.02em;
 }
 
-.project__text .project__tags { margin-top: 0.8em; }
+.project__text .project__tags,
+.project__text .project__title + p { margin-top: 0.8em; }
+
+/* Tags over a link (AAKO's two chapters): a break above, the link right under */
+.project__text .project__tags--link { margin-top: 1.2em; }
+.project__text .project__tags--link + .project__link { margin-top: 0.3em; }
 
 /* Skill keywords under the title: body color, so they read apart from the number and links */
 .project__tags { color: var(--text); }
@@ -878,6 +883,10 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 }
 
 .case-list dt { color: var(--muted); }
+
+/* A label over a list, set apart from what comes before it */
+.case .case-list-label { margin-top: 2.4em; }
+.case .case-list-label + .case-list { padding-top: 0.6em; }
 
 /* Findings: label in body color, supporting text muted (the h3 stays body color) */
 .case-list--findings dt { color: var(--text); }
