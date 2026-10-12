@@ -22,7 +22,7 @@
   --rule: rgba(0, 0, 0, 0.15);
   --bg: #fff;
   --main-width: 70%;
-  --h1-size: 3.5rem;
+  --h1-size: 5.55rem;        /* 71.9px: case page titles */
   --h2-size: 2rem;            /* callouts inside sections; case section titles use --case-h2-size */
   --case-h2-size: 2.8rem;     /* 36.3px */
   --title-size: 3.1rem;       /* 40.2px: homepage project titles */
@@ -467,14 +467,14 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
   margin: 0;
 }
 
-/* Section title: the semi-mono at 2rem, regular, tracked in like DMA's titles; sentence case, project accent */
+/* Section title: the semi-mono, regular, tracked in; sentence case, project accent */
 .case h2 {
   font-family: var(--sans);
   font-variation-settings: var(--sans-axes);
-  font-size: var(--h2-size);
+  font-size: var(--case-h2-size);
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: var(--accent, var(--muted));
 }
 
@@ -582,24 +582,16 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 .case-hero { padding: 4.8em 0 2.4em; }
 
 
-/* Big title: the semi-mono at 3.5rem, regular, tracked in like DMA's page titles; sentence case */
+/* Big title: the semi-mono, medium, tracked in, in the project's accent (no highlighter block); sentence case */
 .case .case-hero h1 {
   margin: 1.2rem 0 1.6rem;
   font-family: var(--sans);
   font-variation-settings: var(--sans-axes);
   font-size: var(--h1-size);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: #fff;
-}
-
-/* The accent background sits on the text itself and hugs each wrapped line */
-.case-hero h1 span {
-  padding: 0.04em 0.2em 0.1em;
-  background: var(--accent, var(--text));
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--accent, var(--text));
 }
 
 /* Secondary title, directly under the h1 */
@@ -622,6 +614,20 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 }
 
 .case-index { padding-bottom: 1.2em; }
+
+/* Labels in the project's accent instead of grey (no highlighter): section numbers and meta headings.
+   Journey keeps its own colors. */
+.case:not(.jn) .case-index,
+.case:not(.jn) .case-meta p.muted { color: var(--accent); }
+
+/* Meta values in the semi-mono, close under their label */
+.case:not(.jn) .case-meta p:not(.muted) {
+  margin-top: 0.4em;
+  font-family: var(--sans);
+  font-variation-settings: var(--sans-axes);
+  font-size: var(--meta-size);
+  line-height: 1.3;
+}
 
 .case-body > * + * { margin-top: 1.2em; }
 
@@ -1404,7 +1410,7 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
-  :root { --prose-size: var(--prose-size-s); --title-size: 2.3rem; --name-size: 4.3rem; }   /* one text size on phones, as on DMA */
+  :root { --prose-size: var(--prose-size-s); --title-size: 2.3rem; --name-size: 4.3rem; --h1-size: 3.4rem; --case-h2-size: 2rem; }   /* one text size on phones, as on DMA */
 
   .main,
   .sidebar {
