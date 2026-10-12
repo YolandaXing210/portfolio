@@ -300,14 +300,12 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
   column-gap: 1.2rem;
 }
 
-/* Each item is a box in the site color (Berkeley's Student Work grid): image, then caption */
+/* Each item: image, then caption, no box */
 .tg-item {
   display: grid;
   grid-row: span 2;
   grid-template-rows: subgrid;
   margin-bottom: 1.2rem;
-  padding: 0.8rem 0.8rem 0;
-  border: 1px solid var(--ink);
   color: var(--text);
 }
 
