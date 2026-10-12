@@ -19,7 +19,7 @@
   --muted: rgba(0, 0, 0, 0.4);
   --ink: #8ace00;             /* the one site color: the name, links, labels, Tool Gallery, thumbnail dots */
   --link: var(--ink);
-  --hl: #8ace00;              /* highlighter behind labels (black text); never on the big titles */
+  --hl: #ffee00;              /* highlighter behind labels (black text); never on the big titles. Case pages set their own */
   --rule: rgba(0, 0, 0, 0.15);
   --bg: #fff;
   --main-width: 70%;
@@ -574,9 +574,9 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 .project__icon { color: var(--ink); }
 
 /* Per-project accent color (used by h2, the table of contents and the hamburger) */
-.case--aako { --accent: #bb432a; }   /* rgb(0.733, 0.263, 0.165); both AAKO pages */
-.case--garden { --accent: #4f8a2b; }
-.case--journey { --accent: #a8532a; }
+.case--aako { --accent: #e90014; --hl: #fff9b0; }   /* both AAKO pages */
+.case--garden { --accent: #008432; --hl: #ffd5e7; }
+.case--journey { --accent: #f3e491; }   /* on Journey's dark page (.jn-page); its labels use the site highlighter */
 
 .case p + p,
 .case h2 + p,
@@ -1604,7 +1604,7 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
   --jn-bleed: calc(-2rem - (100vw - 3rem) / 4);   /* content column's left edge → the window's left edge */
 }
 .jn-page .case--journey {
-  --accent: #ff9447;
+  --accent: #f3e491;
   --rule: rgba(239, 233, 223, 0.16);
   overflow-x: clip;
 }
