@@ -708,6 +708,16 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 
 .case-cols--flush { padding-top: 0; }
 
+/* One row per item, ruled above: text on the left, its diagram centered on the right (Echo's two studies) */
+.case-cols--row {
+  margin-top: 2.4em;
+  padding-top: 1.2em;
+  border-top: 1px solid var(--rule);
+  align-items: center;
+}
+.case-cols--row + .case-cols--row { margin-top: 1.2em; }
+.case-cols__illo .case-illo { margin: 0 auto; }
+
 .case-meta--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .case-meta--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
