@@ -19,6 +19,7 @@
   --muted: rgba(0, 0, 0, 0.4);
   --ink: #8ace00;             /* the one site color: the name, links, labels, Tool Gallery, thumbnail dots */
   --link: var(--ink);
+  --hl: #8ace00;              /* highlighter behind labels (black text); never on the big titles */
   --rule: rgba(0, 0, 0, 0.15);
   --bg: #fff;
   --main-width: 70%;
@@ -67,8 +68,12 @@ p { margin: 0; }
 
 .muted { color: var(--muted); }
 
-/* Labels without a highlighter: the site color (SELECTED WORKS, CV headings) */
-.label { color: var(--ink); }
+/* Labels: black on the highlighter, hugging the text (SELECTED WORKS, CV headings, case page labels) */
+.label {
+  padding: 0 0.25em;
+  background: var(--hl);
+  color: #000;
+}
 
 /* The name, in the sidebar and the CV: the semi-mono, large, in the site color */
 .name {
@@ -233,7 +238,13 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 
 .cv-section p + p { margin-top: 1.2em; }
 
-.cv-section > :first-child { color: var(--ink); }
+.cv-section > :first-child {
+  align-self: start;
+  justify-self: start;
+  padding: 0 0.25em;
+  background: var(--hl);
+  color: #000;
+}
 
 .cv-name { padding-bottom: 0.8em; }
 
@@ -615,10 +626,16 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 
 .case-index { padding-bottom: 1.2em; }
 
-/* Labels in the project's accent instead of grey (no highlighter): section numbers and meta headings.
-   Journey keeps its own colors. */
+/* Section numbers and meta headings: black on the highlighter, hugging the text. Journey keeps its own look. */
 .case:not(.jn) .case-index,
-.case:not(.jn) .case-meta p.muted { color: var(--accent); }
+.case:not(.jn) .case-meta p.muted {
+  width: fit-content;
+  padding: 0 0.25em;
+  background: var(--hl);
+  color: #000;
+}
+
+.case:not(.jn) .case-index { margin-bottom: 1.2em; }
 
 /* Meta values in the semi-mono, close under their label */
 .case:not(.jn) .case-meta p:not(.muted) {
