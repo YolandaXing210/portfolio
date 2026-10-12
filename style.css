@@ -26,7 +26,7 @@
   --h2-size: 2rem;            /* callouts inside sections; case section titles use --case-h2-size */
   --case-h2-size: 2.8rem;     /* 36.3px */
   --title-size: 3.1rem;       /* 40.2px: homepage project titles */
-  --name-size: 5.85rem;       /* 75.8px: the name in the sidebar and the CV */
+  --name-size: min(5.85rem, calc(7.6vw - 7px));   /* 75.8px at 1076px and wider; shrinks so it fits the 30% sidebar on narrower desktops */
   --meta-size: 1.3rem;        /* 16.8px: case meta values */
   --caption-size: 1.2rem;     /* Newsreader italic */
   --caption-font: var(--serif);
