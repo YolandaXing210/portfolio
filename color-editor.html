@@ -84,14 +84,14 @@
 
     /* ===== Previews: the site's styles in miniature. Colors come from CSS variables set by the script. ===== */
     body {
-      --site-ink: #8ace00; --site-hl: #8ace00;
-      --aako: #bb432a; --aako-hl: #ff8a6b;
-      --bag: #4f8a2b; --bag-hl: #8ace00;
-      --journey: #a8532a; --journey-dark: #ff9447;
+      --site-ink: #8ace00; --site-hl: #ffee00;
+      --aako: #e90014; --aako-hl: #fff9b0;
+      --bag: #008432; --bag-hl: #ffd5e7;
+      --journey: #f3e491; --journey-hl: #ffee00;
     }
     [data-p="aako"] { --c: var(--aako); --hl: var(--aako-hl); }
     [data-p="bag"] { --c: var(--bag); --hl: var(--bag-hl); }
-    [data-p="journey"] { --c: var(--journey); --dark: var(--journey-dark); --hl: var(--site-hl); }
+    [data-p="journey"] { --c: var(--journey); --dark: var(--journey); --hl: var(--journey-hl); }
     [data-p="tools"], [data-p="site"] { --c: var(--site-ink); --hl: var(--site-hl); }
     body[data-home="ink"] .pv-home [data-p] { --c: var(--site-ink); }
 
@@ -153,7 +153,7 @@
     }
   </style>
 </head>
-<body data-home="own">
+<body data-home="ink">
 
   <div class="ed-bar">
     <span>COLOR EDITOR</span>
@@ -168,7 +168,7 @@
 
     <div class="ed-intro">
       <h1>项目颜色</h1>
-      <p>每个作品有两种颜色：<b>项目色</b>（标题、链接、编号、网点）和<b>荧光笔色</b>（标签底色，上面是黑字）。Journey 的 case 页是暗色背景，所以它的第二个颜色是暗色页强调色。</p>
+      <p>每个作品有两种颜色：<b>项目色</b>（标题、链接、编号、网点）和<b>荧光笔色</b>（标签底色，上面是黑字）。Journey 的 case 页是暗色背景，所以它的项目色在深棕和紫色 section 上测试。</p>
       <p>每个颜色下面都有对比度测试（WCAG 2.1）：小字要 4.5:1，大字和图形（网点、⌘）要 3:1。没通过的话，点「调到通过」会只改明暗、保持色相，调到最接近的合格颜色。</p>
       <p>调好后点右上角「复制结果」发给我；网址也会记住你的颜色，直接把链接发给我也可以。</p>
     </div>
@@ -211,21 +211,22 @@
 
     const PROJECTS = [
       { key: "aako", name: "Aako", pages: "case 页：Echo、Reframing & mobile redesign", colors: [
-        { v: "aako", label: "项目色", def: "#bb432a", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
-        { v: "aako-hl", label: "荧光笔色", def: "#ff8a6b", use: "case 页标签底色：01 / Concept、Project、Role…", tests: HL_TESTS },
+        { v: "aako", label: "项目色", def: "#e90014", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
+        { v: "aako-hl", label: "荧光笔色", def: "#fff9b0", use: "case 页标签底色：01 / Concept、Project、Role…", tests: HL_TESTS },
       ] },
       { key: "bag", name: "What’s in Your Bag?", pages: "case 页：garden.html", colors: [
-        { v: "bag", label: "项目色", def: "#4f8a2b", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
-        { v: "bag-hl", label: "荧光笔色", def: "#8ace00", use: "case 页标签底色：01 / The Question、Role、Team…", tests: HL_TESTS },
+        { v: "bag", label: "项目色", def: "#008432", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
+        { v: "bag-hl", label: "荧光笔色", def: "#ffd5e7", use: "case 页标签底色：01 / The Question、Role、Team…", tests: HL_TESTS },
       ] },
       { key: "journey", name: "Journey to the Forgotten", pages: "case 页：journey.html（暗色页，两种 section 底色交替）", colors: [
-        { v: "journey", label: "项目色", def: "#a8532a", use: "首页那一行（编号、链接、⌘、网点）", tests: TEXT_TESTS },
-        { v: "journey-dark", label: "暗色页强调色", def: "#ff9447", use: "Journey case 页的标题、目录、链接、重点句（深棕底 #34312a，紫色 section #3a3246）",
-          tests: [{ label: "深棕底上的链接和目录（≥4.5:1）", bg: JOURNEY_BG, min: 4.5 }, { label: "紫色 section 上的文字（≥4.5:1）", bg: JOURNEY_ALT, min: 4.5 }] },
+        { v: "journey", label: "项目色", def: "#f3e491", use: "Journey case 页的大标题、h2、目录、链接、加粗字（深棕底 #34312a，紫色 section #3a3246）；首页用项目色时也用在首页那一行（白底）",
+          tests: [{ label: "深棕底上的文字（≥4.5:1）", bg: JOURNEY_BG, min: 4.5 }, { label: "紫色 section 上的文字（≥4.5:1）", bg: JOURNEY_ALT, min: 4.5 },
+            { label: "首页用项目色时，白底（≥4.5:1）", bg: WHITE, min: 4.5, extra: true }] },
+        { v: "journey-hl", label: "荧光笔色", def: "#ffee00", use: "case 页标签底色：01 / Start with、Timeframe、Type…（现在用的是站点荧光笔）", tests: HL_TESTS },
       ] },
       { key: "site", name: "站点", pages: "侧栏、CV、Tool Gallery、SELECTED WORKS", colors: [
         { v: "site-ink", label: "站点色", def: "#8ace00", use: "侧栏名字和链接、Tool Gallery 那一行和网点；首页统一时所有行", tests: TEXT_TESTS },
-        { v: "site-hl", label: "站点荧光笔", def: "#8ace00", use: "SELECTED WORKS、CV 分类标签的底色", tests: HL_TESTS },
+        { v: "site-hl", label: "站点荧光笔", def: "#ffee00", use: "SELECTED WORKS、CV 分类标签的底色", tests: HL_TESTS },
       ] },
     ];
     const COLORS = PROJECTS.flatMap(p => p.colors);
@@ -279,12 +280,15 @@
     }
 
     // ---------- State: from the URL hash, else the site's current colors ----------
-    const state = { home: "own" };
+    const state = { home: "ink" };
     COLORS.forEach(c => (state[c.v] = c.def));
     new URLSearchParams(location.hash.slice(1)).forEach((val, key) => {
       if (key === "home" && (val === "own" || val === "ink")) state.home = val;
       else if (key in state && /^[0-9a-f]{6}$/i.test(val)) state[key] = "#" + val.toLowerCase();
     });
+    // Older links had Journey's dark-page color as its own field: it is the project color now.
+    const legacyDark = new URLSearchParams(location.hash.slice(1)).get("journey-dark");
+    if (legacyDark && /^[0-9a-f]{6}$/i.test(legacyDark)) state.journey = "#" + legacyDark.toLowerCase();
 
     // ---------- Markup ----------
     const ICON = `<svg class="pv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>`;
@@ -453,8 +457,7 @@
         `:root { --ink: ${s["site-ink"]}; --hl: ${s["site-hl"]}; }`,
         `.case--aako { --accent: ${s.aako}; --hl: ${s["aako-hl"]}; }`,
         `.case--garden { --accent: ${s.bag}; --hl: ${s["bag-hl"]}; }`,
-        `.case--journey { --accent: ${s.journey}; }`,
-        `.jn-page .case--journey { --accent: ${s["journey-dark"]}; }`,
+        `.jn-page .case--journey { --accent: ${s.journey}; --hl: ${s["journey-hl"]}; }`,
       ].join("\n");
     }
 
@@ -491,7 +494,7 @@
     });
     document.getElementById("reset").addEventListener("click", () => {
       COLORS.forEach(c => (state[c.v] = c.def));
-      state.home = "own";
+      state.home = "ink";
       apply();
     });
     const copyBtn = document.getElementById("copy");
