@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Color Editor — Yolanda Xing</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
+  <style>
+    /* Editor chrome: the site's own type (DM Mono, Recursive at MONO 0.5, Newsreader) */
+    :root {
+      --mono: "DM Mono", ui-monospace, Menlo, monospace;
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Recursive", system-ui, sans-serif;
+      --axes: "MONO" 0.5;
+      --text: rgba(0, 0, 0, 0.85);
+      --muted: rgba(0, 0, 0, 0.45);
+      --rule: rgba(0, 0, 0, 0.15);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--text);
+      font: 13px/1.4 var(--mono);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    hr { border: 0; height: 1px; background: var(--rule); margin: 12px 0; }
+    button, input { font: inherit; color: inherit; }
+
+    .ed-bar {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between;
+      padding: 10px 16px; background: #fff; border-bottom: 1px solid var(--rule);
+    }
+    .ed-bar__status.bad { color: #cf222e; }
+    .ed-bar__status.ok { color: #1a7f37; }
+    .btn { border: 1px solid var(--text); background: #fff; padding: 3px 10px; cursor: pointer; border-radius: 0; }
+    .btn:hover { background: var(--text); color: #fff; }
+
+    .ed { max-width: 1440px; margin: 0 auto; padding: 0 16px 160px; }
+    .ed-intro { padding: 40px 0 8px; max-width: 760px; }
+    .ed-intro h1 { font: 500 44px/1.05 var(--sans); font-variation-settings: var(--axes); letter-spacing: -0.02em; margin: 0 0 16px; }
+    .ed-intro p + p { margin-top: 8px; }
+    .ed-sec { padding-top: 56px; }
+    .ed-sec > h2 { font: 500 24px/1.2 var(--sans); font-variation-settings: var(--axes); margin: 0 0 4px; }
+    .ed-sub { color: var(--muted); max-width: 760px; margin-bottom: 16px; }
+
+    .toggle { display: inline-flex; border: 1px solid var(--text); margin-bottom: 16px; }
+    .toggle button { border: 0; background: #fff; padding: 4px 12px; cursor: pointer; }
+    .toggle button[aria-pressed="true"] { background: var(--text); color: #fff; }
+
+    /* One card per project: controls on the left, previews on the right */
+    .card { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 24px; padding-top: 16px; border-top: 1px solid var(--text); }
+    .card + .card { margin-top: 56px; }
+    .card__title { font: 500 30px/1.05 var(--sans); font-variation-settings: var(--axes); letter-spacing: -0.02em; }
+    .card__pages { color: var(--muted); margin: 4px 0 12px; }
+    .field { padding: 14px 0; border-top: 1px solid var(--rule); }
+    .field__name { display: flex; align-items: center; gap: 8px; }
+    .field__swatch { width: 14px; height: 14px; border: 1px solid var(--rule); }
+    .field__use { color: var(--muted); margin: 4px 0 8px; }
+    .picker { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .picker input[type="color"] { width: 44px; height: 32px; padding: 0; border: 1px solid var(--rule); background: none; cursor: pointer; }
+    .picker input[type="text"] { width: 92px; padding: 5px 6px; border: 1px solid var(--rule); border-radius: 0; }
+    .picker input[type="text"].invalid { border-color: #cf222e; }
+    .tests { margin-top: 10px; display: grid; gap: 4px; }
+    .test { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; align-items: baseline; }
+    .test__ratio { font-variant-numeric: tabular-nums; }
+    .test__mark { width: 4.5em; text-align: right; }
+    .test.ok .test__mark { color: #1a7f37; }
+    .test.bad .test__mark { color: #cf222e; }
+    .test.extra.bad .test__mark { color: var(--muted); }
+    .fix { margin-top: 8px; }
+    .fix[hidden] { display: none; }
+
+    .previews { display: grid; gap: 16px; min-width: 0; }
+    .pv { min-width: 0; border: 1px solid var(--rule); padding: 16px; background: #fff; overflow: hidden; }
+    .pv__cap { margin-bottom: 12px; font-size: 12px; color: var(--muted); }
+
+    /* ===== Previews: the site's styles in miniature. Colors come from CSS variables set by the script. ===== */
+    body {
+      --site-ink: #8ace00; --site-hl: #8ace00;
+      --aako: #bb432a; --aako-hl: #ff8a6b;
+      --bag: #4f8a2b; --bag-hl: #8ace00;
+      --journey: #a8532a; --journey-dark: #ff9447;
+    }
+    [data-p="aako"] { --c: var(--aako); --hl: var(--aako-hl); }
+    [data-p="bag"] { --c: var(--bag); --hl: var(--bag-hl); }
+    [data-p="journey"] { --c: var(--journey); --dark: var(--journey-dark); }
+    [data-p="tools"], [data-p="site"] { --c: var(--site-ink); --hl: var(--site-hl); }
+    body[data-home="ink"] .pv-home [data-p] { --c: var(--site-ink); }
+
+    .pv a { color: var(--c); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    .pv-mono { font: 13px/1.3 var(--mono); }
+    .pv-muted { color: rgba(0, 0, 0, 0.45); }
+    .pv-label { display: inline-block; padding: 0 0.25em; background: var(--hl); color: #000; font: 13px/1.35 var(--mono); }
+    .pv-site-label { background: var(--site-hl); }
+
+    .pv-home { display: grid; grid-template-columns: 7fr 3fr; gap: 0; padding: 0; }
+    .pv-main { min-width: 0; padding: 14px; border-right: 1px solid var(--rule); }
+    .pv-side { min-width: 0; padding: 14px; }
+    .pv-proj { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 14px; }
+    .pv-media { grid-column: span 5; position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; color: var(--c); }
+    .pv-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .pv-media canvas { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; opacity: 0; transition: opacity 0.3s; }
+    .pv-media.painted canvas { opacity: 1; }
+    .pv-media.painted:hover canvas { opacity: 0; }
+    .pv-text { grid-column: span 6; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .pv-icon { grid-column: span 1; justify-self: end; width: 26px; height: 26px; color: var(--c); }
+    .pv-num { font: 13px/1.3 var(--mono); color: var(--c); }
+    .pv-title { font-family: var(--sans); font-variation-settings: var(--axes); font-size: 34px; line-height: 1.02; letter-spacing: -0.02em; }
+    .pv-desc { font: 18px/1.25 var(--serif); color: rgba(0, 0, 0, 0.4); }
+    .pv-name { font-family: var(--sans); font-variation-settings: var(--axes); font-weight: 500; font-size: 60px; line-height: 0.92; letter-spacing: -0.02em; color: var(--site-ink); margin: 4px 0 12px; }
+    .pv-side a { color: var(--site-ink); }
+    .pv-bio { font: 18px/1.25 var(--serif); margin-top: 14px; }
+
+    .pv-h1 { font-family: var(--sans); font-variation-settings: var(--axes); font-weight: 500; font-size: 56px; line-height: 1.05; letter-spacing: -0.02em; color: var(--c); margin: 8px 0 6px; }
+    .pv-lede { font: 21px/1.25 var(--serif); margin: 14px 0; }
+    .pv-lede strong { color: var(--c); font-weight: 600; }
+    .pv-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0 8px; }
+    .pv-meta p { font: 16px/1.3 var(--sans); font-variation-settings: var(--axes); margin-top: 0.4em; }
+    .pv-h2 { font-family: var(--sans); font-variation-settings: var(--axes); font-size: 30px; line-height: 1.12; letter-spacing: -0.02em; color: var(--c); margin-top: 12px; }
+    .pv-cvrow { display: grid; grid-template-columns: 4fr 8fr; column-gap: 14px; align-items: start; }
+
+    /* Journey's case page: its own dark theme; the accent is the dark-page color */
+    .pv-dark { background: #34312a; color: #efe9df; }
+    .pv-dark a, .pv-dark .pv-key { color: var(--dark); }
+    .pv-dark .pv-muted { color: rgba(239, 233, 223, 0.55); }
+    .pv-jn { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
+    .pv-toc { font: 13px/1.7 var(--mono); }
+    .pv-toc a { text-decoration: none; display: block; }
+    .pv-toc a:first-child { color: #efe9df; }
+    .pv-jn h3 { margin: 10px 0; font: 400 52px/0.95 "Instrument Serif", Georgia, serif; color: #fff; }
+    .pv-jn .pv-lede { font-size: 19px; }
+    .pv-key { font: 500 13px/1.4 var(--mono); }
+
+    .out { margin: 0; padding: 16px; border: 1px solid var(--rule); background: #fafafa; white-space: pre-wrap; font: 13px/1.5 var(--mono); }
+
+    @media (max-width: 900px) {
+      .card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .pv-home { grid-template-columns: 1fr; }
+      .pv-main { border-right: 0; border-bottom: 1px solid var(--rule); }
+      .pv-media, .pv-text { grid-column: 1 / -1; }
+      .pv-text { margin-top: 10px; }
+      .pv-icon { display: none; }
+      .pv-title { font-size: 28px; }
+      .pv-h1, .pv-jn h3 { font-size: 40px; }
+      .pv-h2 { font-size: 24px; }
+      .pv-meta { grid-template-columns: 1fr 1fr; }
+      .pv-jn { grid-template-columns: 1fr; }
+      .ed-intro h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body data-home="own">
+
+  <div class="ed-bar">
+    <span>COLOR EDITOR</span>
+    <span class="ed-bar__status" id="status"></span>
+    <span>
+      <button class="btn" type="button" id="copy">复制结果</button>
+      <button class="btn" type="button" id="reset">全部恢复</button>
+    </span>
+  </div>
+
+  <main class="ed">
+
+    <div class="ed-intro">
+      <h1>项目颜色</h1>
+      <p>每个作品有两种颜色：<b>项目色</b>（标题、链接、编号、网点）和<b>荧光笔色</b>（标签底色，上面是黑字）。Journey 的 case 页是暗色背景，所以它的第二个颜色是暗色页强调色。</p>
+      <p>每个颜色下面都有对比度测试（WCAG 2.1）：小字要 4.5:1，大字和图形（网点、⌘）要 3:1。没通过的话，点「调到通过」会只改明暗、保持色相，调到最接近的合格颜色。</p>
+      <p>调好后点右上角「复制结果」发给我；网址也会记住你的颜色，直接把链接发给我也可以。</p>
+    </div>
+
+    <section class="ed-sec" id="home">
+      <h2>首页预览</h2>
+      <p class="ed-sub">鼠标移到图片上会显示原图。下面的开关决定首页每一行用项目色，还是全部用站点色（侧栏和 Tool Gallery 用站点色）。</p>
+      <div class="toggle" role="group" aria-label="首页颜色">
+        <button type="button" data-home="own">首页用项目色</button>
+        <button type="button" data-home="ink">首页统一站点色</button>
+      </div>
+      <div class="pv pv-home" id="home-preview"></div>
+    </section>
+
+    <section class="ed-sec" id="projects">
+      <h2>每个作品</h2>
+      <p class="ed-sub">左边调颜色、看对比度；右边是这个作品在首页那一行和 case 页页头的样子。</p>
+      <div id="cards"></div>
+    </section>
+
+    <section class="ed-sec" id="result">
+      <h2>结果</h2>
+      <p class="ed-sub">复制这段发给我，我把它换进 style.css。</p>
+      <pre class="out" id="out"></pre>
+    </section>
+
+  </main>
+
+  <script>
+    // ---------- Colors, where they are used, and the contrast each use needs ----------
+    const WHITE = "#ffffff", BLACK = "#000000", JOURNEY_BG = "#34312a";
+    const TEXT_TESTS = [
+      { label: "大标题 · 网点 · ⌘（≥3:1）", bg: WHITE, min: 3 },
+      { label: "链接 · 编号 · 加粗字（≥4.5:1）", bg: WHITE, min: 4.5 },
+    ];
+    const HL_TESTS = [
+      { label: "标签上的黑字（≥4.5:1）", bg: BLACK, min: 4.5 },
+      { label: "加分：AAA（≥7:1）", bg: BLACK, min: 7, extra: true },
+    ];
+
+    const PROJECTS = [
+      { key: "aako", name: "Aako", pages: "case 页：Echo、Reframing & mobile redesign", colors: [
+        { v: "aako", label: "项目色", def: "#bb432a", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
+        { v: "aako-hl", label: "荧光笔色", def: "#ff8a6b", use: "case 页标签底色：01 / Concept、Project、Role…", tests: HL_TESTS },
+      ] },
+      { key: "bag", name: "What’s in Your Bag?", pages: "case 页：garden.html", colors: [
+        { v: "bag", label: "项目色", def: "#4f8a2b", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
+        { v: "bag-hl", label: "荧光笔色", def: "#8ace00", use: "case 页标签底色：01 / The Question、Role、Team…", tests: HL_TESTS },
+      ] },
+      { key: "journey", name: "Journey to the Forgotten", pages: "case 页：journey.html（暗色主题，不加荧光笔）", colors: [
+        { v: "journey", label: "项目色", def: "#a8532a", use: "首页那一行（编号、链接、⌘、网点）", tests: TEXT_TESTS },
+        { v: "journey-dark", label: "暗色页强调色", def: "#ff9447", use: "Journey case 页的目录、链接、重点句（深棕底 #34312a）",
+          tests: [{ label: "暗底上的链接和目录（≥4.5:1）", bg: JOURNEY_BG, min: 4.5 }] },
+      ] },
+      { key: "site", name: "站点", pages: "侧栏、CV、Tool Gallery、SELECTED WORKS", colors: [
+        { v: "site-ink", label: "站点色", def: "#8ace00", use: "侧栏名字和链接、Tool Gallery 那一行和网点；首页统一时所有行", tests: TEXT_TESTS },
+        { v: "site-hl", label: "站点荧光笔", def: "#8ace00", use: "SELECTED WORKS、CV 分类标签的底色", tests: HL_TESTS },
+      ] },
+    ];
+    const COLORS = PROJECTS.flatMap(p => p.colors);
+
+    // ---------- Contrast (WCAG 2.1 relative luminance) and lightness fixes ----------
+    const hexToRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+    const rgbToHex = (r, g, b) => "#" + [r, g, b].map(v => Math.round(Math.min(255, Math.max(0, v))).toString(16).padStart(2, "0")).join("");
+    function luminance(hex) {
+      const [r, g, b] = hexToRgb(hex).map(v => {
+        v /= 255;
+        return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    }
+    function contrast(a, b) {
+      const la = luminance(a), lb = luminance(b);
+      return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+    }
+    function rgbToHsl([r, g, b]) {
+      r /= 255; g /= 255; b /= 255;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2;
+      let h = 0, s = 0;
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+        h /= 6;
+      }
+      return [h, s, l];
+    }
+    function hslToHex(h, s, l) {
+      const f = n => {
+        const k = (n + h * 12) % 12, a = s * Math.min(l, 1 - l);
+        return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+      };
+      return rgbToHex(f(0) * 255, f(8) * 255, f(4) * 255);
+    }
+    // The nearest color of the same hue and saturation that reaches `min` against `bg`:
+    // darker on a light background, lighter on a dark one.
+    function fixLightness(hex, bg, min) {
+      if (contrast(hex, bg) >= min) return hex;
+      const [h, s, l] = rgbToHsl(hexToRgb(hex));
+      const darken = luminance(bg) > 0.18;
+      let lo = darken ? 0 : l, hi = darken ? l : 1;
+      for (let i = 0; i < 24; i++) {
+        const mid = (lo + hi) / 2, ok = contrast(hslToHex(h, s, mid), bg) >= min;
+        if (darken) ok ? (lo = mid) : (hi = mid);
+        else ok ? (hi = mid) : (lo = mid);
+      }
+      return hslToHex(h, s, darken ? lo : hi);
+    }
+
+    // ---------- State: from the URL hash, else the site's current colors ----------
+    const state = { home: "own" };
+    COLORS.forEach(c => (state[c.v] = c.def));
+    new URLSearchParams(location.hash.slice(1)).forEach((val, key) => {
+      if (key === "home" && (val === "own" || val === "ink")) state.home = val;
+      else if (key in state && /^[0-9a-f]{6}$/i.test(val)) state[key] = "#" + val.toLowerCase();
+    });
+
+    // ---------- Markup ----------
+    const ICON = `<svg class="pv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>`;
+    const ROWS = {
+      aako: { n: "001", title: "Aako", img: "images/aako.png", tags: "Shipped iOS app · AR/VR · Spatial interaction · 3D prototyping · User research",
+        text: "An XR memory app, in two chapters: Echo, the 3D form a memory takes in space; and the post-launch reframe.", links: ["Read more: Echo, the 3D prototype…", "Read more: Reframing & mobile redesign…"] },
+      bag: { n: "002", title: "What’s in Your Bag?", img: "images/garden.jpg", tags: "Human–AI interaction · Generative AI · Interaction design · Creative coding",
+        text: "An AI-powered interactive experience that turns emotional relationships with everyday objects into generative forms and messages.", links: ["Read more…"] },
+      journey: { n: "003", title: "Journey to the Forgotten", img: "images/journey.jpg", tags: "VR · Embodied interaction · Unity · Spatial design · Installation",
+        text: "A VR interactive installation about being watched.", links: ["Read more…"] },
+      tools: { n: "004", title: "Tool Gallery", img: "images/tool-gallery.jpg", tags: "Hackathons · Design tools · Games · Creative coding",
+        text: "A collection of mini tools or hackathon projects that I had done.", links: ["Read more…"] },
+    };
+    const row = key => {
+      const r = ROWS[key];
+      return `<article class="pv-proj" data-p="${key}">
+        <span class="pv-media"><img src="${r.img}" alt=""><canvas aria-hidden="true"></canvas></span>
+        <div class="pv-text">
+          <p class="pv-num">${r.n}</p>
+          <p class="pv-title">${r.title}</p>
+          <p class="pv-mono">${r.tags}</p>
+          <p class="pv-desc">${r.text}</p>
+          <p class="pv-mono">${r.links.map(l => `<a>${l}</a>`).join("<br>")}</p>
+        </div>
+        ${ICON}
+      </article>`;
+    };
+    const side = `<div class="pv-side" data-p="site">
+      <p class="pv-mono pv-muted" style="text-align:right">19:33:02</p><hr>
+      <p class="pv-name">Yolanda<br>Xing</p>
+      <p class="pv-mono"><a>xing.yolanda@gmail.com</a><br><a>Instagram</a></p>
+      <p class="pv-bio">I'm a versatile product designer with a love of code and prototype.</p>
+      <p class="pv-mono" style="margin-top:14px"><a>CV →</a></p>
+    </div>`;
+
+    const CASES = {
+      aako: `<div class="pv" data-p="aako"><p class="pv__cap">case 页页头 · Echo</p>
+        <p class="pv-mono pv-muted">Selected work / AAKO · Chapter I / Spatial prototyping</p>
+        <p class="pv-h1">Echo</p>
+        <p class="pv-mono pv-muted">Giving a memory a presence in space.</p>
+        <p class="pv-lede">A <strong>3D post</strong> that gives images, sound, and text a physical form—the <strong>smallest spatial unit</strong> of AAKO. <a>Chapter II: Reframing &amp; mobile redesign →</a></p>
+        <div class="pv-meta">
+          <div><span class="pv-label">Project</span><p>AAKO, startup product</p></div>
+          <div><span class="pv-label">Role</span><p>Co-founder<br>XR design lead</p></div>
+          <div><span class="pv-label">My part</span><p>Echo 3D prototype</p></div>
+        </div><hr>
+        <p style="margin-top:20px"><span class="pv-label">02 / Concept</span></p>
+        <p class="pv-h2">No competitor had an actual entity of what a post is.</p>
+      </div>`,
+      bag: `<div class="pv" data-p="bag"><p class="pv__cap">case 页页头 · What’s in Your Bag?</p>
+        <p class="pv-mono pv-muted">Human–AI Interaction · Generative AI · Interaction Design · Experimental</p>
+        <p class="pv-h1">What’s in Your Bag?</p>
+        <p class="pv-mono pv-muted">A Garden I Carry</p>
+        <p class="pv-lede">An AI-powered interactive experience that turns <strong>emotional relationships with everyday objects</strong> into generative forms and messages. <a>Playground →</a></p>
+        <div class="pv-meta">
+          <div><span class="pv-label">Role</span><p>Concept, research, interaction design</p></div>
+          <div><span class="pv-label">Team</span><p>Solo project</p></div>
+          <div><span class="pv-label">Duration</span><p>Oct–Nov 2025</p></div>
+        </div><hr>
+        <p style="margin-top:20px"><span class="pv-label">01 / The Question</span></p>
+        <p class="pv-h2">AI can recognize what we carry. But can it understand why we carry it?</p>
+      </div>`,
+      journey: `<div class="pv pv-dark" data-p="journey"><p class="pv__cap" style="color:rgba(239,233,223,.55)">case 页页头 · Journey（暗色主题）</p>
+        <div class="pv-jn">
+          <div class="pv-toc"><a>00 / Intro</a><a>01 / Start with</a><a>02 / Game flow map</a><a>03 / Design development</a><a>04 / Interaction core</a></div>
+          <div>
+            <p class="pv-mono pv-muted">Selected work / VR installation</p>
+            <h3>Journey to<br>the Forgotten</h3>
+            <p class="pv-mono">A body-centered VR journey</p>
+            <p class="pv-lede">A VR interactive experience that explores embodiment in virtual space through spatial layout, bodily movement, and <a>interaction design</a>.</p>
+            <p class="pv-key">▶ Resistance, ritualized motion, attention-driven environments</p>
+          </div>
+        </div>
+      </div>`,
+      site: `<div class="pv" data-p="site"><p class="pv__cap">侧栏和 CV</p>
+        <div class="pv-cvrow">
+          <div>
+            <p class="pv-name" style="font-size:52px">Yolanda<br>Xing</p>
+            <p class="pv-mono"><a style="color:var(--site-ink)">xing.yolanda@gmail.com</a></p>
+          </div>
+          <div>
+            <p style="margin-bottom:12px"><span class="pv-label pv-site-label">SELECTED WORKS</span></p>
+            <div class="pv-cvrow"><span class="pv-label pv-site-label" style="justify-self:start">Education</span><p class="pv-mono">Cornell University<br>MS. Design Technology</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pv"><p class="pv__cap">首页 Tool Gallery 那一行（永远用站点色）</p>${row("tools")}</div>`,
+    };
+
+    function fieldHTML(c) {
+      return `<div class="field" data-v="${c.v}">
+        <p class="field__name"><span class="field__swatch" style="background:var(--${c.v})"></span>${c.label}</p>
+        <p class="field__use">${c.use}</p>
+        <div class="picker">
+          <input type="color" aria-label="${c.label}">
+          <input type="text" spellcheck="false" aria-label="${c.label} hex">
+          <button class="btn" type="button" data-default>恢复</button>
+        </div>
+        <div class="tests">${c.tests.map((t, i) => `<div class="test${t.extra ? " extra" : ""}" data-i="${i}">
+          <span>${t.label}</span><span class="test__ratio"></span><span class="test__mark"></span></div>`).join("")}</div>
+        <button class="btn fix" type="button" data-fix hidden>调到通过</button>
+      </div>`;
+    }
+
+    document.getElementById("home-preview").innerHTML = `<div class="pv-main">
+        <p><span class="pv-label pv-site-label">SELECTED WORKS</span></p><hr>
+        ${["aako", "bag", "journey", "tools"].map(row).join("<hr>")}
+      </div>${side}`;
+
+    document.getElementById("cards").innerHTML = PROJECTS.map(p => `<div class="card">
+      <div>
+        <p class="card__title">${p.name}</p>
+        <p class="card__pages">${p.pages}</p>
+        ${p.colors.map(fieldHTML).join("")}
+      </div>
+      <div class="previews">
+        ${ROWS[p.key] ? `<div class="pv pv-home-row" data-p="${p.key}"><p class="pv__cap">首页那一行${p.key === "site" ? "" : "（首页用项目色时）"}</p>${row(p.key)}</div>` : ""}
+        ${CASES[p.key]}
+      </div>
+    </div>`).join("");
+
+    // ---------- Apply state to the page ----------
+    function apply() {
+      COLORS.forEach(c => document.body.style.setProperty(`--${c.v}`, state[c.v]));
+      document.body.dataset.home = state.home;
+      document.querySelectorAll(".toggle button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.home === state.home)));
+
+      let fails = 0;
+      COLORS.forEach(c => {
+        const el = document.querySelector(`.field[data-v="${c.v}"]`);
+        const hex = state[c.v];
+        el.querySelector('input[type="color"]').value = hex;
+        const text = el.querySelector('input[type="text"]');
+        if (document.activeElement !== text) { text.value = hex; text.classList.remove("invalid"); }
+        let needsFix = false;
+        c.tests.forEach((t, i) => {
+          const r = contrast(hex, t.bg), ok = r >= t.min;
+          const row = el.querySelector(`.test[data-i="${i}"]`);
+          row.classList.toggle("ok", ok);
+          row.classList.toggle("bad", !ok);
+          row.querySelector(".test__ratio").textContent = `${r.toFixed(2)}:1`;
+          row.querySelector(".test__mark").textContent = ok ? "✓ 通过" : t.extra ? "—" : "✗ 不够";
+          if (!ok && !t.extra) { fails++; needsFix = true; }
+        });
+        el.querySelector("[data-fix]").hidden = !needsFix;
+      });
+
+      const status = document.getElementById("status");
+      status.textContent = fails ? `${fails} 项对比度没通过` : "全部通过对比度测试";
+      status.className = `ed-bar__status ${fails ? "bad" : "ok"}`;
+
+      document.getElementById("out").textContent = resultText();
+      const params = new URLSearchParams({ home: state.home });
+      COLORS.forEach(c => params.set(c.v, state[c.v].slice(1)));
+      history.replaceState(null, "", "#" + params.toString());
+      schedulePaint();
+    }
+
+    function resultText() {
+      const s = state;
+      return [
+        `/* 首页：${s.home === "own" ? "每一行用项目色" : "统一站点色"} */`,
+        `:root { --ink: ${s["site-ink"]}; --hl: ${s["site-hl"]}; }`,
+        `.case--aako { --accent: ${s.aako}; --hl: ${s["aako-hl"]}; }`,
+        `.case--garden { --accent: ${s.bag}; --hl: ${s["bag-hl"]}; }`,
+        `.case--journey { --accent: ${s.journey}; }`,
+        `.jn-page .case--journey { --accent: ${s["journey-dark"]}; }`,
+      ].join("\n");
+    }
+
+    // The fix moves the color just far enough to pass every required test of its field.
+    function fixField(c) {
+      let hex = state[c.v];
+      c.tests.filter(t => !t.extra).forEach(t => (hex = fixLightness(hex, t.bg, t.min)));
+      return hex;
+    }
+
+    // ---------- Events ----------
+    document.addEventListener("input", e => {
+      const field = e.target.closest(".field");
+      if (!field) return;
+      const v = field.dataset.v;
+      if (e.target.type === "color") state[v] = e.target.value;
+      else {
+        const m = e.target.value.trim().match(/^#?([0-9a-f]{6})$/i);
+        e.target.classList.toggle("invalid", !m);
+        if (!m) return;
+        state[v] = "#" + m[1].toLowerCase();
+      }
+      apply();
+    });
+    document.addEventListener("focusout", e => {
+      if (e.target.matches('.field input[type="text"]')) apply();
+    });
+    document.addEventListener("click", e => {
+      const field = e.target.closest(".field");
+      const c = field && COLORS.find(x => x.v === field.dataset.v);
+      if (e.target.closest("[data-default]")) { state[c.v] = c.def; apply(); }
+      else if (e.target.closest("[data-fix]")) { state[c.v] = fixField(c); apply(); }
+      else if (e.target.closest(".toggle button")) { state.home = e.target.dataset.home; apply(); }
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+      COLORS.forEach(c => (state[c.v] = c.def));
+      state.home = "own";
+      apply();
+    });
+    const copyBtn = document.getElementById("copy");
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard?.writeText(resultText()).then(() => {
+        copyBtn.textContent = "已复制";
+        setTimeout(() => (copyBtn.textContent = "复制结果"), 1500);
+      }).catch(() => {});
+    });
+
+    // ---------- Thumbnail dots: the same drawing as the site (script.js) ----------
+    const BAYER = [
+       0, 32,  8, 40,  2, 34, 10, 42,
+      48, 16, 56, 24, 50, 18, 58, 26,
+      12, 44,  4, 36, 14, 46,  6, 38,
+      60, 28, 52, 20, 62, 30, 54, 22,
+       3, 35, 11, 43,  1, 33,  9, 41,
+      51, 19, 59, 27, 49, 17, 57, 25,
+      15, 47,  7, 39, 13, 45,  5, 37,
+      63, 31, 55, 23, 61, 29, 53, 21,
+    ].map(v => (v + 0.5) / 64);
+    const masks = new WeakMap();
+    function ditherMask(img, w, h) {
+      const cached = masks.get(img);
+      if (cached && cached.w === w && cached.h === h) return cached.mask;
+      const c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+      const ctx = c.getContext("2d");
+      const iw = img.naturalWidth, ih = img.naturalHeight;
+      let sw = iw, sh = ih, sx = 0, sy = 0;
+      if (iw / ih > w / h) { sw = ih * (w / h); sx = (iw - sw) / 2; }
+      else { sh = iw / (w / h); sy = (ih - sh) / 2; }
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
+      const d = ctx.getImageData(0, 0, w, h).data;
+      const lum = new Float32Array(w * h);
+      for (let i = 0; i < w * h; i++) lum[i] = (0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2]) / 255;
+      const sorted = Float32Array.from(lum).sort();
+      let lo = sorted[Math.floor(sorted.length * 0.02)], hi = sorted[Math.floor(sorted.length * 0.98)];
+      if (hi - lo < 0.05) { lo = 0; hi = 1; }
+      const mask = new Uint8Array(w * h);
+      for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          const i = y * w + x;
+          const g = Math.pow(Math.min(1, Math.max(0, (lum[i] - lo) / (hi - lo))), 0.9);
+          mask[i] = g < BAYER[(y % 8) * 8 + (x % 8)] ? 1 : 0;
+        }
+      }
+      masks.set(img, { w, h, mask });
+      return mask;
+    }
+    function paint(box) {
+      const img = box.querySelector("img"), canvas = box.querySelector("canvas");
+      if (!img.complete || !img.naturalWidth) return;
+      const dpr = window.devicePixelRatio || 1, px = Math.max(2, Math.round(1.5 * dpr));
+      const w = Math.round((box.clientWidth * dpr) / px), h = Math.round((box.clientHeight * dpr) / px);
+      if (!w || !h) return;
+      const mask = ditherMask(img, w, h);
+      const [r, g, b] = getComputedStyle(box).color.match(/\d+/g).map(Number);
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d"), out = ctx.createImageData(w, h);
+      for (let i = 0; i < w * h; i++) {
+        const on = mask[i];
+        out.data[i * 4] = on ? r : 255;
+        out.data[i * 4 + 1] = on ? g : 255;
+        out.data[i * 4 + 2] = on ? b : 255;
+        out.data[i * 4 + 3] = 255;
+      }
+      ctx.putImageData(out, 0, 0);
+      box.classList.add("painted");
+    }
+    let painting = false;
+    function schedulePaint() {
+      if (painting) return;
+      painting = true;
+      requestAnimationFrame(() => {
+        painting = false;
+        document.querySelectorAll(".pv-media").forEach(paint);
+      });
+    }
+    const observer = new ResizeObserver(entries => entries.forEach(e => paint(e.target)));
+    document.querySelectorAll(".pv-media").forEach(box => {
+      box.querySelector("img").addEventListener("load", () => paint(box));
+      observer.observe(box);
+    });
+
+    apply();
+  </script>
+</body>
+</html>
