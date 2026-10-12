@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=65">
+  <link rel="stylesheet" href="style.css?v=66">
 </head>
 <body>
   <!-- Images are wireframe placeholders for now. Swap each <div class="placeholder"></div> for an <img>. -->
@@ -294,24 +294,26 @@
               </tbody>
             </table>
 
-            <ol class="case-flow">
-              <li><span class="case-flow__who">Before</span><span>Unlit caption board; <strong>harsh boundary</strong> around the image.</span></li>
-              <li><span class="case-flow__who">Blend</span><span><strong>Softened the boundary</strong>; the caption board blends into its surroundings.</span></li>
-              <li><span class="case-flow__who">Test</span><span>Checked the result in <strong>dark environments</strong>.</span></li>
-              <li><span class="case-flow__who">Skins</span><span>A <strong>node shader</strong> makes new bubble skins easy.</span></li>
-            </ol>
+            <p class="muted case-list-label">What the bubble needs</p>
+            <dl class="case-list case-list--findings">
+              <dt>01 / Boundary</dt>
+              <dd><h3>No harsh boundary around the image.</h3><p>The photo inside the bubble fades into it instead of ending at a hard edge.</p></dd>
+              <dt>02 / Night</dt>
+              <dd><h3>Visible at night, but never too bright.</h3><p>The bubble has to read in the dark without glowing like a lamp.</p></dd>
+              <dt>03 / Environment</dt>
+              <dd><h3>Reflect the environment without being ruled by it.</h3><p>The bubble carries the image of its surroundings, but the dark parts of a scene can’t take it over.</p></dd>
+              <dt>04 / Skins</dt>
+              <dd><h3>Skins can be swapped.</h3><p>One node shader drives the surface, so a new skin is a new set of inputs, not a new model.</p></dd>
+            </dl>
 
             <figure class="case-figure">
-              <div class="case-shader">
-                <img src="images/echo-shader-1.png" alt="The full bubble shader: base color, Fresnel rim, emissive glow, and geometry animation." width="672" height="521" loading="lazy">
-                <div class="case-shader__small">
-                  <img src="images/echo-shader-2.png" alt="Skin variant A: a lighter graph built from the same nodes." width="572" height="334" loading="lazy">
-                  <img src="images/echo-shader-3.png" alt="Skin variant B: a lighter graph built from the same nodes." width="665" height="277" loading="lazy">
-                  <img src="images/echo-shader-4.png" alt="Skin variant C: a lighter graph built from the same nodes." width="541" height="252" loading="lazy">
-                  <img src="images/echo-shader-5.png" alt="Skin variant D: a lighter graph built from the same nodes." width="403" height="157" loading="lazy">
-                </div>
+              <div class="case-strip">
+                <img src="images/echo-light-restaurant.jpg" style="--ar: 0.625" alt="An Echo in a dim restaurant: the photo fades softly into the bubble, its caption above." width="350" height="560" loading="lazy">
+                <img src="images/echo-light-street.jpg" style="--ar: 0.625" alt="An Echo on a sunny street, picking up the buildings around it." width="350" height="560" loading="lazy">
+                <img src="images/echo-light-bedroom.jpg" style="--ar: 0.625" alt="An Echo in a dark bedroom: visible without glowing." width="350" height="560" loading="lazy">
+                <img class="case-strip__wide" src="images/echo-shader-nodes.png" style="--ar: 1.929" alt="The bubble’s node shader: the full graph behind the default skin, and four lighter graphs for other skins." width="2083" height="1080" loading="lazy">
               </div>
-              <figcaption>One node shader, many bubble skins.</figcaption>
+              <figcaption>An Echo in a dim restaurant, on a sunny street, and in a dark bedroom; the node shader behind its skins.</figcaption>
             </figure>
 
             <h3>Echo rendered in RealityKit</h3>
@@ -423,6 +425,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=65"></script>
+  <script src="case.js?v=66"></script>
 </body>
 </html>
