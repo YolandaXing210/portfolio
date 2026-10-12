@@ -68,12 +68,8 @@ p { margin: 0; }
 
 .muted { color: var(--muted); }
 
-/* Labels: black on the highlighter, hugging the text (SELECTED WORKS, CV headings, case page labels) */
-.label {
-  padding: 0 0.25em;
-  background: var(--hl);
-  color: #000;
-}
+/* SELECTED WORKS: the site color, no highlighter */
+.label { color: var(--ink); }
 
 /* The name, in the sidebar and the CV: the semi-mono, large, in the site color */
 .name {

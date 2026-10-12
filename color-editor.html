@@ -225,8 +225,8 @@
         { v: "journey-hl", label: "荧光笔色", def: "#ffee00", use: "case 页标签底色：01 / Start with、Timeframe、Type…（现在用的是站点荧光笔）", tests: HL_TESTS },
       ] },
       { key: "site", name: "站点", pages: "侧栏、CV、Tool Gallery、SELECTED WORKS", colors: [
-        { v: "site-ink", label: "站点色", def: "#8ace00", use: "侧栏名字和链接、Tool Gallery 那一行和网点；首页统一时所有行", tests: TEXT_TESTS },
-        { v: "site-hl", label: "站点荧光笔", def: "#ffee00", use: "SELECTED WORKS、CV 分类标签的底色", tests: HL_TESTS },
+        { v: "site-ink", label: "站点色", def: "#8ace00", use: "侧栏名字和链接、SELECTED WORKS、Tool Gallery 那一行和网点；首页统一时所有行", tests: TEXT_TESTS },
+        { v: "site-hl", label: "站点荧光笔", def: "#ffee00", use: "CV 分类标签的底色（Journey 的标签暂时也用它）", tests: HL_TESTS },
       ] },
     ];
     const COLORS = PROJECTS.flatMap(p => p.colors);
@@ -373,7 +373,7 @@
             <p class="pv-mono"><a style="color:var(--site-ink)">xing.yolanda@gmail.com</a></p>
           </div>
           <div>
-            <p style="margin-bottom:12px"><span class="pv-label pv-site-label">SELECTED WORKS</span></p>
+            <p class="pv-mono" style="margin-bottom:12px;color:var(--site-ink)">SELECTED WORKS</p>
             <div class="pv-cvrow"><span class="pv-label pv-site-label" style="justify-self:start">Education</span><p class="pv-mono">Cornell University<br>MS. Design Technology</p></div>
           </div>
         </div>
@@ -397,7 +397,7 @@
     }
 
     document.getElementById("home-preview").innerHTML = `<div class="pv-main">
-        <p><span class="pv-label pv-site-label">SELECTED WORKS</span></p><hr>
+        <p class="pv-mono" style="color:var(--site-ink)">SELECTED WORKS</p><hr>
         ${["aako", "bag", "journey", "tools"].map(row).join("<hr>")}
       </div>${side}`;
 
