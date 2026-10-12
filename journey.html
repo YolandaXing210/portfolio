@@ -7,11 +7,11 @@
   <meta name="description" content="Journey to the Forgotten: a body-centered VR journey about embodiment, ritual, and being watched.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=60">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=61">
 </head>
 <body class="jn-page">
-  <!-- Layout and images follow the case-study PDF (land journey). Images are cropped from its pages. -->
+  <!-- Images are cropped from the case-study PDF (land journey). Type and layout follow the other case pages. -->
   <main class="detail case case--journey jn">
 
     <header class="case-bar">
@@ -26,22 +26,12 @@
       <nav class="case-toc" id="toc" aria-label="Contents"></nav>
       <div class="case-content">
 
-      <!-- ===== Hero (PDF cover) ===== -->
-      <div class="case-hero jn-hero" id="intro">
-        <div class="jn-hero__text">
-          <p class="muted">Selected work / VR installation</p>
-          <h1><span>Journey to<br>the Forgotten</span></h1>
-          <p class="case-subtitle">A body-centered VR journey</p>
-          <dl class="jn-meta">
-            <div><dt>Timeframe</dt><dd>March–June 2024</dd></div>
-            <div><dt>Type</dt><dd>Solo project</dd></div>
-            <div><dt>Focus</dt><dd>Embodied interaction, worldbuilding, HCI</dd></div>
-            <div><dt>Outcome</dt><dd>VR game</dd></div>
-            <div><dt>Tools</dt><dd>Unity, Meta Quest</dd></div>
-          </dl>
-          <p class="jn-intro">A VR interactive experience that explores <strong>embodiment</strong> in virtual space through spatial layout, bodily movement, and interaction design. By staging resistance, ritualized motion, and attention-driven environments, the work shifts VR away from mind-centric control toward <strong>physical awareness</strong>. Its goal is to reframe immersion as an embodied process of <strong>participation and acceptance</strong> rather than navigation or achievement.</p>
-        </div>
-        <img class="jn-hero__img" src="images/journey-cover.jpg" alt="The High Ground: a beam of light rising behind a labyrinth suspended above a hazy golden plain." width="1000" height="1469">
+      <!-- ===== Hero ===== -->
+      <div class="case-hero" id="intro">
+        <p class="muted">Selected work / VR installation</p>
+        <h1><span>Journey to<br>the Forgotten</span></h1>
+        <p class="case-subtitle">A body-centered VR journey</p>
+        <p>A VR interactive experience that explores <strong>embodiment</strong> in virtual space through spatial layout, bodily movement, and interaction design. By staging resistance, ritualized motion, and attention-driven environments, the work shifts VR away from mind-centric control toward <strong>physical awareness</strong>. Its goal is to reframe immersion as an embodied process of <strong>participation and acceptance</strong> rather than navigation or achievement.</p>
       </div>
 
       <figure class="case-figure case-figure--wide">
@@ -52,6 +42,14 @@
         </div>
         <figcaption>Project film</figcaption>
       </figure>
+
+      <div class="case-meta case-meta--5">
+        <div><p class="muted">Timeframe</p><p>March–June 2024</p></div>
+        <div><p class="muted">Type</p><p>Solo project</p></div>
+        <div><p class="muted">Focus</p><p>Embodied interaction, worldbuilding, HCI</p></div>
+        <div><p class="muted">Outcome</p><p>VR game</p></div>
+        <div><p class="muted">Tools</p><p>Unity, Meta Quest</p></div>
+      </div>
 
       <!-- ===== 01 Start with ===== -->
       <section class="case-section jn-band" id="start">
@@ -66,8 +64,8 @@
               <figcaption>Francis Alÿs’ Sheep beside seated VR viewers.</figcaption>
             </figure>
             <div>
-              <p>Inspired by Francis Alÿs’ performance <em>Sheep</em> (2002), where collective movement reads like a choreography of the mind: <strong class="jn-hl">drifting attention, social gravity, and quiet surrender.</strong></p>
-              <p>In VR, participants are often treated as primarily <strong class="jn-hl">“attention-centric”</strong> viewers, present through attention but detached from physical consequence.</p>
+              <p>Inspired by Francis Alÿs’ performance <em>Sheep</em> (2002), where collective movement reads like a choreography of the mind: <strong>drifting attention, social gravity, and quiet surrender.</strong></p>
+              <p>In VR, participants are often treated as primarily <strong>“attention-centric”</strong> viewers, present through attention but detached from physical consequence.</p>
             </div>
           </div>
           <p class="jn-question">How can a virtual world guide players from abstract control to bodily awareness through interaction alone?</p>
@@ -150,7 +148,7 @@
       </section>
 
       <!-- ===== 02 Game flow map ===== -->
-      <section class="case-section jn-band jn-band--flow" id="flow">
+      <section class="case-section jn-band" id="flow">
         <div class="case-index muted">02 / Game flow map</div>
         <div class="case-body">
           <h2>Game flow map</h2>
@@ -162,7 +160,7 @@
           <div class="jn-levels">
             <div class="jn-level">
               <p class="jn-level__tag">Level 1</p>
-              <h3 class="jn-ribbon">The High Ground</h3>
+              <h3 class="jn-level__name">The High Ground</h3>
               <ol class="jn-stops">
                 <li>
                   <p class="jn-stop__name">Arriving</p>
@@ -192,7 +190,7 @@
             </div>
             <div class="jn-level jn-level--river">
               <p class="jn-level__tag">Level 2</p>
-              <h3 class="jn-ribbon">The River</h3>
+              <h3 class="jn-level__name">The River</h3>
               <ol class="jn-stops">
                 <li>
                   <p class="jn-stop__name">Boat</p>
@@ -211,7 +209,7 @@
       </section>
 
       <!-- ===== 03 Design development ===== -->
-      <section class="case-section jn-band jn-band--dev" id="development">
+      <section class="case-section jn-band" id="development">
         <div class="case-index muted">03 / Design development</div>
         <div class="case-body">
           <h2>Design development</h2>
@@ -270,7 +268,7 @@
       </section>
 
       <!-- ===== 04 Interaction core ===== -->
-      <section class="case-section jn-band jn-band--core" id="core">
+      <section class="case-section jn-band" id="core">
         <div class="case-index muted">04 / Interaction core</div>
         <div class="case-body">
           <h2>Interaction core: body-centered</h2>
@@ -344,10 +342,10 @@
       </section>
 
       <!-- ===== 05 High Ground: spatial design ===== -->
-      <section class="case-section jn-band jn-band--space" id="highground-space">
+      <section class="case-section jn-band" id="highground-space">
         <div class="case-index muted">05 / High Ground: space</div>
         <div class="case-body">
-          <h2>Level 1 <i>High Ground</i>: spatial design</h2>
+          <h2>Level 1 High Ground: spatial design</h2>
           <p class="jn-lead">Using space to stage bodily awareness</p>
           <p>The spatial layout is designed as an active agent in shaping embodiment rather than a neutral container. Instead of prioritizing efficiency or spectacle, space is used to guide how the body moves, resists, and settles over time, using <strong>distance, elevation, and enclosure</strong> to shift attention without explicit instruction.</p>
 
@@ -397,10 +395,10 @@
       </section>
 
       <!-- ===== 06 High Ground: game mechanics ===== -->
-      <section class="case-section jn-band jn-band--mech" id="highground-mechanics">
+      <section class="case-section jn-band" id="highground-mechanics">
         <div class="case-index muted">06 / High Ground: mechanics</div>
         <div class="case-body">
-          <h2>Level 1 <i>High Ground</i>: game mechanics</h2>
+          <h2>Level 1 High Ground: game mechanics</h2>
 
           <h3>Labyrinth</h3>
           <p class="jn-type"><span>Interaction type</span>Controller-driven rotational input mapped to world-space object rotation.</p>
@@ -511,10 +509,10 @@
       </section>
 
       <!-- ===== 07 The River ===== -->
-      <section class="case-section jn-band jn-band--river" id="river">
+      <section class="case-section jn-band" id="river">
         <div class="case-index muted">07 / The River</div>
         <div class="case-body">
-          <h2>Level 2 <i>River</i>: spatial design and mechanics</h2>
+          <h2>Level 2 River: spatial design and mechanics</h2>
           <p class="jn-lead jn-lead--accent">This river space is informed by the River Model of immersive storytelling articulated by Jessica Brillhart, which frames immersion as a continuous flow shaped by attention rather than cuts, branching paths, or explicit navigation cues. Instead of encouraging the player to explore freely, the river is designed to guide movement, pacing, and awareness through spatial constraints and perceptual framing.</p>
 
           <h3>Compressed forward corridor</h3>
@@ -580,7 +578,7 @@
       </section>
 
       <!-- ===== 08 Exhibition ===== -->
-      <section class="case-section jn-band jn-band--show" id="exhibition">
+      <section class="case-section jn-band" id="exhibition">
         <div class="case-index muted">08 / Exhibition</div>
         <div class="case-body">
           <h2>Exhibition</h2>
@@ -609,7 +607,7 @@
       </section>
 
       <!-- ===== 09 Player feedback ===== -->
-      <section class="case-section jn-band jn-band--voices" id="feedback">
+      <section class="case-section jn-band" id="feedback">
         <div class="case-index muted">09 / Player feedback</div>
         <div class="case-body">
           <h2>Player feedback</h2>
@@ -634,7 +632,7 @@
       </section>
 
       <!-- ===== 10 Reflection ===== -->
-      <section class="case-section jn-band jn-band--voices" id="reflection">
+      <section class="case-section jn-band" id="reflection">
         <div class="case-index muted">10 / Reflection</div>
         <div class="case-body">
           <h2>Reflection</h2>
@@ -664,6 +662,6 @@
       </div>
     </div>
   </main>
-  <script src="case.js?v=60"></script>
+  <script src="case.js?v=61"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Recursive:wght,MONO@300..800,0..1&display=swap" rel="stylesheet">
   <style>
     /* Editor chrome: the site's own type (DM Mono, Recursive at MONO 0.5, Newsreader) */
     :root {
@@ -91,7 +91,7 @@
     }
     [data-p="aako"] { --c: var(--aako); --hl: var(--aako-hl); }
     [data-p="bag"] { --c: var(--bag); --hl: var(--bag-hl); }
-    [data-p="journey"] { --c: var(--journey); --dark: var(--journey-dark); }
+    [data-p="journey"] { --c: var(--journey); --dark: var(--journey-dark); --hl: var(--site-hl); }
     [data-p="tools"], [data-p="site"] { --c: var(--site-ink); --hl: var(--site-hl); }
     body[data-home="ink"] .pv-home [data-p] { --c: var(--site-ink); }
 
@@ -127,17 +127,12 @@
     .pv-h2 { font-family: var(--sans); font-variation-settings: var(--axes); font-size: 30px; line-height: 1.12; letter-spacing: -0.02em; color: var(--c); margin-top: 12px; }
     .pv-cvrow { display: grid; grid-template-columns: 4fr 8fr; column-gap: 14px; align-items: start; }
 
-    /* Journey's case page: its own dark theme; the accent is the dark-page color */
+    /* Journey's case page: the same type as the other case pages on a dark page; the accent is the dark-page color.
+       Sections alternate between the page color and the plum. */
     .pv-dark { background: #34312a; color: #efe9df; }
-    .pv-dark a, .pv-dark .pv-key { color: var(--dark); }
+    .pv-dark a, .pv-dark .pv-h1, .pv-dark .pv-h2, .pv-dark .pv-lede strong { color: var(--dark); }
     .pv-dark .pv-muted { color: rgba(239, 233, 223, 0.55); }
-    .pv-jn { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
-    .pv-toc { font: 13px/1.7 var(--mono); }
-    .pv-toc a { text-decoration: none; display: block; }
-    .pv-toc a:first-child { color: #efe9df; }
-    .pv-jn h3 { margin: 10px 0; font: 400 52px/0.95 "Instrument Serif", Georgia, serif; color: #fff; }
-    .pv-jn .pv-lede { font-size: 19px; }
-    .pv-key { font: 500 13px/1.4 var(--mono); }
+    .pv-dark .pv-band { margin: 18px -14px -14px; padding: 14px; background: #3a3246; }
 
     .out { margin: 0; padding: 16px; border: 1px solid var(--rule); background: #fafafa; white-space: pre-wrap; font: 13px/1.5 var(--mono); }
 
@@ -151,10 +146,9 @@
       .pv-text { margin-top: 10px; }
       .pv-icon { display: none; }
       .pv-title { font-size: 28px; }
-      .pv-h1, .pv-jn h3 { font-size: 40px; }
+      .pv-h1 { font-size: 40px; }
       .pv-h2 { font-size: 24px; }
       .pv-meta { grid-template-columns: 1fr 1fr; }
-      .pv-jn { grid-template-columns: 1fr; }
       .ed-intro h1 { font-size: 34px; }
     }
   </style>
@@ -205,7 +199,7 @@
 
   <script>
     // ---------- Colors, where they are used, and the contrast each use needs ----------
-    const WHITE = "#ffffff", BLACK = "#000000", JOURNEY_BG = "#34312a";
+    const WHITE = "#ffffff", BLACK = "#000000", JOURNEY_BG = "#34312a", JOURNEY_ALT = "#3a3246";
     const TEXT_TESTS = [
       { label: "大标题 · 网点 · ⌘（≥3:1）", bg: WHITE, min: 3 },
       { label: "链接 · 编号 · 加粗字（≥4.5:1）", bg: WHITE, min: 4.5 },
@@ -224,10 +218,10 @@
         { v: "bag", label: "项目色", def: "#4f8a2b", use: "首页那一行（编号、链接、⌘、网点）；case 页大标题、h2、链接、加粗字", tests: TEXT_TESTS },
         { v: "bag-hl", label: "荧光笔色", def: "#8ace00", use: "case 页标签底色：01 / The Question、Role、Team…", tests: HL_TESTS },
       ] },
-      { key: "journey", name: "Journey to the Forgotten", pages: "case 页：journey.html（暗色主题，不加荧光笔）", colors: [
+      { key: "journey", name: "Journey to the Forgotten", pages: "case 页：journey.html（暗色页，两种 section 底色交替）", colors: [
         { v: "journey", label: "项目色", def: "#a8532a", use: "首页那一行（编号、链接、⌘、网点）", tests: TEXT_TESTS },
-        { v: "journey-dark", label: "暗色页强调色", def: "#ff9447", use: "Journey case 页的目录、链接、重点句（深棕底 #34312a）",
-          tests: [{ label: "暗底上的链接和目录（≥4.5:1）", bg: JOURNEY_BG, min: 4.5 }] },
+        { v: "journey-dark", label: "暗色页强调色", def: "#ff9447", use: "Journey case 页的标题、目录、链接、重点句（深棕底 #34312a，紫色 section #3a3246）",
+          tests: [{ label: "深棕底上的链接和目录（≥4.5:1）", bg: JOURNEY_BG, min: 4.5 }, { label: "紫色 section 上的文字（≥4.5:1）", bg: JOURNEY_ALT, min: 4.5 }] },
       ] },
       { key: "site", name: "站点", pages: "侧栏、CV、Tool Gallery、SELECTED WORKS", colors: [
         { v: "site-ink", label: "站点色", def: "#8ace00", use: "侧栏名字和链接、Tool Gallery 那一行和网点；首页统一时所有行", tests: TEXT_TESTS },
@@ -353,16 +347,19 @@
         <p style="margin-top:20px"><span class="pv-label">01 / The Question</span></p>
         <p class="pv-h2">AI can recognize what we carry. But can it understand why we carry it?</p>
       </div>`,
-      journey: `<div class="pv pv-dark" data-p="journey"><p class="pv__cap" style="color:rgba(239,233,223,.55)">case 页页头 · Journey（暗色主题）</p>
-        <div class="pv-jn">
-          <div class="pv-toc"><a>00 / Intro</a><a>01 / Start with</a><a>02 / Game flow map</a><a>03 / Design development</a><a>04 / Interaction core</a></div>
-          <div>
-            <p class="pv-mono pv-muted">Selected work / VR installation</p>
-            <h3>Journey to<br>the Forgotten</h3>
-            <p class="pv-mono">A body-centered VR journey</p>
-            <p class="pv-lede">A VR interactive experience that explores embodiment in virtual space through spatial layout, bodily movement, and <a>interaction design</a>.</p>
-            <p class="pv-key">▶ Resistance, ritualized motion, attention-driven environments</p>
-          </div>
+      journey: `<div class="pv pv-dark" data-p="journey"><p class="pv__cap" style="color:rgba(239,233,223,.55)">case 页页头 · Journey（暗色页，字体同其他 case 页）</p>
+        <p class="pv-mono pv-muted">Selected work / VR installation</p>
+        <p class="pv-h1">Journey to<br>the Forgotten</p>
+        <p class="pv-mono pv-muted">A body-centered VR journey</p>
+        <p class="pv-lede">A VR interactive experience that explores <strong>embodiment</strong> in virtual space through spatial layout, bodily movement, and <a>interaction design</a>.</p>
+        <div class="pv-meta">
+          <div><span class="pv-label">Timeframe</span><p>March–June 2024</p></div>
+          <div><span class="pv-label">Type</span><p>Solo project</p></div>
+          <div><span class="pv-label">Tools</span><p>Unity, Meta Quest</p></div>
+        </div>
+        <div class="pv-band">
+          <p><span class="pv-label">01 / Start with</span></p>
+          <p class="pv-h2">From abstract control to bodily awareness.</p>
         </div>
       </div>`,
       site: `<div class="pv" data-p="site"><p class="pv__cap">侧栏和 CV</p>
