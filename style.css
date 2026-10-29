@@ -19,7 +19,7 @@
   --muted: rgba(0, 0, 0, 0.4);
   --ink: #8ace00;             /* the one site color: the name, links, labels, Tool Gallery, thumbnail dots */
   --link: var(--ink);
-  --hl: #ffee00;              /* highlighter behind labels (black text); never on the big titles. Case pages set their own */
+  --hl: #ffee00;              /* highlighter behind case-page labels (black text); never on the big titles or the homepage. Case pages set their own */
   --rule: rgba(0, 0, 0, 0.15);
   --bg: #fff;
   --main-width: 70%;
@@ -234,12 +234,11 @@ a:is(:hover, :focus-visible) .dither--painted .dither__dots { opacity: 0; }
 
 .cv-section p + p { margin-top: 1.2em; }
 
+/* CV labels: the site color, no highlighter (none on the homepage) */
 .cv-section > :first-child {
   align-self: start;
   justify-self: start;
-  padding: 0 0.25em;
-  background: var(--hl);
-  color: #000;
+  color: var(--ink);
 }
 
 .cv-name { padding-bottom: 0.8em; }

@@ -226,7 +226,7 @@
       ] },
       { key: "site", name: "站点", pages: "侧栏、CV、Tool Gallery、SELECTED WORKS", colors: [
         { v: "site-ink", label: "站点色", def: "#8ace00", use: "侧栏名字和链接、SELECTED WORKS、Tool Gallery 那一行和网点；首页统一时所有行", tests: TEXT_TESTS },
-        { v: "site-hl", label: "站点荧光笔", def: "#ffee00", use: "CV 分类标签的底色（Journey 的标签暂时也用它）", tests: HL_TESTS },
+        { v: "site-hl", label: "站点荧光笔", def: "#ffee00", use: "Journey case 页标签的底色（首页和 CV 不用荧光笔）", tests: HL_TESTS },
       ] },
     ];
     const COLORS = PROJECTS.flatMap(p => p.colors);
