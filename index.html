@@ -52,6 +52,10 @@
         <span class="tg-item__media dither"><img src="images/tool-wire-drop.jpg" alt="Wire Drop logo: a blue wire dropping onto an orange target." width="600" height="600" loading="lazy"></span>
         <span class="tg-item__cap">Wire Drop<span class="muted">Grasshopper plugin · 2026</span></span>
       </a>
+      <a class="tg-item" href="?p=straight-wire">
+        <span class="tg-item__media dither"><img src="images/tool-straight-wire.jpg" alt="Straight Wire logo: three circuit-board traces, one green, bending at 45° between round pads." width="600" height="600" loading="lazy"></span>
+        <span class="tg-item__cap">Straight Wire<span class="muted">Grasshopper plugin · 2026</span></span>
+      </a>
       <a class="tg-item tg-item--wide" href="?p=awakening">
         <span class="tg-item__media dither"><img src="images/tool-awakening.jpg" alt="Dylan, a cyborg, standing in a dim storeroom piled with food." width="720" height="480" loading="lazy"></span>
         <span class="tg-item__cap">Awakening<span class="muted">3D game · 2023</span></span>
@@ -195,6 +199,50 @@
     </div></div>
     <div class="tp-row"><p>License</p><div><p>Free to use for any purpose, including commercial work. Please don’t modify or redistribute it; share the download page instead.</p></div></div>
     <div class="tp-row"><p>Links</p><div><p><a href="https://www.food4rhino.com/en/app/wire-drop" target="_blank" rel="noopener">Download on Food4Rhino <span class="icon-arrow">↗</span></a><br><a href="https://github.com/YolandaXing210/wire-drop" target="_blank" rel="noopener">GitHub <span class="icon-arrow">↗</span></a><br><a href="https://youtu.be/WsX7dDtpxmY" target="_blank" rel="noopener">Full tutorial on YouTube <span class="icon-arrow">↗</span></a></p></div></div>
+  </section>
+
+  <section class="panel" data-panel="straight-wire" data-parent="tool-gallery" hidden aria-label="Straight Wire">
+    <div class="row">
+      <span><a class="tp-up" href="?p=tool-gallery">004—TOOL GALLERY</a> <span class="muted">› STRAIGHT WIRE</span></span>
+      <a href="?p=tool-gallery"><span class="icon-arrow">←</span> BACK</a>
+    </div>
+    <hr>
+    <div class="tg-info">
+      <p>Straight Wire</p>
+      <p>Grasshopper plugin, 2026<br>Rhino 8 · Windows and macOS</p>
+      <p>Grasshopper wires as straight, circuit-board style traces: right-angle or 45°, each in its own lane, around components.</p>
+    </div>
+    <div class="tp-media">
+      <img src="images/tool-straight-wire-orthogonal.jpg" alt="A Grasshopper definition with every wire drawn as a right-angle trace in its own lane." width="1920" height="760">
+    </div>
+    <div class="tp-row"><p>How it works</p><div>
+      <p>Grasshopper draws every wire as a curve. Straight Wire routes them itself, as right-angle or 45° traces that go around components, with wires from the same output sharing a trunk. List, tree, empty, and selected wires keep Grasshopper’s own look, and routes are only recomputed when the layout changes, so panning, zooming, and solving cost nothing.</p>
+      <p>I designed the interaction in a browser prototype first, then built the routing as its own unit-tested library, separate from Grasshopper.</p>
+    </div></div>
+    <div class="tp-row"><p>Features</p><div>
+      <ul>
+        <li>Curve, Orthogonal, or 45° for the whole definition, or only for the wires of the selected components. Alt+1, Alt+2, Alt+3 (Option on a Mac).</li>
+        <li>Reshape wires by hand: drag a lane sideways, drag a bend point, double-click to add or remove one. Points snap to 0°, 45°, and 90° lines and the grid. Delete puts a wire back to automatic.</li>
+        <li>Select wires by clicking them or dragging a box over them. Select Wires on the dock makes every box select only wires.</li>
+        <li>Tidy lays a definition out in columns along the data flow, each input lined up with the output feeding it so wires run straight. With components or groups selected, only those move.</li>
+        <li>A dock on the canvas with the menu’s actions, Undo, and Redo. Drag it anywhere, fold it down, or make it larger with UI Scale.</li>
+        <li>Every edit and every Tidy is one Grasshopper undo step, and wire styles are saved in the .gh file.</li>
+      </ul>
+    </div></div>
+    <div class="tp-row"><p>From a review</p><div>
+      <p>The first review on Food4Rhino used it to replace WiresRenderer and asked for three things: a way to select wires, an Undo button, and a way to bring back the dock’s tab once it was hidden. All three shipped in 0.4.0: box selection for wires, Undo and Redo on the dock, and a floating dock you can drag anywhere.</p>
+    </div></div>
+    <div class="tp-row"><p>Install</p><div>
+      <p>In Rhino, run PackageManager, search for StraightWire, click Install, and restart Rhino. Updates come the same way.</p>
+      <p>Or by hand: download and unzip, drop StraightWire.gha into Grasshopper’s Components Folder (File › Special Folders › Components Folder), unblock it on Windows (right-click › Properties › Unblock), and restart Rhino.</p>
+    </div></div>
+    <div class="tp-row"><p>License</p><div><p>Free to use for any purpose, including commercial work. Please don’t modify or redistribute it; share the download page instead.</p></div></div>
+    <div class="tp-row"><p>Links</p><div><p><a href="https://www.food4rhino.com/en/app/straight-wire" target="_blank" rel="noopener">Download on Food4Rhino <span class="icon-arrow">↗</span></a></p></div></div>
+    <div class="tp-grid">
+      <figure><img src="images/tool-straight-wire-curve.jpg" alt="The same definition with Grasshopper’s own curved wires crossing over each other." width="1920" height="760" loading="lazy"><figcaption>Before: Grasshopper’s own curves.</figcaption></figure>
+      <figure><img src="images/tool-straight-wire-45.jpg" alt="The definition with wires drawn as 45° traces." width="1920" height="760" loading="lazy"><figcaption>The same definition at 45°.</figcaption></figure>
+      <figure class="tp-wide"><img src="images/tool-straight-wire-tidy.jpg" alt="The definition after Tidy: components in columns along the data flow, with straight wires between them." width="1920" height="760" loading="lazy"><figcaption>After Tidy: columns along the data flow.</figcaption></figure>
+    </div>
   </section>
 
   <section class="panel" data-panel="awakening" data-parent="tool-gallery" hidden aria-label="Awakening">
